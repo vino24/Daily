@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Web 表单</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	label{
+		display: inline-block; /*添加此条width才起作用,不支持占位符的可以通过JavaScript补丁 http://tinyurl.com/polyfills */
+		width: 200px;
+	}
+	input:focus{
+		background: #eaeaea; /* focus伪类改变当前获取焦点文本框样式*/
+	}
+	input:required{
+		background-color: lightyellow; /* required伪类为控件应用样式*/
+	}
+	input:required:invalid{
+		background-color: lightyellow; /* 突出显示必填且当前填入无效值的字段*/
+	}
+	</style>
+</head>
+<body>
+
+<!--通过占位符文本添加提示(文本框默认内容)-->
+<div id="placeholder">
+<label for="name">Name<em>*</em></label>
+<input id="name" placeholder="Du Hao"><br>
+<label for="telphone">Telphone</label>
+<input id="telphone" placeholder="(XXX)-XXXX"><br>
+</div>
+
+<!--通过添加title属性在用户悬停到字段时，弹出窗口提示用户要输入的内容-->
+<div id="title">
+	<label for="promotion">Promotion Code</label>
+	<input id="promoCode" placeholder="QRB001" title="Your promotion code is three letters followed by three numbers">
+</div>
+
+<!--通过添加autofocus属性设定默认焦点（只能有一个）-->
+<div id="autofocus">
+	<label for="name">Name<em>*</em></label>
+	<input id="name" placeholder="Du Hao" autofocus><br>
+</div>
+<!--
+About验证：
+·客户端验证
+·服务器端验证
+-->
+<!--
+验证相关伪类:
+·required optional（必填选填）
+·valid invalid（有效无效）
+·in-range out-of-range(是否在范围内) 需设置min max属性
+-->
+<div id="required">
+	<label for="name">Name<em>*</em></label>
+	<input id="name" placeholder="Du Hao" required><br>
+</div>
+
+<!--
+关闭验证：
+·form中设置novalidate
+·增加额外按钮并设置 formnovalidate
+-->
+<div id="novalidate">
+	<input type="submit" value="Save for later" formnovalidate>
+</div>
+
+<!--正则表达式(不必使用^$,HTML5会自动匹配完整值)-->
+<div id="pattern">
+	<label for="promoCode">Promotion Code</label>
+	<input id="promoCode" placeholder="QRB001" title="Your promotion code is three uppercase letters,a dash,three numbers" pattern="[A-Z]{3}-[0,9]{3}">
+</div>
+
+<!--自定义验证 setCustomValidity()-->
+<label for="comments">When did your first kown you wanted to be a zookeeper?</label>
+<textarea id="comments" oninput="validateComments(this)"></textarea>
+<script type="text/javascript">
+	//安全性相关的字段要在服务器端完成验证
+	function validateComments(input){
+		if (input.value.length<20) {
+			input.setCustomValidity("You need to comment in more detail.");
+		} else{
+			//没有错误，清除任何错误消息
+			input.setCustomValidity("");
+		}
+	}
+</script>
+
+<!--JavaScript模拟HTML5验证机制 onSubmit()事件定义处理函数-->
+<form id="zooKeeperForm" action="processApplication.cgi" onsubmit="return validateForm()">
+</form>
+<script type="text/javascript">
+	function validateForm(){
+		if (!Modernizr.input.required) {
+			//不支持required属性，必须自己编写代码检测 Modernizr工具可以检测浏览器对各种HTML5表单验证功能的支持情况
+			//取得包含所有元素的数组
+			var inputElements=document.getElementById("zooKeeperForm").elements;
+			//接着遍历数组,检测每个元素
+			for (var i = 0; i < inputElements.length; i++) {
+				//检测当前元素是否必填
+				if(inputElements[i].hasAttribute('required')){
+					if (inputElements[i].value=="") {
+						return false;
+					}
+				}	return true;
+			}
+		}
+	}
+</script>
+
+<!--几个特殊的输入属性 非验证，仅用于控制浏览器的行为
+·Spellcheck：检测拼写是否正确 value：true false
+·Autocomplete：提供最近输入的供参考 value： on off
+·Autocorrect autocapitalize（移动端iPhone iPad 控制自动纠错和自动大小写功能）
+·Multiple 可以让用户选择多个列表项，以前仅支持select，现在可以用于input file email等
+-->
+</body>
+</html>

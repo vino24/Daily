@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>新的输入控件</title>
+	<meta charset="utf-8">
+	<meta name="keywords" content="技术实现背景：控件皆input创建 然后由type属性决定类型，如果浏览器无法识别type属性，会自动当做普通text文本框处理">
+	<style type="text/css">
+	label{
+		display: inline-block;
+		width: 100px;
+	}
+	</style>
+	</head>
+	<body>
+		<!--email-->
+		<div id="email">
+		<label for="email">Email <em>*</em></label>
+		<input id="email" type="email" multiple><br>
+		</div>
+
+		<!--url-->
+		<div id="url">
+			<label for="url">Url:</label>
+			<input id="url" type="url"><br>
+		</div>
+
+		<!--search-->
+		<div id="search">
+			<label for="search">Search:</label>
+			<input id="search" type="search"><br>
+		</div>
+
+		<!--tel 主要用于移动端浏览器定制虚拟键盘-->
+		<div id="tel">
+			<label for="tel">Tel:</label>
+			<input id="tel" type="tel"><br>
+		</div>
+
+		<!--number min（最小值） max（最大值）step(间隔值) value（默认值）-->
+		<label for="age">Age<em>*</em></label>
+		<input id="age" type="number" min="0" max="120" step="0.1" value="100"><br>
+
+		<!--range 滑动条-->
+		<label for="weight">Weight(in pounds)</label>
+		<input id="weight" type="range" min="50" max="1000" value="100" onchange="calc(this)">&nbsp<span id="show_value"></span><br>
+		<script type="text/javascript">
+
+		//实时显示当前值
+		function calc(input){
+			var my_value=input.value;
+			var show_value=document.getElementById("show_value");
+			show_value.innerHTML=my_value;
+		}
+		</script>
+		<!--日期和时间
+		date format:YYYY-MM-DD
+		time format:HH:mm:ss.ss
+		datetimelocal format:YYYY-MM-DDTHH:mm:ss 大写T为分隔符，无实际意义
+		datetime format:YYYY-MM-DDTHH:mm:ss-HH:mm eg: 2015-03-14T20:13-08:00 2015年3月14日20:13（西八区）
+		month format:YYYY-MM
+		week format:YYYY-Www 2015-W02 2015年第二周
+		-->
+		<input type="date" min="2015-01-01" max="2015-12-31"> <!--min max设置其实日期-->
+
+		<!--color-->
+		<input type="color">
+	</body>
+</html>

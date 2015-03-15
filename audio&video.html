@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>audio & video</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+	<!-- audio属性:
+	controls 
+	preload： auto预先下载整个文件 metadata只获取文件开头数据块 none不必预先下载 
+	autoplay: 加载完成后自动播放
+	loop：循环
+	-->
+		<p>Hear us rock out
+		<cite>鸟语</cite></p>
+		<audio src="../万晓利 - 狐狸.mp3" controls preload="metadata" autoplay loop></audio>
+	</body>
+
+	<!-- video属性：
+	width height
+	poster 设置替换视频的图片（视频未加载前、preload="none" 没有找到视频时） 
+	-->
+	<p>我爱南京</p>
+	<video src="../和你在一起(勾三搭四)-李志.mp4" controls width="400" height="300" poster="../apache_pb.png" preload="none" loop></video>
+	
+	<!-- source元素 解决各浏览器对音视频格式支持不一的方法-->
+	<audio controls>
+		<source src="" type="audio/mp3">
+		<source src="" type="audio/ogg">
+		<!-- 不支持audio的浏览器加载Flash(外部播放器，如虾米、云音乐) -->
+		<object id="flowplayer" width="700" height="400" data="flowplayer-3.2.7.swf" type="application/x-shockwave-flash">
+			<param name="movie" value="flowplayer-3.2.7.swf">
+			<param name="flashvars" value='config={"clip":"天空之城.mp3"}'>
+
+			<!--既不支持audio，也没装Flash-->
+			<img src="" alt="李志">
+			<p>Your browser do not support HTML5 video or flash.</p>
+		</object>
+	</audio>
+</html>

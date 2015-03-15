@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>游戏配乐</title>
+		<meta charset="utf-8">
+		<script type="text/javascript">
+		var audioElement=document.getElementById("backgroundMusic");
+		audioElement.play();
+		var audioElement=document.getElementById("backgroundMusic");
+		audioElement.pause();
+		audioElement.currentTime=0;
+
+		//记录<audio>元素的个数
+		var audioElementCount=3;
+		//记录当前播放的<audio>元素
+		var audioElementIndex=1;
+		//音效切换
+		function boing(){
+			//取得循环列表中的下一个<audio>元素
+			var audioElementName="audio"+audioElementIndex;
+			var audio=document.getElementById(audioElementName);
+
+			//播放音效
+			audio.currentTime=0;
+			audio.play();
+
+			//把计数器更新到下一个<audio>元素
+			if (audioElementIndex==audioElementCount) {
+				audioElementIndex=1;
+			} else{
+				audioElementIndex+=1;
+			}
+		}
+		</script>
+	</head>
+	<body>
+	<!--添加BGM 页面添加一个不可见audio即可-->
+		<audio id="backgroundMusic" loop>
+			<source src="../万晓利 - 狐狸.mp3" type="audio/mp3">
+			<source src="" type="audio/ogg">
+		</audio>
+
+		<audio id="audio1" loop>
+			<source src="../万晓利 - 狐狸.mp3" type="audio/mp3">
+			<source src="" type="audio/ogg">
+		</audio>
+		<audio id="audio2" loop>
+			<source src="../万晓利 - 狐狸.mp3" type="audio/mp3">
+			<source src="" type="audio/ogg">
+		</audio>
+		<audio id="audio3" loop>
+			<source src="../万晓利 - 狐狸.mp3" type="audio/mp3">
+			<source src="" type="audio/ogg">
+		</audio>
+
+		<!-- 动态创建audio 首先要通过canPlayType()方法判断浏览器支持音频格式-->
+		<script type="text/javascript">
+		var audio=document.createElement("audio");
+		if (audio.canPlayType("audio/ogg")) {
+			audio.src="天空之城.ogg";		
+		} else if(audio.canPlayType("audio/mp3")){
+			audio.src="天空之城.mp3"
+		}
+		</script>
+	</body>
+</html>

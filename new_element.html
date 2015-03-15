@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>新元素</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<!--
+datalist显示输入建议 
+label属性表示在文本框中显示的内容 value属性是最终发送到服务器的值
+通过设置input元素的list属性将datalist应用于input
+-->
+<fieldset>
+	<legend>What's your favorite animal?</legend>
+	<datalist id="animalChoices">
+	<!-- 对于不支持datalist的浏览器会自动忽略datalist元素和list属性，可以在datalist再添加如select span等元素，支持datalist的浏览器会自动忽略其他内容 -->
+	<span class="Label">Pick an option:</span> <!--额外项-->
+	<select id="favoriteAnimalPreset">	<!--额外项-->
+		<option label="Alpaca" value="alpaca">
+		<option label="Zebra" value="zebra">
+		<option label="Cat" value="cat">
+	</select>
+	<br>	<!--额外项-->
+	<span class="Label">Or type it in:</span> <!--额外项-->
+	</datalist>
+	<input id="favoriteAnimal" list="animalChoices">
+</body>
+</fieldset>
+
+<!-- progress meter 进度条和计量条 -->
+
+<progress value="100" max="200">50%</progress> <!--不支持的浏览器会自动忽略，可以在内部放置进度值作为后备-->
+<br>
+<progress>Task is progress...</progress><br>
+<!--low high用于设置提醒值 超过提醒值计量条颜色会变-->
+Your Suitcase Weights:<meter id="meter" min="5" max="70" value="8" low="10" high="60"><span>28</span></meter>
+
+<!--工具条和菜单 暂无浏览器支持-->
+<menu>
+	<command>确定</command>
+	<command>取消</command>
+</menu>
+
+<!--网页中的HTML编辑器 	contentEditable designMode-->
+<div id="editableElement">You can do it!</div>
+<button onclick="startEdit()">Start</button>
+<button onclick="stopEdit()">Stop</button>
+<script type="text/javascript">
+	function startEdit(){
+		//让元素可以编辑
+		var element=document.getElementById("editableElement");
+		element.contentEditable=true;
+	}
+	function stopEdit(){
+		var element=document.getElementById("editableElement");
+		element.contentEditable=false;
+		//在消息框中显示标记
+		alert("Your edited content:"+element.innerHTML);
+	}
+</script>
+</html>

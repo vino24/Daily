@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>自定义视频播放器</title>
+		<meta charset="utf-8">
+		<style type="text/css">
+		#durationBar{
+			border: solid 1px black;
+			width: 780px;
+			margin-bottom: 5px;
+		}
+		#positionBar{
+			height: 30px;
+			color: white;
+			font-weight: bold;
+			background: steelblue;
+			text-align: center;
+		}
+		button{
+			margin-left: 20px;
+			margin-right: 20px;
+		}
+		span{
+			display:inline-block;
+			margin-top: 5px;
+		}
+		</style>
+		<script type="text/javascript">
+		var video;
+ 		var display;
+
+	window.onload = function() {
+  	video = document.getElementById("videoPlayer");
+
+    display = document.getElementById("displayStatus");
+
+   video.onplaying = function() {
+    display.innerHTML = "Playing ...";
+  }
+  video.onpause = function() {
+    display.innerHTML = "Paused";
+  }
+}
+
+		function play(){
+			video.play();
+		}
+		function pause(){
+			video.pause();
+		}
+		function stop(){
+			video.pause();
+			video.currentTime=0;
+		}
+
+		//通过修改playbackRate来改变播放速度，设置为负值表示倒退播放
+		function speedUp(){
+			video.play();
+			video.playbackRate=2;
+		}
+		function slowDown(){
+			video.play();
+			video.playbackRate=0.5;
+		}
+		function normalSpeed(){
+			video.play();
+			video.playbackRate=1;
+		}
+		function progressUpdate(){
+			//动态设置蓝色的postitionBar,从0-100%
+			var positionBar=document.getElementById("positionBar");
+			positionBar.style.width=(video.currentTime/video.duration*100)+"%";
+			//显示已经播放的秒数，保留两位小数
+			displayStatus.innerHTML=(Math.round(video.currentTime*100)/100)+" sec";
+		}
+
+		</script>
+	</head>
+	<body>
+	<!-- 视频播放时会连续触发onTimeUpdate事件 -->
+		<video id="videoPlayer" ontimeupdate="progressUpdate()" src="../和你在一起(勾三搭四)-李志.mp4" width="780" height="400"></video>
+		<div id="durationBar">
+			<div id="positionBar"><span id="displayStatus">Idle.</span></div>
+		</div>
+		<button onclick="play()">Play</button>
+		<button onclick="pause()">Pause</button>
+		<button onclick="stop()">Stop</button>
+		<button onclick="speedUp()">Fast</button>
+		<button onclick="slowDown()">Slow</button>
+		<button onclick="normalSpeed()">Normal Speed</button>
+	</body>
+</html>

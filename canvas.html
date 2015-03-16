@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Canvas绘图</title>
+		<style type="text/css">
+		canvas{
+			border: 1px dashed black;
+		}
+		</style>
+		<script type="text/javascript">
+		window.onload=function(){
+			var canvas=document.getElementById("drawingCanvas");
+			var context=canvas.getContext("2d"); //	取得二维绘图上下文
+
+			/*
+			** 画直线 
+			
+			context.lineWidth=10; 			//设置线条宽度
+			context.strokeStyle="rgb(205,40,40)"; 		//设置线条颜色
+			context.moveTo(10,50); 			//找到直线的起点
+			context.lineTo(400,50);			//在起点和终点之间建立联系
+			context.lineCap="butt";			//设置线条两端的形状 butt为默认
+			context.stroke();				//实际的绘制直线
+			
+			context.beginPath();			//调用beginPath()重新开始新线段绘制
+			context.moveTo(10,120);
+			context.lineTo(400,120);
+			context.lineCap="round"; //圆头
+			context.stroke();
+
+			context.beginPath();
+			context.moveTo(10,190);
+			context.lineTo(400,190);
+			context.lineCap="square"; 	//加长方头
+			context.stroke();
+			*/
+
+			/**
+			** 绘制三角形	
+			
+			context.moveTo(250,50);		//三角形
+			context.lineJoin="bevel";	//可以通过lineJoin属性设置交点的形状 默认mitre(锐角斜接) round(圆头) bevel(平头斜接)
+			context.lineTo(50,250);
+			context.lineTo(450,250);
+			context.lineTo(250,50);		//可省略 closePath()会自动在最后一个绘制点绘制与起点的连线
+			context.closePath(); 		//关闭路径
+
+			context.fillStyle="blue";	//先填充内部，后绘制轮廓，否则轮廓会被填充覆盖
+			context.fill();
+
+			context.lineWidth=10;
+			context.strokeStyle="red";
+			context.stroke();
+			*/
+	
+			/**
+			**	绘制长方形 直接使用fillRect()和strokeRect()函数
+			
+			context.fillStyle="blue";
+			context.lineWidth=5;
+			context.strokeStyle="red";
+			context.fillRect(10,10,100,200);		//在(10,10)点放置一个100*200像素的矩形
+			context.strokeRect(10,10,100,200);
+			*/
+
+			/**
+			*	绘制圆与圆弧
+			
+
+			//创建变量，保存圆弧信息
+			var centerX=150;
+			var centerY=300;
+			var radius=100;
+			var startinngAngle=1.25*Math.PI; //startinngAngle endingAngle分别设置为0和2*Math.PI即为圆
+			var endingAngle=1.75*Math.PI;
+
+			//使用确定的信息绘制圆弧
+			context.arc(centerX,centerY,radius,startinngAngle,endingAngle);
+			context.closePath(); //添加closePath会得到一个封闭的小半圆
+			context.stroke();
+			*/
+
+			/**
+			*	绘制椭圆
+			*/
+
+			//把笔移动到起点位置
+			context.moveTo(62,242);
+
+			//创建变量，保存两个控制点及曲线终点的信息
+			var control1_x=187;
+			var control1_y=32;
+			var control2_x=429;
+			var control2_y=480;
+			var endPointX=365;
+			var endPointY=133;
+
+			//绘制曲线
+			context.bezierCurveTo(control1_x,control1_y,control2_x,control2_y,endPointX,endPointY);
+			context.closePath();
+			context.stroke();
+		};	
+		</script>
+	</head>
+	<body>
+		<canvas id="drawingCanvas" width="500" height="300"> <!--width height必须在此处设置-->
+			
+		</canvas>
+	</body>
+</html>

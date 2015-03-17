@@ -61,7 +61,7 @@
 			context.lineWidth=5;
 			context.strokeStyle="red";
 			context.fillRect(10,10,100,200);		//在(10,10)点放置一个100*200像素的矩形
-			context.strokeRect(10,10,100,200);
+			context.strokeRect(10,10,100,200);		//绘制矩形框
 			*/
 
 			/**
@@ -77,13 +77,13 @@
 
 			//使用确定的信息绘制圆弧
 			context.arc(centerX,centerY,radius,startinngAngle,endingAngle);
-			context.closePath(); //添加closePath会得到一个封闭的小半圆
+			context.closePath(); 			//添加closePath会得到一个封闭的小半圆
 			context.stroke();
 			*/
 
 			/**
 			*	绘制椭圆
-			*/
+			
 
 			//把笔移动到起点位置
 			context.moveTo(62,242);
@@ -96,9 +96,61 @@
 			var endPointX=365;
 			var endPointY=133;
 
-			//绘制曲线
+			//绘制曲线 bezierCurveTo() 贝塞尔曲线、 quadraticCurveTo() 二次曲线、 artTo()
 			context.bezierCurveTo(control1_x,control1_y,control2_x,control2_y,endPointX,endPointY);
 			context.closePath();
+			context.stroke();
+			*/
+
+			/**
+			**	变换 translate(平移) scale(缩放) rotate(旋转) matrix(矩阵)
+			
+			context.rect(0,0,30,30); 		//在(0,0)点绘制正方形
+			
+			context.translate(50,50); 		//把坐标系向下向右移动50像素 
+			context.rect(0,0,30,30);
+
+			context.translate(50,50);		//把坐标系再向下向右移动50像素，(0,0)被平移到(100,100)
+			context.rect(0,0,30,30);
+			context.stroke();
+
+			context.beginPath();
+			context.translate(100,100);
+
+			//绘制9个正方形
+			var copies=10;
+			for (var i = 1; i <copies; i++) {
+				context.rotate(2*Math.PI*1/(copies-1));
+				context.rect(0,0,60,60);
+			}
+			context.stroke();
+			*/
+
+			/**
+			**	透明度	globalCompositeOperation属性设置如何处理图形重叠部分
+			*/
+			//设置填充及描边颜色
+			context.fillStyle="rgb(100,150,185)";
+			context.lineWidth=10;
+			context.strokeStyle="red";
+
+			//绘制圆形
+			context.arc(110,120,100,0,2*Math.PI);
+			context.fill();
+			context.stroke();
+
+			context.beginPath; //调用beginPath()再绘制新图形
+
+			//用半透明的颜色填充三角形
+			context.fillStyle="rgba(100,150,185,0.5)"; 
+			/** context.globalAlpha=0.5; context.fillStyle="rgba(100,150,185)"; 也能实现相同效果，globalAlpha包括描边颜色和填充颜色，且后续所有绘图操作都会使用此处设置的不透明度	 **/
+
+			//绘制三角形
+			context.moveTo(215,50);
+			context.lineTo(15,250);
+			context.lineTo(315,250);
+			context.closePath();
+			context.fill();
 			context.stroke();
 		};	
 		</script>

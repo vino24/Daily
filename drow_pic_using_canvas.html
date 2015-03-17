@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>高级Canvas绘图</title>
+		<meta charset="utf-8">
+		<style type="text/css">
+		canvas {
+		border: 1px solid #7B899B;
+		}
+		</style>
+		<script type="text/javascript">
+		window.onload=function(){
+		canvas=document.getElementById("drawingCanvas");
+		context=canvas.getContext("2d");
+		
+		/**
+		//创建图片对象
+		var img=new Image();
+		
+		*	绘制图像
+		*	context.drawImage()实际上会在img.src后执行
+
+		//添加onload事件处理程序
+		//告诉浏览器图片加载完成后做什么
+		img.onload=function(){
+		context.drawImage(img,10,10,100,100); //参数分别为img x,y width height
+		};
+		*/
+
+		/**
+		*	绘制文本
+		
+		context.font="bold 20px Arial";
+		context.textBaseline="top";
+		context.fillStyle="black";
+		context.fillText("I'm back!",50,50);
+
+		context.font="bold 40px Verdana,sans-serif";
+		context.lineWidth="1";
+		context.fillStyle="blue";
+		context.strokeStyle="red"
+		context.fillText("I'm back!",100,100);
+		context.strokeText("I'm back!",100,100);	//绘制轮廓
+		*/
+
+		/**
+		*	添加阴影
+		*/
+
+		//绘制矩形阴影
+		context.rect(20,20,200,100);
+		context.fillStyle="#8ED6FF";
+		context.shadowColor="#bbbbbb";	//设置阴影颜色
+		context.shadowBlur=10;		//设置阴影模糊程度
+		context.shadowOffsetX=15;	//相对于内容的位置
+		context.shadowOffsetY=15;
+		context.fill();
+
+		context.textBaseline="top";
+		context.font="bold 20px Arial";
+
+		//绘制三行文本的阴影
+		context.shadowBlur=3;
+		context.shadowOffsetX=2;
+		context.shadowOffsetY=2;
+		context.fillStyle="steelblue";
+		context.fillText("I'm Back!",10,175);
+
+		context.shadowBlur=5;
+		context.shadowOffsetX=20;
+		context.shadowOffsetY=20;
+		context.fillStyle="green";
+		context.fillText("I'm Back!",10,225);
+
+		context.shadowBlur=15;
+		context.shadowOffsetX=0;
+		context.shadowOffsetY=0;
+		context.shadowColor="black";
+		context.strokeStyle="white";
+		context.strokeText("I'm Back!",10,300);
+	};
+
+		</script>
+	</head>
+	<body>
+	<canvas id="drawingCanvas" width="500" height="400"></canvas>
+	</body>
+</html>

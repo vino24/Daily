@@ -20,7 +20,7 @@
 		imgElement.className="Selected";
 
 		//恢复上一次被单击<img>元素的样式
-		if (previousColorElement!=null) {
+		if (previousColorElement != null) {
 			previousColorElement.className="";
 		}
 		previousColorElement=imgElement;
@@ -34,7 +34,7 @@
 		imgElement.className="Selected";
 
 		//恢复上一次被单击<img>元素的样式
-		if (previousThicknessElement!=null) {
+		if (previousThicknessElement!= null) {
 			previousThicknessElement.className="";
 		}
 		previousThicknessElement=imgElement;
@@ -94,7 +94,7 @@
 		var imageContainer=document.getElementById("savedCopyContainer");
 		imageContainer.style.display="block";
 	}
-
+/*
 	function changeRoundness (imgElement) {
 		
 		imgElement.className="Selected";
@@ -111,3 +111,4 @@
 		}
 		previousColorElement=imgElement;
 	}
+*/

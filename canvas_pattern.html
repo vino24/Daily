@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>填充图案</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	img{
+		display: none;
+	}
+	canvas{
+		border: 1px dashed black;
+	}
+	</style>
+	<script type="text/javascript">
+	window.onload=function  () {
+		var canvas  = document.getElementById("drawingCanvas");
+		var context = canvas.getContext("2d");
+		var img     =document.getElementById("brickTile");
+
+		var pattern =context.createPattern(img,"repeat"); //创建图案对象 repeat-x(水平) repeat-y(垂直) repeat(重复)
+
+		context.fillStyle=pattern;
+		context.rect(0,0,canvas.width,canvas.height);
+		context.fill();
+	};
+	</script>
+</head>
+<body>
+<canvas id="drawingCanvas" width="500" height="300"></canvas>
+<img src="brick_tile.gif" id="brickTile" alt="填充图案">
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>填充渐变</title>
+	<meta charset="utf-8">
+		<style type="text/css">
+	canvas{
+		border: 1px dashed black;
+	}
+	img {
+	display: none;
+	}
+
+	</style>
+	<script type="text/javascript">
+var canvas;
+var context;
+
+window.onload = function() {
+  canvas = document.getElementById("drawingCanvas");
+  context = canvas.getContext("2d");
+
+  //创建一个从(10,0)到(100,0)的渐变
+  var gradient = context.createLinearGradient(10, 0, 100, 0); //创建线性渐变createLinearGradient
+  gradient.addColorStop(0, "magenta");//设置渐变颜色 偏移值(范围0~1)决定颜色在渐变中的位置，0表示渐变起点 1终点
+  gradient.addColorStop(1, "yellow");
+
+  //调用绘制心形函数
+  drawHeart(60, 50);
+
+  context.fillStyle = gradient;
+  context.fill();
+  context.stroke();
+
+  //创建放射性渐变createRadialGradient
+  gradient = context.createRadialGradient(180, 100, 10, 180, 100, 50); //(180,100) 小圆圆心 10 小圆半径 (180,100)大圆半径 50 大圆半径
+  gradient.addColorStop(0, "magenta");
+  gradient.addColorStop(1, "yellow"); 
+
+  drawHeart(180, 80);
+  context.fillStyle = gradient;
+  context.fill();
+  context.stroke();
+
+  gradient = context.createLinearGradient(10, 0, 100, 0);
+  gradient.addColorStop("0","magenta");
+  gradient.addColorStop(".25","blue");
+  gradient.addColorStop(".50","green");
+  gradient.addColorStop(".75","yellow");
+  gradient.addColorStop("1.0","red");
+
+  drawHeart(60, 200);
+  context.fillStyle = gradient;
+  context.fill();
+  context.stroke();
+
+  gradient = context.createRadialGradient(180, 250, 10, 180, 250, 50);
+  gradient.addColorStop("0","magenta");
+  gradient.addColorStop(".25","blue");
+  gradient.addColorStop(".50","green");
+  gradient.addColorStop(".75","yellow");
+  gradient.addColorStop("1.0","red");
+
+  drawHeart(180, 230);
+  context.fillStyle = gradient;
+  context.fill();
+  context.stroke();  
+};
+
+
+function drawHeart(x, y) {
+  context.beginPath();
+  context.moveTo(x, y);
+  context.bezierCurveTo(x, y - 40, x - 45, y - 40, x - 48, y);
+  context.bezierCurveTo(x - 45, y + 30, x, y + 40, x, y + 80);
+  context.bezierCurveTo(x, y + 90, x + 45, y + 40, x + 45, y);
+  context.bezierCurveTo(x + 45, y - 30, x, y - 30, x, y);
+  context.closePath();
+}
+
+	</script>
+</head>
+<body>
+	<canvas id="drawingCanvas" width="500" height="300"></canvas>
+</body>
+</html>

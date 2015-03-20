@@ -17,7 +17,10 @@ window.onload = function() {
   canvas = document.getElementById("canvas");
   context = canvas.getContext("2d");
 
-  canvas.onmousedown = canvasClick;
+    canvas.onmousedown = canvasClick;
+    canvas.onmouseup   = stopDragging;
+    canvas.onmouseout  = stopDragging;
+    canvas.onmousemove = dragCircle;
 };
 
 function addRandomCircle() {
@@ -36,7 +39,7 @@ function addRandomCircle() {
   // Store it in the array.
   circles.push(circle);
 
-  // Redraw the canvas.
+  // 重新绘制画布
   drawCircles();
 }
 
@@ -82,19 +85,44 @@ function canvasClick(e) {
   var clickX = e.pageX - canvas.offsetLeft;
   var clickY = e.pageY - canvas.offsetTop;
 
-  // Look for the clicked circle.
+  // 反向遍历所有的圆，因为如果两个圆发生叠加，只能单机上面一层也就是后面添加的圆
   for(var i=circles.length-1; i>=0; i--) {
     var circle = circles[i];
-
-    var distanceFromCenter = Math.sqrt(Math.pow(circle.x - clickX, 2) + Math.pow(circle.y - clickY, 2))
+    //pow() n次方函数  sqrt() 开根号
+    var distanceFromCenter = Math.sqrt(Math.pow(circle.x - clickX, 2) + Math.pow(circle.y - clickY, 2)); 
     if (distanceFromCenter <= circle.radius) {
       if (previousSelectedCircle != null) previousSelectedCircle.isSelected = false;
       previousSelectedCircle = circle;
 
       circle.isSelected = true;
-
+      isDragging = true;
       drawCircles();
       return;
+    }
+  }
+}
+
+var isDragging = false;
+
+function stopDragging() {
+  isDragging = false;
+}
+
+function dragCircle(e) {
+  // Is a circle being dragged?
+  if (isDragging == true) {
+    // Make sure there really is a circle object (just in case).
+    if (previousSelectedCircle != null) {
+      // Find the new position of the mouse.
+      var x = e.pageX - canvas.offsetLeft;
+      var y = e.pageY - canvas.offsetTop;
+
+      // Move the circle to that position.
+      previousSelectedCircle.x = x;
+      previousSelectedCircle.y = y;
+
+      // Update the canvas.
+      drawCircles();
     }
   }
 }

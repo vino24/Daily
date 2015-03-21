@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图像操作之反转颜色 </title>
+	<style type="text/css">
+	canvas {
+	border: 6px double black;
+	background: white;
+	}
+	button {
+	padding: 3px;
+	}
+	</style>
+	<script type="text/javascript">
+	/**
+	*	getImageData()取得像素块 putImageData() 回写(修改)取得像素块 createImageData() 创建新的像素块
+	*/
+	var canvas=document.getElementById("canvas");
+	var context=canvas.getContext("2d");
+
+	//取得像素的起点为(0,0) 向右拓展100像素 像下拓展50像素
+	var imgData=context.getImageData(0,0,100,50);
+	
+	//通过data属性取得包含数据图像的数组(每个像素用4个数组表示 分别为红黄绿和不透明度)
+	var pixels=imgData.data;
+
+	for(var i=0,n=pixels.length;i<n;i+=4){
+
+	//取得每个像素的数据
+	var red   =pixels[i];
+	var green =pixels[i+1];
+	var blue=pixels[I+2];
+	var alpha=pixels[i+3];
+
+	//反转颜色
+	pixels[i]=255-red;
+	pixels[i+1]=255-green;
+	pixels[i+2]=255-blue;
+	}
+
+	//将修改的像素回写到画布原来的位置
+	context.putImageData(imgData,0,0);
+
+	</script>
+</head>
+<body>
+	<canvas id="canvas">
+	</canvas>
+	<img id="face" src="face.png">
+</body>
+</html>

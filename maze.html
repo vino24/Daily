@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>迷宫游戏</title>
+	<style type="text/css">
+	canvas {
+	border: 6px double black;
+	background: white;
+	}
+	
+	img {
+	display: none;
+	}
+	
+	button {
+	padding: 3px;
+	}
+	</style>
+	<script type="text/javascript">
+	var canvas;
+	var context;
+	window.onload=function  () {
+		canvas=document.getElementById("canvas");
+		context=canvas.getContext("2d");
+
+		//绘制迷宫背景
+		drawMaze("maze.png",268,5);
+
+		//用户按下键盘时，运行函数
+		window.onkeydown=processKey;
+	};
+
+	//记录笑脸图标当前位置
+	var x=0;
+	var y=0;
+	 function drawMaze (mazeFile,startingX,startingY) {
+	 	//加载迷宫图片
+	 	imgMaze=new Image();
+	 	imgMaze.onload=function  () {
+	 		//调整画布大小以适应迷宫图片
+	 		canvas.width=imgMaze.width;
+	 		canvas.height=canvas.height;
+
+	 		//绘制迷宫
+	 		var imgFace=document.getElementById("face");
+	 		context.drawImage(imgMaze,0,0);
+
+	 		//绘制笑脸
+	 		x=startingX;
+	 		y=startingY;
+
+	 		context.drawImage(imgFace,x,y);
+	 		context.stroke();
+
+	 		//10毫秒后绘制下一帧
+	 		setTimeout("drawFrame()",10);
+	 	};
+	 	imgMaze.src=mazeFile;
+	 }
+
+	 var dx=0;
+	 var dy=0;
+
+	 function processKey (e) {
+	 	//如果笑脸在移动，停止
+	 	dx=0;
+	 	dy=0;
+
+	 	//按下向下键
+	 	if(e.keyCode==40){
+	 		dy=1;
+	 	}
+	 	if (e.keyCode==38) {
+	 		dy=-1;
+	 	}
+	 	if (e.keyCode==37) {
+	 		dx=-1;
+	 	}
+	 	if (e.keyCode==39) {
+	 		dx=1;
+	 	}
+	 }
+
+	 function drawFrame () {
+	 	if(dx!=0 || dy!=0){
+	 		//如果笑脸在移动，在当前位置绘制一块黄色背景(用于创造“痕迹”)
+	 		context.beginPath();
+	 		context.fillStyle="rgb(254,244,207)";
+	 		context.rect(x,y,15,15);
+	 		context.fill();
+
+	 		//增大位置值，把笑脸移动到下一个位置
+	 		x+=dx;
+	 		y+=dy;
+
+	 		//调用checkForCollision()检测新位置是否有障碍物冲突。如果新位置无效，说明碰墙，放回上一位置
+	 		if(checkForCollision()){
+	 			x-=dx;
+	 			y-=dy;
+	 			dx=0;
+	 			dy=0;
+	 		}
+
+	 		//绘制笑脸
+	 		var imgFace=document.getElementById("face");
+	 		context.drawImage(imgFace,x,y);
+
+	 		//检测是否到达迷宫底部(完成游戏)
+	 		if(y>canvas.height-17){
+	 			alert("You win!");
+	 			return;
+	 		}
+	 	}
+	 	setTimeout("drawFrame()",10);
+	 }
+
+	 //基于像素颜色的碰撞检测
+	 function checkForCollision () {
+	 	//取得笑脸所在的像素块，再稍微扩展一点
+	 	var imgData=context.getImageData(x-1,y-1,15+2,15+2);
+	 	var pixels=imgData.data;
+
+	 	//检测其中的像素
+	 	for(var i=1,n=pixels.length;i<n;i+=4){
+	 		var red=pixels[i];
+	 		var green=pixels[i+1];
+	 		var blue=pixels[I+2];
+	 		var alpha=pixels[i+3];
+	 		//检测黑色的墙(如果检测到了，就说明撞墙了)
+	 		if(red==0 && green=0 && blue==0){
+	 			return true;
+	 		}
+	 		//检测灰色的边(如果检测到了，就说明撞墙了)
+	 		if(red==169 && green==169 && blue==169){
+	 			return true;
+	 		}
+	 	} return false;
+	 }
+	</script>
+</head>
+<body>
+		<canvas id="canvas">
+		</canvas>
+		<div>
+		<button onclick="loadHard()">Load Hard Maze</button>
+		<button onclick="loadEasy()">Load Easy Maze</button>
+		</div>
+		
+		<img id="face" src="face.png">
+
+</body>
+</html>

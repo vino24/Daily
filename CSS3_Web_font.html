@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" class="no.js">	<!--使用Modernizr添加代码-->
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3 Web字体</title>
+	<style type="text/css">
+		/*	为所有标题设置样式，无论浏览器是否支持CSS3 */
+		header{
+			background-color: #7695FE;
+			padding: 10px;
+			margin: 10px;
+			text-align: center;
+		}
+
+		/*	为支持border-radius的浏览器设置样式*/
+		.borderradius header{
+			border:thin #336699 solid;
+			border-radius: 25px;  /*	圆角*/
+		}
+
+		/*	为不支持border-radius属性的浏览器设置样式	*/
+		.no-border-radius header{
+			border:5px #336699 double;
+		}
+
+		.stylistBox{
+			background: yellow;
+			background-image: -moz-radial-gradient(circle,red,yellow);
+			background-image: -webkit-radial-gradient(circle,red,yellow);
+			background-image: -o-radial-gradient(circle,red,yellow);
+			background-image: -ms-radial-gradient(circle,red,yellow);
+			/* background: radial-gradient(ellipse,red,yellow);		渐变背景 */
+		}
+		/*	创建多栏文本方法一 column-count 缺点：会随窗口变话而变得难以阅读
+		article{
+			text-align: justify;	/*	两端对齐
+			-moz-column-count:3;
+			-webkit-column-count:3;
+			-ms-column-count:3;
+			column-count:3;			/*	设置栏目数
+		}
+		*/
+	
+		/*	创建多栏文本方法二 column-width 设置每栏有多宽
+		*/
+		article{
+			text-align: justify;
+			-moz-column-width:10em;		/*	1em=两倍字体大小	*/
+			-webkit-column-width:10em;
+			-ms-column-width:10em;
+			column-width:10em;
+		}
+
+
+	</style>
+</head>
+<body>
+	<header>
+		<hgroup>
+		<h1>How the world could end?</h1>
+		<h3>sb du hao</h3>
+		</hgroup>
+		<p>by Ray Carnation </p>
+	</header>
+	<div class="stylistBox">My son named Du Hao!</div>
+	<article>
+	1. CSS标准拆分，每个独立标准称为**模块**
+	2. CSS样式顺序问题：兼容性越好的要列在越前面
+	3. CSS Web字体引用方法
+	- 将字体上传
+	- 使用`@fint-face`在样式表中注册字体
+	- 直接通过字体名称在样式表中引用注册过的字体即可
+	- 浏览器遇到Web字体样式表时会把字体下载到页面和图片的临时缓存
+	
+	
+	1. Web字体格式
+	- EOT(Embedded OpenType) 仅IE支持
+	- TTF(TrueType)/OTF(OpenType PostScript) 桌面应用常用
+	- SVG(Scalable Vector Graphics)	用于显示字体的多功能图像格式
+	- WOFF(Web Open Font Format)	面向未来的字体格式 
+   </article>
+</body>
+</html>

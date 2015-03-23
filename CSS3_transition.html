@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建渐变效果</title>
+	<style type="text/css">
+		.slickButton{
+			color: white;
+			font-weight: bold;
+			padding: 10px;
+			border:solid 1px black;
+			cursor: pointer;
+			transition:background 0.5s,color 5s;	/*	设置背景、颜色过渡 */		
+			transition:all 0.5s;	/*	方法二 设置过渡所有样式*/
+		}
+		.slickButton:hover{
+			color: black;
+			background: yellow;
+		}
+		/*
+		变换 
+		1.旋转元素rotate()	
+		 */
+		.rotatedElement{
+			transform:rotate(45deg);	/*	旋转45度*/
+		}
+		.rotatedElement1{
+			-webkit-transform:scale(1.5) skew(10deg);	/*	先把元素增大一半 再向左移动10像素 又斜切了10度*/
+			-o-transform:scale(1.5) scaleX(10px) skew(10deg);
+			-moz-transform:scale(1.5) skew(10deg);
+		}
+		.gallery{
+			margin: 0px 30px 0px 30px;
+			background: #D8EEFE;
+			padding: 10px;
+		}
+		.gallery img{
+			margin: 5px;
+			padding: 5px;
+			width: 75px;
+			border: solid 1px black;
+			background: white;
+			-webkit-transition:all 1s;
+			-moz-transition:all 1s;
+			-o-transition:all 1s;
+		}
+		.gallery img:hover{
+			-webkit-transform:scale(2.2) rotate(10deg);
+			-moz-transform:scale(2.2) rotate(10deg);
+			-o-transform:scale(2.2) rotate(10deg);
+		}
+	</style>
+</head>
+<body>
+	<button class="slickButton">Hover Here!</button>
+	<div class="rotatedElement">
+		My son names Du Hao! My son names Du Hao! My son names Du Hao! My son names Du Hao! My son names Du Hao!
+	</div>
+	<div class="rotatedElement1">
+		My son names Du Hao! My son names Du Hao! My son names Du Hao! My son names Du Hao! My son names Du Hao!
+	</div>
+	<div class="gallery">
+		<img src="pen_blue.gif">
+		<img src="pen_medium.gif">
+		<img src="pen_green.gif">
+	</div>
+</body>
+</html>

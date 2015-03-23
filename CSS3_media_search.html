@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>适用于不同的设备</title>
+	<style type="text/css">
+		article{
+			border:solid 1px black;
+			padding: 15px;
+			margin: 5px;
+			background: yellow;
+			float: left;
+			width: 330px;
+		}
+
+		aside{
+			border:solid 1px black;
+			padding: 15px;
+			margin: 5px;
+			background: yellow;
+			position: absolute;
+			float: left;
+			margin-left: 370px;
+		}
+		/*
+		媒体查询：
+		max-width(用于根据浏览器窗口的当前大小改变样式)
+		max-device-width(用于创建移动版网页)
+		orientation(用于视IPad横放或竖放来切换布局)
+		 */
+		@media(max-device-width: 480px){
+			article{
+				float: none;
+				width: auto;
+			}
+			aside{
+				position: static;
+				float: none;
+				background: pink;
+				margin-left: 5px;
+			}
+		}
+
+		/*
+		高级媒体查询
+		 */
+		@media(min-width: 600px) and (max-width: 700px){
+
+		}
+		@media(min-width: 400px) and (max-width: 599.99px){
+
+		}
+		/*	或者	*/
+		@media(not max-width: 600px) and (max-width: 700px){
+
+		}
+		@media(not max-width: 400px) and (max-width: 600px){
+
+		}
+	</style>
+	
+	<!--	替换整个样式表	只新样式覆盖原来同名样式	-->
+	<link rel="stylesheet" type="text/css" href="standard_styles.css">
+	<link rel="stylesheet" type="text/css" media="(max-width:480px)" href="small_styles.css">
+	
+	<!--  完全替换	-->
+	<link rel="stylesheet" type="text/css" media="(min-width:480.01px)" href="standard_styles.css">
+	<link rel="stylesheet" type="text/css" media="(max-width:480px)" href="small_styles.css">
+	
+	<!-- 不支持媒体查询的会把上面两个全部忽略 故需要添加以下代码 -->
+
+	<!--[if lt IE 9]>
+	<link rel="stylesheet" href="standard_styles.css">
+	<![endif]-->
+
+	<!-- 识别移动设备	更加IiPad用户是否旋转 -->
+	<link rel="stylesheet" type="text/css" media="(max-device-width:480px) and (orientation:portrait)" href="iPad_portrait.css">
+	<link rel="stylesheet" type="text/css" media="(max-device-width:760px) and (orientation:landscape)"  href="iPad_landscape.css">
+
+</head>
+<body>
+	<!-- 针对视频的媒体查询 -->
+	<video controls width="400" height="300" >
+		<source src="hello.mp4" type="video/mp4" media="(max-device-width:480px)">
+		<source src="hello.mp4" type="video/mp4" >
+		<source src="hello.ogv" type="video/ogg" >
+	</video>
+
+	<article>
+		1. Web字体格式
+	- EOT(Embedded OpenType) 仅IE支持
+	- TTF(TrueType)/OTF(OpenType PostScript) 桌面应用常用
+	- SVG(Scalable Vector Graphics)	用于显示字体的多功能图像格式
+	- WOFF(Web Open Font Format)	面向未来的字体格式 
+	</article>
+	<aside>
+		1. CSS标准拆分，每个独立标准称为**模块**
+	2. CSS样式顺序问题：兼容性越好的要列在越前面
+	3. CSS Web字体引用方法
+	- 将字体上传
+	- 使用`@fint-face`在样式表中注册字体
+	- 直接通过字体名称在样式表中引用注册过的字体即可
+	- 浏览器遇到Web字体样式表时会把字体下载到页面和图片的临时缓存
+	</aside>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多变的盒子</title>
+	<style type="text/css">
+	/*
+	透明盒子
+	rgba 与opacity应用范围
+	1.使用多种颜色(元素)的半透明效果，使用opacity不仅背景颜色，连文本颜色，边框颜色也会变透明
+	2.在不知道颜色的情况下，实现半透明效果(例如通过其他样式表或JavaScript代码来设置半透明效果的)应使用opacity
+	3.实现图片半透明效果，应该用opacity
+	4.实现渐变动画效果，应该用opacity
+	 */
+		.semitransparentBox{
+			background: rgba(170,240,0,0.5);
+		}
+		.semitransparentBox1{
+			background: rgb(170,240,0);
+			opacity: 0.5;
+		}
+
+	/*
+	圆角盒子
+
+	 */
+		div{
+			width: 800px;
+			height: 200px;
+			padding: 20px;
+			margin: 20px;
+		}
+		.roundBox{
+			text-align: center;
+			background: yellow;	
+			border-radius: 25px 50px 25px 85px;
+		}
+		.roundBox1{
+			background: blue;
+			border-top-left-radius: 150px 30px;
+			border-top-right-radius: 150px 30px;
+		}
+	/*
+	背景盒子	为元素设置多个背景图片
+	 */
+	.decoratedBox{
+		margin: 50px;
+		padding: 50px;
+		background-image: url("pen_blue.gif"),url("pen_green.gif");
+		background-position: left top,right bottom;
+		background-repeat: no-repeat, no-repeat; 
+	}
+	.decoratedBox1{
+		margin: 50px;
+		padding: 50px;
+		background-image: url(pen_green.gif),url(pen_blue.gif),url(pen_medium.gif);
+		background-position: left top,left top,right bottom;
+		background-repeat: no-repeat,repeat-x,no-repeat;
+	}
+
+	/*
+	盒子阴影
+	 */
+	.shadowedBox{
+		border:thin #336699 solid;
+		border-radius: 25px;
+		box-shadow:5px 5px 10px 5px gray inset; /*	前两个值是水平和垂直方向的偏移量 第三个是设置模糊距离（模糊程度） 第四个设置伸展范围（可选） 第五个设置阴影颜色 添加inset会在元素内部
+		*/
+	}
+	.textShadow{
+		font-size: 30px;
+		font-weight: bold;
+		text-shadow:gray 10px 10px 7px;
+	}
+	/*
+	渐变盒子	渐变是多种颜色混合而成的效果（本质上渐变就是两种或更多种颜色的混合）
+	1.线性渐变
+	2.放射性渐变
+	 */
+	.colorBlendBox{
+		background: -ms-linear-gradient(top,red 0%,orange 20%,yellow 80%, violet 100%); /*	设置渐变点	*/
+		background: -moz-linear-gradient(top,white,blue);   /*	从上至下渐变	*/
+		background: -webkit-linear-gradient(top left,white,lightblue); /*	从左上到右下渐变	*/
+	}
+	.colorBlendBox1{
+		background: -moz-radial-gradient(circle,white,lightblue);
+	}
+	</style>
+</head>
+<body>
+	<div class="semitransparentBox">
+		My son names Du Hao!
+	</div>
+<hr/>
+	<div class ="semitransparentBox1">
+	My son names Du Hao!
+	</div>
+	<div class="roundBox">
+		My son names Du Hao! My son names Du Hao! My son names Du Hao! My son names Du Hao! My son names Du Hao!
+	</div>
+	<div class="roundBox1">
+		My son names Du Hao! My son names Du Hao! My son names Du Hao! My son names Du Hao! My son names Du Hao!
+	</div>
+	<div class="decoratedBox">
+		My son names Du Hao! My son names Du Hao! My son names Du Hao! My son names Du Hao! My son names Du Hao!
+	</div>
+	<div class="decoratedBox1">
+		My son names Du Hao! My son names Du Hao! My son names Du Hao! My son names Du Hao! My son names Du Hao!
+	</div>
+	<div class="shadowedBox textShadow">
+		My son names Du Hao! My son names Du Hao! My son names Du Hao! My son names Du Hao! My son names Du Hao!
+	</div>
+	<div class="colorBlendBox">
+		My son names Du Hao! My son names Du Hao! My son names Du Hao! My son names Du Hao! My son names Du Hao!
+	</div>
+	<div class="colorBlendBox1">
+		My son names Du Hao! My son names Du Hao! My son names Du Hao! My son names Du Hao! My son names Du Hao!
+	</div>
+</body>
+</html>

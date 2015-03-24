@@ -41,15 +41,30 @@
 		 */
 	
 		/*	创建多栏文本方法二 column-width 设置每栏有多宽
- */
+
 		article{
 			text-align: justify;
-			-moz-column-width:10em;		/*	1em=两倍字体大小	*/
+			-moz-column-width:10em;			1em=两倍字体大小	
 			-webkit-column-width:10em;
 			-ms-column-width:10em;
 			column-width:10em;	
 		}
-
+		*/
+		/*	通过columns设置*/
+			article{
+			text-align: justify;
+			-moz-columns:10em;	/*	width */			
+			-webkit-columns:2 10em;	/*	count	width  无意义 */
+			columns:2;	/*	content  */
+			column-gap:1em;		/*	间隙	*/
+			column-rule:thin solid blue;	/*	like border */
+		}
+			article p{
+					-moz-column-span:all;	/*	none不跨行 all 横跨所有行*/
+					-webkit-column-span:none;
+					column-span:all;
+					background: red;
+			}
 
 	</style>
 </head>
@@ -66,7 +81,7 @@
 	1. CSS标准拆分，每个独立标准称为**模块**
 	2. CSS样式顺序问题：兼容性越好的要列在越前面
 	3. CSS Web字体引用方法
-	- 将字体上传
+	<p>- 将字体上传</p>
 	- 使用`@fint-face`在样式表中注册字体
 	- 直接通过字体名称在样式表中引用注册过的字体即可
 	- 浏览器遇到Web字体样式表时会把字体下载到页面和图片的临时缓存

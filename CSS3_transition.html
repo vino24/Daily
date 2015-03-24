@@ -18,15 +18,30 @@
 			background: yellow;
 		}
 		/*
-		变换 
-		1.旋转元素rotate()	
+		变换 CSS3 transform属性
+		1.transform-origin
+		指定原点的位置。默认值为元素的中心，可以被移动。很多变形需要用到这个属性，比如旋转，缩放和倾斜，他们都需要一个指定的点作为参数。
+		2.transform
+		指定作用在元素上的变形。取值为空格分隔的一系列变形的列表，他们会像被组合操作请求一样被分别执行。
+
+			matrix(<number>,<number>,<number>,<number>,<number>,<number>)： 以一个含六值的(a,b,c,d,e,f)变换矩阵的形式指定一个2D变换，相当于直接应用一个[a,b,c,d,e,f]变换矩阵 
+			translate(<length>[, <length>])： 指定对象的2D（2D平移）。第一个参数对应X轴，第二个参数对应Y轴。如果第二个参数未提供，则默认值为0 
+			translateX(<length>)： 指定对象X轴（水平方向）的平移 
+			translateY(<length>)： 指定对象Y轴（垂直方向）的平移 
+			rotate(<angle>)： 指定对象的2D rotation（2D旋转），需先有transform-origin属性的定义 
+			scale(<number>[, <number>])： 指定对象的2D scale（2D缩放）。第一个参数对应X轴，第二个参数对应Y轴。如果第二个参数未提供，则默认取第一个参数的值 
+			scaleX(<number>)： 指定对象X轴的（水平方向）缩放 
+			scaleY(<number>)： 指定对象Y轴的（垂直方向）缩放 
+			skew(<angle> [, <angle>])： 指定对象skew transformation（斜切扭曲）。第一个参数对应X轴，第二个参数对应Y轴。如果第二个参数未提供，则默认值为0 
+			skewX(<angle>)： 指定对象X轴的（水平方向）扭曲 
+			skewY(<angle>)： 指定对象Y轴的（垂直方向）扭曲 
 		 */
 		.rotatedElement{
 			transform:rotate(45deg);	/*	旋转45度*/
 		}
 		.rotatedElement1{
-			-webkit-transform:scale(1.5) skew(10deg);	/*	先把元素增大一半 再向左移动10像素 又斜切了10度*/
-			-o-transform:scale(1.5) scaleX(10px) skew(10deg);
+			-webkit-transform:translateX(150px) skewy(10deg);	/*	向左移动150像素 又斜切了10度*/
+			-o-transform:scale(1.5) skew(10deg);
 			-moz-transform:scale(1.5) skew(10deg);
 		}
 		.gallery{

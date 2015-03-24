@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Web 存储</title>
+	<style type="text/css">
+		label{
+			display: inline-block;
+			width: 250px;
+		}
+	</style>
+	<script type="text/javascript">
+	function savedata () {
+		var localstorage=document.getElementById("localstorage");
+		localStorage["data"]=localstorage.value;
+		var sessionstorage=document.getElementById("sessionstorage");
+		sessionStorage["data"]=sessionstorage.value;
+		alert("OK");
+	}
+	function loaddata (){
+		alert(localStorage["data"] + sessionStorage["data"]);
+	}
+	function search () {
+		var itemList=document.getElementById("itemList");
+
+		//清空列表
+		itemList.innerHTML="";
+
+		for(var i=0;i<localStorage.length;i++){
+
+			//key()方法从本地或会话取得数据项
+			var key=localStorage.key(i);
+			//取得以该键保存的数据值
+			var item=localStorage[key];
+
+			var newItem=document.createElement("li");
+			newItem.innerHTML=key+":"+item;
+			itemList.appendChild(newItem);
+		}
+	}
+	window.onload=function  () {
+		//Web存储中保存日期 按照YYYY/MM/DD的标准格式把日期转换成文本字符串
+		var today=new Date();
+		sessionStorage["session_started"]=today.getFullYear()+"/"+ today.getMonth()+"/"+today.getDate();
+	};
+	function showdate () {
+
+		//	取得日期文本，并基于该文本创建新的日期对象
+		//	这是因为文本格式是有效的日期格式
+		var today=new Date(sessionStorage["session_started"]);
+		
+		//	使用日期对象方法
+		alert(today.getFullYear()+ " "+ today.getDate());
+	}
+	</script>
+</head>
+<body>
+	<fieldset>
+		<legend>Web STORAGE</legend>
+		<label for="localstorage">This goes into local storage:</label><input type="text" id="localstorage"><br /><br />
+		<label for="sessionstorage">This goes into session storage:</label><input type="text" id="sessionstorage"><br /><br />
+		<input type="button" id="savedata" value="Save Data" onclick="savedata()">
+		<input type="button" id="loaddata" value="Load Data" onclick="loaddata()">
+		<input type="button" id="search" value="Dump" onclick="search()">
+		<input type="button" id="getdate" value="Show Date" onclick="showdate()">
+		<ul id="itemList"></ul>
+	</fieldset>
+</body>
+</html>

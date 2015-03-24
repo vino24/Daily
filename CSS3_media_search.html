@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>适用于不同的设备</title>
+	@import url(example.css) screen and (max-width:800px); <!--导入样式表 媒体查询-->
 	<style type="text/css">
 		article{
 			border:solid 1px black;
@@ -26,8 +27,9 @@
 		媒体查询：
 		max-width(用于根据浏览器窗口的当前大小改变样式)
 		max-device-width(用于创建移动版网页)
-		orientation(用于视IPad横放或竖放来切换布局)
+		orientation(用于视iPad横放或竖放来切换布局)
 		 */
+
 		@media(max-device-width: 480px){
 			article{
 				float: none;
@@ -73,7 +75,7 @@
 	<link rel="stylesheet" href="standard_styles.css">
 	<![endif]-->
 
-	<!-- 识别移动设备	更加IiPad用户是否旋转 -->
+	<!-- 识别移动设备	增加iPad用户是否旋转 -->
 	<link rel="stylesheet" type="text/css" media="(max-device-width:480px) and (orientation:portrait)" href="iPad_portrait.css">
 	<link rel="stylesheet" type="text/css" media="(max-device-width:760px) and (orientation:landscape)"  href="iPad_landscape.css">
 

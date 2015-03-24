@@ -18,136 +18,177 @@
 	}
 	</style>
 	<script type="text/javascript">
-	var canvas;
-	var context;
-	window.onload=function  () {
-		canvas=document.getElementById("canvas");
-		context=canvas.getContext("2d");
+var canvas;
+var context;
 
-		//绘制迷宫背景
-		drawMaze("maze.png",268,5);
+// The current face position.
+var x = 0;
+var y = 0;
 
-		//用户按下键盘时，运行函数
-		window.onkeydown=processKey;
-	};
+// The current face speed (in both direction).
+var dx = 0;
+var dy = 0;
 
-	//记录笑脸图标当前位置
-	var x=0;
-	var y=0;
-	 function drawMaze (mazeFile,startingX,startingY) {
-	 	//加载迷宫图片
-	 	imgMaze=new Image();
-	 	imgMaze.onload=function  () {
-	 		//调整画布大小以适应迷宫图片
-	 		canvas.width=imgMaze.width;
-	 		canvas.height=canvas.height;
+window.onload = function() {
+  // Set up the canvas.
+  canvas = document.getElementById("canvas");
+  context = canvas.getContext("2d");
 
-	 		//绘制迷宫
-	 		var imgFace=document.getElementById("face");
-	 		context.drawImage(imgMaze,0,0);
+  // Draw the maze background.
+  drawMaze("maze.png", 268, 5);
 
-	 		//绘制笑脸
-	 		x=startingX;
-	 		y=startingY;
+  // When the user presses a key, run the processKey() function.
+  window.onkeydown = processKey;
+};
 
-	 		context.drawImage(imgFace,x,y);
-	 		context.stroke();
 
-	 		//10毫秒后绘制下一帧
-	 		setTimeout("drawFrame()",10);
-	 	};
-	 	imgMaze.src=mazeFile;
-	 }
+// Keep track of the current timer, so the drawing can be 
+// easily stopped and restarted if a new maze is loaded.
+var timer;
 
-	 var dx=0;
-	 var dy=0;
+function drawMaze(mazeFile, startingX, startingY) {
+  // Stop drawing (if it's taking place).
+  clearTimeout(timer);
 
-	 function processKey (e) {
-	 	//如果笑脸在移动，停止
-	 	dx=0;
-	 	dy=0;
+  // Stop the happy face (if it's moving).
+  dx = 0;
+  dy = 0;
 
-	 	//按下向下键
-	 	if(e.keyCode==40){
-	 		dy=1;
-	 	}
-	 	if (e.keyCode==38) {
-	 		dy=-1;
-	 	}
-	 	if (e.keyCode==37) {
-	 		dx=-1;
-	 	}
-	 	if (e.keyCode==39) {
-	 		dx=1;
-	 	}
-	 }
+  // Load the maze picture.
+  var imgMaze = new Image();
+  imgMaze.onload = function() {
+    // Resize the canvas to match the maze picture.
+    canvas.width = imgMaze.width;
+    canvas.height = imgMaze.height;
 
-	 function drawFrame () {
-	 	if(dx!=0 || dy!=0){
-	 		//如果笑脸在移动，在当前位置绘制一块黄色背景(用于创造“痕迹”)
-	 		context.beginPath();
-	 		context.fillStyle="rgb(254,244,207)";
-	 		context.rect(x,y,15,15);
-	 		context.fill();
+    // Draw the maze.
+    context.drawImage(imgMaze, 0,0);
 
-	 		//增大位置值，把笑脸移动到下一个位置
-	 		x+=dx;
-	 		y+=dy;
+    // Draw the face.
+    x = startingX;
+    y = startingY;
 
-	 		//调用checkForCollision()检测新位置是否有障碍物冲突。如果新位置无效，说明碰墙，放回上一位置
-	 		if(checkForCollision()){
-	 			x-=dx;
-	 			y-=dy;
-	 			dx=0;
-	 			dy=0;
-	 		}
+    var imgFace = document.getElementById("face");
+    context.drawImage(imgFace, x, y);
+    context.stroke();
 
-	 		//绘制笑脸
-	 		var imgFace=document.getElementById("face");
-	 		context.drawImage(imgFace,x,y);
+    // Draw the next frame in 10 milliseconds.
+    timer = setTimeout(drawFrame, 10);
+  };
+  imgMaze.src = mazeFile;
+}
 
-	 		//检测是否到达迷宫底部(完成游戏)
-	 		if(y>canvas.height-17){
-	 			alert("You win!");
-	 			return;
-	 		}
-	 	}
-	 	setTimeout("drawFrame()",10);
-	 }
 
-	 //基于像素颜色的碰撞检测
-	 function checkForCollision () {
-	 	//取得笑脸所在的像素块，再稍微扩展一点
-	 	var imgData=context.getImageData(x-1,y-1,15+2,15+2);
-	 	var pixels=imgData.data;
+function processKey(e) {
+  // If the face is moving, stop it.
+  dx = 0;
+  dy = 0;
 
-	 	//检测其中的像素
-	 	for(var i=1,n=pixels.length;i<n;i+=4){
-	 		var red=pixels[i];
-	 		var green=pixels[i+1];
-	 		var blue=pixels[I+2];
-	 		var alpha=pixels[i+3];
-	 		//检测黑色的墙(如果检测到了，就说明撞墙了)
-	 		if(red==0 && green=0 && blue==0){
-	 			return true;
-	 		}
-	 		//检测灰色的边(如果检测到了，就说明撞墙了)
-	 		if(red==169 && green==169 && blue==169){
-	 			return true;
-	 		}
-	 	} return false;
-	 }
+  // If an arrow key was pressed, and adjust the speed accordingly.
+  // (Ignore any other key.)
+
+  // The up arrow was pressed, so move up.
+  if (e.keyCode == 38) {
+    dy = -1;
+  }
+
+  // The down arrow was pressed, so move down.
+  if (e.keyCode == 40) {
+    dy = 1;
+  }
+
+  // The left arrow was pressed, so move left.
+  if (e.keyCode == 37) {
+    dx = -1;
+  }
+
+  // The right arrow was pressed, so move right.
+  if (e.keyCode == 39) {
+    dx = 1;
+  }
+}
+
+function checkForCollision() {
+  // Grab the block of pixels where the happy face is, but extend the edges just a bit.
+  var imgData = context.getImageData(x-1, y-1, 15+2, 15+2);
+  var pixels = imgData.data;
+
+  // Check these pixels.
+  for (var i = 0; n = pixels.length, i < n; i += 4) {
+    var red = pixels[i];
+    var green = pixels[i+1];
+    var blue = pixels[i+2];
+    var alpha = pixels[i+3];
+
+    // Look for black walls (which indicates a collision).
+    if (red == 0 && green == 0 && blue == 0) {
+      return true;
+    }
+    // Look for gray edge space (which indicates a collision).
+    if (red == 169 && green == 169 && blue == 169) {
+      return true;
+    }
+  }
+  // There was no collision.
+  return false;
+}
+
+
+function drawFrame() {
+  // Only draw a new frame if the face is moving.
+  if (dx != 0 || dy != 0) {
+    // Clear away the previous face position (but leave a yellow patch there,
+    // to create the "trail" effect.)
+    context.beginPath();
+    context.fillStyle = "rgb(254,244,207)";
+    context.rect(x, y, 15, 15);
+    context.fill()
+
+    // Increment the face's position.
+    x += dx;
+    y += dy;
+
+    // Stop the face if it hit a wall, and move it back to the old position.
+    if (checkForCollision()) {
+      x -= dx;
+      y -= dy;
+      dx = 0;
+      dy = 0;
+    }
+
+    // Draw the face at its new position.
+    var imgFace = document.getElementById("face");
+    context.drawImage(imgFace, x, y);
+
+    // Check if the user has finished the maze (reached the bottom edge).
+    // If so, show a message and return from the function, so no more frames are drawn.
+    if (y > (canvas.height - 17)) {
+      alert("You win!");
+      return;
+    }
+  }
+
+  // Draw a new frame in 10 milliseconds.
+  timer = setTimeout(drawFrame, 10);
+}
+
+function loadEasy() {
+  drawMaze('easy_maze.png', 5, 5);
+}
+
+function loadHard() {
+  drawMaze('maze.png', 268, 5);
+}
 	</script>
 </head>
-<body>
-		<canvas id="canvas">
-		</canvas>
-		<div>
-		<button onclick="loadHard()">Load Hard Maze</button>
-		<button onclick="loadEasy()">Load Easy Maze</button>
-		</div>
-		
-		<img id="face" src="face.png">
+<body>    
+  <canvas id="canvas">
+  </canvas>
+  <div>
+    <button onclick="loadHard()">Load Hard Maze</button>
+    <button onclick="loadEasy()">Load Easy Maze</button>
+  </div>
 
+  <img id="face" src="face.png">
 </body>
 </html>

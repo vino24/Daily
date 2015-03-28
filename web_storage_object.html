@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Web Storage保存对象</title>
+	<script type="text/javascript">
+	function PersonalityScore (o,c,e,a,n) {
+		this.openness=o;
+		this.conscientiousness=c;
+		this.extraversion=e;
+		this.agreeableness=a;
+		this.neuoticism=n;
+	}
+
+	var score=new PersonalityScore(o,c,e,a,n);
+
+	//将其保存为Json格式
+	sessionStorage["personalityScore"]=JSON.stringify(socre);
+
+	//	转到结果页
+	window.location="PensonalityTest_Score.html";
+	
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

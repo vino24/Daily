@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>实时显示服务器时间</title>
+	<script type="text/javascript">
+	var messageLog;
+	var timeDisplay;
+	window.onload=function  () {
+		messageLog=document.getElementById("messageLog");
+		timeDisplay=document.getElementById("timeDisplay");
+	};
+
+	var source;
+	function startListening () {
+		source=new EventSource("WebServerEvent.php");
+		source.onmessage=receiveMessage;
+		messageLog.innerHTML+="<br>"+"Started listening for message.";
+	}
+	function receiveMessage (e) {
+		messageLog.innerHTML+="<br>"+"New web server time:" +e.data;
+		timeDisplay.innerHTML=e.data;
+	}
+	function stopListening () {
+		source.close();
+		messageLog.innerHTML+="<br>"+"No longer listening for message.";
+	}
+	</script>
+</head>
+<body>
+	<div id="messageLog"></div>
+	<div id="timeDisplay"></div>
+	<div id="controls">
+		<button onclick="startListening()">Start</button>
+		<button onclick="stopListening()">Stop</button>
+	</div>
+</body>
+</html>

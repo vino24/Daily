@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>XHR</title>
+	  <style>
+body {
+  font-family: Verdana;
+  font-size: 12px;
+}
+
+div {
+  margin: 20px;
+  border: black 1px solid;
+  padding: 10px;
+  background-color: #FBF3CB;
+}
+
+input {
+  width: 75px;
+}
+
+#result {
+  color: darkred;
+  font-weight: bold;
+}
+  </style>
+	<script type="text/javascript">
+		var req=new XMLHttpRequest();
+		function askServer () {
+			var number1=document.getElementById("number1").value;
+			var number2=document.getElementById("number2").value;
+
+			//构建查询字符串
+			var dataToSend="?number1="+number1+"&number2="+number2;
+
+			//调用XMLHTTPRequest对象的open()方法
+			req.open("GET","WebCalculator.php"+dataToSend,true);
+			
+			//服务器返回信息触发事件
+			req.onreadystatechange=handleServerResponse;
+			//调用send()发出请求
+			req.send();
+			document.getElementById("result").innerHTML="The request has been sent.";
+		}
+
+		//接收响应
+		function handleServerResponse () {
+			if((req.readyState==4)&&(req.status==200)){
+				var result=req.responseText;
+				document.getElementById("result").innerHTML="The answer is:" + result +".";
+			}
+		}
+	</script>
+</head>
+<body>
+	<div>
+		<p>Enter two numbers:
+		<input id="number1" type="number">
+		<input id="number2" type="number">
+		</p>
+		<p>To ask the server to add them:<button onclick="askServer()">Ask the server</button></p>
+	</div>
+	<p id="result"></p>
+</body>
+</html>

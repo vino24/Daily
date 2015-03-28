@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>FILE API</title>
+	<script type="text/javascript">
+	/*
+	读取第一个文件，要读取多个文件要使用multiple属性
+	每个文件对象拥有三个属性：name size type 
+	 */
+		function processFiles (files) {
+			var file=files[0];
+
+			//创建FileReader对象
+			var reader=new FileReader();
+			reader.onload=function  (e) {
+				//这个事件发生，意味着数据准备好了
+				//把他复制到页面的<div>元素中
+				var output=document.getElementsById("fileOutput");
+				output.textContent=e.target.result;
+			};
+			//调用FileReader的readAsText()方法
+		reader.readAsText(file);
+		}
+	</script>
+</head>
+<body>
+	<input type="file" onchange="processFiles(this.files)">
+	<div id="fileOutput"></div>
+</body>
+</html>

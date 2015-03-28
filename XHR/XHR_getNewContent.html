@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>幻灯片</title>
+	<style type="text/css">
+		body {
+  color: white;
+  font-family: Lucida Sans Unicode, serif;
+  font-size: small;
+  background-image: url('background.jpg');
+  background-size: 100%;
+  padding: 10px 50px;
+}
+
+h1 {
+  font-family: Palatino, serif;
+  font-size: 35px;
+  margin: 0px;
+  border-bottom: double 5px rgb(218,165,32);
+}
+
+#slide {
+  background: rgba(218,165,32,0.8);
+  border: solid 1px black;
+  width: 530px;
+  min-height: 300px;
+  padding: 10px;
+}
+
+#slide h2 {
+  font-family: Lucida Sans Unicode, serif;
+}
+
+#slide img {
+  margin-top: 10px;
+  border: solid 1px white;
+ 
+}
+
+a {
+  color: yellow;
+}
+	</style>
+	<script type="text/javascript">
+	var slideNumber=0;
+	function nextSlide () {
+		//向前移动幻灯片
+		if(slideNumber==5){
+			slideNumber=1;
+		}	else{
+			slideNumber+=1;
+		}
+
+		//调用另一个函数显示当前幻灯片
+		goToNewSlide();
+
+		//取消链接的默认动作(即不打开新页面)
+		return false;
+	}
+	function previousSlide () {
+		if(slideNumber==1){
+			slideNumber=5;
+		}	else{
+			slideNumber-=1;
+		}
+		goToNewSlide();
+		return false;
+	}
+	var req=new XMLHttpRequest();
+	function goToNewSlide () {
+		if(req!=null){
+		//准备请求包含幻灯片数据的文件
+		req.open("GET","http://prosetech.com/html5/Chapter%2012/Slides/ChinaSites"+slideNumber+"_slide"+".html",true);
+
+		//设置用于处理幻灯片数据的函数
+		req.onreadystatechange=newSlideReceived;
+
+		//发送请求
+		req.send();
+	}
+	}
+	function newSlideReceived () {
+		if((req.readyState==4)&&req.status==200){
+			document.getElementById("slide").innerHTML=req.responseText;
+		}
+	}
+	</script>
+</head>
+<body>
+	<div id="slide">Click Next to start the show.</div>
+	<a onclick="return previousSlide()" href="#">&lt; Previous</a>&nbsp;
+	<a onclick="return nextSlide()" href="#">Next &gt;</a>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- 
+*	margin:auto; 设置的是块框相对于父元素居中
+*	text-align:center;	设置的是块框内文本相对于块框居中
+*	如果不为块框指定width,width会自动填充父元素
+*	hiddenArea.style.display= 赋值时需要加引号
+*	<abbr title="SB DU HAO">SDH</abbr>
+-->
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>记住密码提示框</title>
+	<style type="text/css">
+		p{	
+			width: 200px;
+			margin: 10px auto;
+		}
+		#hiddenArea{
+			display: none;
+			width: 200px;
+			border: 1px solid red;
+			margin: 10px auto;
+			background: yellow;
+		}
+	</style>
+	<script type="text/javascript">
+		function showText () {
+			var hiddenArea=document.getElementById("hiddenArea");
+			hiddenArea.style.display="block";
+		}
+	</script>
+</head>
+<body>
+	<p onmouseover="showText()"><input type="checkbox">两周内自动登录</p>
+	<div id="hiddenArea">
+	为了您的信息安全，请不要在网吧或公用电脑上使用此功能！</div>
+</body>
+</html>

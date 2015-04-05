@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--
+*	1.伪元素只改变不同的部分
+*	2.为了防止hover里面设置border而导致块元素变大，提前设置和background颜色相同的边框
+-->
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标移入改变样式</title>
+	<style type="text/css">
+		#div1{
+			width:150px;
+			height:150px;
+			margin:0 auto;
+			padding:10px;
+			background:black;
+			border:10px solid black;
+			cursor:wait;
+		}
+		#div1:hover{
+		background:#f0f0f0;
+		border:10px solid red;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+*	placeholder占位符
+*	console:
+*	city	-> <input type="text" placeholder="北京市" id="city">
+*	所以alert中要用city.value
+-->
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数接收参数并弹出</title>
+	<style type="text/css">
+		body{
+			font: caption;
+		}
+		form{
+			margin: 10px auto;
+			text-align: center;
+		}
+		input{
+			margin: 5px;
+		}
+	</style>
+	<script type="text/javascript">
+	function send () {
+		var city=document.getElementById("city");
+		var area=document.getElementById("area");
+		if(city.value=="" || area.value==""){
+			alert("error!");
+		}
+		else{
+		alert(city.value);
+		alert(area.value);
+		}
+	}
+	</script>
+</head>
+<body>
+	<form>
+		<input type="text" placeholder="北京市" id="city"><br/>
+		<input type="text" placeholder="朝阳区" id="area"><br/>
+		<input type="button" value="传参" onclick="send()">
+	</form>
+</body>
+</html>

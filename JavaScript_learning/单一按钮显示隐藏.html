@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>单一按钮显示/隐藏</title>
+	<style type="text/css">
+		*{	
+			margin: 0;
+			padding: 0;
+			color: #57646E;
+		}
+		#container{
+			width: 255px;
+			margin: 10px auto;
+			border:1px solid #aaa;
+		}
+		h2{
+			background:#ced3d7 url(http://js.fgm.cc/learn/lesson2/img/ico.gif) 232px 12px no-repeat;
+			border-color:#fff #e9edf2;
+			font-size: 1.1em;
+			line-height: 30px;
+			height: 30px;
+			padding-left: 10px;
+			cursor:pointer;
+		}
+		h2.open{
+			background-position:232px -15px;
+		}
+		li{
+			list-style: none;
+			height:25px;
+			line-height:25px;
+			vertical-align:top;
+		}
+		a{	
+			display: block;
+			text-decoration: none;
+			color: black;
+			background: #e9edf2;
+			padding: 0 10px;
+		}
+		a:hover{
+			background:#fff;
+			text-decoration:underline;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload=function  () {
+		var h2=document.getElementsByTagName("h2")[0];
+		var list=document.getElementsByTagName("ul")[0];
+		h2.onclick=function  () {
+			var style=list.style;
+			style.display=style.display=="none"?"block":"none";
+			this.className=style.display=="none"?"open":"";
+		};
+	};
+	</script>
+</head>
+<body>
+	<div id="container">
+    <h2>播放列表...</h2>
+    <ul>
+        <li><a href="javascript:;">玩家之徒 - 蔡依林</a></li>
+        <li><a href="javascript:;">原谅我就是这样的女生 - 戴佩妮</a></li>
+        <li><a href="javascript:;">猜不透 - 丁当</a></li>
+        <li><a href="javascript:;">自导自演 - 周杰伦</a></li>
+        <li><a href="javascript:;">浪漫窝 - 弦子</a></li>
+        <li><a href="javascript:;">流年 - 王菲</a></li>
+    </ul>
+</div>
+</body>
+</html>

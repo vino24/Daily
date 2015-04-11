@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>求出数组中所有数的和</title>
+	<style type="text/css">
+		body{
+			font-size: 75%;
+		}
+		div#container{
+			margin: 10px auto;
+			width: 500px;
+		}
+		input[type="text"]{
+			width: 230px;
+			margin-right: 5px;
+			margin-bottom: 10px;
+		}
+		span#show{
+			display: block;
+			margin-top: 10px;
+			font-size: 2em;
+			color: red;
+			font-weight: bold;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload=function  () {
+		var oBtn=document.getElementById("sum");
+		var oInput=document.getElementsByTagName("input")[0];
+		var oShow=document.getElementById("show");
+		oInput.onkeyup=function  () {
+			this.value=this.value.replace(/[^(\d)|(,)]/,"");  //[^]匹配不在方括号内的任意字符 replace(reEpx,Text) 替换函数	此处将所有除数字和,以外的所有字符用空格替换
+		};
+		oBtn.onclick=function  () {
+			var sum=0;
+			var oInput = document.getElementsByTagName("input")[0].value.split(",");
+		//split() 分割函数
+			for(var i in oInput)
+			{	
+				var s=oInput[i];
+				if(s) //添加判断，如果以,结尾则不执行加法操作
+				sum+=parseInt(oInput[i]);
+			}
+			oShow.innerHTML=sum;
+		};
+	};
+	</script>
+</head>
+<body>
+	<div id="container">
+	<input type="text" value="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"><span>输入数字求和，数字之间用半角","号分隔</span>
+	<input type="button" value="求和" id="sum">
+	<span id="show"></span>
+	</div>
+</body>
+</html>

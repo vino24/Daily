@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Baidu</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		button{
+			display: block;
+			margin: 5px auto;
+		}
+		ul{
+			list-style-type: none;
+			border:1px solid blue;
+			width: 60px;
+			margin: 5px auto;
+			display: none;
+		}
+		li{
+			margin: 2px;
+			padding: 2px;
+		}
+		a{
+			text-decoration: none;
+		}
+		li#close{
+			border-top: 1px solid blue;
+		}
+		button{
+			cursor: pointer;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		var list=document.getElementById("list");
+		var oBtn=document.getElementsByTagName("button")[0];
+		var close=document.getElementById("close"); 
+		oBtn.onclick=function() {
+			list.style.display=list.style.display=="block"?"none":"block";	
+		};
+		close.onclick=function  () {
+			list.style.display="none";
+		};
+	}
+	</script>
+</head>
+<body>
+	<button>输入法</button>
+	<ul id="list">
+		<li><a href=" ">手写</a></li>
+		<li><a href=" ">拼写</a></li>
+		<li id="close"><a href=" ">关闭</a></li>
+	</ul>
+</body>
+</html>

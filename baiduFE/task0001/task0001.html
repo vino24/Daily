@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>TASK 0001</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <style type="text/css">
+        @font-face {
+    font-family: Helvetica;
+    src: url(Helvetica.ttf);
+}
+h1 {
+    color: #00f;
+}
+h2 {
+    font-size: 14px;
+}
+p {
+    text-indent: 2em;
+    text-align: left;
+    line-height: 2em;
+    font: 17px/20px Helvetica, "Microsoft YaHei", sans-serif;
+    color: #ff0;
+    background: #000;
+}
+img {
+    border: 2px solid red;
+}
+
+/* div灞呬腑涓ょ鏂规硶 */
+#div1 {
+    width: 960px;
+    background: #f00;
+    text-align: center;
+    margin: 10px auto;
+}
+
+#div2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+#div2in {
+    width: 960px;
+    background: #f00;
+    display: inline-block;
+}
+
+/* 鍦嗚鐭╁舰 */
+#div3 {
+    margin-bottom: 10px;
+}
+.b1, .b2, .b3, .b1b, .b2b, .b3b {
+    height: 1px;
+}
+.b2, .b3, .b4, .b2b, .b3b, .b4b, .b {
+    border-left: 1px solid #999;
+    border-right: 1px solid #999;
+}
+.b1, .b1b {
+    margin: 0 5px;
+    background: #999;
+}
+.b2, .b2b {
+    margin: 0 3px;
+    border-width: 2px;
+}
+.b3, .b3b {
+    margin: 0 2px;
+}
+.b4, .b4b {
+    height: 2px;
+    margin: 0 1px;
+}
+.d1 {
+    background: #B8DBFF;
+}
+.k {
+    height: 200px;
+}
+
+/* 涓ゅ垪甯冨眬涓ょ鏂规硶 */
+#div4 {
+    margin-bottom: 10px;
+}
+.div4-a {
+    float: left;
+    width: 50px;
+    height: 50px;
+    background: #f00;
+}
+.div4-b {
+    margin-left: 50px;
+    height: 50px;
+    background: #00f;
+}
+.div4-c {
+    clear: left;
+    wight: 100%;
+    height: 50px;
+    background: #ff0;
+}
+
+#div5 {
+    margin-bottom: 10px;
+}
+.div5-ab-wrap {
+    display: -webkit-flex;
+    display: flex;
+}
+.div5-a {
+    width: 50px;
+    height: 50px;
+    background: #f00;
+}
+.div5-b {
+    -webkit-flex: 1;
+    flex: 1;
+    height: 50px;
+    background: #00f;
+}
+.div5-c {
+    width: 100%;
+    height: 50px;
+    background: #ff0;
+}
+
+/* 涓夊垪甯冨眬涓ょ鏂规硶 */
+#div6 {
+    margin-bottom: 10px;
+}
+.div6-a {
+    float: left;
+    width: 50px;
+    height: 50px;
+    background: #f00;
+}
+.div6-b {
+    margin: 0 50px;
+    height: 50px;
+    background: #00f;
+}
+.div6-c {
+    float: right;
+    width: 50px;
+    height: 50px;
+    background: #ff0;
+}
+
+#div7 {
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.div7-a {
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin-left: -100%;
+    background: #f00;
+}
+.div7-b {
+    margin: 0 50px;
+}
+.div7-b-wrap {
+    float: left;
+    width: 100%;
+    height: 50px;
+    background: #00f;
+}
+.div7-c {
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin-left: -50px;
+    background: #ff0;
+}
+#div8 {
+    margin-bottom: 10px;
+    overflow: hidden;
+    background: #f00;
+}
+.floatbox {
+    float: left;
+    width: 100px;
+    height: 50px;
+    margin: 1em;
+    background: #00f;
+}
+    </style>
+</head>
+<body>
+    <h1>DIYgod</h1>
+    <ul>
+        <li><a href="task0001.html">HomePage</a></li>
+        <li><a href="https://www.anotherhome.net" target="_blank">Blog</a></li>
+    </ul>
+    <h2>学院介绍</h2>
+    <p>百度Web前端技术学院（Baidu Institute of Front-End Technology简称IFE）是一个由百度EFE团队、百度人力资源部校园招聘组联合出品的、面向在校大学生的前端培训组织，我们希望能够借助百度大量优秀的前端工程师以及丰富的前端知识积累，帮助大学生们更加高效、系统地学习Web前端技术。</p>
+    <img src="e1.gif" alt="head picture">
+
+    <!-- div居中两种方法 -->
+    <div id="div1">DIV1</div>
+    <div id="div2">
+        <div id="div2in">DIV2</div>
+    </div>
+
+    <!-- 圆角矩形 -->
+    <div id="div3">
+        <div class="b1"></div><div class="b2 d1"></div><div class="b3 d1"></div><div class="b4 d1"></div>
+        <div class="b d1 k"></div>
+        <div class="b4b d1"></div><div class="b3b d1"></div><div class="b2b d1"></div><div class="b1b"></div>
+    </div>
+
+    <!-- 两列布局两种方法 -->
+    <div id="div4">
+        <div class="div4-a"></div>
+        <div class="div4-b"></div>
+        <div class="div4-c"></div>
+    </div>
+    <div id="div5">
+        <div class="div5-ab-wrap">
+            <div class="div5-a"></div>
+            <div class="div5-b"></div>
+        </div>
+        <div class="div5-c"></div>
+    </div>
+
+    <!-- 三列布局两种方法 -->
+    <div id="div6">
+        <div class="div6-a"></div>
+        <div class="div6-c"></div>
+        <div class="div6-b"></div>
+    </div>
+    <div id="div7">
+        <div class="div7-b-wrap">
+            <div class="div7-b"></div>
+        </div>
+        <div class="div7-a"></div>
+        <div class="div7-c"></div>
+    </div>
+
+    <!-- 浮动布局 -->
+    <div id="div8">
+        <div class="floatbox"></div>
+        <div class="floatbox"></div>
+        <div class="floatbox"></div>
+        <div class="floatbox"></div>
+        <div class="floatbox"></div>
+        <div class="floatbox"></div>
+        <div class="floatbox"></div>
+        <div class="floatbox"></div>
+        <div class="floatbox"></div>
+    </div>
+</body>
+</html>

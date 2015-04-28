@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS布局——左定宽度右自适应宽度并且等高布局</title>
+	<style type="text/css">
+		.main {        
+		           float: left;       
+		           width: 100%;
+		           background-color: red; 
+		           		 	height: 100px;  
+		 }  
+		 .sub {       
+		           float: left;        
+		           width: 190px;        
+		           margin-left: -100%;
+		           background-color: gray;    
+		           		 	height: 100px;
+		           		 	           position: relative;        
+           left: -190px;
+		}   
+		.extra {        
+		             float: left;        
+		             width: 190px;        
+		             margin-left: -190px; 
+		             background-color: yellow;  
+		             		 	height: 100px;
+		             		 	             position: relative;        
+             right: -230px;
+		 }
+		#bd {        
+          padding: 0 230px 0 190px;   
+ }
+		</style>
+</head>
+	<div id="page">    
+	      <div id="hd"></div>    
+	         <div id="bd">        
+	              <div class="main"></div>        
+	              <div class="sub"></div>        
+	              <div class="extra"></div>    
+	         </div>   
+	      <div id="ft"></div>
+	</div>
+</html>

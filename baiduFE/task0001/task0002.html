@@ -2,44 +2,34 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>CSS布局——左定宽度右自适应宽度并且等高布局</title>
+	<title>圣杯布局</title>
 	<style type="text/css">
-		.main {        
-		           float: left;       
-		           width: 100%;
-		           background-color: red; 
-		           		 	height: 100px;  
-		 }  
-		 .sub {       
-		           float: left;        
-		           width: 190px;        
-		           margin-left: -100%;
-		           background-color: gray;    
-		           		 	height: 100px;
-		           		 	           position: relative;        
-           left: -190px;
-		}   
-		.extra {        
-		             float: left;        
-		             width: 190px;        
-		             margin-left: -190px; 
-		             background-color: yellow;  
-		             		 	height: 100px;
-		             		 	             position: relative;        
-             right: -230px;
-		 }
-		#bd {        
-          padding: 0 230px 0 190px;   
- }
+		body{padding:0;margin:0;}
+		.wrapper{
+			height:100%;
+			zoom:1;
+			overflow:hidden;
+			background:black;
+			padding:0 150px 0 200px;  /*预留空位：左内补丁=LC栏宽度  右内补丁=LR栏宽度*/
+		}
+		.wrapper:after{clear:both;content:'\20';height:0;visibility:none;}
+		.column{float:left;position:relative;}  /*三列浮动并相对定位，便于使用样式将三列拉到同一行中*/
+
+		#main{width:100%;min-height:500px;background:gray;}
+		#lc{width:200px;min-height:500px;background:red;
+			margin-left:-100%; /*把LC拉到main的同一行，左上角对齐*/
+			right:200px; /*使LC向左相对平移到边界空出来的空位上*/
+			_left:150px; /*针对IE6对margin-left:-100%的计算BUG，这里的100%宽度等于浏览器的宽度而不
+是width，因此要向右偏移出相应的值，即RC的宽度值*/
+		}
+		#rc{width:150px;min-height:500px;background:yellow;
+			margin-right:-150px; /*RC 向右拉到和main同一行边界的空位*/
+		}
 		</style>
 </head>
-	<div id="page">    
-	      <div id="hd"></div>    
-	         <div id="bd">        
-	              <div class="main"></div>        
-	              <div class="sub"></div>        
-	              <div class="extra"></div>    
-	         </div>   
-	      <div id="ft"></div>
-	</div>
+<div class="wrapper">
+	<div id="main" class="column"></div>
+	<div id="lc" class="column"></div>
+	<div id="rc" class="column"></div>
+</div>
 </html>

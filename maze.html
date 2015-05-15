@@ -37,7 +37,7 @@ window.onload = function() {
   // Draw the maze background.
   drawMaze("maze.png", 268, 5);
 
-  // When the user presses a key, run the processKey() function.
+  // When the user presses a key, run the processKey() js.
   window.onkeydown = processKey;
 };
 
@@ -161,7 +161,7 @@ function drawFrame() {
     context.drawImage(imgFace, x, y);
 
     // Check if the user has finished the maze (reached the bottom edge).
-    // If so, show a message and return from the function, so no more frames are drawn.
+    // If so, show a message and return from the js, so no more frames are drawn.
     if (y > (canvas.height - 17)) {
       alert("You win!");
       return;

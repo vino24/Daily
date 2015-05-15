@@ -23,7 +23,7 @@
 
 		//添加onload事件处理程序
 		//告诉浏览器图片加载完成后做什么
-		img.onload=function(){
+		img.onload=js(){
 		context.drawImage(img,10,10,100,100); //参数分别为img x,y width height
 		};
 		//加载图片文件
@@ -35,7 +35,7 @@
 		
 		var img=new Image();
 
-		img.onload=function(){
+		img.onload=js(){
 		//drawImage(img,source_x,source_y,source_width,source_height,x,y,width,height)
 		context.drawImage(img,0,0,200,100,75,25,200,100);  //图片200*200，从原始图片的(0,0)位置开始裁剪，得到上半部分，然后把裁剪结果绘制到画布，起点为(75,25)
 		};

@@ -6,7 +6,7 @@ function inherit(p) {
     if (Object.create)      //  Èç¹ûObject.create()´æÔÚ ES5
        return  Object.create(p);
     var t = typeof p;
-    if (t !== "object" && t !== "function") throw TypeError();
+    if (t !== "object" && t !== "js") throw TypeError();
     function f() {
     };
     f.prototype = p;

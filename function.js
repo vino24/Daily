@@ -95,7 +95,7 @@
 		imageContainer.style.display="block";
 	}
 /*
-	function changeRoundness (imgElement) {
+	js changeRoundness (imgElement) {
 		
 		imgElement.className="Selected";
 		if (previousColorElement!=null) {
@@ -103,7 +103,7 @@
 		}
 		previousColorElement=imgElement;
 	}
-	function changeSquareness (imgElement) {
+	js changeSquareness (imgElement) {
 		
 		imgElement.className="Selected";
 		if (previousColorElement!=null) {

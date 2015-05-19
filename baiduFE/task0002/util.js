@@ -56,11 +56,10 @@ function cloneObject(src) {
 
 // 对数组进行去重操作，只考虑数组中元素为数字或字符串，返回一个去重后的数组
 function uniqArray(arr) {
-    var result=[];
-    for(var i=0;i<arr.length;i++)
-    {
-        if(arr.indexOf(arr[i],i+1)==-1)
-        result.push(arr[i]);
+    var result = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (arr.indexOf(arr[i], i + 1) == -1)
+            result.push(arr[i]);
     }
     return result;
 }
@@ -90,10 +89,11 @@ function getObjectLength(obj) {
 
 // 判断是否为邮箱地址
 function isEmail(emailStr) {
-
+    return emailStr.search(/^[a-z0-9]([-_\.]?[a-z0-9]+)*@([-_]?[a-z0-9]+)+[\.][a-z]{2,7}([\.][a-z]{2})?$/i) !== -1;
 }
 
 // 判断是否为手机号
 function isMobilePhone(phone) {
-    // your implement
+    phone = phone + '';
+    return phone.search(/^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/) !== -1;
 }

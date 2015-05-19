@@ -4,13 +4,13 @@
 // 判断arr是否为一个数组，返回一个bool值
 function isArray(arr) {
     // your implement
-    return Object.prototype.toString().call(arr)==="[object Array]";
+    return Object.prototype.toString().call(arr) === "[object Array]";
 }
 
 // 判断fn是否为一个函数，返回一个bool值
 function isFunction(fn) {
     // your implement
-    return typeof fn==="js";
+    return Object.prototype.toString().call(fn) === "[object Function]";
 }
 
 // 使用递归来实现一个深度克隆，可以复制一个目标对象，返回一个完整拷贝
@@ -33,14 +33,36 @@ function cloneObject(src) {
         return clone;
         // 对于 Object
     } else if (src instanceof Object) {
+
         var clone = {};
-        for (var key in src) {
-            if (src.hasOwnProperty(key))    // 忽略继承属性
-                clone[key] = cloneObject(src[key]); //递归
-                //  clone[key]=src[key]; 结果一致 可能是由于是引用类型所致
+        /*  方法一
+         for (var key in src) {
+
+         if (src.hasOwnProperty(key))    // 忽略继承属性
+         clone[key] = cloneObject(src[key]); //递归
+         //  clone[key]=src[key]; 结果一致 可能是由于是引用类型所致
+         */
+
+        //  方法二
+        var names = Object.getOwnPropertyNames(src);
+        for (var i = 0; i < names.length; i++) {
+            if (names[i] in clone) continue;
+            var desc = Object.getOwnPropertyDescriptor(src, names[i]);
+            Object.defineProperty(clone, names[i], desc);
         }
         return clone;
     }
+}
+
+// 对数组进行去重操作，只考虑数组中元素为数字或字符串，返回一个去重后的数组
+function uniqArray(arr) {
+    var result=[];
+    for(var i=0;i<arr.length;i++)
+    {
+        if(arr.indexOf(arr[i],i+1)==-1)
+        result.push(arr[i]);
+    }
+    return result;
 }
 
 // 对字符串头尾进行空格字符的去除、包括全角半角空格、Tab等，返回一个字符串
@@ -64,4 +86,14 @@ function getObjectLength(obj) {
         }
     }
     return element;
+}
+
+// 判断是否为邮箱地址
+function isEmail(emailStr) {
+
+}
+
+// 判断是否为手机号
+function isMobilePhone(phone) {
+    // your implement
 }

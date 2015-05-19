@@ -21,6 +21,19 @@ Range.prototype = {
         return "(" + this.from + "..." + this.to + ")";
     }
 };
+//  P224
+Range.prototype.constructor = Range;
+Range.prototype.equals = function (that) {
+    return that != null && that.constructor === Range && that.from === this.from && that.to === this.to;
+};
+
+Range.prototype.compareTo = function (that) {
+    if (!that instanceof Range)
+        throw new TypeError();
+    var diff = this.from = that.from;           //  比较下边界
+    if (diff == 0) diff = this.to - that.to;    //  如果想对，比较上边界
+    return diff;
+};
 
 var r = new Range(1, 3);
 console.log(r.includes(2));

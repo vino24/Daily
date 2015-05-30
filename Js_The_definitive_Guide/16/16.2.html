@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        div.window{
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            border: 3px outset gray;
+        }
+        div.titlebar{
+            position: absolute;
+            top: 0;
+            height: 18px;
+            width: 290px;
+            background-color: #aaa;
+            border-bottom: groove gray 2px;
+            padding: 3px 5px 2px 5px;
+            font: bold 11pt sans-serif;
+        }
+        div.content{
+            position: absolute;
+            top: 25px;
+            height: 165px;
+            width: 290px;
+            padding: 5px;
+            overflow: auto;
+            background-color: #fff;
+        }
+        div.translucent{
+            opacity: .75;
+            filter: alpha(opacity=75);  /*  IE的透明度  */
+        }
+    </style>
+</head>
+<body>
+    <div class="window" style="left: 10px;top: 10px;z-index: 10;">
+        <div class="titlebar">Test window</div>
+        <div class="content">
+            1<br>
+            1<br>
+            1<br>
+            1<br>
+            1<br>
+            1<br>
+            1<br>
+            1<br>
+            1<br>
+            1<br>
+            1<br>
+            1<br>
+            1<br>
+            1<br>
+        </div>
+    </div>
+<div class="window" style="left: 75px;top: 110px;z-index: 20;">
+    <div class="titlebar">Another window</div>
+    <div class="content translucent" style="background-color: #ccc;font-weight: bold;">
+        sb sbsbsb
+        sb sbsbsb
+        sb sbsbsb
+        sb sbsbsb
+    </div>
+</div>
+</body>
+</html>

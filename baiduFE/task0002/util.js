@@ -3,8 +3,12 @@
  */
 // 判断arr是否为一个数组，返回一个bool值
 function isArray(arr) {
-    // your implement
-    return Object.prototype.toString().call(arr) === "[object Array]";
+    return Object.prototype.toString.call(arr) === "[object Array]";
+    //  return Array.isArray(arr);
+}
+//  判断ch是否为字符串
+function isChar(ch) {
+    return Object.prototype.toString.call(ch)==="[object String]";
 }
 
 // 判断fn是否为一个函数，返回一个bool值
@@ -43,7 +47,11 @@ function cloneObject(src) {
          //  clone[key]=src[key]; 结果一致 可能是由于是引用类型所致
          */
 
-        //  方法二
+        /*
+        方法二
+         return JSON.parse(JSON.stringify(src));
+         */
+        //  方法三
         var names = Object.getOwnPropertyNames(src);
         for (var i = 0; i < names.length; i++) {
             if (names[i] in clone) continue;

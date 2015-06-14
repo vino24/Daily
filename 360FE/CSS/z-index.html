@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>堆叠上下文</title>
+    <style type="text/css">
+        nav {
+            position: fixed;
+            top: 0;
+        }
+
+        nav ul {
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            background: red;
+            padding: 1em;
+            width: 10em;
+        }
+
+        #dialog {
+            display: none;
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background: blue;
+            height: 10em;
+            width: 10em;
+        }
+
+        body {
+            color: #fff;
+        }
+
+        li {
+
+            margin: 1em 0;
+            list-style: none;
+        }
+
+        #dialog {
+            padding: 1em;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <ul>
+        <li>菜单1</li>
+        <li>菜单2</li>
+    </ul>
+</nav>
+
+<div id="dialog">
+    dialog content
+</div>
+</body>
+</html>

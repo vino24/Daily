@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    window.requestAnimationFrame = (function(){
+
+        return window.requestAnimationFrame ||    //IE10以及以上版本，以及最新谷歌，火狐版本
+
+                window.webkitRequestAnimationFrame ||   //谷歌老版本
+
+                window.mozRequestAnimationFrame ||   //火狐老版本
+
+                function(callback){    //IE9以及以下版本
+
+                    window.setTimeout(callback , 1000/60);  //这里强制让动画一秒刷新60次，这里之所以设置为16.7毫秒刷新一次，是因为requestAnimationFrame默认也是16.7毫秒刷新一次。
+
+                }
+
+    })();
+    var start = Date.now(),
+            dur = 3000;
+    var body = document.body;
+    requestAnimationFrame(function f() {
+        var p = (Date.now() - start) / dur;
+        if (p < 1) {
+            var r = 0 | (255 * (1 - p)), g = 0 | (255 * p), b = 0 | (255 * Math.sin(p * Math.PI));
+            body.style.backgroundColor = "rgb(" + [r, g, b] + ")";
+            console.log(body.style.backgroundColor);
+            requestAnimationFrame(f);
+        } else {
+            body.style.backgroundColor = "rgb(0, 255, 0)";
+        }
+    });
+</script>
+</body>
+</html>

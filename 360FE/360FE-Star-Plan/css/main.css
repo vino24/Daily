@@ -1,0 +1,283 @@
+/* general styles
+-------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Microsoft YaHei, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+p {
+    text-indent: 2em;
+}
+
+h4 {
+    padding-bottom: 8px;
+}
+
+button {
+    border-width: 0;
+    font-weight: bold;
+    margin: 3px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+body {
+    min-width: 980px;
+    background-image: url(../images/bg.gif);
+    background-repeat: repeat;
+    background-position: top center;
+    background-attachment: scroll;
+}
+
+/* clearfix */
+.clear:after {
+    content: "\200B";
+    height: 0;
+    display: block;
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* page structures
+-------------------------------------------- */
+
+/* -----------------------------------
+	header
+------------------------------------- */
+header {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    background: #47456D;
+}
+
+.head-c {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    color: gray;
+}
+
+.head-c span {
+    vertical-align: middle;
+}
+
+#icon-360 {
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+}
+
+@media (max-width: 980px) {
+    .icon-360 {
+        display: none;
+    }
+}
+
+/* -----------------------------------
+	main layout
+------------------------------------- */
+.main {
+    width: 980px;
+    margin: 100px auto 30px;
+    position: relative;
+}
+
+.content {
+    float: right;
+    width: 487px;
+    background: #fff;
+    margin-bottom: 100px;
+}
+
+.sidebar {
+    float: left;
+    width: 487px;
+    background: #fff;
+    height: 1975px;
+}
+
+/* -----------------------------------
+	right column
+------------------------------------- */
+
+.info {
+    position: relative;
+    margin: 0 130px 150px 50px;
+}
+
+.info h2 {
+    position: absolute;
+    left: -250px;
+    font-size: 20px;
+    float: left;
+}
+
+.info span, .info p, time {
+    font-size: 14px;
+    line-height: 200%;
+    display: block;
+}
+
+.info-activity-item, .info-project-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.info-time {
+    position: absolute;
+    left: -88px;
+    border: 5px solid #e2e2e2;
+    border-radius: 10px;
+    width: 60px;
+    color: #888;
+    background: #fff;
+    text-align: center;
+}
+
+.info .photo {
+    position: absolute;
+    left: -110px;
+    top: -120px;
+    border: 5px solid #e2e2e2;
+    border-radius: 50%;
+    float: left;
+}
+
+.photo, .img, .mask, .border {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.img {
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.mask, .border {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.mask {
+    text-align: center;
+    color: rgba(255, 255, 255, 0);
+    transition: all, .5s, ease-in;
+}
+
+.msg {
+    margin-top: 50%;
+    transform: translateY(-50%);
+}
+
+.border {
+    border: 10px solid black;
+    border-left-color: white;
+    border-top-color: white;
+    box-sizing: border-box;
+}
+
+.photo:hover .mask {
+    background-color: rgba(0, 0, 0, .5);
+    color: rgba(255, 255, 255, 1);
+}
+
+.photo:hover .border {
+    transform: rotate(180deg);
+}
+
+.info-profile {
+    margin-top: 130px;
+}
+
+.info .avatar {
+    width: 160px;
+    height: 160px;
+    left: -140px;
+    top: -180px;
+    border-size: 10px;
+    background: gray;
+}
+
+/* -----------------------------------
+	left column
+------------------------------------- */
+
+/* video */
+.videoPlayer {
+    position: absolute;
+    padding: 0.3em;
+    border-radius: 1em;
+    background-color: #ededed;
+    border: 1px solid #b1b1b1;
+    box-shadow: 0 0.1em 0.3em #ccc;
+    top: 40%;
+    margin-left: 20px;
+}
+
+#video {
+    cursor: pointer;
+}
+
+#videoControls {
+    width: 100%;
+    box-sizing: border-box;
+    background: black;
+}
+
+#progressWrap {
+    height: 20px;
+    cursor: pointer;
+}
+
+#playProgress {
+    height: 20px;
+    color: white;
+    background: steelblue;
+    text-align: center;
+}
+
+#fullScreenBtn {
+    position: absolute;
+    right: 0.5em;
+}
+
+/* wechat_qc */
+#wechat {
+    position: absolute;
+    width: 120px;
+    top: 63%;
+    left: 27%;
+    padding: 0.5em;
+    border: 1px solid #b1b1b1;
+    display: none;
+}
+
+/* website */
+iframe {
+    position: absolute;
+    top: 75%;
+    padding: 0.3em;
+    margin: 0.5em;
+    border-radius: 0.5em;
+    background-color: #ededed;
+    border: 1px solid #b1b1b1;
+    box-shadow: 0 0.1em 0.3em #ccc;
+}

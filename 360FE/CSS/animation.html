@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animation</title>
+    <style type="text/css">
+        .arrow {
+            left: 50%;
+            bottom: 0;
+            position: fixed;
+            margin-left: -40px;
+            border-top: 20px solid red;
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+            animation: indicate 1s linear infinite;
+        }
+
+        .arrow::before {
+            width: 80px;
+            display: block;
+            position: absolute;
+            text-align: center;
+            font: .75em 'Arial';
+            content: "Scroll Down";
+            bottom: 25px; left: -40px;
+        }
+
+        @keyframes indicate {
+            0% { bottom: 10% }
+            100% { bottom: -10%; opacity: 0 }
+        }
+    </style>
+</head>
+<body>
+    <div class="arrow"></div>
+</body>
+</html>

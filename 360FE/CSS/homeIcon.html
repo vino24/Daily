@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小房子图标</title>
+    <style type="text/css">
+    /*
+     TODO: 默认与顶部有18px距离，显式设置其height=0也无效，靠,line-height=0往上走一小段 靠
+     */
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #home-icon:before {
+            width: 0;
+            height: 0;
+            border-bottom: 50px solid #773B87;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            content: "";
+        }
+
+        #home-icon:after {
+            border-top: 30px solid darkslategrey;
+            border-left: 30px solid darkslategrey;
+            border-right: 30px solid darkslategrey;
+            width: 10px;
+            height: 15px;
+            content: "";
+            position: absolute;
+            top: 66px;
+            left: 15px;
+        }
+    </style>
+</head>
+<body>
+<div id="home-icon"></div>
+</body>
+</html>

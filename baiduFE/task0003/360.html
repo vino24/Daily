@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="container">
+    <div id="task" class="col">
+        <input type="text" placeholder="请输入任务名称" id="newtask">
+        <input type="date" id="taskdate">
+        <ul id="tasklist">
+            <li><a><span class='checkbox'></span><span class="taskname">看见北京站</span></a>
+                <time class='tasktime'>2015-06-27</time>
+            </li>
+        </ul>
+        <div id="showcomplete">
+            <a>
+                <text rel="settings_show_completed_tasks_mobile">已完成任务</text>
+            </a>
+        </div>
+        <ul id="completetask" class="checked">
+            <li><a><span class='checkbox'></span><span class="taskname">勾三搭四跨年演唱会</span></a>
+                <time class='tasktime'>2013-12-31</time>
+            </li>
+        </ul>
+    </div>
+    <div id="type" class="col">
+    </div>
+    <div id="details" class="col">
+    </div>
+</div>
+<script type="text/javascript">
+    (function /* setHeight */() {
+        document.getElementById("task").style.height = document.documentElement.clientHeight + "px";
+    })();
+</script>
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

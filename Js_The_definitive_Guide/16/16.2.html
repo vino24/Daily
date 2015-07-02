@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <title></title>
     <style type="text/css">
-        div.window{
+
+
+
+
+        div.window {
             position: absolute;
             width: 300px;
             height: 200px;
             border: 3px outset gray;
         }
-        div.titlebar{
+
+        div.titlebar {
             position: absolute;
             top: 0;
             height: 18px;
@@ -20,7 +25,8 @@
             padding: 3px 5px 2px 5px;
             font: bold 11pt sans-serif;
         }
-        div.content{
+
+        div.content {
             position: absolute;
             top: 25px;
             height: 165px;
@@ -29,32 +35,33 @@
             overflow: auto;
             background-color: #fff;
         }
-        div.translucent{
+
+        div.translucent {
             opacity: .75;
-            filter: alpha(opacity=75);  /*  IE的透明度  */
+            filter: alpha(opacity=75); /*  IE的透明度  */
         }
     </style>
 </head>
 <body>
-    <div class="window" style="left: 10px;top: 10px;z-index: 10;">
-        <div class="titlebar">Test window</div>
-        <div class="content">
-            1<br>
-            1<br>
-            1<br>
-            1<br>
-            1<br>
-            1<br>
-            1<br>
-            1<br>
-            1<br>
-            1<br>
-            1<br>
-            1<br>
-            1<br>
-            1<br>
-        </div>
+<div class="window" style="left: 10px;top: 10px;z-index: 10;">
+    <div class="titlebar">Test window</div>
+    <div class="content">
+        1<br>
+        1<br>
+        1<br>
+        1<br>
+        1<br>
+        1<br>
+        1<br>
+        1<br>
+        1<br>
+        1<br>
+        1<br>
+        1<br>
+        1<br>
+        1<br>
     </div>
+</div>
 <div class="window" style="left: 75px;top: 110px;z-index: 20;">
     <div class="titlebar">Another window</div>
     <div class="content translucent" style="background-color: #ccc;font-weight: bold;">
@@ -66,3 +73,4 @@
 </div>
 </body>
 </html>
+

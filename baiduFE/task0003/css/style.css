@@ -1,0 +1,129 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Microsoft YaHei, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+    color: black;
+    cursor: default;
+}
+
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+span {
+    display: inline-block;
+}
+
+/* layout */
+
+#container {
+    overflow: hidden;
+    padding-left: 200px;
+}
+
+/* ÷–º‰¿∏ */
+#task {
+    width: 100%;
+    background-image: url("bg.jpg");
+    background-size: cover;
+}
+
+/* left */
+#type {
+    width: 200px;
+    margin-left: -100%;
+    background-color: #009900;
+    left: -200px;
+}
+
+/* right */
+#details {
+    width: 250px;
+    margin-left: -250px;
+    background-color: #B8DBFF;
+    right: -250px;
+    display: none;
+}
+.col {
+    position: relative;
+    float: left;
+    padding-bottom: 999px;
+    margin-bottom: -999px;
+}
+
+#newtask, #tasklist a, #completetask a {
+    width: 95%;
+    margin: 10px;
+    box-sizing: border-box;
+    padding: 5px;
+    background-color: white;
+    border-radius: 5px;
+    line-height: 1.5em;
+}
+
+#taskdate {
+    position: absolute;
+    right: 60px;
+    top: 15px;
+}
+
+.tasktime {
+    position: relative;
+    float: right;
+    top: -40px;
+    right: 70px;
+}
+
+.checkbox {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.26);
+    display: inline-block;
+    background: -webkit-linear-gradient(top, rgba(217, 217, 215, 0), rgba(217, 217, 215, 0.26));
+    background: -moz-linear-gradient(top, rgba(217, 217, 215, 0), rgba(217, 217, 215, 0.26));
+    background: -o-linear-gradient(top, rgba(217, 217, 215, 0), rgba(217, 217, 215, 0.26));
+    background: -ms-linear-gradient(top, rgba(217, 217, 215, 0), rgba(217, 217, 215, 0.26));
+    background: linear-gradient(to bottom, rgba(217, 217, 215, 0), rgba(217, 217, 215, 0.26));
+    position: relative;
+    cursor: pointer;
+}
+
+.checked {
+    opacity: .6;
+}
+
+.checked span.taskname {
+    text-decoration: line-through;
+}
+
+.taskname {
+    vertical-align: text-bottom;
+}
+
+#showcomplete {
+    margin-left: 20px;
+}
+
+#showcomplete a {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-weight: 400;
+    display: inline-block;
+    box-sizing: border-box;
+    line-height: 16px;
+}

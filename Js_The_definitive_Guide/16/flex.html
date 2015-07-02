@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8"/>
+    <title>WEB ALL STAR</title>
+</head>
+<body>
+<div class="wrapper">
+    <div class="nav"></div>
+    <div class="content"></div>
+</div>
+<script type='text/javascript' src='http://ajax.useso.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+<script>
+
+    function initSlide() {
+        list = [
+            ['tabA', 'this is tabA'],
+            ['tabB', 'this is tabB'],
+            ['tabC', 'this is tabC'],
+            ['tabD', 'this is tabD'],
+            ['tabE', 'this is tabE'],
+            ['tabF', 'this is tabF']
+        ];
+
+        $('.content').append('<div class="slide"></div>');
+        var slideLastChild = $('.content .slide:last-child');
+        slideLastChild.append('<ul class="tab-wrapper"></ul>');
+        var tabWrapper = $('.content .slide:last-child .tab-wrapper');
+        tabWrapper.css('border', '1px solid #333').css('display', 'inline-block');
+        slideLastChild.append('<ul class="content-wrapper"></ul>');
+        var contentWrapper = $('.content .slide:last-child .content-wrapper');
+        contentWrapper.css('border', '1px solid #333');
+
+        for (i in list) {
+            buildDom(i);
+            var tabWrapperLi = $('.content .slide:last-child .tab-wrapper li');
+            var contentWrapperLi = $('.content .slide:last-child .content-wrapper li')
+            if (i == 0) {
+                tabWrapperLi.eq(i)
+                        .css('border', '1px solid red');
+            } else {
+                contentWrapperLi.eq(i).hide();
+            }
+
+            delegate(tabWrapper,"li","click",function () {
+                tabWrapperLi.css('border', 'none');
+                tabWrapperLi.eq(i).css('border', '1px solid red');
+                contentWrapperLi.hide();
+                contentWrapperLi.eq(i).show();
+            });
+        }
+
+        function buildDom(i) {
+            buildTab(list[i][0]);
+            buildContent(list[i][1]);
+
+            function buildTab(str) {
+                tabWrapper.append('<li></li>');
+                $('.content .slide:last-child .tab-wrapper li:last-child')
+                        .html(str)
+                        .css('display', 'inline-block')
+                        .css('padding', '10px');
+
+            }
+
+            function buildContent(str) {
+                contentWrapper.append('<li></li>');
+                $('.content .slide:last-child .content-wrapper li:last-child').html(str);
+            }
+        }
+    }
+    function delegate(ele, tag, eventName, listener) {
+        addEvent(ele, eventName, function (e) {
+            var event = e || window.event;
+            var target = event.target || event.srcElement;
+            if (target.nodeName.toLowerCase() == tag) {
+                listener(target);
+            }
+        });
+    }
+    function addEvent(ele, event, listener) {
+        if (ele.addEventListener) {
+            ele.addEventListener(event, listener, false);
+        } else if (ele.attachEvent) {
+            ele.attachEvent("on" + event, listener);
+        } else {
+            ele["on" + event] = listener;
+        }
+    }
+
+    delegate($('.content .wrapper'), "a", "click", function (target) {
+        (function setContent(target) {
+            var content = target.parentNode.nextSibling;
+            var new_content = target.getAttribute("mytext");
+            content.innerHTML = new_content;
+        })();
+    });
+    $(document).ready(function () {
+        console.time('start');
+
+        for (var i = 0; i < 1; i++) {
+            initSlide();
+        }
+        console.timeEnd('start');
+    });
+</script>
+</body>

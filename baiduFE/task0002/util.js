@@ -6,9 +6,10 @@ function isArray(arr) {
     return Object.prototype.toString.call(arr) === "[object Array]";
     //  return Array.isArray(arr);
 }
-//  判断ch是否为字符串
-function isChar(ch) {
-    return Object.prototype.toString.call(ch)==="[object String]";
+//  判断str是否为字符串
+function isString(str) {
+    // return Object.prototype.toString.call(str) === "[object String]";
+    return Object.prototype.toString.call(str).slice(8, -1) === "String";
 }
 
 // 判断fn是否为一个函数，返回一个bool值
@@ -48,7 +49,7 @@ function cloneObject(src) {
          */
 
         /*
-        方法二
+         方法二
          return JSON.parse(JSON.stringify(src));
          */
         //  方法三
@@ -70,6 +71,12 @@ function uniqArray(arr) {
             result.push(arr[i]);
     }
     return result;
+}
+// 压缩稀疏数组
+function dense(arr) {
+    return arr.filter(function () {
+        return true;
+    });
 }
 
 // 对字符串头尾进行空格字符的去除、包括全角半角空格、Tab等，返回一个字符串
@@ -104,4 +111,22 @@ function isEmail(emailStr) {
 function isMobilePhone(phone) {
     phone = phone + '';
     return phone.search(/^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/) !== -1;
+}
+
+function hasClass(element, ClassName) {
+    var name = element.className.split(" ");
+    if (name.indexOf(ClassName) !== -1)
+        return true;
+}
+
+// 为element增加一个样式名为newClassName的新样式
+function addClass(element, newClassName) {
+    if (!hasClass(element, newClassName))
+        element.className += " " + newClassName;
+}
+
+// 移除element中的样式oldClassName
+function removeClass(element, oldClassName) {
+    if (!hasClass(element, oldClassName))
+        element.className = element.className.replace(oldClassName, "");
 }

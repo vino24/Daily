@@ -1,0 +1,43 @@
+<!--
+* Created by 你的特仑苏 on 2015/7/8.
+* 上下文菜单事件 卸载前事件 鼠标滚轮事件
+-->
+<html>
+<body>
+<div id="myDiv">Click</div>
+<ul id="myMenu" style="position: absolute;visibility: hidden;background: silver">
+    <li>s1</li>
+    <li>s2</li>
+    <li>s3</li>
+</ul>
+</body>
+<script type="text/javascript">
+    window.addEventListener("load", function (event) {
+        var div = document.getElementById("myDiv");
+        div.addEventListener("contextmenu", function (event) {
+            event.preventDefault();
+
+            var menu = document.getElementById("myMenu");
+            menu.style.left = event.clientX + "px";
+            menu.style.top = event.clientY + "px";
+            menu.style.visibility = "visible";
+        });
+        document.addEventListener("click", function (event) {
+            document.getElementById("myMenu").style.visibility = "hidden";
+        }, false);
+    }, false);
+
+    //  卸载前事件
+    window.addEventListener("beforeunload", function (event) {
+        event.returnValue = "I'm really goning to miss you if you go";
+    }, false);
+
+    //    鼠标滚轮事件
+    document.addEventListener("mousewheel", function (event) {
+        alert(event.wheelDelta);
+    }, false);
+    document.addEventListener("DOMMouseScroll", function (event) {
+        alert(-event.detail * 40);
+    }, false);
+</script>
+</html>

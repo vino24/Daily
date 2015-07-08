@@ -1,0 +1,32 @@
+<!--
+    JavaScript性能优化
+        1.事件委托
+        2.移除空事件处理程序
+-->
+<!DOCTYPE html>
+<hmtl>
+    <body>
+        <ul id="myLinks">
+            <li id="go">Go</li>
+            <li id="do">Do</li>
+            <li id="say">Say</li>
+        </ul>
+    </body>
+    <script type="text/javascript">
+        var list=document.getElementById("myLinks");
+        list.addEventListener("click", function (event) {
+            var target=event.target;
+            switch (target.id) {
+                case "do":
+                    document.title="title";
+                    break;
+                case "go":
+                    location.href="http://www.iminyao.com";
+                    break;
+                case "say":
+                    alert("hi");
+                    break;
+            }
+        },false);
+    </script>
+</hmtl>

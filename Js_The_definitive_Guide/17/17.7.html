@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        #clock {
+            font: bold 24px sans;
+            background: #ddf;
+            padding: 10px;
+            border: solid black 2px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>从时钟拖出时间戳</h1>
+<span id="clock"></span>
+<textarea cols="60" rows="20"></textarea>
+</body>
+<script type="text/javascript">
+    /**
+     * Created by 你的特仑苏 on 2015/7/8.
+     *  P469
+     *  拖放事件（DnD）
+     */
+    window.onload = function () {
+        var clock = document.getElementById("clock");
+
+        function displayTime() {
+            var now = new Date();
+            var hrs = now.getHours(), mins = now.getMinutes();
+            if (mins < 10) mins = "0" + mins;
+            clock.innerHTML = hrs + ":" + mins;
+            setTimeout(displayTime, 600);
+        }
+
+        displayTime();
+
+//    使时钟能够拖动
+        clock.draggable = true;
+
+//        设置拖动事件处理程序
+        clock.ondragstart = function (event) {
+            var event = event || window.event;
+
+//            dataTransfer属性是拖放API的关键
+            var dt = event.dataTransfer;
+
+//            告诉浏览器正在拖动的东西
+            dt.setData("Text", Date() + "\n");
+        };
+    };
+</script>
+</html>
+

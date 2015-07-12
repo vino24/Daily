@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>九宫格</title>
+    <style type="text/css">
+        ul {
+            width: 165px;
+        }
+        li {
+            list-style: none;
+            float: left;
+            margin-right: -5px; /* 关键点1 */
+            margin-bottom: -5px;
+        }
+        a {
+            display: inline-block;
+            position: relative; /* 关键点2:设置relative才能应用z-index */
+            width: 50px;
+            height: 50px;
+            border: 5px solid red;
+            text-align: center;
+            line-height: 50px;
+            text-decoration: none;
+        }
+        a:hover  {
+            border-color: gray;
+            z-index: 1;  /* 关键点3：使hover时边能处在上层 */
+        }
+    </style>
+</head>
+<body>
+    <ul id="box">
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
+        <li><a href="#">7</a></li>
+        <li><a href="#">8</a></li>
+        <li><a href="#">9</a></li>
+    </ul>
+</body>
+</html>

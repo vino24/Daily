@@ -48,6 +48,7 @@ input {
 		function handleServerResponse () {
 			if((req.readyState==4)&&(req.status==200)){
 				var result=req.responseText;
+				console.log(result);
 				document.getElementById("result").innerHTML="The answer is:" + result +".";
 			}
 		}

@@ -1,0 +1,36 @@
+<!--
+要求：
+    使用一个标签和纯CSS <a href="#" title="订阅博客">订阅博客</a> 实现如图效果，文字始终保持左边距10px,
+    下边距5px，改变字体大小（12px-44px）时，边距保持不变，不使用 content:"订阅博客"，兼容现代浏览器
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字体放大</title>
+    <style type="text/css">
+        a {
+            /*
+                display:table-cell+vertical-align实现效果
+            */
+            display: table-cell;
+            vertical-align: bottom;
+            text-decoration: none;
+            width: 200px;
+            height: 100px;
+            background-color: gray;
+            border-bottom: 2px solid red;
+            padding: 0 0  5px 10px;
+            color: #444;
+            transition: font-size ease-in 1s,background-color linear 3s;
+        }
+        a:hover {
+            font-size: 44px;
+            background-color: #005590;
+        }
+    </style>
+</head>
+<body>
+<a href="#" title="订阅博客">订阅博客</a>
+</body>
+</html>

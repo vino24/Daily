@@ -1,0 +1,71 @@
+<!--
+    1、三列布局，中间宽度自适应，两边定宽；
+    2、中间栏要在浏览器中优先展示渲染；
+    3、允许任意列的高度最高；
+    4、要求只用一个额外的DIV标签；
+    5、要求用最简单的CSS、最少的HACK语句
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圣杯布局</title>
+    <style type="text/css">
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrapper {
+            height: 100%;
+            zoom: 1;
+            overflow: hidden;
+            background: black;
+            padding: 0 150px 0 200px; /*预留空位：左内补丁=LC栏宽度  右内补丁=LR栏宽度*/
+        }
+
+        .wrapper:after {
+            clear: both;
+            content: '\20';
+            height: 0;
+            visibility: hidden;
+        }
+
+        .column {
+            float: left;
+            position: relative;
+            min-height: 500px;
+        }
+
+        /*三列浮动并相对定位，便于使用样式将三列拉到同一行中*/
+
+        #main {
+            width: 100%;
+            background: gray;
+        }
+
+        #lc {
+            width: 200px;
+            background: red;
+            margin-left: -100%; /*把LC拉到main的同一行，左上角对齐*/
+            right: 200px; /*使LC向左相对平移到边界空出来的空位上*/
+            _left: 150px;
+            /*针对IE6对margin-left:-100%的计算BUG，这里的100%宽度等于浏览器的宽度而不
+           是width，因此要向右偏移出相应的值，即RC的宽度值*/
+        }
+
+        #rc {
+            width: 150px;
+            background: yellow;
+            margin-right: -150px; /*RC 向右拉到和main同一行边界的空位*/
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div id="main" class="column"></div>
+    <div id="lc" class="column"></div>
+    <div id="rc" class="column"></div>
+</div>
+</body>
+</html>

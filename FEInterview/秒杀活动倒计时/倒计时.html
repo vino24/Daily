@@ -1,0 +1,54 @@
+<!--
+    由秒杀活动想到的:
+        https://github.com/fwon/blog/issues/13
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        div.wrapper {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <h1>距离2015年10月23日还有：</h1>
+    <span id="less_day"></span>天
+    <span id="less_hour"></span>时
+    <span id="less_minutes"></span>分
+    <span id="less_seconds"></span>秒
+</div>
+<script>
+    setInterval(timer, 1000); // 每隔1S执行一次
+    function timer() {
+        var ts = (new Date("2015/10/23")) - (new Date()); //设置目标时间，并计算剩余的毫秒数
+//        console.log(ts);
+        var dd = checkTime(parseInt(ts / 1000 / 60 / 60 / 24));  //计算剩余天数
+        var hh = checkTime(parseInt(ts / 1000 / 60 / 60 % 24));  //计算剩余小时
+        var mm = checkTime(parseInt(ts / 1000 / 60 % 60));       //计算剩余分钟
+        var ss = checkTime(parseInt(ts / 1000 % 60));        //秒数
+
+        //在剩余时间的数字小于10时转换为0X
+        document.getElementById("less_day").innerHTML = dd;
+        document.getElementById("less_hour").innerHTML = hh;
+        document.getElementById("less_minutes").innerHTML = mm;
+        document.getElementById("less_seconds").innerHTML = ss;
+    }
+
+    //为了美观，在剩余时间的数字小于10时转换为0X
+    function checkTime(i) {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
+</script>
+</body>
+</html>

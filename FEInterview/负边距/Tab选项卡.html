@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tab选项卡</title>
+    <style type="text/css">
+        ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+        .demoTab {
+            width: 400px;
+            font: 14px/1.5 Microsoft YaHei, verdana, Helvetica, Arial, sans-serif;
+        }
+
+        .demoTab .demoTabHd {
+            margin-bottom: -1px;
+            border: 1px solid #6C92AD;
+            border-bottom: none;
+            background: #EAF0FD;
+        }
+
+        .demoTab .demoTabNav {
+            height: 28px;
+            overflow: hidden;
+            *zoom: 1;
+        }
+
+        .demoTab .demoTabList {
+            float: left;
+            margin-left: -1px;
+            padding: 0 22px;
+            line-height: 28px;
+            border-left: 1px solid #6C92AD;
+            border-right: 1px solid #6C92AD;
+            font-weight: bold;
+            color: #005590;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .demoTab .demoTabList.current {
+            position: relative;
+            background: #fff;
+        }
+
+        .demoTab .demoTabBd {
+            border: 1px solid #6C92AD;
+        }
+
+        .demoTab .demoTabBd .roundBox {
+            padding: 15px;
+        }
+
+        .demoTab .demoTabContent {
+            display: none;
+        }
+
+        .demoTab .demoTabContent.current {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="demoTab" class="demoTab">
+        <div class="demoTabHd">
+            <ul class="demoTabNav clearfix">
+                <li class="demoTabList current">前端</li>
+                <li class="demoTabList">实战</li>
+                <li class="demoTabList">交互</li>
+                <li class="demoTabList">优化</li>
+            </ul>
+        </div>
+        <div class="demoTabBd">
+            <div class="roundBox">
+                <div class="demoTabContent current">
+                    这是第一个选项卡的内容，现如今，负margin技术的应用可谓越来越广，任一个大型站点惊鸿一瞥之下都会有其身影所在。个人认为负margin技术是学习css路上必不可缺少的课题之一，许多高级应用及疑难杂症修复都可以使用负margin技术进行实现。
+                </div>
+                <div class="demoTabContent">
+                    这是第二个选项卡的内容，HICSS，这里是一个纯粹的前端技术分享网站，也是我记录工作体会和生活琐事的地方。理论为辅，实战为主，专注于前端开发。相信你在这里能够发现自己需要的东西，同时也希望你能前来一起分享你的知识。谢谢！
+                </div>
+                <div class="demoTabContent">
+                    这是第三个选项卡的内容，HICSS，互联网的最大意义就是分享信息，我很乐意将自己在工作与学习中遇到的问题与解决经验与大家分享，同时还总结、归纳了一部分网上不错的学习资源来让大家更集中地获取信息，这个平台就是现在您所看到的HiCSS。
+                </div>
+                <div class="demoTabContent">
+                    这是第四个选项卡的内容，据我所知至今没有一套完整的关于负margin专题研究的文章。有也仅仅是偏理论或者偏实例，理论终究是理论，学以致用才是根本，而有了实例你还得知道其原理，授人鱼不如授人以渔。这些都是文字文字文字文字文字。
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

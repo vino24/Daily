@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        .m-demo {
+            width: 400px;
+            height: 400px;
+            border: 1px solid #000000;
+            /*对包含元素浮动的情况不适用，IE6、7不兼容*/
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .m-demo div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #FF0000;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<div class="m-demo">
+    <div></div>
+</div>
+</body>
+</html>

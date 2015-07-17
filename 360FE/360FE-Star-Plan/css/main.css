@@ -77,14 +77,14 @@ header {
     vertical-align: middle;
 }
 
-#icon-360 {
+#icon-alibaba {
     position: absolute;
-    right: 10px;
-    bottom: 0;
+    right: 20px;
+    bottom: -32px;
 }
 
 @media (max-width: 980px) {
-    .icon-360 {
+    .icon-alibaba {
         display: none;
     }
 }
@@ -103,13 +103,14 @@ header {
     width: 487px;
     background: #fff;
     margin-bottom: 100px;
+    height: 2400px;
 }
 
 .sidebar {
     float: left;
     width: 487px;
     background: #fff;
-    height: 1975px;
+    height: 2400px;
 }
 
 /* -----------------------------------
@@ -228,7 +229,7 @@ header {
     background-color: #ededed;
     border: 1px solid #b1b1b1;
     box-shadow: 0 0.1em 0.3em #ccc;
-    top: 40%;
+    top: 36%;
     margin-left: 20px;
 }
 
@@ -250,7 +251,7 @@ header {
 #playProgress {
     height: 20px;
     color: white;
-    background: steelblue;
+    background: gray;
     text-align: center;
 }
 
@@ -263,17 +264,27 @@ header {
 #wechat {
     position: absolute;
     width: 120px;
-    top: 63%;
-    left: 27%;
+    top: 68%;
+    left: 18%;
     padding: 0.5em;
     border: 1px solid #b1b1b1;
-    display: none;
+  //  display: none;
+}
+
+/* 360FE */
+#FE {
+    position: absolute;
+    top: 52%;
+    left: 7%;
+    padding: 0.5em;
+    border: 1px solid #b1b1b1;
 }
 
 /* website */
 iframe {
     position: absolute;
-    top: 75%;
+    top: 78%;
+    left: 5%;
     padding: 0.3em;
     margin: 0.5em;
     border-radius: 0.5em;

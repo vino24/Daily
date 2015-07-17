@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #parent {
+            display: table;
+            text-align: center;
+            background: gray;
+        }
+
+        #child {
+            display: table-cell;
+            *display: inline-block; //IE6、7
+            width: 200px;
+            height: 200px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+<div id="parent">
+    <div id="child">Content here</div>
+</div>
+</body>
+</html>

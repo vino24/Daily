@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #parent {
+            height: 250px;
+            background: gray;
+        }
+
+        #floater {
+            float: left;
+            height: 50%;
+            width: 100%;
+            margin-bottom: -50px;
+        }
+
+        #child {
+            clear: both;
+            height: 100px;
+            width: 100px;
+            margin: auto;
+            background: firebrick;
+        }
+    </style>
+</head>
+<body>
+<div id="parent">
+    <div id="floater"></div>
+    <div id="child"></div>
+</div>
+</body>
+</html>

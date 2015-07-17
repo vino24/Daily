@@ -67,11 +67,13 @@ function cloneObject(src) {
 function uniqArray(arr) {
     var result = [];
     for (var i = 0; i < arr.length; i++) {
-        if (arr.indexOf(arr[i], i + 1) == -1)
-            result.push(arr[i]);
+        var ietm=arr[i];    // 性能优化
+        if (arr.indexOf(item, i + 1) == -1)
+            result.push(item);
     }
     return result;
 }
+
 // 压缩稀疏数组
 function dense(arr) {
     return arr.filter(function () {

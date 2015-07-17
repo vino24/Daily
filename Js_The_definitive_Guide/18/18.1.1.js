@@ -27,6 +27,7 @@ function getText(url, callback) {
 }
 
 /*
+ p492
  同步响应
  */
 function getText(url, callback) {
@@ -42,3 +43,32 @@ function getText(url, callback) {
     return request.responseText;
 }
 
+/*
+ P493
+ 解析HTTP响应
+ */
+function get(url, callback) {
+    var request = new XMLHttpRequest();
+    request.open("GET", url);
+    request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+            //    获取响应的类型
+            var type = request.getResponseHeader("Content-type");
+            //    检查类型
+            if (type.indexOf("xml") !== -1 && request.responseXML)
+                callback(request.responseXML);  //Document对象响应
+            else if (type === "application/json")
+                callback(JSON.parse(request.responseText));
+            else
+                callback(request.responseText); //  字符串响应
+        }
+    };
+    request.send();
+}
+
+/*
+ P493
+ 解决解码错误问题
+ */
+// 不要把响应作为XML文档处理
+request.overrideMimeType("text/plain;charset=utf-8");

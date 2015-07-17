@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3-calc()</title>
+    <style type="text/css">
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .m-demo {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+        }
+
+        .m-demo > div {
+            position: absolute;
+            left: calc(50% - 15%);  /* 50 % 和15 % 都是相对于父元素的，所以意思就是先过去50 % ，再拉回来15 % ，而这个15 % 又刚好是父元素宽度一半 top : calc(50 % - 15 %); */
+            top: calc(50% - 15%);
+            width: 30%;
+            height: 30%;
+            background-color: #FF0000;
+        }
+
+        /*.m-demo > div{
+            position: absolute;//这种固定宽高的也是可以用calc计算的，原理同上
+            left: calc(50% - 400px /2);
+            top: calc(50% - 400px / 2);
+            width: 400px;
+            height: 400px;
+            background-color: #FF0000;
+        }*/
+    </style>
+</head>
+<body>
+<div class="m-demo">
+    <div></div>
+</div>
+</body>
+</html>

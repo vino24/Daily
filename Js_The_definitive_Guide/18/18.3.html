@@ -1,0 +1,45 @@
+<!--
+* Created by 你的特仑苏 on 2015/7/16.
+*  P509
+*  一个使用EventSource的简易聊天工具
+-->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一个使用EventSource的简易聊天工具</title>
+    <script type="text/javascript">
+        window.onload= function () {
+            var nick=prompt("Enter your nickname");
+            var input=document.getElementById("input");
+            input.focus();  //  设置键盘聚焦
+
+//            通过EventSource注册新消息的通知
+            var chat=new EventSource("/chat");
+
+//            当捕获一条消息时
+            chat.onmessage= function (event) {
+                var msg=event.data;     //从事件对象中取得文本数据
+                var node=document.createTextNode(msg);
+                var div=document.createElement("div");
+                div.appendChild(node);
+                document.body.insertBefore(div,input);  //将div插入到input之前
+                input.scrollIntoView();     // 保证input元素可见
+            };
+
+            input.onchange= function () {
+                var msg=nick+":"+input.value;
+                var xhr=new XMLHttpRequest();
+                xhr.open("POST","/chat");
+                xhr.setRequestHeader("Content-Type","text/plain;charset=UTF-8");
+                xhr.send(msg);
+                input.value="";
+            };
+        };
+    </script>
+</head>
+<body>
+    <input id="input" style="width: 100%">
+</body>
+</html>
+

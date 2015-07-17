@@ -1,6 +1,8 @@
 <!--
     由秒杀活动想到的:
         https://github.com/fwon/blog/issues/13
+
+        http://liyaoli.com/2015-03-20/count-down.html
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -49,6 +51,19 @@
         }
         return i;
     }
+
+    var xhr = new XMLHttpRequest();
+    //这里的testServer.txt，其实我没有创建，完全可以不需要这个文件，我们只是要时间罢了
+    xhr.open('get', 'testServer.txt', true);
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == 3){ //状态3响应
+            var header = xhr.getAllResponseHeaders(); //获得所有的头信息
+            alert(header);//会弹出一堆信息
+            //弹出时间，那么可以利用获得的时间做倒计时程序了。
+            alert(xhr.getResponseHeader('Date'));
+        }
+    }
+    xhr.send(null);
 </script>
 </body>
 </html>

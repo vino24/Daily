@@ -1,0 +1,9 @@
+CACHE MANIFEST
+#Note v8
+
+CACHE:
+note.html
+note.js
+
+NETWORK:
+note

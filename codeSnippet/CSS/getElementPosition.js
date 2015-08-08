@@ -1,6 +1,7 @@
 /**
  * Created by 逢十借一 on 2015/7/30.
  */
+// 获取视口坐标,作用同getBoundingClientRect()
 function getElementPosition(elt) {
     var x = 0, y = 0;
     for (var e = elt; e != null; e = e.offsetParent) {

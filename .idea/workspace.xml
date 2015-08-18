@@ -2,26 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="308f60b7-09cc-48d4-bc8c-e6304f078f36" name="Default" comment="Video Player">
-      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\FEInterview\动画\字体放大.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\FEInterview\水平垂直居中\CSS3-calc.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\FEInterview\水平垂直居中\absolute+autoMargin.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\FEInterview\水平垂直居中\absolute+margin.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\FEInterview\水平垂直居中\absolute.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\FEInterview\水平垂直居中\flex.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\FEInterview\水平垂直居中\floatDiv.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\FEInterview\水平垂直居中\line-height.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\FEInterview\水平垂直居中\padding.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\FEInterview\水平垂直居中\table+table-cell.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\FEInterview\水平垂直居中\table-cell+inline-block.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\FEInterview\秒杀活动倒计时\倒计时.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\FEInterview\秒杀活动倒计时\计时类.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\FEInterview\负边距\Tab选项卡.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\FEInterview\负边距\九宫格.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\FEInterview\负边距\圣杯布局.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\FEInterview\负边距\负位移.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\360FE\360FE-Star-Plan\images\icon-360.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\Js_The_definitive_Guide\6\6.5.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\Js_The_definitive_Guide\7\7.11.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\Js_The_definitive_Guide\7\7.9.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\codeSnippet\CSS\CSS命名规范.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\codeSnippet\CSS\getElementPosition.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\codeSnippet\Event\EventUtil.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\codeSnippet\Graphics\rollover.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\codeSnippet\Storage\cookieStorage.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\codeSnippet\Storage\memory.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\xampp\htdocs\html5\codeSnippet\util.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/360FE/360FE-Star-Plan/css/main.css" afterPath="$PROJECT_DIR$/360FE/360FE-Star-Plan/css/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/360FE/360FE-Star-Plan/resume.html" afterPath="$PROJECT_DIR$/360FE/360FE-Star-Plan/resume.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/360FE/360FE-Star-Plan/js/video.js" afterPath="$PROJECT_DIR$/360FE/360FE-Star-Plan/js/video.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="html5.iws" />
@@ -43,28 +36,7 @@
     <favorites_list name="html5" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="cookieStorage.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/codeSnippet/Storage/cookieStorage.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="83" column="6" selection-start-line="83" selection-start-column="6" selection-end-line="83" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="util.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/baiduFE/task0002/util.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5113043">
-              <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -90,7 +62,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Js_The_definitive_Guide/18/18,1,1.css" />
         <option value="$PROJECT_DIR$/Js_The_definitive_Guide/17/18,1,1.js" />
         <option value="$PROJECT_DIR$/FEInterview/负边距/1.html" />
         <option value="$PROJECT_DIR$/FEInterview/负边距/Tab选项卡.html" />
@@ -107,7 +78,6 @@
         <option value="$PROJECT_DIR$/Js_The_definitive_Guide/18/HTTP进度事件.js" />
         <option value="$PROJECT_DIR$/FEInterview/秒杀活动倒计时/倒计时.html" />
         <option value="$PROJECT_DIR$/Js_The_definitive_Guide/18/18.1.5.js" />
-        <option value="$PROJECT_DIR$/baiduFE/task0002/util.js" />
         <option value="$PROJECT_DIR$/Js_The_definitive_Guide/18/18.2.js" />
         <option value="$PROJECT_DIR$/Js_The_definitive_Guide/18/18.3.js" />
         <option value="$PROJECT_DIR$/Js_The_definitive_Guide/18/18.3.html" />
@@ -141,6 +111,8 @@
         <option value="$PROJECT_DIR$/360FE/360FE-Star-Plan/js/video.js" />
         <option value="$PROJECT_DIR$/360FE/360FE-Star-Plan/css/main.css" />
         <option value="$PROJECT_DIR$/360FE/360FE-Star-Plan/resume.html" />
+        <option value="$PROJECT_DIR$/baiduFE/task0002/util.js" />
+        <option value="$PROJECT_DIR$/Js_The_definitive_Guide/7/7.11.js" />
       </list>
     </option>
   </component>
@@ -185,6 +157,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -203,9 +176,86 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="html5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="html5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Js_The_definitive_Guide" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="html5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="html5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Js_The_definitive_Guide" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="8" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="html5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="html5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="baiduFE" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="task0003" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="html5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="html5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="baiduFE" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="html5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="html5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="360FE" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
@@ -218,7 +268,7 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="recentsLimit" value="5" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="last_opened_file_path" value="C:/Program Files/nodejs/node.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="JavaScriptLanguageLevel" value="JSX" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="restartRequiresConfirmation" value="true" />
@@ -239,17 +289,22 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="925" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
+  <component name="Push.Settings">
+    <excluded-roots>
+      <path value="$PROJECT_DIR$/360FE/360FE-Star-Plan" />
+    </excluded-roots>
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\xampp\htdocs\html5\baiduFE\task0003" />
       <recent name="E:\xampp\htdocs\html5\baiduFE\360" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\xampp\htdocs\html5\codeSnippet" />
+      <recent name="E:\xampp\htdocs\html5\codeSnippet\CSS" />
       <recent name="E:\xampp\htdocs\html5\兼容性代码库\Storage" />
       <recent name="E:\xampp\htdocs\html5\兼容性代码库\Event" />
       <recent name="E:\xampp\htdocs\html5\360FE\360FE-Star-Plan\images" />
-      <recent name="E:\xampp\htdocs\html5\Js_The_definitive_Guide\19" />
-      <recent name="E:\xampp\htdocs\html5\Js_The_definitive_Guide\18" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.rollover.js">
@@ -473,7 +528,19 @@
       <option name="project" value="LOCAL" />
       <updated>1438191129672</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="remove FEInterview">
+      <created>1439088495275</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1439088495275</updated>
+    </task>
+    <task id="LOCAL-00025" summary="文件移动">
+      <created>1439871067296</created>
+      <option name="number" value="00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1439871067296</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -538,7 +605,9 @@
     <MESSAGE value="水平垂直居中" />
     <MESSAGE value="Web存储 &amp;&amp; Cookie &amp;&amp; 离线应用" />
     <MESSAGE value="Video Player" />
-    <option name="LAST_COMMIT_MESSAGE" value="Video Player" />
+    <MESSAGE value="remove FEInterview" />
+    <MESSAGE value="文件移动" />
+    <option name="LAST_COMMIT_MESSAGE" value="文件移动" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -601,13 +670,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Js_The_definitive_Guide/19/jquery-2.1.4.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1235" column="0" selection-start-line="1235" selection-start-column="0" selection-end-line="1235" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Js_The_definitive_Guide/18/Node.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5393836">
@@ -657,13 +719,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/codeSnippet/Event/EventUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1729452">
-          <caret line="87" column="6" selection-start-line="87" selection-start-column="6" selection-end-line="87" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/NodeJS/lib/NodeJS.jar!/com/jetbrains/nodejs/library/node-globals-stub.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.0205479">
@@ -675,13 +730,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/codeSnippet/Storage/memory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -752,20 +800,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/codeSnippet/Graphics/rollover.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7924528">
-          <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/codeSnippet/CSS/getElementPosition.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10787671">
-          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Js_The_definitive_Guide/21/svg.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19301471">
@@ -777,9 +811,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -787,7 +818,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -795,22 +825,95 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.10956522">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.WebStorm10/system/extLibs/nodejs-v0.12.0-src/core-modules-sources/lib/path.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.427826">
+          <caret line="465" column="0" selection-start-line="465" selection-start-column="0" selection-end-line="465" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/typescriptCompiler/external/lib.es6.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3321739">
+          <caret line="377" column="4" selection-start-line="377" selection-start-column="4" selection-end-line="377" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/HTML5.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3321739">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/typescriptCompiler/external/lib.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3321739">
+          <caret line="1058" column="28" selection-start-line="1058" selection-start-column="28" selection-end-line="1058" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/ECMAScript.js2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.605217">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3321739">
+          <caret line="145" column="0" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Js_The_definitive_Guide/19/jquery-2.1.4.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33211008">
+          <caret line="172" column="8" selection-start-line="172" selection-start-column="4" selection-end-line="172" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/codeSnippet/Storage/cookieStorage.js">
+    <entry file="file://$PROJECT_DIR$/baiduFE/task0002/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07304348">
+          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baiduFE/task0002/task0002.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="83" column="6" selection-start-line="83" selection-start-column="6" selection-end-line="83" selection-end-column="6" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baiduFE/task0003/360.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.1194853">
+          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/baiduFE/task0002/util.js">
+    <entry file="file://$PROJECT_DIR$/../Collection/Object/extend.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5113043">
-          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.92695653">
+          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Js_The_definitive_Guide/7/7.11.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6208696">
+          <caret line="17" column="1" selection-start-line="0" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>

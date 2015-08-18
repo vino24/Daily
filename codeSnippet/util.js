@@ -132,3 +132,4 @@ function removeClass(element, oldClassName) {
     if (!hasClass(element, oldClassName))
         element.className = element.className.replace(oldClassName, "");
 }
+Array.sort()

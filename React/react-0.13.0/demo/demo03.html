@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子节点</title>
+    <script type="text/javascript" src="../build/react.js"></script>
+    <script type="text/javascript" src="../build/JSXTransformer.js"></script>
+</head>
+<body>
+<script type="text/jsx">
+    var Divider = React.createClass({
+        render: function () {
+            return <div className="driver">
+                {this.props.children}
+                <hr />
+            </div>
+        }
+    });
+    React.render(<Divider/>, document.body);
+
+</script>
+</body>
+</html>

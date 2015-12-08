@@ -19,7 +19,7 @@ Set.prototype.add = function () {
         var val = arguments[i];
         var str = Set._v2s(val);
         if (!this.values.hasOwnProperty(str)) {
-            this.values[str] = val;66
+            this.values[str] = val;
             this.n++;
         }
     }

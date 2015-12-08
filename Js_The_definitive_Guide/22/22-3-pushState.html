@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript">
+        window.onload = newgame;  //  页面载入时开始一个新游戏
+        window.onpopstate = popState; //  处理历史记录相关事件
+        var state, ui;   //  全局变量，在newgame中对其初始化
+
+        function newgame(playagain) {
+            //  初始化一个包含需要的文档元素的对象
+            ui = {
+                heading: null,   //  <h1>元素
+                prompt: null,    //  要求用户输入一个猜测数字
+                input: null,     //  用户输入猜测数字的地方
+                low: null,       //  可视化的三个表格单元格
+                mid: null,       //  猜测的数字范围
+                high: null
+            };
+
+            //  查询元素中每个元素的id
+            for (var id in ui) ui[id] = document.getElementById(id);
+
+            //  给input字段定义一个事件处理程序函数
+            ui.input.onchange = handleGuess();
+
+            //  生成一个随机的数字并初始化游戏状态
+            state = {
+                n: Math.floor(99 * Math.random()) + 1,   //  整数：0<n<100
+                low: 0,  //  下限
+                high: 100,   //  上限
+                guessnum: 0, //  次数
+                guess: undefined //  最后一次猜测
+            };
+
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

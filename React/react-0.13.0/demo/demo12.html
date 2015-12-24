@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>name属性</title>
+    <script type="text/javascript" src="../build/react.js"></script>
+    <script type="text/javascript" src="../build/JSXTransformer.js"></script>
+</head>
+<body>
+<script type="text/jsx">
+    var MyForm = React.createClass({
+        getInitialState: function () {
+            return {
+                radio: "B"
+            };
+        },
+
+        handleChange: function (event) {
+
+            this.setState({
+                radio: event.target.value
+            });
+        },
+        submitHandler: function (event) {
+            event.preventDefault();
+            alert(this.state.radio);
+        },
+        render: function () {
+            return (
+                    <form onSubmit={this.submitHandler}>
+                        <input type="radio" value="A" checked={this.state.radio =="A"}
+                               onChange={this.handleChange}/>
+                        A
+                        <br />
+                        <input type="radio" value="B" checked={this.state.radio=="B"}
+                               onChange={this.handleChange}/>
+                        B
+                        <br />
+                        <input type="radio" value="C" checked={this.state.radio=="C"}
+                               onChange={this.handleChange}/>
+                        C
+                        <br />
+                        <button type="submit">Speak</button>
+                    </form>
+            );
+        }
+    });
+    React.render(<MyForm />, document.body);
+</script>
+</body>
+</html>

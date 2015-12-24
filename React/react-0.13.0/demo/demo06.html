@@ -15,7 +15,8 @@
             name: React.PropTypes.string.isRequired,
             label: React.PropTypes.string.isRequired,
             value: React.PropTypes.string.isRequired,
-            checked: React.PropTypes.bool
+            checked: React.PropTypes.bool,
+            onChanged: React.PropTypes.func.isRequired
         },
         //  为非必要状态设置默认值
         getDefaultProps: function () {
@@ -33,6 +34,13 @@
                 name: id
             };
         },
+        handleChanged: function (e) {
+            var checked = e.target.checked;
+            this.setState({checked: checked});
+            if (checked) {
+                this.props.onChanged(this.props.value);
+            }
+        },
         //  更新渲染
         render: function () {
             return (
@@ -42,7 +50,8 @@
                                    name={this.props.name}
                                    id={this.props.id}
                                    value={this.props.value}
-                                   checked={this.props.checked}/>
+                                   checked={this.props.checked}
+                                   onChange={this.handleChanged}/>
                             {this.props.label}
                         </label>
                     </div>
@@ -50,6 +59,48 @@
         }
     });
 
+
+    var AnswerMultipleChoiceQuestion = React.createClass({
+        propTypes: {
+            value: React.PropTypes.string,
+            choices: React.PropTypes.array.isRequired,
+            onCompleted: React.PropTypes.func.isRequired
+        },
+        getInitialState: function () {
+            return {
+                id: uniqueId('multiple-choice-'),
+                value: this.props.value
+            };
+        },
+        renderChoices: function () {
+            return this.props.choices.map(function (choice, i) {
+                return AnswerRadioInput({
+                    id: 'choice-' + i,
+                    name: this.state.id,
+                    label: choice,
+                    value: choice,
+                    checked: this.state.value === choice,
+                    onChanged: this.handleChanged
+                });
+            }.bind(this));
+        },
+        handleChanged: function (value) {
+            this.setState({value: value});
+            this.props.onCompleted(value);
+        },
+        render: function () {
+            return (
+                    <div className="form-group">
+                        <label className="survey-item-label" htmlFor={this.state.id}>
+                            {this.props.label}
+                        </label>
+                        <div className="survey-item-content">
+                            {this.renderChoices()}
+                        </div>
+                    </div>
+            );
+        }
+    });
 
 </script>
 </body>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>整合非React类库</title>
+    <script type="text/javascript" src="../build/react.js"></script>
+    <script type="text/javascript" src="../build/JSXTransformer.js"></script>
+</head>
+<body>
+<script type="text/jsx">
+    //  autocomplete类库
+    autocomplete({
+        target: document.getElementById("cities"),
+        data: [
+            "San Francisco",
+            "St. Louis",
+            "Amsterdam",
+            "Los Angeles"
+        ],
+        envents: {
+            select: function (city) {
+                alert("You have selected the city of" + city);
+            }
+        }
+    });
+
+    var AutocompleteCities = React.createClass({
+        render: function () {
+            return <div id="cities" ref="autocompleteTarget"/>;
+        },
+        getDefaultProps: function () {
+            return {
+                data: [
+                    "San Francisco",
+                    "St. Louis",
+                    "Amsterdam",
+                    "Los Angeles"]
+            };
+        },
+
+        handleSelect: function (city) {
+            alert("You have selected the city of" + city);
+        },
+        completeDidMount: function () {
+            autocomplete({
+                target: this.refs.autocompleteTarget.getDOMNode(),
+                data: this.props.data,
+                events: {
+                    select: this.handleSelect
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>

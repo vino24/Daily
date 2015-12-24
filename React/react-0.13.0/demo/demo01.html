@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React</title>
+    <script type="text/javascript" src="../build/react.js"></script>
+    <script type="text/javascript" src="../build/JSXTransformer.js"></script>
+</head>
+<body>
+<div id="example">
+
+</div>
+<script type="text/jsx">
+    var MyTitle = React.createClass({
+        propTypes: {
+            title: React.PropTypes.string.isRequired,
+        },
+
+        render: function () {
+            return <h1> {this.props.title} </h1>;
+        }
+    });
+    var data = 123;
+
+    React.render(
+            <MyTitle title={data}/>,
+            document.body
+    );
+</script>
+</body>
+</html>

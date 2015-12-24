@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多选</title>
+    <script type="text/javascript" src="../build/react.js"></script>
+    <script type="text/javascript" src="../build/JSXTransformer.js"></script>
+</head>
+<body>
+<script type="text/jsx">
+    var MyForm = React.createClass({
+        getInitialState: function () {
+            return {
+                options: ["B"]
+            };
+        },
+        //  循环检查DOM，过滤出被选中项
+        handleChange: function (event) {
+            var checked = [];
+            var sel = event.target;
+            for (var i = 0; i < sel.length; i++) {
+                var option = sel.options[i];
+                if (option.selected) {
+                    checked.push(option.value);
+                }
+            }
+            this.setState({
+                options: checked
+            });
+        },
+        submitHandler: function (event) {
+            event.preventDefault();
+            alert(this.state.options);
+        },
+        render: function () {
+            return (
+                    <form onSubmit={this.submitHandler}>
+                        <select multiple value={this.state.options}
+                                onChange={this.handleChange}>
+                            <option value="A">1</option>
+                            <option value="B">2</option>
+                            <option value="C">3</option>
+                        </select>
+                        <br />
+                        <button type="submit">Speak</button>
+                    </form>
+            );
+        }
+    });
+    React.render(<MyForm />, document.body);
+</script>
+</body>
+</html>

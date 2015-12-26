@@ -4,50 +4,60 @@
     <meta charset="UTF-8">
     <title>作业一</title>
     <link href="css/style.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        body {
+            behavior: url("csshover.htc");
+        }
+    </style>
 </head>
 <body>
 <!-- 导航条 -->
-<div class="g-topbar f-mg0 clearfix">
-    <ul class="left">
-        <li class="netease">网易<span class="u-downicon"></span>
-            <!-- 隐藏导航栏 -->
-            <ul class="m-subnav z-hidden">
-                <li><a href="">新闻</a></li>
-                <li><a href="">微博</a></li>
-                <li><a href="">邮箱</a></li>
-                <li><a href="">相册</a></li>
-                <li><a href="">有道</a></li>
-                <li><a href="">手机邮</a></li>
-                <li><a href="">印象派</a></li>
-                <li><a href="">更多</a></li>
-            </ul>
-        </li>
-        <li><a href="">博客</a></li>
-        <li><a href="">摄影</a></li>
-        <li><a href="">随便看看</a></li>
-    </ul>
+<div class="g-topbar">
+    <div class="container clearfix">
+        <ul class="left">
+            <li class="netease">
+                <a href="">网易<span class="u-downicon"></span></a>
+                <!-- 隐藏导航栏 -->
+                <ul class="m-subnav z-hidden">
+                    <li><a href="">新闻</a></li>
+                    <li><a href="">微博</a></li>
+                    <li><a href="">邮箱</a></li>
+                    <li><a href="">相册</a></li>
+                    <li><a href="">有道</a></li>
+                    <li><a href="">手机邮</a></li>
+                    <li><a href="">印象派</a></li>
+                    <li><a href="">更多</a></li>
+                </ul>
+            </li>
+            <li><a href="">博客</a></li>
+            <li><a href="">摄影</a></li>
+            <li><a href="">随便看看</a></li>
+        </ul>
 
-    <ul class="right">
-        <li class="f-cl6"><span class="time">中午好，</span><span class="username">西瓜太郎</span>(<a href=""><img
-                src="images/message.png">5</a>)
-        </li>
-        <li><a href=""><img src="images/home.png">个人中心</a></li>
-        <li>消息（<a href=""><span class="listcount f-clf70">1234</span>)</a></li>
-        <li><a href="">反馈</a></li>
-        <li class="login f-cla4"><a href="">登录</a></li>
-    </ul>
+        <ul class="right">
+            <li class="f-cl6"><span class="time">中午好，</span><span class="username">西瓜太郎</span>(<a href=""><img
+                    src="images/message.png">5</a>)
+            </li>
+            <li><a href=""><img src="images/home.png">个人中心</a></li>
+            <li>消息（<a href=""><span class="listcount f-clf70">1234</span>)</a></li>
+            <li><a href="">反馈</a></li>
+            <li class="login f-cla4"><a href="">登录</a></li>
+        </ul>
+    </div>
 </div>
 <!-- /导航条 -->
 
 <!-- 头部 -->
 <div class="g-hd clearfix">
-    <div class="left">
-        <img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="用户头像"
-             width="50px" height="50px">
-    </div>
-    <div class="right">
-        <div class="f-fs18 f-cl7d">欢迎,西瓜太郎</div>
-        <button class="u-button f-cl51" id="uploadimg">传相片</button>
+    <div class="container">
+        <div class="left">
+            <img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="用户头像"
+                 width="50px" height="50px">
+        </div>
+        <div class="right">
+            <div class="f-fs18 f-cl7d">欢迎,西瓜太郎</div>
+            <button class="u-button f-cl51" id="uploadimg">传相片</button>
+        </div>
     </div>
 </div>
 <!-- /头部 -->
@@ -106,13 +116,15 @@
             <div class="m-list">
                 <div class="item">
                     <dl class="f-21759b clearfix">
-                        <dt class="title"><label for="article1"></label><span class="u-checkbox"><input type="checkbox"
-                                                                                                        id="article1"></span><span></span><a
+                        <dt class="title"><label for="article1"></label><span class="u-checkbox"><span></span><input
+                                type="checkbox"
+                                id="article1"></span><a
                                 href="">Js高性能</a>
                         </dt>
-                        <dd>
-                            <a class="more" href="">更多<span class="u-downicon"></span></a>
-                            <ul style="display: none">
+                        <dd class="more">
+                            <a href="">更多<span class="u-downicon"></span></a>
+                            <ul>
+                                <li><a href="">更多<span class="u-downicon"></span></a></li>
                                 <li><a href="">置顶</a></li>
                                 <li><a href="">删除</a></li>
                             </ul>
@@ -131,8 +143,13 @@
                         <dt class="title"><label for="article2"></label><span class="u-checkbox"><span></span><input
                                 type="checkbox" id="article2"></span><a href="">Js高性能</a>
                         </dt>
-                        <dd>
-                            <a class="more" href="">更多<span class="u-downicon"></span></a>
+                        <dd class="more">
+                            <a href="">更多<span class="u-downicon"></span></a>
+                            <ul>
+                                <li><a href="">更多<span class="u-downicon"></span></a></li>
+                                <li><a href="">置顶</a></li>
+                                <li><a href="">删除</a></li>
+                            </ul>
                         </dd>
                         <dd class="editor"><a href="">编辑</a></dd>
                     </dl>
@@ -143,13 +160,14 @@
                 </div>
                 <div class="item">
                     <dl class="f-21759b clearfix">
-                        <dt class="title"><label for="article3"></label><span class="u-checkbox"><span
-                                class="u-checked"></span><span></span><input type="checkbox" id="article3"></span><a
+                        <dt class="title"><label for="article3"></label><span class="u-checkbox"><input type="checkbox"
+                                                                                                        id="article3"></span><a
                                 href="">Js高性能</a>
                         </dt>
-                        <dd>
-                            <a class="more" href="">更多<span class="u-downicon"></span></a>
-                            <ul style="display: none">
+                        <dd class="more">
+                            <a href="">更多<span class="u-downicon"></span></a>
+                            <ul>
+                                <li><a href="">更多<span class="u-downicon"></span></a></li>
                                 <li><a href="">置顶</a></li>
                                 <li><a href="">删除</a></li>
                             </ul>
@@ -164,29 +182,55 @@
             </div>
 
             <div class="m-opt">
-                <label for="selectall"></label><span class="u-checkbox"><span class="u-checked"></span><input
+                <label for="selectall"></label><span class="u-checkbox"><input
                     type="checkbox" id="selectall"></span>全选
                 <button class="u-button">删除</button>
             </div>
         </div>
         <!-- /日志管理 -->
         <div class="right f-21759b">
-            <h3 class="title f-fs14">好友最近的日志</h3>
-            <dl class="clearfix">
-                <dt><img src="images/picture.png" alt="好友头像" width="40" height="40"></dt>
-                <dd><a href="">小油菜</a></dd>
-                <dd>hello world</dd>
-            </dl>
-            <dl class="clearfix">
-                <dt><img src="images/picture.png" alt="好友头像" width="40" height="40"></dt>
-                <dd><a href="">大苹果</a></dd>
-                <dd>HelloKitty</dd>
-            </dl>
-            <dl class="clearfix">
-                <dt><img src="images/picture.png" alt="好友头像" width="40" height="40"></dt>
-                <dd><a href="">胖妞</a></dd>
-                <dd>Yes You can</dd>
-            </dl>
+            <div class="container">
+                <h3 class="title f-fs14">好友最近的日志</h3>
+
+                <div class="articles">
+                    <dl class="clearfix">
+                        <dt><img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="好友头像" width="40"
+                                 height="40"></dt>
+                        <dd><a href="">小油菜</a></dd>
+                        <dd>hello world console.log</dd>
+                    </dl>
+                    <dl class="clearfix">
+                        <dt><img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="好友头像" width="40"
+                                 height="40"></dt>
+                        <dd><a href="">大苹果</a></dd>
+                        <dd>HelloKitty</dd>
+                    </dl>
+                    <dl class="clearfix">
+                        <dt><img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="好友头像" width="40"
+                                 height="40"></dt>
+                        <dd><a href="">胖妞</a></dd>
+                        <dd>Yes You can</dd>
+                    </dl>
+                    <dl class="clearfix">
+                        <dt><img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="好友头像" width="40"
+                                 height="40"></dt>
+                        <dd><a href="">胖妞</a></dd>
+                        <dd>Yes You can</dd>
+                    </dl>
+                    <dl class="clearfix">
+                        <dt><img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="好友头像" width="40"
+                                 height="40"></dt>
+                        <dd><a href="">胖妞</a></dd>
+                        <dd>Yes You can</dd>
+                    </dl>
+                    <dl class="clearfix">
+                        <dt><img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="好友头像" width="40"
+                                 height="40"></dt>
+                        <dd><a href="">胖妞</a></dd>
+                        <dd>Yes You can</dd>
+                    </dl>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -200,7 +244,9 @@
         <li><a href="">联系方式</a></li>
         <li><a href="">招聘信息</a></li>
         <li><a href="">客户服务</a></li>
-        <li><img src="images/rss.png"><a href="">订阅</a></li>
+        <li><a href="">博客风格</a></li>
+        <li><a href="">手机博客</a></li>
+        <li><img src="images/rss.png"><a href="">订阅此博客</a></li>
     </ul>
     <!-- 版权声明 -->
     <div class="m-copyright">

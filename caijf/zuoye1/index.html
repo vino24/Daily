@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <title>作业一</title>
     <link href="css/style.css" rel="stylesheet" type="text/css">
+    <!--[if lte IE 6]>
     <style type="text/css">
         body {
             behavior: url("csshover.htc");
         }
     </style>
+    <![endif]-->
 </head>
 <body>
 <!-- 导航条 -->
@@ -48,8 +50,8 @@
 <!-- /导航条 -->
 
 <!-- 头部 -->
-<div class="g-hd clearfix">
-    <div class="container">
+<div class="g-hd">
+    <div class="container clearfix">
         <div class="left">
             <img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="用户头像"
                  width="50px" height="50px">
@@ -67,18 +69,18 @@
 <div class="g-bd f-mg0 clearfix">
     <!-- 侧边栏 -->
     <div class="g-side f-21759b">
-        <ul class="m-tab0">
+        <ul class="m-tab">
             <li><img src="images/user.png">博客动态</li>
             <li><a href="">博客动态</a></li>
             <li><a href="">消息中心</a></li>
         </ul>
-        <ul class="m-tab1">
+        <ul class="m-tab">
             <li><img src="images/settings.png">博客管理</li>
             <li><a href="">日志管理</a></li>
             <li><a href="">博友管理</a></li>
             <li><a href="">访问统计</a></li>
         </ul>
-        <ul class="m-tab2">
+        <ul class="m-tab">
             <li><img src="images/service.png">服务</li>
             <li><a href="">手机博客</a></li>
             <li><a href="">博客复制</a></li>
@@ -86,149 +88,162 @@
         </ul>
     </div>
     <!-- /侧边栏 -->
-    <div class="g-main clearfix">
-        <h2 class="f-fs18">日志管理</h2>
+    <div class="g-main">
+        <div class="container clearfix">
+            <h2 class="f-fs18">日志管理</h2>
 
-        <div class="left clearfix">
-            <ul class="m-tab3">
-                <li class="f-tac selected"><a href="">日志</a></li>
-                <li class="f-tac f-ml1"><a href="">标签</a></li>
-            </ul>
-            <!-- 日志添加 -->
-            <div class="m-editor">
-                <div class="editor clearfix">
-                    <input type="text" class="u-title f-fs16" placeholder="日志标题"/>
-                    <textarea placeholder="这里可以写日志~"></textarea><!-- textarea必须在同一行 -->
-                    <button class="u-button">清空</button>
-                    <button class="u-button">发布</button>
-                </div>
-                <!-- /日志添加 -->
-                <!-- 标签添加 -->
-                <div class="editor clearfix z-hidden">
-                    <input type="text" class="u-title" placeholder="标签"/>
-                    <textarea placeholder="这里可以写标签~"></textarea><!-- textarea必须在同一行 -->
-                    <button class="u-button">清空</button>
-                    <button class="u-button">发布</button>
-                </div>
-            </div>
-            <!-- /标签添加 -->
-            <!-- 日志管理 -->
-            <div class="m-list">
-                <div class="item">
-                    <dl class="f-21759b clearfix">
-                        <dt class="title"><label for="article1"></label><span class="u-checkbox"><span></span><input
-                                type="checkbox"
-                                id="article1"></span><a
-                                href="">Js高性能</a>
-                        </dt>
-                        <dd class="more">
-                            <a href="">更多<span class="u-downicon"></span></a>
-                            <ul>
-                                <li><a href="">更多<span class="u-downicon"></span></a></li>
-                                <li><a href="">置顶</a></li>
-                                <li><a href="">删除</a></li>
-                            </ul>
-                        </dd>
-                        <dd class="editor"><a href="">编辑</a>
-
-                        </dd>
-                    </dl>
-                    <div class="data f-cl7b">
-                        <span class="date">2015-12-22 13:59</span><span class="times">阅读11</span><span
-                            class="reviews">评论(20)</span>
+            <div class="left clearfix">
+                <ul class="m-tab1 f-tac">
+                    <li class="selected"><a href="">日志</a></li>
+                    <li class="f-ml1"><a href="">标签</a></li>
+                </ul>
+                <!-- 日志添加 -->
+                <div class="m-editor">
+                    <div class="editor clearfix">
+                        <input type="text" class="u-title f-fs16" placeholder="日志标题"/>
+                        <textarea placeholder="这里可以写日志~"></textarea><!-- textarea必须在同一行 -->
+                        <div class="btns">
+                            <button>发布</button>
+                            <button>清空</button>
+                        </div>
+                    </div>
+                    <!-- /日志添加 -->
+                    <!-- 标签添加 -->
+                    <div class="editor clearfix z-hidden">
+                        <input type="text" class="u-title" placeholder="标签"/>
+                        <textarea placeholder="这里可以写标签~"></textarea><!-- textarea必须在同一行 -->
+                        <div class="btns">
+                            <button>发布</button>
+                            <button>清空</button>
+                        </div>
                     </div>
                 </div>
-                <div class="item">
-                    <dl class="f-21759b clearfix">
-                        <dt class="title"><label for="article2"></label><span class="u-checkbox"><span></span><input
-                                type="checkbox" id="article2"></span><a href="">Js高性能</a>
-                        </dt>
-                        <dd class="more">
-                            <a href="">更多<span class="u-downicon"></span></a>
-                            <ul>
-                                <li><a href="">更多<span class="u-downicon"></span></a></li>
-                                <li><a href="">置顶</a></li>
-                                <li><a href="">删除</a></li>
-                            </ul>
-                        </dd>
-                        <dd class="editor"><a href="">编辑</a></dd>
-                    </dl>
-                    <div class="data f-cl7b">
-                        <span class="date">2015-12-22 13:59</span><span class="times">阅读11</span><span
-                            class="reviews">评论(20)</span>
+                <!-- /标签添加 -->
+                <!-- 日志管理 -->
+                <div class="m-list">
+                    <div class="item">
+                        <dl class="f-21759b clearfix">
+                            <dt class="title"><label for="article1"></label><input
+                                    type="checkbox"
+                                    id="article1"><a
+                                    href="">Js高性能</a>
+                            </dt>
+                            <dd class="more">
+                                <a href="">更多<span class="u-downicon"></span></a>
+                                <ul>
+                                    <li><a href="">更多<span class="u-downicon"></span></a></li>
+                                    <li><a href="">置顶</a></li>
+                                    <li><a href="">删除</a></li>
+                                </ul>
+                            </dd>
+                            <dd class="editor"><a href="">编辑</a>
+
+                            </dd>
+                        </dl>
+                        <div class="data f-cl7b">
+                            <span class="date">2015-12-22 13:59</span><span class="times">阅读11</span><span
+                                class="reviews">评论(20)</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <dl class="f-21759b clearfix">
+                            <dt class="title"><label for="article2"></label><input
+                                    type="checkbox" id="article2"><a href="">Js高性能</a>
+                            </dt>
+                            <dd class="more">
+                                <a class="a1" href="">更多<span class="u-downicon"></span></a>
+                                <ul>
+                                    <li><a href="">更多<span class="u-downicon"></span></a></li>
+                                    <li><a href="">置顶</a></li>
+                                    <li><a href="">删除</a></li>
+                                </ul>
+                            </dd>
+                            <dd class="editor"><a href="">编辑</a></dd>
+                        </dl>
+                        <div class="data f-cl7b">
+                            <span class="date">2015-12-22 13:59</span><span class="times">阅读11</span><span
+                                class="reviews">评论(20)</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <dl class="f-21759b clearfix">
+                            <dt class="title"><label for="article3"></label><input
+                                    type="checkbox"
+                                    id="article3"><a
+                                    href="">Js高性能</a>
+                            </dt>
+                            <dd class="more">
+                                <a href="">更多<span class="u-downicon"></span></a>
+                                <ul>
+                                    <li><a href="">更多<span class="u-downicon"></span></a></li>
+                                    <li><a href="">置顶</a></li>
+                                    <li><a href="">删除</a></li>
+                                </ul>
+                            </dd>
+                            <dd class="editor"><a href="">编辑</a></dd>
+                        </dl>
+                        <div class="data f-cl7b">
+                            <span class="date">2015-12-22 13:59</span><span class="times">阅读11</span><span
+                                class="reviews">评论(20)</span>
+                        </div>
                     </div>
                 </div>
-                <div class="item">
-                    <dl class="f-21759b clearfix">
-                        <dt class="title"><label for="article3"></label><span class="u-checkbox"><input type="checkbox"
-                                                                                                        id="article3"></span><a
-                                href="">Js高性能</a>
-                        </dt>
-                        <dd class="more">
-                            <a href="">更多<span class="u-downicon"></span></a>
-                            <ul>
-                                <li><a href="">更多<span class="u-downicon"></span></a></li>
-                                <li><a href="">置顶</a></li>
-                                <li><a href="">删除</a></li>
-                            </ul>
-                        </dd>
-                        <dd class="editor"><a href="">编辑</a></dd>
-                    </dl>
-                    <div class="data f-cl7b">
-                        <span class="date">2015-12-22 13:59</span><span class="times">阅读11</span><span
-                            class="reviews">评论(20)</span>
-                    </div>
+
+                <div class="m-opt">
+                    <label for="selectall"></label><input
+                        type="checkbox" id="selectall">全选
+                    <button class="u-button">删除</button>
                 </div>
             </div>
+            <!-- /日志管理 -->
+            <div class="right f-21759b">
+                <div class="container">
+                    <h3 class="title f-fs14">好友最近的日志</h3>
 
-            <div class="m-opt">
-                <label for="selectall"></label><span class="u-checkbox"><input
-                    type="checkbox" id="selectall"></span>全选
-                <button class="u-button">删除</button>
-            </div>
-        </div>
-        <!-- /日志管理 -->
-        <div class="right f-21759b">
-            <div class="container">
-                <h3 class="title f-fs14">好友最近的日志</h3>
-
-                <div class="articles">
-                    <dl class="clearfix">
-                        <dt><img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="好友头像" width="40"
-                                 height="40"></dt>
-                        <dd><a href="">小油菜</a></dd>
-                        <dd>hello world console.log</dd>
-                    </dl>
-                    <dl class="clearfix">
-                        <dt><img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="好友头像" width="40"
-                                 height="40"></dt>
-                        <dd><a href="">大苹果</a></dd>
-                        <dd>HelloKitty</dd>
-                    </dl>
-                    <dl class="clearfix">
-                        <dt><img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="好友头像" width="40"
-                                 height="40"></dt>
-                        <dd><a href="">胖妞</a></dd>
-                        <dd>Yes You can</dd>
-                    </dl>
-                    <dl class="clearfix">
-                        <dt><img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="好友头像" width="40"
-                                 height="40"></dt>
-                        <dd><a href="">胖妞</a></dd>
-                        <dd>Yes You can</dd>
-                    </dl>
-                    <dl class="clearfix">
-                        <dt><img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="好友头像" width="40"
-                                 height="40"></dt>
-                        <dd><a href="">胖妞</a></dd>
-                        <dd>Yes You can</dd>
-                    </dl>
-                    <dl class="clearfix">
-                        <dt><img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="好友头像" width="40"
-                                 height="40"></dt>
-                        <dd><a href="">胖妞</a></dd>
-                        <dd>Yes You can</dd>
-                    </dl>
+                    <div class="articles">
+                        <dl class="clearfix">
+                            <dt><img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="好友头像"
+                                     width="40"
+                                     height="40"></dt>
+                            <dd><a href="">小油菜</a></dd>
+                            <dd>hello world console.log</dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt><img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="好友头像"
+                                     width="40"
+                                     height="40"></dt>
+                            <dd><a href="">大苹果</a></dd>
+                            <dd>HelloKitty</dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt><img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="好友头像"
+                                     width="40"
+                                     height="40"></dt>
+                            <dd><a href="">胖妞</a></dd>
+                            <dd>Yes You can</dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt><img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="好友头像"
+                                     width="40"
+                                     height="40"></dt>
+                            <dd><a href="">胖妞</a></dd>
+                            <dd>Yes You can</dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt><img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="好友头像"
+                                     width="40"
+                                     height="40"></dt>
+                            <dd><a href="">胖妞</a></dd>
+                            <dd>Yes You can</dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt><img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="好友头像"
+                                     width="40"
+                                     height="40"></dt>
+                            <dd><a href="">胖妞</a></dd>
+                            <dd>Yes You can</dd>
+                        </dl>
+                    </div>
                 </div>
             </div>
         </div>

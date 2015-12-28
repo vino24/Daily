@@ -68,7 +68,7 @@ body {
 }
 
 .g-topbar ul {
-    margin-top: 5px;
+    margin-top: 3px;
 }
 .g-topbar .container {
     margin: 0 auto;
@@ -96,6 +96,8 @@ body {
 .g-topbar .left .netease {
     width: 40px;
     border: 1px solid transparent; /*  默认即设定1px,防止hover时抖动 */
+    *border: 1px solid #fafafa; /*   IE6不支持transparent fixed */
+    *zoom: 1; /*   IE6定位位置错误，触发hasLayout fixed */
 }
 
 .g-topbar .left .netease:hover {
@@ -103,10 +105,11 @@ body {
 }
 .g-topbar .m-subnav {
     position: absolute;
-    margin-left: -5px;
+    left: 10px;
     border: 1px solid #cccccc;
     background-color: #ffffff;
     width: 60px;
+    *top: 20px;
 }
 
 .g-topbar .m-subnav li {
@@ -262,6 +265,9 @@ body {
 .m-tab li {
     padding: 10px 0px 10px 30px;
     *padding-left: expression(this.previousSibling==null?'5px':'30px'); /*fixed IE6 first-child无法应用 */
+    *background-color: expression(this.previousSibling==null?'#ececec':'none');
+    *font-weight: expression(this.previousSibling==null?'bold':'normal');
+    *color: expression(this.previousSibling==null?'#333333':'inherit');
 
 }
 
@@ -359,6 +365,11 @@ body {
     padding: 4px 10px;
 }
 
+.m-tags {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    text-align: center;
+}
 .m-list {
     margin-left: 20px;
     margin-right: 20px;
@@ -397,15 +408,15 @@ body {
 
 .item .more ul {
     position: absolute;
-    top: -5px;
+    top: -8px;
     left: -9999px;
     width: 50px;
     border: 1px solid #c8d9e3;
+    z-index: 1;
 }
 
 .item .more li {
-    padding-left: 3px;
-    padding-top: 3px;
+    padding: 4px 0 5px 5px;
 }
 
 .item .more li:hover {
@@ -413,11 +424,16 @@ body {
 }
 
 .item .more:hover ul {
-    left: -4px;
+    left: -6px;
 }
 
-.item .more:hover li:first-child {
+.item .more:hover > a {
     visibility: hidden;
+}
+
+.item .more:hover .link {
+    /* IE6 */
+    *visibility: hidden;
 }
 
 .m-list .item .data {

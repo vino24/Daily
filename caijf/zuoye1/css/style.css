@@ -26,7 +26,7 @@ img {
 }
 
 h1, h2, h3, h4, h5, h6, em, strong, b {
-    font-weight: 700;
+    font-weight: bold;
 }
 
 body, textarea, input, button, select, keygen, legend {
@@ -39,7 +39,7 @@ body {
     background: #fff;
 }
 
-/*  CSS Sprite */
+/* CSS Sprite */
 .sprite {
     display: inline-block;
     background-image: url(../images/sprite.png);
@@ -93,11 +93,11 @@ body {
 /* 统一改变盒模型类型 */
 .m-top .left li, .m-top .right li, .m-tab1 li, .m-tab1 li a, .m-ftnav li, .item .more a {
     display: inline-block;
-    display: inline; /* IE6、7 */
-    zoom: 1;
+    *display: inline; /* IE6、7 */
+    *zoom: 1;
 }
 
-/*  统一设置图片间距    */
+/* 统一设置图片间距 */
 .m-top img, .m-container .m-side img, .m-foot img {
     margin-right: 5px;
 }
@@ -105,24 +105,26 @@ body {
 /**
     布局
 **/
-/*  topbar */
+/* topbar */
 .g-main .m-top {
-    background: url(../images/top_bg.png) repeat;
-    background: 0;
-    background: linear-gradient(tobottom, #fefefe, #f5f5f5);
+    *background: url(../images/top_bg.png) repeat;
+    background: -webkit-linear-gradient(to bottom, #fefefe, #f5f5f5);
+    background: linear-gradient(to bottom, #fefefe, #f5f5f5);
 }
+
 /* header */
 .g-main .m-head {
     height: 69px;
-    border-top: 1px solid #bbb;
-    border-bottom: 1px solid #bbb;
-    background: url(../images/hd_bg.png) repeat;
-    background: 0;
-    background: linear-gradient(tobottom, #e4e4e4, #d7d7d7);
+    border-top: 1px solid #bbbbbb;
+    border-bottom: 1px solid #bbbbbb;
+    *background: url(../images/hd_bg.png) repeat;
+    background: -webkit-linear-gradient(to bottom, #e4e4e4, #d7d7d7);
+    background: linear-gradient(to bottom, #e4e4e4, #d7d7d7);
 }
+
 /* body */
 .g-main .m-container {
-    padding-bottom: 20px;
+    *padding-bottom: 20px;
     padding-top: 10px;
     width: 1020px;
 }
@@ -136,9 +138,10 @@ body {
 .g-main .m-content {
     float: left;
     width: 835px;
-    border: 1px solid #bbb;
+    border: 1px solid #bbbbbb;
     border-radius: 3px;
 }
+
 /* footer */
 .g-main .m-foot {
     width: 50%;
@@ -149,7 +152,7 @@ body {
     module
 **/
 .m-top a {
-    color: #666;
+    color: #666666;
 }
 
 .m-top ul {
@@ -170,18 +173,18 @@ body {
 .m-top .left {
     float: left;
     position: relative;
-    zoom: 1;
+    *zoom: 1;
 }
 
 .m-top .left .netease {
     width: 40px;
-    border: 1px solid transparent; /*  默认即设定1px,防止hover时抖动 */
-    border: 1px solid #fafafa; /*  IE6不支持transparent fixed */
-    zoom: 1; /*   IE6定位位置错误，触发hasLayout fixed */
+    border: 1px solid transparent; /* 默认即设定1px,防止hover时抖动 */
+    *border: 1px solid #fafafa; /* IE6不支持transparent fixed */
+    *zoom: 1; /* IE6定位位置错误，触发hasLayout fixed */
 }
 
 .m-top .left .netease:hover {
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
 }
 
 /* 鼠标悬停显示隐藏导航栏 */
@@ -196,10 +199,10 @@ body {
 .m-top .m-subnav {
     position: absolute;
     left: 10px;
-    border: 1px solid #ccc;
-    background-color: #fff;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
     width: 60px;
-    top: 20px;
+    *top: 20px;
 }
 
 .m-top .m-subnav li {
@@ -213,7 +216,7 @@ body {
 }
 
 .m-top .m-subnav li:last-child {
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #cccccc;
 }
 
 .m-top .right {
@@ -274,7 +277,7 @@ body {
 .m-content h3 {
     margin-bottom: 15px;
     font-size: 14px;
-    color: #000;
+    color: black;
 }
 
 .m-content .container {
@@ -284,13 +287,13 @@ body {
 
 .m-content .left {
     float: left;
-    display: inline;
+    *display: inline;
     width: 550px;
 }
 
 .m-content .right {
     float: right;
-    display: inline;
+    *display: inline;
     width: 225px;
     background-color: #fafafa;
     border: 1px solid #f5f5f5;
@@ -319,12 +322,12 @@ body {
 .m-tab div {
     width: 145px;
     margin-bottom: 20px;
-    border: 1px solid #bbb;
+    border: 1px solid #bbbbbb;
     border-radius: 3px;
 }
 
 .m-tab dt, .m-tab dd {
-    padding: 10px 0 10px 30px;
+    padding: 10px 0px 10px 30px;
 }
 
 .m-tab dd:hover {
@@ -332,27 +335,27 @@ body {
 }
 
 .m-tab dt {
-    border-bottom: 1px solid #bbb;
+    border-bottom: 1px solid #bbbbbb;
     padding-left: 8px;
     background-color: #ececec;
-    color: #333;
-    font-weight: 700;
+    color: #333333;
+    font-weight: bold;
 }
 
 .m-tab1 {
     background-color: #f7f7f7;
     width: 180px;
     font-size: 0; /* 主流高级浏览器 */
-    word-spacing: -1px; /* IE 6、7 */
+    *word-spacing: -1px; /* IE 6、7 */
 }
 
 .m-tab1 li a {
     /* fixed IE6/7 font-size:0;后1px的间距 */
-    word-spacing: normal;
+    *word-spacing: normal;
     letter-spacing: normal;
     vertical-align: top;
     padding: 5px 20px;
-    border: 1px solid #bbb;
+    border: 1px solid #bbbbbb;
     border-bottom: none;
     font-size: 14px;
     width: 48px;
@@ -363,15 +366,15 @@ body {
 }
 
 .m-tab1 .selected {
-    border-bottom: 1px solid #FFF;
+    border-bottom: 1px solid #FFFFFF;
     margin-bottom: -1px;
-    background-color: #FFF;
+    background-color: #FFFFFF;
 }
 
 .m-editor {
     padding-top: 20px;
     margin-bottom: 20px;
-    border-top: 1px solid #bbb;
+    border-top: 1px solid #bbbbbb;
 }
 
 .m-editor input, .m-editor textarea {
@@ -388,18 +391,18 @@ body {
 }
 
 .m-editor input::-webkit-input-placeholder {
-    /*  Chrome、Safari */
-    color: #333;
+    /* Chrome、Safari */
+    color: #333333;
 }
 
 .m-editor input::-moz-placeholder {
     /* Firefox */
-    color: #333;
+    color: #333333;
 }
 
 .m-editor input:-ms-input-placeholder {
-    /*  IE */
-    color: #333;
+    /* IE */
+    color: #333333;
 }
 
 .m-editor textarea {
@@ -413,7 +416,7 @@ body {
 
 .m-editor .btns {
     float: right;
-    display: inline;
+    *display: inline;
 }
 
 .m-editor .btns button {
@@ -442,27 +445,27 @@ body {
 }
 
 .m-list .title input {
-    zoom: 1;
-    vertical-align: bottom;
+    *zoom: 1;
+    *vertical-align: bottom;
     vertical-align: middle;
 }
 
 .m-list .item {
     position: relative;
-    zoom: 1;
+    *zoom: 1;
     padding: 10px 0;
     border-bottom: 1px dashed #d8e0e5;
 }
 
 .m-list .item dl dd {
     float: right;
-    display: inline;
+    *display: inline;
     margin-left: 15px;
 }
 
 .m-list .item .more {
     position: relative;
-    zoom: 1;
+    *zoom: 1;
 }
 
 .m-list .item .more ul {
@@ -492,7 +495,7 @@ body {
 
 .m-list .item .more:hover .link {
     /* IE6 */
-    visibility: hidden;
+    *visibility: hidden;
 }
 
 .m-list .item .data {
@@ -516,7 +519,7 @@ body {
 .m-opt input {
     margin-right: 5px;
     vertical-align: middle;
-    vertical-align: bottom;
+    *vertical-align: bottom;
 }
 
 .m-opt button {
@@ -532,7 +535,7 @@ body {
 .m-ftnav {
     margin-top: 20px;
     font-size: 14px;
-    color: #000;
+    color: black;
 }
 
 .m-ftnav li {
@@ -542,7 +545,7 @@ body {
 .m-ftnav li:after {
     margin-left: 10px;
     content: "-";
-    color: #ddd;
+    color: #dddddd;
 }
 
 .m-ftnav li:last-child:after {
@@ -562,12 +565,17 @@ body {
 .u-button {
     padding: 3px;
 }
+
+/* 选择框.u-checkbox{width:10px;height:10px;border:1px solid #1c5180;background-color:#f5f5f4;}
+*/
+/* 对号.u-checked{top:-5px;width:10px;height:5px;border-bottom:2px solid red;border-left:2px solid red;transform:rotate(-45deg);}
+*/
 /* 下拉小图标 */
 .u-downicon, .u-upicon {
     height: 0;
     line-height: 0;
     position: relative;
-    zoom: 1;
+    *zoom: 1;
     left: 2px;
     top: 8px;
 }
@@ -578,12 +586,16 @@ body {
     border-right: 4px solid transparent;
     content: "";
 }
+
 /* 上拉小图标 */
 .u-upicon:before {
     border-bottom: 4px solid #c5c5c5;
     border-top: none;
 }
-/* function */
+
+/*
+   function
+*/
 .f-clearfix:after {
     clear: both;
     content: ".";
@@ -593,7 +605,7 @@ body {
 }
 
 .f-clearfix {
-    zoom: 1;
+    *zoom: 1;
 }
 
 .f-mg0 {
@@ -607,7 +619,10 @@ body {
 .f-tac {
     text-align: center;
 }
-/* 状态 */
+
+/*
+    状态
+*/
 .z-hidden {
     display: none;
 }

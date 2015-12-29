@@ -12,10 +12,10 @@
     </style>
     <![endif]-->
 </head>
-<body>
+<body class="g-main">
 <!-- 导航条 -->
-<div class="g-topbar">
-    <div class="container clearfix">
+<div class="m-top">
+    <div class="container f-clearfix">
         <ul class="left">
             <li class="netease">
                 <a href="">网易<span class="u-downicon"></span></a>
@@ -37,28 +37,28 @@
         </ul>
 
         <ul class="right">
-            <li class="f-cl6"><span class="time">中午好，</span><span class="username">西瓜太郎</span>(<a href=""><img
-                    src="images/message.png">5</a>)
+            <li class="wlc"><span>中午好，</span><span class="username">西瓜太郎</span>(<span
+                    class="sprite sprite-message"></span><a href="">5</a>)
             </li>
-            <li><a href=""><img src="images/home.png">个人中心</a></li>
-            <li>消息（<a href=""><span class="listcount f-clf70">1234</span>)</a></li>
+            <li><a href=""><span class="sprite sprite-home"></span>个人中心</a></li>
+            <li>消息（<a href=""><span class="counts">1234</span>)</a></li>
             <li><a href="">反馈</a></li>
-            <li class="login f-cla4"><a href="">登录</a></li>
+            <li class="login"><a href="">登录</a></li>
         </ul>
     </div>
 </div>
 <!-- /导航条 -->
 
 <!-- 头部 -->
-<div class="g-hd">
-    <div class="container clearfix">
+<div class="m-head">
+    <div class="container f-clearfix">
         <div class="left">
             <img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="用户头像"
                  width="50px" height="50px">
         </div>
         <div class="right">
-            <div class="f-fs18 f-cl7d">欢迎,西瓜太郎</div>
-            <button class="u-button f-cl51" id="uploadimg">传相片</button>
+            <div class="wlc">欢迎,西瓜太郎</div>
+            <button class="u-button uploadimg" id="uploadimg">传相片</button>
         </div>
     </div>
 </div>
@@ -66,41 +66,43 @@
 
 <!-- 主体 -->
 
-<div class="g-bd f-mg0 clearfix">
+<div class="m-container f-mg0 f-clearfix">
     <!-- 侧边栏 -->
-    <div class="g-side f-21759b">
-        <ul class="m-tab">
-            <li><img src="images/user.png">博客动态</li>
-            <li><a href="">博客动态</a></li>
-            <li><a href="">消息中心</a></li>
-        </ul>
-        <ul class="m-tab">
-            <li><img src="images/settings.png">博客管理</li>
-            <li><a href="">日志管理</a></li>
-            <li><a href="">博友管理</a></li>
-            <li><a href="">访问统计</a></li>
-        </ul>
-        <ul class="m-tab">
-            <li><img src="images/service.png">服务</li>
-            <li><a href="">手机博客</a></li>
-            <li><a href="">博客复制</a></li>
-            <li><a href="">手机邮</a></li>
-        </ul>
+    <div class="m-side">
+        <dl class="m-tab">
+            <div>
+                <dt><span class="sprite sprite-user"></span>博客动态</dt>
+                <dd><a href="">博客动态</a></dd>
+                <dd><a href="">消息中心</a></dd>
+            </div>
+            <div>
+                <dt><span class="sprite sprite-settings"></span>博客管理</dt>
+                <dd><a href="">日志管理</a></dd>
+                <dd><a href="">博友管理</a></dd>
+                <dd><a href="">访问统计</a></dd>
+            </div>
+            <div>
+                <dt><span class="sprite sprite-service"></span>服务</dt>
+                <dd><a href="">手机博客</a></dd>
+                <dd><a href="">博客复制</a></dd>
+                <dd><a href="">手机邮</a></dd>
+            </div>
+        </dl>
     </div>
     <!-- /侧边栏 -->
-    <div class="g-main">
-        <div class="container clearfix">
-            <h2 class="f-fs18">日志管理</h2>
+    <div class="m-content">
+        <div class="container f-clearfix">
+            <h2>日志管理</h2>
 
-            <div class="left clearfix">
+            <div class="left f-clearfix">
                 <ul class="m-tab1 f-tac">
                     <li class="selected"><a href="">日志</a></li>
                     <li class="f-ml1"><a href="">标签</a></li>
                 </ul>
                 <!-- 日志添加 -->
                 <div class="m-editor">
-                    <div class="editor clearfix">
-                        <input type="text" class="u-title f-fs16" placeholder="日志标题"/>
+                    <div class="editor f-clearfix">
+                        <input type="text" class="u-title" placeholder="日志标题"/>
                         <textarea placeholder="这里可以写日志~"></textarea><!-- textarea必须在同一行 -->
                         <div class="btns">
                             <button>发布</button>
@@ -117,7 +119,7 @@
                 <!-- 日志管理 -->
                 <div class="m-list">
                     <div class="item">
-                        <dl class="f-21759b clearfix">
+                        <dl class="f-21759b f-clearfix">
                             <dt class="title"><label for="article1"></label><input
                                     type="checkbox"
                                     id="article1"><a
@@ -135,13 +137,13 @@
 
                             </dd>
                         </dl>
-                        <div class="data f-cl7b">
+                        <div class="data">
                             <span class="date">2015-12-22 13:59</span><span class="times">阅读11</span><span
                                 class="reviews">评论(20)</span>
                         </div>
                     </div>
                     <div class="item">
-                        <dl class="f-21759b clearfix">
+                        <dl class="f-21759b f-clearfix">
                             <dt class="title"><label for="article2"></label><input
                                     type="checkbox" id="article2"><a href="">Js高性能</a>
                             </dt>
@@ -161,7 +163,7 @@
                         </div>
                     </div>
                     <div class="item">
-                        <dl class="f-21759b clearfix">
+                        <dl class="f-21759b f-clearfix">
                             <dt class="title"><label for="article3"></label><input
                                     type="checkbox"
                                     id="article3"><a
@@ -191,47 +193,47 @@
                 </div>
             </div>
             <!-- /日志管理 -->
-            <div class="right f-21759b">
+            <div class="right">
                 <div class="container">
-                    <h3 class="title f-fs14">好友最近的日志</h3>
+                    <h3 class="title">好友最近的日志</h3>
 
                     <div class="articles">
-                        <dl class="clearfix">
+                        <dl class="f-clearfix">
                             <dt><img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="好友头像"
                                      width="40"
                                      height="40"></dt>
                             <dd><a href="">小油菜</a></dd>
                             <dd>hello world console.log</dd>
                         </dl>
-                        <dl class="clearfix">
+                        <dl class="f-clearfix">
                             <dt><img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="好友头像"
                                      width="40"
                                      height="40"></dt>
                             <dd><a href="">大苹果</a></dd>
                             <dd>HelloKitty</dd>
                         </dl>
-                        <dl class="clearfix">
+                        <dl class="f-clearfix">
                             <dt><img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="好友头像"
                                      width="40"
                                      height="40"></dt>
                             <dd><a href="">胖妞</a></dd>
                             <dd>Yes You can</dd>
                         </dl>
-                        <dl class="clearfix">
+                        <dl class="f-clearfix">
                             <dt><img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="好友头像"
                                      width="40"
                                      height="40"></dt>
                             <dd><a href="">胖妞</a></dd>
                             <dd>Yes You can</dd>
                         </dl>
-                        <dl class="clearfix">
+                        <dl class="f-clearfix">
                             <dt><img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="好友头像"
                                      width="40"
                                      height="40"></dt>
                             <dd><a href="">胖妞</a></dd>
                             <dd>Yes You can</dd>
                         </dl>
-                        <dl class="clearfix">
+                        <dl class="f-clearfix">
                             <dt><img src="http://os.blog.163.com/common/ava.s?host=testblog1&b=0&r=-1" alt="好友头像"
                                      width="40"
                                      height="40"></dt>
@@ -247,16 +249,16 @@
 <!-- /主体 -->
 
 <!-- 尾部 -->
-<div class="g-ft f-mg0">
+<div class="m-foot f-mg0">
     <!-- 页尾导航栏 -->
-    <ul class="m-ftnav f-fs14">
+    <ul class="m-ftnav">
         <li><a href="">公司介绍</a></li>
         <li><a href="">联系方式</a></li>
         <li><a href="">招聘信息</a></li>
         <li><a href="">客户服务</a></li>
         <li><a href="">博客风格</a></li>
         <li><a href="">手机博客</a></li>
-        <li><img src="images/rss.png"><a href="">订阅此博客</a></li>
+        <li><span class="sprite sprite-rss"></span><a href="">订阅此博客</a></li>
     </ul>
     <!-- 版权声明 -->
     <div class="m-copyright">

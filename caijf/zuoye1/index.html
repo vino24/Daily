@@ -18,7 +18,7 @@
     <div class="container f-clearfix">
         <ul class="left">
             <li class="netease">
-                <a href="">网易<span class="u-downicon"></span></a>
+                <a href="">网易<span class="u-icon"></span></a>
                 <!-- 隐藏导航栏 -->
                 <ul class="m-subnav z-hidden">
                     <li><a href="">新闻</a></li>
@@ -38,9 +38,9 @@
 
         <ul class="right">
             <li class="wlc"><span>中午好，</span><span class="username">西瓜太郎</span>(<span
-                    class="sprite sprite-message"></span><a href="">5</a>)
+                    class="s-bg"></span><a href="">5</a>)
             </li>
-            <li><a href=""><span class="sprite sprite-home"></span>个人中心</a></li>
+            <li><a href=""><span class="s-bg sprite-home"></span>个人中心</a></li>
             <li>消息（<a href=""><span class="counts">1234</span>)</a></li>
             <li><a href="">反馈</a></li>
             <li class="login"><a href="">登录</a></li>
@@ -71,18 +71,18 @@
     <div class="m-side">
         <dl class="m-tab">
             <div>
-                <dt><span class="sprite sprite-user"></span>博客动态</dt>
+                <dt><span class="s-bg sprite-user"></span>博客动态</dt>
                 <dd><a href="">博客动态</a></dd>
                 <dd><a href="">消息中心</a></dd>
             </div>
             <div>
-                <dt><span class="sprite sprite-settings"></span>博客管理</dt>
+                <dt><span class="s-bg sprite-settings"></span>博客管理</dt>
                 <dd><a href="">日志管理</a></dd>
                 <dd><a href="">博友管理</a></dd>
                 <dd><a href="">访问统计</a></dd>
             </div>
             <div>
-                <dt><span class="sprite sprite-service"></span>服务</dt>
+                <dt><span class="s-bg sprite-service"></span>服务</dt>
                 <dd><a href="">手机博客</a></dd>
                 <dd><a href="">博客复制</a></dd>
                 <dd><a href="">手机邮</a></dd>
@@ -96,103 +96,41 @@
 
             <div class="left f-clearfix">
                 <ul class="m-tab1 f-tac">
-                    <li class="selected"><a href="">日志</a></li>
-                    <li class="f-ml1"><a href="">标签</a></li>
+                    <li class="selected" id="daily"><a href="javascript:void(0)">日志</a></li>
+                    <li class="f-ml1" id="tags"><a href="javascript:void(0)">标签</a></li>
                 </ul>
-                <!-- 日志添加 -->
-                <div class="m-editor">
-                    <div class="editor f-clearfix">
-                        <input type="text" class="u-title" placeholder="日志标题"/>
+
+                <div class="m-daily">
+                    <!-- 日志添加 -->
+                    <div class="m-editor f-clearfix" id="m-editor">
+                        <input type="text" placeholder="日志标题"/>
                         <textarea placeholder="这里可以写日志~"></textarea><!-- textarea必须在同一行 -->
                         <div class="btns">
-                            <button>发布</button>
-                            <button>清空</button>
+                            <button id="pub">发布</button>
+                            <button id="clear">清空</button>
                         </div>
                     </div>
                     <!-- /日志添加 -->
-                    <!-- 标签添加 -->
-                    <div class="m-tags z-hidden">
-                        没有标签
+                    <!-- 日志管理 -->
+                    <div class="m-list">
+
                     </div>
+
+                    <div class="m-opt">
+                        <label for="sltall"></label><input
+                            type="checkbox" id="sltall">全选
+                        <button class="u-button" id="dltall">删除</button>
+                    </div>
+                    <!-- /日志管理 -->
+                </div>
+
+                <!-- 标签添加 -->
+                <div class="m-tags z-hidden" id="m-tags">
+                    没有标签
                 </div>
                 <!-- /标签添加 -->
-                <!-- 日志管理 -->
-                <div class="m-list">
-                    <div class="item">
-                        <dl class="f-21759b f-clearfix">
-                            <dt class="title"><label for="article1"></label><input
-                                    type="checkbox"
-                                    id="article1"><a
-                                    href="">Js高性能</a>
-                            </dt>
-                            <dd class="more">
-                                <a class="link" href="">更多<span class="u-downicon"></span></a>
-                                <ul>
-                                    <li><a href="">更多<span class="u-downicon"></span></a></li>
-                                    <li><a href="">置顶</a></li>
-                                    <li><a href="">删除</a></li>
-                                </ul>
-                            </dd>
-                            <dd class="editor"><a href="">编辑</a>
-
-                            </dd>
-                        </dl>
-                        <div class="data">
-                            <span class="date">2015-12-22 13:59</span><span class="times">阅读11</span><span
-                                class="reviews">评论(20)</span>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <dl class="f-21759b f-clearfix">
-                            <dt class="title"><label for="article2"></label><input
-                                    type="checkbox" id="article2"><a href="">Js高性能</a>
-                            </dt>
-                            <dd class="more">
-                                <a class="link" href="">更多<span class="u-downicon"></span></a>
-                                <ul>
-                                    <li><a href="">更多<span class="u-downicon"></span></a></li>
-                                    <li><a href="">置顶</a></li>
-                                    <li><a href="">删除</a></li>
-                                </ul>
-                            </dd>
-                            <dd class="editor"><a href="">编辑</a></dd>
-                        </dl>
-                        <div class="data f-cl7b">
-                            <span class="date">2015-12-22 13:59</span><span class="times">阅读11</span><span
-                                class="reviews">评论(20)</span>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <dl class="f-21759b f-clearfix">
-                            <dt class="title"><label for="article3"></label><input
-                                    type="checkbox"
-                                    id="article3"><a
-                                    href="">Js高性能</a>
-                            </dt>
-                            <dd class="more">
-                                <a class="link" href="">更多<span class="u-downicon"></span></a>
-                                <ul>
-                                    <li><a href="">更多<span class="u-downicon"></span></a></li>
-                                    <li><a href="">置顶</a></li>
-                                    <li><a href="">删除</a></li>
-                                </ul>
-                            </dd>
-                            <dd class="editor"><a href="">编辑</a></dd>
-                        </dl>
-                        <div class="data f-cl7b">
-                            <span class="date">2015-12-22 13:59</span><span class="times">阅读11</span><span
-                                class="reviews">评论(20)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="m-opt">
-                    <label for="selectall"></label><input
-                        type="checkbox" id="selectall">全选
-                    <button class="u-button">删除</button>
-                </div>
             </div>
-            <!-- /日志管理 -->
+
             <div class="right">
                 <div class="container">
                     <h3 class="title">好友最近的日志</h3>
@@ -258,7 +196,7 @@
         <li><a href="">客户服务</a></li>
         <li><a href="">博客风格</a></li>
         <li><a href="">手机博客</a></li>
-        <li><span class="sprite sprite-rss"></span><a href="">订阅此博客</a></li>
+        <li><span class="s-bg sprite-rss"></span><a href="">订阅此博客</a></li>
     </ul>
     <!-- 版权声明 -->
     <div class="m-copyright">
@@ -266,5 +204,6 @@
     </div>
 </div>
 <!-- /尾部 -->
+<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>

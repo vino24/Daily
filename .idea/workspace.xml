@@ -2,6 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="308f60b7-09cc-48d4-bc8c-e6304f078f36" name="Default" comment="netease 作业一 js">
+      <change type="DELETED" beforePath="D:\xampp\htdocs\html5\360FE\360FE-Star-Plan\images\icon-360.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/caijf/zuoye1/index.html" afterPath="$PROJECT_DIR$/caijf/zuoye1/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/360FE/360FE-Star-Plan/css/main.css" afterPath="$PROJECT_DIR$/360FE/360FE-Star-Plan/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/caijf/zuoye1/js/main.js" afterPath="$PROJECT_DIR$/caijf/zuoye1/js/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/360FE/360FE-Star-Plan/resume.html" afterPath="$PROJECT_DIR$/360FE/360FE-Star-Plan/resume.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="html5.iws" />
@@ -27,18 +32,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/caijf/zuoye1/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.8">
+            <state vertical-scroll-proportion="0.0">
               <caret line="114" column="44" selection-start-line="114" selection-start-column="44" selection-end-line="114" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="video.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/360FE/360FE-Star-Plan/js/video.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.433333">
-              <caret line="18" column="35" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -47,11 +42,11 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/caijf/zuoye1/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.8">
-              <caret line="116" column="26" selection-start-line="116" selection-start-column="26" selection-end-line="116" selection-end-column="26" />
+            <state vertical-scroll-proportion="-5.25">
+              <caret line="105" column="62" selection-start-line="105" selection-start-column="62" selection-end-line="105" selection-end-column="62" />
               <folding>
-                <marker date="1451467510388" expanded="true" signature="204:285" placeholder="..." />
-                <marker date="1451467510388" expanded="true" signature="219:273" placeholder="{...}" />
+                <marker date="1451553654245" expanded="true" signature="204:285" placeholder="..." />
+                <marker date="1451553654245" expanded="true" signature="219:273" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -60,14 +55,23 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/caijf/zuoye1/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1531532">
-              <caret line="118" column="53" selection-start-line="118" selection-start-column="53" selection-end-line="118" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.0045402953">
+              <caret line="125" column="87" selection-start-line="125" selection-start-column="87" selection-end-line="125" selection-end-column="87" />
               <folding>
-                <element signature="e#1108#1424#0" expanded="false" />
-                <element signature="e#1465#2544#0" expanded="false" />
-                <element signature="e#6402#7664#0" expanded="false" />
-                <element signature="e#7727#8008#0" expanded="false" />
-                <element signature="e#8052#8134#0" expanded="false" />
+                <element signature="e#1087#1180#0" expanded="false" />
+                <element signature="e#1222#1814#0" expanded="false" />
+                <element signature="e#6165#6474#0" expanded="false" />
+                <element signature="e#6516#7027#0" expanded="false" />
+                <element signature="e#7182#7739#0" expanded="false" />
+                <element signature="e#7789#8177#0" expanded="false" />
+                <element signature="e#8391#8474#0" expanded="false" />
+                <element signature="e#8517#8557#0" expanded="false" />
+                <element signature="e#8599#8653#0" expanded="false" />
+                <element signature="e#8698#10116#0" expanded="false" />
+                <element signature="e#8760#10076#0" expanded="false" />
+                <element signature="e#10167#10604#0" expanded="false" />
+                <element signature="e#10819#11100#0" expanded="false" />
+                <element signature="e#11144#11226#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -147,8 +151,8 @@
         <option value="$PROJECT_DIR$/caijf/zuoye1/css/style01.css" />
         <option value="$PROJECT_DIR$/caijf/zuoye1/index01.html" />
         <option value="$PROJECT_DIR$/Js_The_definitive_Guide/17/17.3.2.js" />
-        <option value="$PROJECT_DIR$/caijf/zuoye1/index.html" />
         <option value="$PROJECT_DIR$/caijf/zuoye1/css/style.css" />
+        <option value="$PROJECT_DIR$/caijf/zuoye1/index.html" />
         <option value="$PROJECT_DIR$/caijf/zuoye1/js/main.js" />
       </list>
     </option>
@@ -683,7 +687,13 @@
       <option name="project" value="LOCAL" />
       <updated>1451356450966</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="netease 作业一 js">
+      <created>1451480640558</created>
+      <option name="number" value="00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1451480640558</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -704,10 +714,8 @@
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1551541" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31428573" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32453245" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32735425" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3243243" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32436976" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25405404" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973433" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -716,12 +724,14 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4290375" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32453245" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3243243" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -787,7 +797,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="11" />
+      <option name="time" value="17" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1074,7 +1084,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1092,7 +1101,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.047727272">
           <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1100,7 +1108,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.21477273">
           <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1108,7 +1115,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4534091">
           <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1116,15 +1122,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14318182">
           <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-          <folding>
-            <marker date="1451366276529" expanded="true" signature="-1:-1" placeholder="/** Created by ��������� on 2015/7/6. ...*/" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/360FE/360FE-Star-Plan/js/video.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.433333">
+        <state vertical-scroll-proportion="0.0">
           <caret line="18" column="35" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="35" />
           <folding />
         </state>
@@ -1132,7 +1135,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/caijf/zuoye1/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.8">
+        <state vertical-scroll-proportion="0.0">
           <caret line="114" column="44" selection-start-line="114" selection-start-column="44" selection-end-line="114" selection-end-column="44" />
           <folding />
         </state>
@@ -1140,25 +1143,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/caijf/zuoye1/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.8">
-          <caret line="116" column="26" selection-start-line="116" selection-start-column="26" selection-end-line="116" selection-end-column="26" />
+        <state vertical-scroll-proportion="-5.25">
+          <caret line="105" column="62" selection-start-line="105" selection-start-column="62" selection-end-line="105" selection-end-column="62" />
           <folding>
-            <marker date="1451467510388" expanded="true" signature="204:285" placeholder="..." />
-            <marker date="1451467510388" expanded="true" signature="219:273" placeholder="{...}" />
+            <marker date="1451553654245" expanded="true" signature="204:285" placeholder="..." />
+            <marker date="1451553654245" expanded="true" signature="219:273" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/caijf/zuoye1/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1531532">
-          <caret line="118" column="53" selection-start-line="118" selection-start-column="53" selection-end-line="118" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.0045402953">
+          <caret line="125" column="87" selection-start-line="125" selection-start-column="87" selection-end-line="125" selection-end-column="87" />
           <folding>
-            <element signature="e#1108#1424#0" expanded="false" />
-            <element signature="e#1465#2544#0" expanded="false" />
-            <element signature="e#6402#7664#0" expanded="false" />
-            <element signature="e#7727#8008#0" expanded="false" />
-            <element signature="e#8052#8134#0" expanded="false" />
+            <element signature="e#1087#1180#0" expanded="false" />
+            <element signature="e#1222#1814#0" expanded="false" />
+            <element signature="e#6165#6474#0" expanded="false" />
+            <element signature="e#6516#7027#0" expanded="false" />
+            <element signature="e#7182#7739#0" expanded="false" />
+            <element signature="e#7789#8177#0" expanded="false" />
+            <element signature="e#8391#8474#0" expanded="false" />
+            <element signature="e#8517#8557#0" expanded="false" />
+            <element signature="e#8599#8653#0" expanded="false" />
+            <element signature="e#8698#10116#0" expanded="false" />
+            <element signature="e#8760#10076#0" expanded="false" />
+            <element signature="e#10167#10604#0" expanded="false" />
+            <element signature="e#10819#11100#0" expanded="false" />
+            <element signature="e#11144#11226#0" expanded="false" />
           </folding>
         </state>
       </provider>

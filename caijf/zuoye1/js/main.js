@@ -1,5 +1,8 @@
 (function (window, document) {
     var doc = document;
+    count = 0;    //  个人日志id
+    dataList1 = [];   //  个人日志数据
+    dataList2 = [];   //  好友日志数据
     var daily = doc.getElementById("daily");
     var tags = doc.getElementById("tags");
     var mDaily = doc.getElementsByClassName("m-daily")[0];
@@ -15,29 +18,35 @@
     var edtBtns = mList.getElementsByClassName("editor");
     var dltBtns = mList.getElementsByClassName("dlt");
     var checkboxes = mList.getElementsByTagName("input");
-    count = 0;    //  日志id
-    dataList = [];    //  数据数组
+    var articles = doc.getElementsByClassName("articles")[0];
 
     //  页面初始化
     bindEvent(window, "load", init);
 
-    /*
-     *   事件处理函数
-     * */
+
     //  页面初始化函数
     function init() {
         getJson();
         bindBtns();
+        interval = setInterval(reFresh, 2000);
     }
 
     //  获取后台数据函数
     function getJson() {
-        var request = new XMLHttpRequest();
-        request.open("GET", "./getblogs.json");
-        request.send();
-        request.onreadystatechange = function () {
-            if (request.readyState === 4 && request.status === 200) {
-                callback(request.responseText);
+        //  获取日志
+        var xhr1 = new XMLHttpRequest(), xhr2 = new XMLHttpRequest();
+        xhr1.open("GET", "./getblogs.json");
+        xhr1.send();
+        xhr1.onreadystatechange = function () {
+            if (xhr1.readyState === 4 && xhr1.status === 200) {
+                callback1(xhr1.responseText);
+            }
+        }
+        xhr2.open("GET", "./getfriends.json");
+        xhr2.send();
+        xhr2.onreadystatechange = function () {
+            if (xhr2.readyState === 4 && xhr2.status === 200) {
+                callback2(xhr2.responseText);
             }
         }
     }
@@ -73,67 +82,101 @@
         bindEvent(mList, "click", operate);
         //  绑定全选按钮
         bindEvent(sltAllBtn, "change", selectAll);
-        //    绑定全部删除按钮
+        //  绑定全部删除按钮
         bindEvent(dltAllBtn, "click", deleteAll);
+        //  绑定好友日志悬停
+        bindEvent(articles, "mouseover", msover);
+        //  绑定好友日志离开
+        bindEvent(articles, "mouseout", msout);
     }
 
     //  发布函数
     function publish() {
-        var now = new Date(), date = [now.getFullYear(), timeBeauty(now.getMonth()), timeBeauty(now.getDate())].join("-"),
+        var pos = -1, now = new Date(), date = [now.getFullYear(), timeBeauty(now.getMonth()), timeBeauty(now.getDate())].join("-"),
             time = " " + [timeBeauty(now.getHours()), timeBeauty(now.getMinutes()), timeBeauty(now.getSeconds())].join(":");
-
-        arr.push(updateList(count, title.value, textarea.value, date, time));
-
-        render(arr);
-        count++;              //  更新id
+        for (var i = 0; i < dataList1.length; i++) {
+            if (dataList1[i].id == count) {
+                pos = i;
+            }
+        }
+        //  新建日志
+        if (pos == -1) {
+            dataList1.push(updateList(count, title.value, textarea.value, date, time));
+            count++;
+        //  编辑日志
+        } else {
+            dataList1[pos] = updateList(count, title.value, textarea.value, date, time,dataList1[pos].allowView,dataList1[pos].accessCount,dataList1[pos].commentCount);
+        }
+        render(dataList1);
+        //  更新id
         title.value = "";     //  清空标题
         textarea.value = "";  //  清空内容
     }
 
-    //  编辑、置顶、删除函数
+    //  编辑、置顶、删除、选择函数
     function operate(e) {
         var className = e.target.className;
         var id = e.target.parentNode.parentNode.parentNode.parentNode.getElementsByTagName("input")[0].id;
+
         //  删除操作
         if (className == "dlt") {
 
-            for (var j = 0; j < arr.length; j++) {
-                if (arr[j].id == id) {
-                    arr = (arr.slice(0, j)).concat(arr.slice(j + 1));
+            for (var j = 0; j < dataList1.length; j++) {
+                if (dataList1[j].id == id) {
+                    dataList1 = (dataList1.slice(0, j)).concat(dataList1.slice(j + 1));
                 }
             }
-        //    置顶操作
+
+            //    置顶操作
         } else if (className == "top") {
-            for (var j = 0; j < arr.length; j++) {
-                if (arr[j].id == id) {
-                    arr = [arr[j]].concat(arr.slice(0, j).concat(arr.slice(j + 1)));
+            for (var j = 0; j < dataList1.length; j++) {
+                if (dataList1[j].id == id) {
+                    if (dataList1[j].rank == 0) {
+                        dataList1[j].rank = 5;    //  置顶
+                        dataList1 = [dataList1[j]].concat(dataList1.slice(0, j), dataList1.slice(j + 1));
+                    } else {
+                        dataList1.push(dataList1.shift());
+                        dataList1[j].rank = 0;    //  取消置顶（必须要写在dataList1后面，否则会执行dataList1[j].rank=0的操作）
+                    }
                 }
             }
-        //    编辑操作
+
+            //    编辑操作
         } else if (className == "editor") {
-            for (var j = 0; j < arr.length; j++) {
-                if (arr[j].id == id) {
-                    arr = (arr.slice(0, j)).concat(arr.slice(j + 1));
-                }
-            }
             var elt = e.target.parentNode.parentNode;
             title.value = elt.getElementsByClassName("title")[0].getElementsByTagName("a")[0].text;
             textarea.value = elt.getElementsByClassName("article")[0].innerHTML;
+            count = elt.getElementsByTagName("input")[0].id;
+            //    选择操作
+        } else if (e.target.type == "checkbox") {
+            id = e.target.id;
+            for (var j = 0; j < dataList1.length; j++) {
+                if (dataList1[j].id == id) {
+                    dataList1[j].recomBlogHome = (dataList1[j].recomBlogHome == true) ? false : true;
+                }
+            }
+            //  全选
+            var checked = dataList1.filter(function (item) {
+                return item.recomBlogHome == true;
+            });
+            if (checked.length == dataList1.length) sltAllBtn.checked = true;
+            else sltAllBtn.checked = false;
         }
-        /*
-        else if(e.target.type=="checkbox") {
-            if(e.target.checked==true) {e.target.checked==true;console.log(e.target.checked)} else e.target.checked==true;
-        }*/
-        render(arr);
+        render(dataList1);
     }
 
     //   全选函数
     function selectAll() {
-        [].slice.call(checkboxes).forEach(function (i) {
-            if (sltAllBtn.checked) {
-                i.checked = true;
-            } else i.checked = false;
-        });
+        if (sltAllBtn.checked) {
+            dataList1.forEach(function (item) {
+                item.recomBlogHome = true;
+            });
+        } else {
+            dataList1.forEach(function (item) {
+                item.recomBlogHome = false;
+            });
+        }
+        render(dataList1);
     }
 
     //  删除选中函数
@@ -141,22 +184,23 @@
         var checked = [];
         [].slice.call(checkboxes).forEach(function (i) {
             if (i.checked) {
-                for (var j = 0; j < arr.length; j++) { //  不可使用forEach;不可使用len=arr.length缓存数组长度，否则数组长度无法实现更新
-                    if (arr[j].id == i.id) {
-                        arr = (arr.slice(0, j)).concat(arr.slice(j + 1));
+                for (var j = 0; j < dataList1.length; j++) { //  不可使用forEach;不可使用len=dataList1.length缓存数组长度，否则数组长度无法实现更新
+                    if (dataList1[j].id == i.id) {
+                        dataList1 = (dataList1.slice(0, j)).concat(dataList1.slice(j + 1));
                     }
                 }
             }
         });
-        render(arr);
+        render(dataList1);
         sltAllBtn.checked = false;
     }
 
     //  数据数组更新
-    function updateList(id, title, blogContent, shortPublishDateStr, publishTimeStr, allowView, accessCount, commentCount) {
+    function updateList(id, title, blogContent, shortPublishDateStr, publishTimeStr, allowView, accessCount, commentCount, recomBlogHome) {
         allowView = allowView || -100;
         accessCount = accessCount || 0;
         commentCount = commentCount || 0;
+        recomBlogHome = false;
         var item = {};
         item.id = id;
         item.title = title;
@@ -166,50 +210,91 @@
         item.allowView = allowView;
         item.accessCount = accessCount;
         item.commentCount = commentCount;
+        item.recomBlogHome = recomBlogHome;
         return item;
     }
 
-    //  数据返回处理函数
-    function callback(result) {
+    //  个人日志处理函数
+    function callback1(result) {
         var res = JSON.parse(result);
-        res.sort(function (a, b) {
-            return b.modifyTime - a.modifyTime;
-        });
+        sort(res);
         //  置顶日志
         var top = res.filter(function (item) {
             return item.rank == 5;
         });
-        arr = top;
+        dataList1 = top;
         //  非置顶日志
         var normal = res.filter(function (item) {
             return item.rank == 0;
         });
-        arr = arr.concat(normal);
-        render(arr);
+        dataList1 = dataList1.concat(normal);
+        render(dataList1);
     }
 
-    /*
-     *   公用函数
-     * */
+    //  好友日志处理函数
+    function callback2(result) {
+        var res = JSON.parse(result);
+        sort(res);
+        dataList2 = res;
+        renderFriend(dataList2);
+    }
 
-    //  渲染函数
+    //  好友日志刷新函数
+    function reFresh() {
+        dataList2.push(dataList2.shift());
+        renderFriend(dataList2);
+    }
+
+    //  好友日志鼠标悬停函数
+    function msover() {
+        clearInterval(interval);
+    }
+
+    //  好友日志鼠标远离函数
+    function msout() {
+        interval = setInterval(reFresh, 2000);
+    }
+
+    //  渲染个人日志函数
     function render(data) {
         var html = "";
         data.forEach(function (item) {
             if (item != null) {
-                html += '<div class="item"><dl class="f-21759b f-clearfix"><dt class="title"><label for="' + item.id;
-                html += '">' + '</label><input type="checkbox" id="' + item.id + '"><a href="">';
-                //  判断是否为私有日志
-                if (item.allowView == 10000) {
-                    html += '<span class="s-bg sprite-private"></span>';
-                }
-                html += item.title + '</a><span class="article">' + item.blogContent + '</span></dt><dd class="more"><a class="link" href="">更多<span class="u-icon"></span></a><ul><li><a href="">更多<span class="u-icon"></span></a></li> <li><a href="javascript:void(0)" class="top">置顶</a></li><li><a href="javascript:void(0)" class="dlt">删除</a></li></ul></dd><dd><a href="javascript:void(0)" class="editor">编辑</a></dd></dl><div class="data"><span class="date">' + item.shortPublishDateStr;
-                html += " " + item.publishTimeStr;
-                html += '</span><span class="times">阅读' + item.accessCount;
-                html += '</span><span class="reviews">评论(' + item.commentCount + ')</span></div></div>';
+                html += '<div class="item"><dl class="f-21759b f-clearfix"><dt class="title"><label for="'
+                    + item.id + '">' + '</label><input type="checkbox"'
+                    + ((item.recomBlogHome === true) ? 'checked' : ' ') + ' id="'    //  渲染checkbox
+                    + item.id + '"><a href="">'
+                    + ((item.allowView == 10000) ? '<span class="s-bg sprite-private"></span>' : '')                //  判断是否为私有日志
+                    + item.title + '</a><span class="article">' + item.blogContent + '</span></dt><dd class="more"><a class="link" href="">更多<span class="u-icon"></span></a><ul><li><a href="">更多<span class="u-icon"></span></a></li> <li><a href="javascript:void(0)" class="top">'
+                    + ((item.rank == 0) ? '置顶' : '取消') + '</a></li><li><a href="javascript:void(0)" class="dlt">删除</a></li></ul></dd><dd><a href="javascript:void(0)" class="editor">编辑</a></dd></dl><div class="data"><span class="date">'   //  渲染置顶/取消置顶
+                    + item.shortPublishDateStr + " "
+                    + item.publishTimeStr + '</span><span class="times">阅读'
+                    + item.accessCount + '</span><span class="reviews">评论('
+                    + item.commentCount + ')</span></div></div>';
             }
         });
         mList.innerHTML = html;
+    }
+
+    //  渲染好友日志函数
+    function renderFriend(data) {
+        var html = '';
+        data.slice(0, 5).forEach(function (item) {
+            if (item != null) {
+                html += '<dl class="f-clearfix"><dt><img src="'
+                    + item.avtor + '" alt="好友头像" width="40" height="40"></dt><dd><a href="">'
+                    + item.userName + '</a></dd><dd>'
+                    + item.Content + '</dd></dl>';
+            }
+        });
+        articles.innerHTML = html;
+    }
+
+    //  排序函数
+    function sort(dataList1) {
+        dataList1.sort(function (a, b) {
+            return b.modifyTime - a.modifyTime;
+        });
     }
 
     //  事件绑定函数

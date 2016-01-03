@@ -153,7 +153,7 @@
             for (var j = 0; j < dataSelf.length; j++) {
                 if (dataSelf[j].id === id) {
                     dataSelf[j].rank = 0;
-                    dataSelf =(j===0)?dataSelf.slice(1, pos).concat(dataSelf[j], dataSelf.slice(pos)):dataSelf.slice(0, j).concat(dataSelf.slice(j + 1, pos), dataSelf[j], dataSelf.slice(pos));
+                    dataSelf = (j === 0) ? dataSelf.slice(1, pos).concat(dataSelf[j], dataSelf.slice(pos)) : dataSelf.slice(0, j).concat(dataSelf.slice(j + 1, pos), dataSelf[j], dataSelf.slice(pos));
                 }
             }
             //   编辑操作

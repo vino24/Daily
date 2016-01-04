@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="308f60b7-09cc-48d4-bc8c-e6304f078f36" name="Default" comment="netease 作业一 bug fixed">
-      <change type="DELETED" beforePath="D:\xampp\htdocs\html5\360FE\360FE-Star-Plan\images\icon-360.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/caijf/zuoye1/index.html" afterPath="$PROJECT_DIR$/caijf/zuoye1/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/360FE/360FE-Star-Plan/css/main.css" afterPath="$PROJECT_DIR$/360FE/360FE-Star-Plan/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/caijf/zuoye1/js/main.js" afterPath="$PROJECT_DIR$/caijf/zuoye1/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/360FE/360FE-Star-Plan/resume.html" afterPath="$PROJECT_DIR$/360FE/360FE-Star-Plan/resume.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/caijf/zuoye1/css/style.css" afterPath="$PROJECT_DIR$/caijf/zuoye1/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="html5.iws" />

@@ -1,177 +1,297 @@
 (function (window, document) {
-    var doc = document;
-    /*
-     *   dailyId 个人日志id,dataSelf 个人日志,dataFriend 好友日志
-     * */
+
+    var base = {
+        //  封装getElementById
+        $: function (id) {
+            return document.getElementById(id);
+        },
+
+        /*
+         *   封装兼容IE的getElementsByClassName
+         *   @param {className} 类名, {tagName} 指定标签名
+         * */
+        getByClass: function (className, tagName) {
+            //  IE8+及其他高级浏览器
+            if (document.getElementsByClassName) {
+                return document.getElementsByClassName(className)[0];
+            }
+            tagName = tagName || "div";
+            //  IE8及以下 遍历document文档指定的标签名集合
+            var children = document.getElementsByTagName(tagName);
+            //  保存遍历后得到的class元素
+            var elements = new Array();
+
+            for (var i = 0; i < children.length; i++) {
+                var child = children[i];
+                var classNames = child.className.split(' ');   //分割多个class元素
+                for (var j = 0; j < classNames.length; j++) {
+                    if (classNames[j] == className) {
+                        elements.push(child);
+                        break;
+                    }
+                }
+            }
+            return elements[0];
+        },
+
+        ieFixed: function () {
+            if (!Array.prototype.filter) {
+                //  兼容 IE filter
+                Array.prototype.filter = function (fun /*, thisArg */) {
+                    "use strict";
+                    if (this === void 0 || this === null)
+                        throw new TypeError();
+                    var t = Object(this);
+                    var len = t.length >>> 0;
+                    if (typeof fun !== "function")
+                        throw new TypeError();
+                    var res = [];
+                    var thisArg = arguments.length >= 2 ? arguments[1] : void 0;
+                    for (var i = 0; i < len; i++) {
+                        if (i in t) {
+                            var val = t[i];
+                            if (fun.call(thisArg, val, i, t))
+                                res.push(val);
+                        }
+                    }
+                    return res;
+                };
+                //  兼容 IE forEach
+                Array.prototype.forEach = function (fun /*, thisp*/) {
+                    var len = this.length;
+                    if (typeof fun != "function")
+                        throw new TypeError();
+                    var thisp = arguments[1];
+                    for (var i = 0; i < len; i++) {
+                        if (i in this)
+                            fun.call(thisp, this[i], i, this);
+                    }
+                };
+                //  兼容 IE indexOf
+                Array.prototype.indexOf = function (obj) {
+                    for (var i = 0; i < this.length; i++) {
+                        if (this[i] == obj) {
+                            return i;
+                        }
+                    }
+                    return -1;
+                }
+            }
+        },
+        /*
+         *   处理XHR操作
+         *   @param {url} 请求的URL, {method} 请求方法, {callback} 回调处理函数
+         * */
+        sendXHR: function (url, method, callback) {
+            var xhr = new XMLHttpRequest();
+            xhr.open(method, url);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    callback(xhr.responseText);
+                }
+            };
+            xhr.send();
+        },
+
+        //  时间格式化函数
+        dateFormat: function (i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        },
+
+        //  判断元素是否有某个class
+        hasClass: function (element, ClassName) {
+            var name = element.className.split(" ");
+            if (name.indexOf(ClassName) !== -1)
+                return true;
+        },
+
+        // 为element增加一个样式名为newClassName的新样式
+        addClass: function (element, newClassName) {
+            if (!base.hasClass(element, newClassName))
+                element.className += " " + newClassName;
+        },
+
+        // 移除element中的样式oldClassName
+        removeClass: function (element, oldClassName) {
+            if (base.hasClass(element, oldClassName))
+                element.className = element.className.replace(oldClassName, "");
+        },
+
+        //  事件绑定函数
+        bindEvent: function (target, type, handler) {
+            if (target.addEventListener) {
+                target.addEventListener(type, handler);
+            }
+            else if (target.attachEvent) {
+                target.attachEvent('on' + type, handler);     // IE
+            } else {
+                target["on" + type] = handler;
+            }
+        },
+    };
+
+    //  dailyId 个人日志id,dataSelf 个人日志,dataFriend 好友日志
     dailyId = 0, dataSelf = [], dataFriend = [];
-    /*
-     *  mTags 标签栏,mList 个人日志栏,daily 好友日志栏
-     * */
-    var mDaily = doc.getElementById("m-daily"), mEditor = doc.getElementById("m-editor");
-    var mTags = doc.getElementById("m-tags");
-    var mList = doc.getElementById("m-list");
-    var daily = doc.getElementById("daily"), tags = doc.getElementById("tags"), articles = doc.getElementById("articles");
-    /*
-     *   title 日志标题,textarea 日志内容
-     * */
-    var title = mEditor.getElementsByTagName("input")[0];
-    var textarea = mEditor.getElementsByTagName("textarea")[0];
-    var checkboxes = mList.getElementsByTagName("input");
 
-    /*
-     * pubBtn 发布按钮,clearBtn 清空按钮,sltAllBtn 全选按钮,dltAllBtn 全删按钮
-     * */
-    var pubBtn = doc.getElementById("pub");
-    var clearBtn = doc.getElementById("clear");
-    var sltAllBtn = doc.getElementById("sltall");
-    var dltAllBtn = doc.getElementById("dltall");
+    //  mTags 标签栏,mList 个人日志栏,daily 好友日志栏
+    var mDaily = base.getByClass("m-daily"), mEditor = base.getByClass("m-editor"), mTags = base.getByClass("m-tags"), mList = base.getByClass("m-list");
 
+    var daily = base.$("daily"), tags = base.$("tags"), articles = base.getByClass("articles");
 
-    //  页面初始化
-    bindEvent(window, "load", init);
+    //   title 日志标题,textarea 日志内容
+    var title = base.getByClass("j-title", "input"), textarea = base.getByClass("j-content", "textarea"), checkboxes = mList.getElementsByTagName("input");
+
+    //   pubBtn 发布按钮,clearBtn 清空按钮,sltAllBtn 全选按钮,dltAllBtn 全删按钮
+    var pubBtn = base.getByClass("j-pub", "button"), clearBtn = base.getByClass("j-clear", "button"), sltAllBtn = base.getByClass("j-sltall", "input"), dltAllBtn = base.getByClass("j-dltall", "button");
+
+    //  页面初始化(<script>标签在<body>后页面元素已经可操作，无需监听window的load事件)
+    init();
 
     //  页面初始化函数
     function init() {
-        getJson();
+        base.ieFixed();
+        initData();
         bindBtns();
         interval = setInterval(roll, 2000);  //  好友日志滚动计时器
     }
 
-    //  获取后台数据函数
-    function getJson() {
+    function initData() {
         //  获取个人日志
-        var xhr1 = new XMLHttpRequest(), xhr2 = new XMLHttpRequest();
-        xhr1.open("GET", "./getblogs.json");
-        xhr1.send();
-        xhr1.onreadystatechange = function () {
-            if (xhr1.readyState === 4 && xhr1.status === 200) {
-                callback1(xhr1.responseText);
-            }
-        }
+        base.sendXHR("./getblogs.json", "GET", callbackSelf);
         //  获取好友日志
-        xhr2.open("GET", "./getfriends.json");
-        xhr2.send();
-        xhr2.onreadystatechange = function () {
-            if (xhr2.readyState === 4 && xhr2.status === 200) {
-                callback2(xhr2.responseText);
-            }
-        }
+        base.sendXHR("./getfriends.json", "GET", callbackFriend);
     }
 
     //  绑定按钮函数
     function bindBtns() {
         //  绑定日志栏
-        bindEvent(daily, "click", function () {
-            if (!daily.classList.contains("selected")) {
-                daily.classList.add("selected");
-                tags.classList.remove("selected");
-                mDaily.classList.remove("z-hidden");
-                mTags.classList.add("z-hidden");
+        base.bindEvent(daily, "click", function () {
+            if (!base.hasClass(daily, "selected")) {
+                base.addClass(daily, "selected");
+                base.removeClass(tags, "selected");
+                base.removeClass(mDaily, "z-hidden");
+                base.addClass(mTags, "z-hidden");
             }
         });
         //  绑定标签栏
-        bindEvent(tags, "click", function () {
-            if (!tags.classList.contains("selected")) {
-                tags.classList.add("selected");
-                daily.classList.remove("selected");
-                mTags.classList.remove("z-hidden");
-                mDaily.classList.add("z-hidden");
+        base.bindEvent(tags, "click", function () {
+            if (!base.hasClass(tags, "selected")) {
+                base.addClass(tags, "selected");
+                base.removeClass(daily, "selected");
+                base.removeClass(mTags, "z-hidden");
+                base.addClass(mDaily, "z-hidden");
             }
         });
         //  绑定发布按钮
-        bindEvent(pubBtn, "click", publish);
+        base.bindEvent(pubBtn, "click", publish);
         //   绑定清空按钮
-        bindEvent(clearBtn, "click", clear);
+        base.bindEvent(clearBtn, "click", clear);
         //  单篇操作
-        bindEvent(mList, "click", operate);
+        base.bindEvent(mList, "click", operate);
         //  绑定全选按钮
-        bindEvent(sltAllBtn, "change", selectAll);
+        base.bindEvent(sltAllBtn, "change", selectAll);
         //  绑定全删按钮
-        bindEvent(dltAllBtn, "click", deleteAll);
+        base.bindEvent(dltAllBtn, "click", deleteAll);
         //  绑定好友日志悬停操作
-        bindEvent(articles, "mouseover", msover);
+        base.bindEvent(articles, "mouseover", msover);
         //  绑定好友日志离开操作
-        bindEvent(articles, "mouseout", msout);
+        base.bindEvent(articles, "mouseout", msout);
     }
 
     //  发布函数
     function publish() {
-        /*
-         *   pos 用以区分日志是否新建
-         * */
-        var pos = -1, now = new Date(), date = [now.getFullYear(), timeBeauty(now.getMonth() + 1), timeBeauty(now.getDate())].join("-"),
-            time = " " + [timeBeauty(now.getHours()), timeBeauty(now.getMinutes()), timeBeauty(now.getSeconds())].join(":");
+        //  flag 用以区分日志是否新建
+        var flag = -1, now = new Date(),
+            date = [now.getFullYear(), base.dateFormat(now.getMonth() + 1), base.dateFormat(now.getDate())].join("-"),
+            time = " " + [base.dateFormat(now.getHours()), base.dateFormat(now.getMinutes()), base.dateFormat(now.getSeconds())].join(":");
 
         //  遍历个人日志，检查日志是否已存在
-        for (var i = 0, len = dataSelf.length; i < len; i++) {
-            if (dataSelf[i].id == dailyId) {
-                pos = i;
+        for (var i = 0; i < dataSelf.length; i++) {
+            if (dataSelf[i].id === dailyId) {
+                flag = i;
             }
         }
+        console.log(flag);
         //  新建日志
-        if (pos == -1) {
-            dataSelf.push(updateList(dailyId, title.value, textarea.value, date, time));
+        if (flag == -1) {
+            dataSelf.push(createItem(dailyId, title.value, textarea.value, date, time));
             dailyId++;
-            //  编辑日志
-        } else {
-            dataSelf[pos] = updateList(dailyId, title.value, textarea.value, date, time, dataSelf[pos].allowView, dataSelf[pos].accessCount, dataSelf[pos].commentCount, dataSelf[pos].rank);
+        }
+        //  编辑日志
+        else {
+            dataSelf[flag] = updateItem(dataSelf[flag], title.value, textarea.value, date, time);
         }
         render(dataSelf);
         //  清空日志编辑框
         clear();
     }
 
-    //  编辑、置顶、删除、选择函数
+    //  获取日志ID
+    function getDaliyId(elt, type) {
+        var id;
+        switch (type) {
+            case "editor":
+                id = elt.parentNode.parentNode.parentNode.getAttribute("data-id");
+            case "checkbox":
+                id = elt.parentNode.parentNode.parentNode.parentNode.getAttribute("data-id");
+            default :
+                id = elt.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("data-id");
+        }
+        return id;
+    }
+
+    //  获取当前操作项索引
+    function getIndex(data, id) {
+        var index;
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].id == id) {
+                index = i;
+            }
+        }
+        return index;
+    }
+
+    //  个人日志操作函数
     function operate(e) {
-        var className = e.target.className;
-        var id = e.target.parentNode.parentNode.parentNode.parentNode.getElementsByTagName("input")[0].id;
-
+        var type = e.target.getAttribute("data-type"), id = getDaliyId(e.target, type),pos = getIndex(dataSelf, id);
         //  删除操作
-        if (className == "dlt") {
-            for (var j = 0; j < dataSelf.length; j++) {
-                if (dataSelf[j].id == id) {
-                    dataSelf = (dataSelf.slice(0, j)).concat(dataSelf.slice(j + 1));
-                }
-            }
-            /*
-             *   通过拆分置顶和取消置顶操作来解决JavaScript中if-else无块级作用域导致rank字段值错误进而导致操作异常的问题
-             * */
-            //    置顶操作
-        } else if (className == "top") {
-            for (var j = 0; j < dataSelf.length; j++) {
-                if (dataSelf[j].id == id) {
-                    dataSelf[j].rank = 5;
-                    localStorage[id] = j;
-                    dataSelf = [dataSelf[j]].concat(dataSelf.slice(0, j), dataSelf.slice(j + 1));
-                }
-            }
-
-            //  取消置顶操作
-        } else if (className == "cancel") {
-
-            var pos = +localStorage[id];
-            for (var j = 0; j < dataSelf.length; j++) {
-                if (dataSelf[j].id === id) {
-                    dataSelf[j].rank = 0;
-                    dataSelf = (j === 0) ? dataSelf.slice(1, pos).concat(dataSelf[j], dataSelf.slice(pos)) : dataSelf.slice(0, j).concat(dataSelf.slice(j + 1, pos), dataSelf[j], dataSelf.slice(pos));
-                }
-            }
-            //   编辑操作
-        } else if (className == "editor") {
+      //  console.log(id);
+        if (type == "dlt") {
+            dataSelf.splice(pos, 1);
+        }
+        /*   置顶操作
+         *   通过拆分置顶和取消置顶操作来解决JavaScript中if-else无块级作用域导致rank字段值错误进而导致操作异常的问题
+         * */
+        else if (type == "top") {
+            dataSelf[pos].rank=5;
+            localStorage[id]=pos;
+            dataSelf=[dataSelf[pos]].concat(dataSelf.slice(0, pos), dataSelf.slice(pos + 1));
+        }
+        //  取消置顶操作
+        else if (type == "cancel") {
+            var flag = ++localStorage[id];
+                    dataSelf[pos].rank = 0;
+                    dataSelf.splice(flag,0,dataSelf[pos]);  //  插入pos
+                    dataSelf.splice(pos,1);     //  删除原本的pos
+        }
+        //   编辑操作
+        else if (type == "editor") {
             var elt = e.target.parentNode.parentNode;
             title.value = elt.getElementsByClassName("title")[0].getElementsByTagName("a")[0].text;
             textarea.value = elt.getElementsByClassName("article")[0].innerHTML;
             dailyId = elt.getElementsByTagName("input")[0].id;
             //   选择操作
-        } else if (e.target.type == "checkbox") {
-            id = e.target.id;
+        } else if (type == "checkbox") {
             for (var j = 0; j < dataSelf.length; j++) {
                 if (dataSelf[j].id == id) {
-                    dataSelf[j].recomBlogHome = (dataSelf[j].recomBlogHome == true) ? false : true;
+                    dataSelf[j].isChecked = (dataSelf[j].isChecked == true) ? false : true;
                 }
             }
             var checked = dataSelf.filter(function (item) {
-                return item.recomBlogHome == true;
+                return item.isChecked == true;
             });
             //  检查是否选择所有选项，是则更新sltAllBtn状态
             if (checked.length == dataSelf.length) sltAllBtn.checked = true;
@@ -180,15 +300,15 @@
         render(dataSelf);
     }
 
-    //   全选函数(必须通过render函数渲染checkbox)
+    //   全选函数
     function selectAll() {
         if (sltAllBtn.checked) {
             dataSelf.forEach(function (item) {
-                item.recomBlogHome = true;
+                item.isChecked = true;
             });
         } else {
             dataSelf.forEach(function (item) {
-                item.recomBlogHome = false;
+                item.isChecked = false;
             });
         }
         render(dataSelf);
@@ -196,44 +316,53 @@
 
     //  删除选中函数
     function deleteAll() {
-        var checked = [];
-        [].slice.call(checkboxes).forEach(function (i) {
-            if (i.checked) {
-                for (var j = 0; j < dataSelf.length; j++) { //  不可使用forEach;不可使用len=dataSelf.length缓存数组长度，否则数组长度无法实现更新
-                    if (dataSelf[j].id == i.id) {
-                        dataSelf = dataSelf.slice(0, j).concat(dataSelf.slice(j + 1));
-                    }
-                }
+        for (var i = 0; i < dataSelf.length; i++) {
+            if (dataSelf[i].isChecked) {
+                dataSelf.splice(i, 1);
+                i--;    //  索引减1
             }
-        });
+        }
         render(dataSelf);
         sltAllBtn.checked = false;
     }
 
     /*
-     *   个人日志数据更新
+     *   创建一条个人数据
      *   @param {id} 日志id,{title} 日志标题,{blogContent} 日志内容,{shortPublishDateStr} year-mouth-day,{publishTimeStr} hour-minute-second,{allowView} 私人日志标识,
-     *   {accessCount} 浏览量,{commentCount} 评论数,{recomBlogHome} 选中标识，{rank} 置顶标识
+     *   {accessCount} 浏览量,{commentCount} 评论数,{isChecked} 选中标识，{rank} 置顶标识
      *   @ return {object}  单条日志数据
      */
-    function updateList(id, title, blogContent, shortPublishDateStr, publishTimeStr, allowView, accessCount, commentCount, recomBlogHome, rank) {
-        allowView = allowView || -100, accessCount = accessCount || 0, commentCount = commentCount || 0, rank = rank || 0, recomBlogHome = false;
+    function createItem(id, title, blogContent, shortPublishDateStr, publishTimeStr) {
         var item = {};
         item.id = id;
         item.title = title;
         item.blogContent = blogContent;
         item.shortPublishDateStr = shortPublishDateStr;
         item.publishTimeStr = publishTimeStr;
-        item.allowView = allowView;
-        item.accessCount = accessCount;
-        item.commentCount = commentCount;
-        item.recomBlogHome = recomBlogHome;
-        item.rank = rank;
+        item.allowView = -100;
+        item.accessCount = 0;
+        item.commentCount = 0;
+        item.isChecked = false;
+        item.rank = 0;
+        return item;
+    }
+
+    /*
+     *   更新一条个人数据
+     *   @param {id} 日志id,{title} 日志标题,{blogContent} 日志内容,{shortPublishDateStr} year-mouth-day,{publishTimeStr} hour-minute-second,{allowView} 私人日志标识,
+     *   {accessCount} 浏览量,{commentCount} 评论数,{isChecked} 选中标识，{rank} 置顶标识
+     *   @ return {object}  单条日志数据
+     */
+    function updateItem(item, title, blogContent, shortPublishDateStr, publishTimeStr) {
+        item.title = title;
+        item.blogContent = blogContent;
+        item.shortPublishDateStr = shortPublishDateStr;
+        item.publishTimeStr = publishTimeStr;
         return item;
     }
 
     //  个人日志处理函数
-    function callback1(result) {
+    function callbackSelf(result) {
         var res = JSON.parse(result);
         sort(res);
         //  置顶日志
@@ -250,7 +379,7 @@
     }
 
     //  好友日志处理函数
-    function callback2(result) {
+    function callbackFriend(result) {
         var res = JSON.parse(result);
         sort(res);
         dataFriend = res;
@@ -278,18 +407,17 @@
         var html = "";
         data.forEach(function (item) {
             if (item) {
-                html += '<div class="item"><dl class="f-21759b f-clearfix"><dt class="title"><label for="'
-                    + item.id + '">' + '</label><input type="checkbox"'
-                    + ((item.recomBlogHome === true) ? 'checked' : ' ') + ' id="'    //  渲染checkbox
-                    + item.id + '"><a href="">'
+                html += '<div class="item" data-id="' + item.id + '"><dl class="f-21759b f-clearfix"><dt class="title"><input type="checkbox" class="j-checkbox" data-type="checkbox" '
+                    + ((item.isChecked === true) ? 'checked' : ' ')     //  渲染checkbox
+                    + '"><a href="">'
                     + ((item.allowView == 10000) ? '<span class="s-bg sprite-private"></span>' : '')      //  判断是否为私有日志
                     + item.title + '</a><span class="article">'
-                    + item.blogContent + '</span></dt><dd class="more"><a class="link" href="">更多<span class="u-icon"></span></a><ul><li><a href="">更多<span class="u-icon"></span></a></li> <li><a href="javascript:void(0)" class="'
+                    + item.blogContent + '</span></dt><dd class="more"><a href="">更多<span class="u-icon"></span></a><ul><li><a href="">更多<span class="u-icon"></span></a></li> <li><a href="javascript:void(0)" data-type="'
                     + ((item.rank == 0) ? 'top' : 'cancel') + '">'
-                    + ((item.rank == 0) ? '置顶' : '取消') + '</a></li><li><a href="javascript:void(0)" class="dlt" id="dlt">删除</a></li></ul></dd><dd><a href="javascript:void(0)" class="editor">编辑</a></dd></dl><div class="data"><span class="date">'   //  渲染置顶/取消置顶
+                    + ((item.rank == 0) ? '置顶' : '取消') + '</a></li><li><a href="javascript:void(0)" data-type="dlt">删除</a></li></ul></dd><dd><a href="javascript:void(0)" data-type="editor">编辑</a></dd></dl><div class="data"><span>'   //  渲染置顶/取消置顶
                     + item.shortPublishDateStr + " "
-                    + item.publishTimeStr + '</span><span class="times">阅读'
-                    + item.accessCount + '</span><span class="reviews">评论('
+                    + item.publishTimeStr + '</span><span>阅读'
+                    + item.accessCount + '</span><span>评论('
                     + item.commentCount + ')</span></div></div>';
             }
         });
@@ -323,23 +451,4 @@
         });
     }
 
-    //  事件绑定函数
-    function bindEvent(target, type, handler) {
-        if (target.addEventListener) {
-            target.addEventListener(type, handler);
-        }
-        else if (target.attachEvent) {
-            target.attachEvent('on' + type, handler);     // IE
-        } else {
-            target["on" + type] = handler;
-        }
-    }
-
-    //  时间美化函数
-    function timeBeauty(i) {
-        if (i < 10) {
-            i = "0" + i;
-        }
-        return i;
-    }
 }(this, document))

@@ -41,15 +41,15 @@ body{background:#fff;}
     *border:1px solid #fafafa;/* IE6不支持transparent fixed */
     *zoom:1;/* IE6定位位置错误，触发hasLayout fixed */
 }
-.m-top .left .netease:hover{border:1px solid #cccccc;}
+.m-top .left .netease:hover{border:1px solid #cccccc;background-color:#939393;}
 .m-top .left .netease:hover .u-icon {top:-9px;}
 .m-top .left .netease:hover .u-icon:before {border-bottom:4px solid #c5c5c5;border-top:none;}
 /* 鼠标悬停显示隐藏导航栏 */
 .m-top .left li:first-child:hover ul{display:block;}
-.m-top .left li:hover, .m-top .m-subnav li:hover{background-color:#939393;}
+.m-top .m-subnav li:hover{background-color:#939393;}
 .m-top .m-subnav{position:absolute;left:10px;border:1px solid #cccccc;background-color:#ffffff;width:60px;*top:20px;}
-.m-top .m-subnav li{display:block;padding:8px;margin-left:0;}
-.m-top .m-subnav a{display:block;}
+.m-top .m-subnav li{display:block;margin-left:0;width: 60px;padding: 0;height: 28px;}
+.m-top .m-subnav a{display:block;width: 44px;height: 12px;padding:8px 11px 8px 5px;}
 .m-top .m-subnav li:last-child{border-top:1px solid #cccccc;}
 .m-top .right{float:right;}
 .m-top .right .wlc{padding:0 12px 0 3px;border-right:1px solid #a4a4a4;color:#666;}
@@ -74,10 +74,11 @@ body{background:#fff;}
 .m-content .right dl{margin-top:10px;}
 .m-content .right dt{float:left;}
 .m-content .right dd{float:left;margin-left:5px;margin-bottom:10px;width:150px;}
+.m-content .right dd a {font-weight: bold;}
 .m-content .right .container{margin:12px 12px 24px;}
 /*  左侧小导航条  */
 .m-tab div{width:145px;margin-bottom:20px;border:1px solid #bbbbbb;border-radius:3px;}
-.m-tab dt, .m-tab dd{padding:10px 0px 10px 30px;}
+.m-tab dt, .m-tab dd a {padding:10px 0px 10px 30px;display: block}
 .m-tab dd:hover{background-color:#f5f5f5;}
 .m-tab dt{border-bottom:1px solid #bbbbbb;padding-left:8px;background-color:#ececec;color:#333333;font-weight:bold;}
 .m-tab .sprite-user{width:17px;height:17px;background-position:-31px -58px;}
@@ -97,12 +98,6 @@ body{background:#fff;}
 .m-daily .m-editor{padding:8px;background-color:#ececec;}
 .m-daily .m-editor input, .m-daily .m-editor textarea{display:block;margin:0 auto 5px;padding:3px;width:95%;}
 .m-daily .m-editor input{background-color:#f8f8f8;border-width:0;font-size:16px;}
-.m-daily input::-webkit-input-placeholder{/* Chrome、Safari */
-    color:#333333;}
-.m-daily input::-moz-placeholder{/* Firefox */
-    color:#333333;}
-.m-daily input:-ms-input-placeholder{/* IE */
-    color:#333333;}
 .m-daily textarea{height:100px;}
 .m-daily .btns{float:right;*display:inline;}
 .m-daily .btns button{margin:8px;width:60px;padding:4px 10px;}
@@ -116,8 +111,8 @@ body{background:#fff;}
 .m-list .item{position:relative;*zoom:1;padding:10px 0;border-bottom:1px dashed #d8e0e5;}
 .m-list .item dl dd{float:right;*display:inline;margin-left:15px;}
 .m-list .item .more{position:relative;*zoom:1;}
-.m-list .item .more ul{position:absolute;top:-8px;left:-9999px;width:50px;border:1px solid #c8d9e3;z-index:1;}
-.m-list .item .more li{padding:4px 0 5px 5px;}
+.m-list .item .more ul{position:absolute;top:-6px;left:-9999px;width:50px;border:1px solid #c8d9e3;background-color: white;z-index:1;}
+.m-list .item .more li a {padding:5px 10px 5px 5px; width: 35px;}
 .m-list .item .more li:hover{background-color:#ececec;}
 .m-list .item .more:hover ul{left:-6px;}
 .m-list .item .more:hover > a{visibility:hidden;}

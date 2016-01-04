@@ -37,11 +37,11 @@
         </ul>
 
         <ul class="right">
-            <li class="wlc"><span>中午好，</span><span class="username">西瓜太郎</span>(<span
-                    class="s-bg"></span><a href="">5</a>)
+            <li class="wlc"><a href=""><span>中午好，西瓜太郎</span>(<span
+                    class="s-bg"></span>5)</a>
             </li>
             <li><a href=""><span class="s-bg sprite-home"></span>个人中心</a></li>
-            <li>消息（<a href=""><span class="counts">1234</span>)</a></li>
+            <li><a href="">消息（<span class="counts">1234</span>)</a></li>
             <li><a href="">反馈</a></li>
             <li class="login"><a href="">登录</a></li>
         </ul>
@@ -100,32 +100,32 @@
                     <li class="f-ml1" id="tags"><a href="javascript:void(0)">标签</a></li>
                 </ul>
 
-                <div class="m-daily" id="m-daily">
+                <div class="m-daily">
                     <!-- 日志添加 -->
-                    <div class="m-editor f-clearfix" id="m-editor">
-                        <input type="text" placeholder="日志标题" />
-                        <textarea placeholder="这里可以写日志~"></textarea><!-- textarea必须在同一行 -->
+                    <div class="m-editor f-clearfix">
+                        <input type="text" placeholder="日志标题" class="j-title"/>
+                        <textarea placeholder="这里可以写日志~" class="j-content"></textarea><!-- textarea必须在同一行 -->
                         <div class="btns">
-                            <button id="pub">发布</button>
-                            <button id="clear">清空</button>
+                            <button class="j-pub">发布</button>
+                            <button class="j-clear">清空</button>
                         </div>
                     </div>
                     <!-- /日志添加 -->
                     <!-- 日志管理 -->
-                    <div class="m-list" id="m-list">
+                    <div class="m-list">
 
                     </div>
 
                     <div class="m-opt">
                         <label for="sltall"></label><input
-                            type="checkbox" id="sltall">全选
-                        <button class="u-button" id="dltall">删除</button>
+                            type="checkbox" class="j-sltall" id="sltall">全选
+                        <button class="u-button j-dltall">删除</button>
                     </div>
                     <!-- /日志管理 -->
                 </div>
 
                 <!-- 标签添加 -->
-                <div class="m-tags z-hidden" id="m-tags">
+                <div class="m-tags z-hidden">
                     没有标签
                 </div>
                 <!-- /标签添加 -->
@@ -134,7 +134,7 @@
             <div class="right">
                 <div class="container">
                     <h3 class="title">好友最近的日志</h3>
-                    <div class="articles" id="articles">
+                    <div class="articles">
                     </div>
                 </div>
             </div>

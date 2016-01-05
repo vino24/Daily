@@ -33,7 +33,7 @@
             }
             return elements[0];
         },
-
+        //  IE fixed
         ieFixed: function () {
             if (!Array.prototype.filter) {
                 //  兼容 IE filter
@@ -75,7 +75,23 @@
                         }
                     }
                     return -1;
-                }
+                };
+                //  兼容 IE XMLHttpRequest
+                window.XMLHttpRequest = function () {
+                    try {
+                        //  ActiveX对象新版本
+                        return new ActiveXObject("Msxml2.XMLHTTP.6.0");
+                    }
+                    catch (e1) {
+                        try {
+                            //  ActiveX对象旧版本
+                            return new ActiveXObject("Msxml2.XMLHTTP.3.0");
+                        }
+                        catch (e2) {
+                            throw new Error("XMLHttpRequest is not supported");
+                        }
+                    }
+                };
             }
         },
         /*
@@ -85,16 +101,18 @@
         sendXHR: function (url, method, callback) {
             var xhr = new XMLHttpRequest();
             xhr.open(method, url);
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    callback(xhr.responseText);
-                }
-            };
+            if (callback) {
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        callback(xhr.responseText);
+                    }
+                };
+            }
             xhr.send();
         },
 
         //  时间格式化函数
-        dateFormat: function (i) {
+        timeFormat: function (i) {
             if (i < 10) {
                 i = "0" + i;
             }
@@ -131,10 +149,16 @@
                 target["on" + type] = handler;
             }
         },
+        //  防注入函数
+        preventXSS: function () {
+            [].slice.call(arguments).forEach(function (text) {
+                text = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            });
+        },
     };
 
     //  dailyId 个人日志id,dataSelf 个人日志,dataFriend 好友日志
-    dailyId = 0, dataSelf = [], dataFriend = [];
+    dailyId = "fks_0", dataSelf = [], dataFriend = [];
 
     //  mTags 标签栏,mList 个人日志栏,daily 好友日志栏
     var mDaily = base.getByClass("m-daily"), mEditor = base.getByClass("m-editor"), mTags = base.getByClass("m-tags"), mList = base.getByClass("m-list");
@@ -146,7 +170,10 @@
 
     //   pubBtn 发布按钮,clearBtn 清空按钮,sltAllBtn 全选按钮,dltAllBtn 全删按钮
     var pubBtn = base.getByClass("j-pub", "button"), clearBtn = base.getByClass("j-clear", "button"), sltAllBtn = base.getByClass("j-sltall", "input"), dltAllBtn = base.getByClass("j-dltall", "button");
-
+    //  滚动日志栏
+    var rollElt = base.getByClass("articles");
+    //  html模板
+    var htmlSelf = base.$("j-self").innerHTML, htmlFriend = base.$("j-friend").innerHTML;
     //  页面初始化(<script>标签在<body>后页面元素已经可操作，无需监听window的load事件)
     init();
 
@@ -155,7 +182,7 @@
         base.ieFixed();
         initData();
         bindBtns();
-        interval = setInterval(roll, 2000);  //  好友日志滚动计时器
+        interval = setInterval(scroll, 60);  //  好友日志滚动计时器
     }
 
     function initData() {
@@ -204,26 +231,32 @@
     //  发布函数
     function publish() {
         //  flag 用以区分日志是否新建
-        var flag = -1, now = new Date(),
-            date = [now.getFullYear(), base.dateFormat(now.getMonth() + 1), base.dateFormat(now.getDate())].join("-"),
-            time = " " + [base.dateFormat(now.getHours()), base.dateFormat(now.getMinutes()), base.dateFormat(now.getSeconds())].join(":");
+        var url, flag = -1, now = new Date(), valTitle = title.value, valText = textarea.value,
+            date = [now.getFullYear(), base.timeFormat(now.getMonth() + 1), base.timeFormat(now.getDate())].join("-"),
+            time = " " + [base.timeFormat(now.getHours()), base.timeFormat(now.getMinutes()), base.timeFormat(now.getSeconds())].join(":");
 
         //  遍历个人日志，检查日志是否已存在
         for (var i = 0; i < dataSelf.length; i++) {
-            if (dataSelf[i].id === dailyId) {
+            if (dataSelf[i].id == dailyId) {
                 flag = i;
             }
         }
-        console.log(flag);
+        base.preventXSS(valTitle, valText);
         //  新建日志
         if (flag == -1) {
-            dataSelf.push(createItem(dailyId, title.value, textarea.value, date, time));
-            dailyId++;
+            if (valTitle && valText) {
+                dataSelf.push(createItem(dailyId, valTitle, valText, date, time));
+                url = "http://192.168.144.11/api/addBlog?blog={" + encodeURIComponent(dataSelf[dataSelf.length - 1].title) + encodeURIComponent(dataSelf[dataSelf.length - 1].blogContent) + "}";
+                dailyId = dailyId + 1;
+            } else alert("Please input something...");
         }
         //  编辑日志
         else {
-            dataSelf[flag] = updateItem(dataSelf[flag], title.value, textarea.value, date, time);
+            dataSelf[flag] = updateItem(dataSelf[flag], valTitle, valText, date, time);
+            url = "http://192.168.144.11/api/untopBlog?id=" + encodeURIComponent(dataSelf[flag].id);
         }
+        console.log(flag);
+        base.sendXHR(url, "POST");
         render(dataSelf);
         //  清空日志编辑框
         clear();
@@ -233,10 +266,12 @@
     function getDaliyId(elt, type) {
         var id;
         switch (type) {
-            case "editor":
+            case 'editor':
                 id = elt.parentNode.parentNode.parentNode.getAttribute("data-id");
+                break;
             case "checkbox":
-                id = elt.parentNode.parentNode.parentNode.parentNode.getAttribute("data-id");
+                id = elt.parentNode.parentNode.parentNode.getAttribute("data-id");
+                break;
             default :
                 id = elt.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("data-id");
         }
@@ -256,40 +291,42 @@
 
     //  个人日志操作函数
     function operate(e) {
-        var type = e.target.getAttribute("data-type"), id = getDaliyId(e.target, type),pos = getIndex(dataSelf, id);
+        var url, type = e.target.getAttribute("data-type"), id = getDaliyId(e.target, type), pos = getIndex(dataSelf, id);
         //  删除操作
-      //  console.log(id);
         if (type == "dlt") {
             dataSelf.splice(pos, 1);
+            url = "http://192.168.144.11/api/deleteBlogs?id=" + encodeURIComponent(dataSelf[pos].id);
+            base.sendXHR(url, "GET");
         }
         /*   置顶操作
          *   通过拆分置顶和取消置顶操作来解决JavaScript中if-else无块级作用域导致rank字段值错误进而导致操作异常的问题
          * */
         else if (type == "top") {
-            dataSelf[pos].rank=5;
-            localStorage[id]=pos;
-            dataSelf=[dataSelf[pos]].concat(dataSelf.slice(0, pos), dataSelf.slice(pos + 1));
+            dataSelf[pos].rank = 5;
+            localStorage[id] = pos;
+            dataSelf = [dataSelf[pos]].concat(dataSelf.slice(0, pos), dataSelf.slice(pos + 1));
+            url = "http://192.168.144.11/api/topBlog?id=" + encodeURIComponent(dataSelf[pos].id);
+            base.sendXHR(url, "GET");
         }
         //  取消置顶操作
         else if (type == "cancel") {
             var flag = ++localStorage[id];
-                    dataSelf[pos].rank = 0;
-                    dataSelf.splice(flag,0,dataSelf[pos]);  //  插入pos
-                    dataSelf.splice(pos,1);     //  删除原本的pos
+            dataSelf[pos].rank = 0;
+            dataSelf.splice(flag, 0, dataSelf[pos]);  //  插入pos
+            dataSelf.splice(pos, 1);     //  删除原本的pos
+            url = "http://192.168.144.11/api/untopBlog?id=" + encodeURIComponent(dataSelf[pos].id);
+            base.sendXHR(url, "GET");
         }
         //   编辑操作
         else if (type == "editor") {
-            var elt = e.target.parentNode.parentNode;
-            title.value = elt.getElementsByClassName("title")[0].getElementsByTagName("a")[0].text;
-            textarea.value = elt.getElementsByClassName("article")[0].innerHTML;
-            dailyId = elt.getElementsByTagName("input")[0].id;
-            //   选择操作
-        } else if (type == "checkbox") {
-            for (var j = 0; j < dataSelf.length; j++) {
-                if (dataSelf[j].id == id) {
-                    dataSelf[j].isChecked = (dataSelf[j].isChecked == true) ? false : true;
-                }
-            }
+            title.value = dataSelf[pos].title;
+            textarea.value = dataSelf[pos].blogContent;
+            dailyId = id;
+        }
+        //   选择操作
+        else if (type == "checkbox") {
+            dataSelf[pos].isChecked = (dataSelf[pos].isChecked == true) ? false : true;
+
             var checked = dataSelf.filter(function (item) {
                 return item.isChecked == true;
             });
@@ -316,12 +353,16 @@
 
     //  删除选中函数
     function deleteAll() {
+        var checked = [];
         for (var i = 0; i < dataSelf.length; i++) {
             if (dataSelf[i].isChecked) {
+                checked.push(dataSelf[i].id);
                 dataSelf.splice(i, 1);
                 i--;    //  索引减1
             }
         }
+        var url = "http://192.168.144.11/api/deleteBlogs?id=" + encodeURIComponent(checked.join("&"));
+        base.sendXHR(url, "GET");
         render(dataSelf);
         sltAllBtn.checked = false;
     }
@@ -387,9 +428,20 @@
     }
 
     //  好友日志滚动函数
-    function roll() {
-        dataFriend.push(dataFriend.shift());
-        renderFriend(dataFriend);
+    function scroll() {
+        rollElt.scrollTop++;    //  滚动，scrollTop(被隐藏在内容区域上方的像素数，即滚动条位置)
+        //  检测是否滚过一篇日志
+        if (rollElt.scrollTop % 56 == 0) {
+            clearInterval(interval);    //  立即停止滚动计时器
+            //  然后设置2s后执行的计时器，并在计时器内重新开启滚动计时器
+            setTimeout(function () {
+                interval = setInterval(scroll, 60);
+            }, 2000);
+        }
+        //  检测是否滚动到最后，到最后则重置scrollTop
+        if (rollElt.scrollTop > 500) {
+            rollElt.scrollTop = 0;
+        }
     }
 
     //  好友日志鼠标悬停函数
@@ -399,7 +451,7 @@
 
     //  好友日志鼠标远离函数
     function msout() {
-        interval = setInterval(roll, 2000);
+        interval = setInterval(scroll, 60);
     }
 
     //  渲染个人日志函数
@@ -407,18 +459,24 @@
         var html = "";
         data.forEach(function (item) {
             if (item) {
-                html += '<div class="item" data-id="' + item.id + '"><dl class="f-21759b f-clearfix"><dt class="title"><input type="checkbox" class="j-checkbox" data-type="checkbox" '
-                    + ((item.isChecked === true) ? 'checked' : ' ')     //  渲染checkbox
-                    + '"><a href="">'
-                    + ((item.allowView == 10000) ? '<span class="s-bg sprite-private"></span>' : '')      //  判断是否为私有日志
-                    + item.title + '</a><span class="article">'
-                    + item.blogContent + '</span></dt><dd class="more"><a href="">更多<span class="u-icon"></span></a><ul><li><a href="">更多<span class="u-icon"></span></a></li> <li><a href="javascript:void(0)" data-type="'
-                    + ((item.rank == 0) ? 'top' : 'cancel') + '">'
-                    + ((item.rank == 0) ? '置顶' : '取消') + '</a></li><li><a href="javascript:void(0)" data-type="dlt">删除</a></li></ul></dd><dd><a href="javascript:void(0)" data-type="editor">编辑</a></dd></dl><div class="data"><span>'   //  渲染置顶/取消置顶
-                    + item.shortPublishDateStr + " "
-                    + item.publishTimeStr + '</span><span>阅读'
-                    + item.accessCount + '</span><span>评论('
-                    + item.commentCount + ')</span></div></div>';
+                var isChecked = (item.isChecked === true) ? 'checked' : ' ', allowView = (item.allowView == 10000) ? '<span class="s-bg sprite-private"></span>' : '',
+                    dataType = (item.rank == 0) ? 'top' : 'cancel', text = (item.rank == 0) ? '置顶' : '取消';
+                var obj = {
+                    "id": item.id,
+                    "isChecked": isChecked,
+                    "allowView": allowView,
+                    "title": item.title,
+                    "blogContent": item.blogContent,
+                    "dtta-type": dataType,
+                    "text": text,
+                    "shortPublishDateStr": item.shortPublishDateStr,
+                    "publishTimeStr": item.publishTimeStr,
+                    "accessCount": item.accessCount,
+                    "commentCount": item.commentCount
+                };
+                html += tplEngine(htmlSelf, /\{([^\}]+)?\}/g, function (s0, s1) {
+                    return obj[s1];
+                });
             }
         });
         mList.innerHTML = html;
@@ -427,28 +485,38 @@
     //  渲染好友日志函数
     function renderFriend(data) {
         var html = '';
-        data.slice(0, 5).forEach(function (item) {
-            if (item != null) {
-                html += '<dl class="f-clearfix"><dt><img src="'
-                    + item.avtor + '" alt="" width="40" height="40"></dt><dd><a href="">'
-                    + item.userName + '</a></dd><dd>'
-                    + item.Content + '</dd></dl>';
+        data.forEach(function (item) {
+            if (item) {
+                var obj = {
+                    "avtor": item.avtor,
+                    "userName": item.userName,
+                    "Content": item.Content
+                };
+                html += tplEngine(htmlFriend, /\{([^\}]+)?\}/g, function (s0, s1) {
+                    return obj[s1];
+                });
             }
         });
         articles.innerHTML = html;
     }
 
-    //  更新日志编辑栏函数
+    /*  模板引擎函数
+    *   {str} 要替换的字符串 {reg} 字符串替换的正则表达式 {fn} replace内传入的函数参数
+    * */
+    function tplEngine(str, reg, fn) {
+        return str.replace(reg, fn);
+    }
+
+    //  清空日志编辑栏函数
     function clear() {
         title.value = "";
         textarea.value = "";
     }
 
     //  排序函数
-    function sort(dataSelf) {
-        dataSelf.sort(function (a, b) {
+    function sort(data) {
+        data.sort(function (a, b) {
             return b.modifyTime - a.modifyTime;
         });
     }
-
 }(this, document))

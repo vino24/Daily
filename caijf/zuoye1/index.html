@@ -138,6 +138,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
@@ -161,6 +162,39 @@
     </div>
 </div>
 <!-- /尾部 -->
+<script type="text/x-handlebars-template" id="j-self">
+    <div class="item" data-id={id}>
+        <dl class="f-21759b f-clearfix">
+            <dt class="title">
+                <input type="checkbox" class="j-checkbox" data-type="checkbox" {isChecked}/><a href="">{allowView}
+                {title}</a>
+                <span class="article">{blogContent}</span>
+            </dt>
+            <dd class="more"><a href="">更多<span class="u-icon"></span></a>
+                <ul>
+                    <li><a href="">更多<span class="u-icon"></span></a></li>
+                    <li><a href="javascript:void(0)" data-type={data-type}>{text}</a></li>
+                    <li><a href="javascript:void(0)" data-type="dlt">删除</a></li>
+                </ul>
+            </dd>
+            <dd>
+                <a href="javascript:void(0)" data-type="editor">编辑</a>
+            </dd>
+        </dl>
+        <div class="data">
+            <span>{shortPublishDateStr} {publishTimeStr}</span>
+            <span class="times">阅读{accessCount}</span>
+            <span class="reviews">评论({commentCount})</span>
+        </div>
+    </div>
+</script>
+<script type="text/x-handlebars-template" id="j-friend">
+    <dl class="f-clearfix">
+        <dt><img src={avtor} alt="" width="40" height="40"></dt>
+        <dd><a href="">{userName}</a></dd>
+        <dd>{Content}</dd>
+    </dl>
+</script>
 <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>

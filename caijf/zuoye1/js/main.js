@@ -1,6 +1,9 @@
 (function (window, document) {
 
     var base = {
+        isIE6: function () {
+            return !-[1,] && !window.XMLHttpRequest;
+        },
         //  封装getElementById
         $: function (id) {
             return document.getElementById(id);
@@ -88,29 +91,12 @@
                             return new ActiveXObject("Msxml2.XMLHTTP.3.0");
                         }
                         catch (e2) {
-                            throw new Error("XMLHttpRequest is not supported");
+                            alert("XMLHttpRequest is not supported");
                         }
                     }
                 };
             }
         },
-        /*
-         *   处理XHR操作
-         *   @param {url} 请求的URL, {method} 请求方法, {callback} 回调处理函数
-         * */
-        sendXHR: function (url, method, callback) {
-            var xhr = new XMLHttpRequest();
-            xhr.open(method, url);
-            if (callback) {
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState === 4 && xhr.status === 200) {
-                        callback(xhr.responseText);
-                    }
-                };
-            }
-            xhr.send();
-        },
-
         //  时间格式化函数
         timeFormat: function (i) {
             if (i < 10) {
@@ -150,15 +136,18 @@
             }
         },
         //  防注入函数
-        preventXSS: function () {
-            [].slice.call(arguments).forEach(function (text) {
-                text = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-            });
+        escapeHtml: function (str) {
+            return str.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&/g, "&amp;");
         },
+        //  解析JSON数据
+        parseJSON: function (data) {
+            if (window.JSON) return JSON.parse(data);
+            else return eval(data);
+        }
     };
 
-    //  dailyId 个人日志id,dataSelf 个人日志,dataFriend 好友日志
-    dailyId = "fks_0", dataSelf = [], dataFriend = [];
+    //  dailyId 个人日志id,dataSelf 个人日志,dataFriend 好友日志,日志是否新建标识
+    dailyId = "fks_0", dataSelf = [], dataFriend = [], isExist = -1,editorIndex=-1;
 
     //  mTags 标签栏,mList 个人日志栏,daily 好友日志栏
     var mDaily = base.getByClass("m-daily"), mEditor = base.getByClass("m-editor"), mTags = base.getByClass("m-tags"), mList = base.getByClass("m-list");
@@ -187,9 +176,9 @@
 
     function initData() {
         //  获取个人日志
-        base.sendXHR("./getblogs.json", "GET", callbackSelf);
+        sendXHR("./getblogs.json", "GET", callbackSelf);
         //  获取好友日志
-        base.sendXHR("./getfriends.json", "GET", callbackFriend);
+        sendXHR("./getfriends.json", "GET", callbackFriend);
     }
 
     //  绑定按钮函数
@@ -219,7 +208,7 @@
         //  单篇操作
         base.bindEvent(mList, "click", operate);
         //  绑定全选按钮
-        base.bindEvent(sltAllBtn, "change", selectAll);
+        base.bindEvent(sltAllBtn, "click", selectAll);
         //  绑定全删按钮
         base.bindEvent(dltAllBtn, "click", deleteAll);
         //  绑定好友日志悬停操作
@@ -230,20 +219,11 @@
 
     //  发布函数
     function publish() {
-        //  flag 用以区分日志是否新建
-        var url, flag = -1, now = new Date(), valTitle = title.value, valText = textarea.value,
+        var url, currentPos, now = new Date(), valTitle = base.escapeHtml(title.value), valText = base.escapeHtml(textarea.value),
             date = [now.getFullYear(), base.timeFormat(now.getMonth() + 1), base.timeFormat(now.getDate())].join("-"),
             time = " " + [base.timeFormat(now.getHours()), base.timeFormat(now.getMinutes()), base.timeFormat(now.getSeconds())].join(":");
-
-        //  遍历个人日志，检查日志是否已存在
-        for (var i = 0; i < dataSelf.length; i++) {
-            if (dataSelf[i].id == dailyId) {
-                flag = i;
-            }
-        }
-        base.preventXSS(valTitle, valText);
         //  新建日志
-        if (flag == -1) {
+        if (isExist == -1) {
             if (valTitle && valText) {
                 dataSelf.push(createItem(dailyId, valTitle, valText, date, time));
                 url = "http://192.168.144.11/api/addBlog?blog={" + encodeURIComponent(dataSelf[dataSelf.length - 1].title) + encodeURIComponent(dataSelf[dataSelf.length - 1].blogContent) + "}";
@@ -252,11 +232,12 @@
         }
         //  编辑日志
         else {
-            dataSelf[flag] = updateItem(dataSelf[flag], valTitle, valText, date, time);
-            url = "http://192.168.144.11/api/untopBlog?id=" + encodeURIComponent(dataSelf[flag].id);
+            currentPos = editorIndex;
+            dataSelf[currentPos] = updateItem(dataSelf[currentPos], valTitle, valText, date, time);
+            url = "http://192.168.144.11/api/untopBlog?id=" + encodeURIComponent(dataSelf[currentPos].id);
+            isExist = -1;
         }
-        console.log(flag);
-        base.sendXHR(url, "POST");
+        // sendXHR(url, "POST");
         render(dataSelf);
         //  清空日志编辑框
         clear();
@@ -291,42 +272,44 @@
 
     //  个人日志操作函数
     function operate(e) {
-        var url, type = e.target.getAttribute("data-type"), id = getDaliyId(e.target, type), pos = getIndex(dataSelf, id);
+        var url, currentTarget = e.target || e.srcElement, type = currentTarget.getAttribute("data-type"), id = getDaliyId(currentTarget, type), pos = getIndex(dataSelf, id);
+
         //  删除操作
         if (type == "dlt") {
+            //url = "http://192.168.144.11/api/deleteBlogs?id=" + encodeURIComponent(dataSelf[pos].id);
+            //sendXHR(url, "GET");
             dataSelf.splice(pos, 1);
-            url = "http://192.168.144.11/api/deleteBlogs?id=" + encodeURIComponent(dataSelf[pos].id);
-            base.sendXHR(url, "GET");
         }
         /*   置顶操作
          *   通过拆分置顶和取消置顶操作来解决JavaScript中if-else无块级作用域导致rank字段值错误进而导致操作异常的问题
          * */
+
         else if (type == "top") {
             dataSelf[pos].rank = 5;
-            localStorage[id] = pos;
+            dataSelf[pos].topPos = pos;
             dataSelf = [dataSelf[pos]].concat(dataSelf.slice(0, pos), dataSelf.slice(pos + 1));
-            url = "http://192.168.144.11/api/topBlog?id=" + encodeURIComponent(dataSelf[pos].id);
-            base.sendXHR(url, "GET");
+            //url = "http://192.168.144.11/api/topBlog?id=" + encodeURIComponent(dataSelf[pos].id);
+            //sendXHR(url, "GET");
         }
         //  取消置顶操作
         else if (type == "cancel") {
-            var flag = ++localStorage[id];
+            var flag = ++dataSelf[pos].topPos;
             dataSelf[pos].rank = 0;
             dataSelf.splice(flag, 0, dataSelf[pos]);  //  插入pos
             dataSelf.splice(pos, 1);     //  删除原本的pos
-            url = "http://192.168.144.11/api/untopBlog?id=" + encodeURIComponent(dataSelf[pos].id);
-            base.sendXHR(url, "GET");
+            //url = "http://192.168.144.11/api/untopBlog?id=" + encodeURIComponent(dataSelf[pos].id);
+            //sendXHR(url, "GET");
         }
         //   编辑操作
         else if (type == "editor") {
             title.value = dataSelf[pos].title;
             textarea.value = dataSelf[pos].blogContent;
-            dailyId = id;
+            isExist = 1;
+            editorIndex = pos;   //  存储当前操作项位置
         }
         //   选择操作
         else if (type == "checkbox") {
             dataSelf[pos].isChecked = (dataSelf[pos].isChecked == true) ? false : true;
-
             var checked = dataSelf.filter(function (item) {
                 return item.isChecked == true;
             });
@@ -362,7 +345,7 @@
             }
         }
         var url = "http://192.168.144.11/api/deleteBlogs?id=" + encodeURIComponent(checked.join("&"));
-        base.sendXHR(url, "GET");
+        // sendXHR(url, "GET");
         render(dataSelf);
         sltAllBtn.checked = false;
     }
@@ -404,8 +387,9 @@
 
     //  个人日志处理函数
     function callbackSelf(result) {
-        var res = JSON.parse(result);
+        var res = base.parseJSON(result);
         sort(res);
+
         //  置顶日志
         var top = res.filter(function (item) {
             return item.rank == 5;
@@ -421,7 +405,7 @@
 
     //  好友日志处理函数
     function callbackFriend(result) {
-        var res = JSON.parse(result);
+        var res = base.parseJSON(result);
         sort(res);
         dataFriend = res;
         renderFriend(dataFriend);
@@ -467,7 +451,7 @@
                     "allowView": allowView,
                     "title": item.title,
                     "blogContent": item.blogContent,
-                    "dtta-type": dataType,
+                    "data-type": dataType,
                     "text": text,
                     "shortPublishDateStr": item.shortPublishDateStr,
                     "publishTimeStr": item.publishTimeStr,
@@ -501,8 +485,8 @@
     }
 
     /*  模板引擎函数
-    *   {str} 要替换的字符串 {reg} 字符串替换的正则表达式 {fn} replace内传入的函数参数
-    * */
+     *   {str} 要替换的字符串 {reg} 字符串替换的正则表达式 {fn} replace内传入的函数参数
+     * */
     function tplEngine(str, reg, fn) {
         return str.replace(reg, fn);
     }
@@ -515,8 +499,40 @@
 
     //  排序函数
     function sort(data) {
-        data.sort(function (a, b) {
-            return b.modifyTime - a.modifyTime;
-        });
+        if (base.isIE6()) {
+            data.sort(function (a, b) {
+                return parseInt(b.modifyTime) - parseInt(a.modifyTime);
+            });
+        } else {
+            var a, len = data.length;
+            for (var i = 0; i < len; i++) {
+                for (j = i + 1; j < len; j++) {
+                    if (parseInt(data[i].modifyTime) < parseInt(data[j].modifyTime)) {
+                        a = data[i];
+                        data[i] = data[j];
+                        data[j] = a;
+                    }
+                }
+            }
+        }
+
+    }
+
+    /*
+     *   处理XHR操作
+     *   @param {url} 请求的URL, {method} 请求方法, {callback} 回调处理函数
+     * */
+    function sendXHR(url, method, callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.open(method, url, true);
+
+        if (callback) {
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    callback(xhr.responseText);
+                }
+            };
+        }
+        xhr.send();
     }
 }(this, document))

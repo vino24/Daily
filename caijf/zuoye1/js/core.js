@@ -1,163 +1,15 @@
 (function (window, document) {
+    //  dailyId 个人日志id, dataSelf 个人日志数据, dataFriend 好友日志数据,isExist 日志是否新建标识, editorIndex 当前编辑位置
+    dailyId = "fks_0", dataSelf = [], dataFriend = [], isExist = -1, editorIndex = -1;
 
-    var base = {
-        isIE6: function () {
-            return !-[1,] && !window.XMLHttpRequest;
-        },
-        //  封装getElementById
-        $: function (id) {
-            return document.getElementById(id);
-        },
-
-        /*
-         *   封装兼容IE的getElementsByClassName
-         *   @param {className} 类名, {tagName} 指定标签名
-         * */
-        getByClass: function (className, tagName) {
-            //  IE8+及其他高级浏览器
-            if (document.getElementsByClassName) {
-                return document.getElementsByClassName(className)[0];
-            }
-            tagName = tagName || "div";
-            //  IE8及以下 遍历document文档指定的标签名集合
-            var children = document.getElementsByTagName(tagName);
-            //  保存遍历后得到的class元素
-            var elements = new Array();
-
-            for (var i = 0; i < children.length; i++) {
-                var child = children[i];
-                var classNames = child.className.split(' ');   //分割多个class元素
-                for (var j = 0; j < classNames.length; j++) {
-                    if (classNames[j] == className) {
-                        elements.push(child);
-                        break;
-                    }
-                }
-            }
-            return elements[0];
-        },
-        //  IE fixed
-        ieFixed: function () {
-            if (!Array.prototype.filter) {
-                //  兼容 IE filter
-                Array.prototype.filter = function (fun /*, thisArg */) {
-                    "use strict";
-                    if (this === void 0 || this === null)
-                        throw new TypeError();
-                    var t = Object(this);
-                    var len = t.length >>> 0;
-                    if (typeof fun !== "function")
-                        throw new TypeError();
-                    var res = [];
-                    var thisArg = arguments.length >= 2 ? arguments[1] : void 0;
-                    for (var i = 0; i < len; i++) {
-                        if (i in t) {
-                            var val = t[i];
-                            if (fun.call(thisArg, val, i, t))
-                                res.push(val);
-                        }
-                    }
-                    return res;
-                };
-                //  兼容 IE forEach
-                Array.prototype.forEach = function (fun /*, thisp*/) {
-                    var len = this.length;
-                    if (typeof fun != "function")
-                        throw new TypeError();
-                    var thisp = arguments[1];
-                    for (var i = 0; i < len; i++) {
-                        if (i in this)
-                            fun.call(thisp, this[i], i, this);
-                    }
-                };
-                //  兼容 IE indexOf
-                Array.prototype.indexOf = function (obj) {
-                    for (var i = 0; i < this.length; i++) {
-                        if (this[i] == obj) {
-                            return i;
-                        }
-                    }
-                    return -1;
-                };
-                //  兼容 IE XMLHttpRequest
-                window.XMLHttpRequest = function () {
-                    try {
-                        //  ActiveX对象新版本
-                        return new ActiveXObject("Msxml2.XMLHTTP.6.0");
-                    }
-                    catch (e1) {
-                        try {
-                            //  ActiveX对象旧版本
-                            return new ActiveXObject("Msxml2.XMLHTTP.3.0");
-                        }
-                        catch (e2) {
-                            alert("XMLHttpRequest is not supported");
-                        }
-                    }
-                };
-            }
-        },
-        //  时间格式化函数
-        timeFormat: function (i) {
-            if (i < 10) {
-                i = "0" + i;
-            }
-            return i;
-        },
-
-        //  判断元素是否有某个class
-        hasClass: function (element, ClassName) {
-            var name = element.className.split(" ");
-            if (name.indexOf(ClassName) !== -1)
-                return true;
-        },
-
-        // 为element增加一个样式名为newClassName的新样式
-        addClass: function (element, newClassName) {
-            if (!base.hasClass(element, newClassName))
-                element.className += " " + newClassName;
-        },
-
-        // 移除element中的样式oldClassName
-        removeClass: function (element, oldClassName) {
-            if (base.hasClass(element, oldClassName))
-                element.className = element.className.replace(oldClassName, "");
-        },
-
-        //  事件绑定函数
-        bindEvent: function (target, type, handler) {
-            if (target.addEventListener) {
-                target.addEventListener(type, handler);
-            }
-            else if (target.attachEvent) {
-                target.attachEvent('on' + type, handler);     // IE
-            } else {
-                target["on" + type] = handler;
-            }
-        },
-        //  防注入函数
-        escapeHtml: function (str) {
-            return str.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&/g, "&amp;");
-        },
-        //  解析JSON数据
-        parseJSON: function (data) {
-            if (window.JSON) return JSON.parse(data);
-            else return eval(data);
-        }
-    };
-
-    //  dailyId 个人日志id,dataSelf 个人日志,dataFriend 好友日志,日志是否新建标识
-    dailyId = "fks_0", dataSelf = [], dataFriend = [], isExist = -1,editorIndex=-1;
-
-    //  mTags 标签栏,mList 个人日志栏,daily 好友日志栏
+    //  mTags 标签栏, mList 个人日志栏, daily 好友日志栏
     var mDaily = base.getByClass("m-daily"), mEditor = base.getByClass("m-editor"), mTags = base.getByClass("m-tags"), mList = base.getByClass("m-list");
-
     var daily = base.$("daily"), tags = base.$("tags"), articles = base.getByClass("articles");
 
-    //   title 日志标题,textarea 日志内容
+    //   title 日志标题, textarea 日志内容
     var title = base.getByClass("j-title", "input"), textarea = base.getByClass("j-content", "textarea"), checkboxes = mList.getElementsByTagName("input");
 
-    //   pubBtn 发布按钮,clearBtn 清空按钮,sltAllBtn 全选按钮,dltAllBtn 全删按钮
+    //   pubBtn 发布按钮, clearBtn 清空按钮, sltAllBtn 全选按钮, dltAllBtn 全删按钮
     var pubBtn = base.getByClass("j-pub", "button"), clearBtn = base.getByClass("j-clear", "button"), sltAllBtn = base.getByClass("j-sltall", "input"), dltAllBtn = base.getByClass("j-dltall", "button");
     //  滚动日志栏
     var rollElt = base.getByClass("articles");
@@ -168,7 +20,7 @@
 
     //  页面初始化函数
     function init() {
-        base.ieFixed();
+        base.ieFixed(); //  载入ieFixed，消除浏览器差异
         initData();
         bindBtns();
         interval = setInterval(scroll, 60);  //  好友日志滚动计时器
@@ -176,9 +28,9 @@
 
     function initData() {
         //  获取个人日志
-        sendXHR("./getblogs.json", "GET", callbackSelf);
+        base.sendXHR("./getblogs.json", "GET", callbackSelf);
         //  获取好友日志
-        sendXHR("./getfriends.json", "GET", callbackFriend);
+        base.sendXHR("./getfriends.json", "GET", callbackFriend);
     }
 
     //  绑定按钮函数
@@ -219,12 +71,15 @@
 
     //  发布函数
     function publish() {
-        var url, currentPos, now = new Date(), valTitle = base.escapeHtml(title.value), valText = base.escapeHtml(textarea.value),
-            date = [now.getFullYear(), base.timeFormat(now.getMonth() + 1), base.timeFormat(now.getDate())].join("-"),
-            time = " " + [base.timeFormat(now.getHours()), base.timeFormat(now.getMinutes()), base.timeFormat(now.getSeconds())].join(":");
+        var url, currentPos/* 记录当前编辑日志在日志列表的位置 */,
+            now = new Date(),
+            valTitle = base.escapeHtml(title.value),
+            valText = base.escapeHtml(textarea.value),
+            date = [now.getFullYear(), base.timeFormat(now.getMonth() + 1), base.timeFormat(now.getDate())].join("-") + " ",
+            time = [base.timeFormat(now.getHours()), base.timeFormat(now.getMinutes()), base.timeFormat(now.getSeconds())].join(":");
         //  新建日志
         if (isExist == -1) {
-            if (valTitle && valText) {
+            if (valTitle && valText) {  // 检测是否输入内容
                 dataSelf.push(createItem(dailyId, valTitle, valText, date, time));
                 url = "http://192.168.144.11/api/addBlog?blog={" + encodeURIComponent(dataSelf[dataSelf.length - 1].title) + encodeURIComponent(dataSelf[dataSelf.length - 1].blogContent) + "}";
                 dailyId = dailyId + 1;
@@ -235,15 +90,15 @@
             currentPos = editorIndex;
             dataSelf[currentPos] = updateItem(dataSelf[currentPos], valTitle, valText, date, time);
             url = "http://192.168.144.11/api/untopBlog?id=" + encodeURIComponent(dataSelf[currentPos].id);
-            isExist = -1;
+            isExist = -1;   //  重置日志标识
         }
-        // sendXHR(url, "POST");
+        // base.sendXHR(url, "POST");
         render(dataSelf);
         //  清空日志编辑框
         clear();
     }
 
-    //  获取日志ID
+    //  获取触发事件的日志ID
     function getDaliyId(elt, type) {
         var id;
         switch (type) {
@@ -262,7 +117,7 @@
     //  获取当前操作项索引
     function getIndex(data, id) {
         var index;
-        for (var i = 0; i < data.length; i++) {
+        for (var i = 0, len = data.length; i < len; i++) {
             if (data[i].id == id) {
                 index = i;
             }
@@ -272,12 +127,15 @@
 
     //  个人日志操作函数
     function operate(e) {
-        var url, currentTarget = e.target || e.srcElement, type = currentTarget.getAttribute("data-type"), id = getDaliyId(currentTarget, type), pos = getIndex(dataSelf, id);
+        var url,
+            currentTarget = e.target || e.srcElement,
+            type = currentTarget.getAttribute("data-type"),
+            id = getDaliyId(currentTarget, type), pos = getIndex(dataSelf, id);
 
         //  删除操作
         if (type == "dlt") {
             //url = "http://192.168.144.11/api/deleteBlogs?id=" + encodeURIComponent(dataSelf[pos].id);
-            //sendXHR(url, "GET");
+            //base.sendXHR(url, "GET");
             dataSelf.splice(pos, 1);
         }
         /*   置顶操作
@@ -286,34 +144,35 @@
 
         else if (type == "top") {
             dataSelf[pos].rank = 5;
-            dataSelf[pos].topPos = pos;
+            dataSelf[pos].topPos = pos; //  保存日志当前位置
             dataSelf = [dataSelf[pos]].concat(dataSelf.slice(0, pos), dataSelf.slice(pos + 1));
             //url = "http://192.168.144.11/api/topBlog?id=" + encodeURIComponent(dataSelf[pos].id);
-            //sendXHR(url, "GET");
+            //base.sendXHR(url, "GET");
         }
         //  取消置顶操作
         else if (type == "cancel") {
-            var flag = ++dataSelf[pos].topPos;
+            var flag = ++dataSelf[pos].topPos;  //  获取日志之前的位置索引
             dataSelf[pos].rank = 0;
             dataSelf.splice(flag, 0, dataSelf[pos]);  //  插入pos
             dataSelf.splice(pos, 1);     //  删除原本的pos
             //url = "http://192.168.144.11/api/untopBlog?id=" + encodeURIComponent(dataSelf[pos].id);
-            //sendXHR(url, "GET");
+            //base.sendXHR(url, "GET");
         }
         //   编辑操作
         else if (type == "editor") {
             title.value = dataSelf[pos].title;
             textarea.value = dataSelf[pos].blogContent;
-            isExist = 1;
+            isExist = 1;    //  更改日志标识
             editorIndex = pos;   //  存储当前操作项位置
         }
         //   选择操作
         else if (type == "checkbox") {
             dataSelf[pos].isChecked = (dataSelf[pos].isChecked == true) ? false : true;
+
+            //  检查是否选择所有选项，是则更新sltAllBtn状态
             var checked = dataSelf.filter(function (item) {
                 return item.isChecked == true;
             });
-            //  检查是否选择所有选项，是则更新sltAllBtn状态
             if (checked.length == dataSelf.length) sltAllBtn.checked = true;
             else sltAllBtn.checked = false;
         }
@@ -345,16 +204,16 @@
             }
         }
         var url = "http://192.168.144.11/api/deleteBlogs?id=" + encodeURIComponent(checked.join("&"));
-        // sendXHR(url, "GET");
+        // base.sendXHR(url, "GET");
         render(dataSelf);
         sltAllBtn.checked = false;
     }
 
     /*
-     *   创建一条个人数据
-     *   @param {id} 日志id,{title} 日志标题,{blogContent} 日志内容,{shortPublishDateStr} year-mouth-day,{publishTimeStr} hour-minute-second,{allowView} 私人日志标识,
-     *   {accessCount} 浏览量,{commentCount} 评论数,{isChecked} 选中标识，{rank} 置顶标识
-     *   @ return {object}  单条日志数据
+     *   新建一条个人数据
+     *   @param {id} 日志id,{title} 日志标题,{blogContent} 日志内容,{shortPublishDateStr} year-mouth-day,{publishTimeStr} hour-minute-second,
+     *          {allowView} 私人日志标识,{accessCount} 浏览量,{commentCount} 评论数,{isChecked} 选中标识，{rank} 置顶标识
+     *   @return {object}  单条日志数据
      */
     function createItem(id, title, blogContent, shortPublishDateStr, publishTimeStr) {
         var item = {};
@@ -373,9 +232,8 @@
 
     /*
      *   更新一条个人数据
-     *   @param {id} 日志id,{title} 日志标题,{blogContent} 日志内容,{shortPublishDateStr} year-mouth-day,{publishTimeStr} hour-minute-second,{allowView} 私人日志标识,
-     *   {accessCount} 浏览量,{commentCount} 评论数,{isChecked} 选中标识，{rank} 置顶标识
-     *   @ return {object}  单条日志数据
+     *   @param {title} 日志标题,{blogContent} 日志内容,{shortPublishDateStr} year-mouth-day,{publishTimeStr} hour-minute-second
+     *   @return {object}  单条日志数据
      */
     function updateItem(item, title, blogContent, shortPublishDateStr, publishTimeStr) {
         item.title = title;
@@ -414,7 +272,7 @@
     //  好友日志滚动函数
     function scroll() {
         rollElt.scrollTop++;    //  滚动，scrollTop(被隐藏在内容区域上方的像素数，即滚动条位置)
-        //  检测是否滚过一篇日志
+        //  检测是否滚过一篇日志的距离
         if (rollElt.scrollTop % 56 == 0) {
             clearInterval(interval);    //  立即停止滚动计时器
             //  然后设置2s后执行的计时器，并在计时器内重新开启滚动计时器
@@ -422,7 +280,7 @@
                 interval = setInterval(scroll, 60);
             }, 2000);
         }
-        //  检测是否滚动到最后，到最后则重置scrollTop
+        //  检测是否滚动到最后，是则重置scrollTop
         if (rollElt.scrollTop > 500) {
             rollElt.scrollTop = 0;
         }
@@ -443,8 +301,10 @@
         var html = "";
         data.forEach(function (item) {
             if (item) {
-                var isChecked = (item.isChecked === true) ? 'checked' : ' ', allowView = (item.allowView == 10000) ? '<span class="s-bg sprite-private"></span>' : '',
-                    dataType = (item.rank == 0) ? 'top' : 'cancel', text = (item.rank == 0) ? '置顶' : '取消';
+                var isChecked = (item.isChecked === true) ? 'checked' : ' ',
+                    allowView = (item.allowView == 10000) ? '<span class="s-bg sprite-private"></span>' : '',
+                    dataType = (item.rank == 0) ? 'top' : 'cancel',
+                    text = (item.rank == 0) ? '置顶' : '取消';
                 var obj = {
                     "id": item.id,
                     "isChecked": isChecked,
@@ -485,7 +345,7 @@
     }
 
     /*  模板引擎函数
-     *   {str} 要替换的字符串 {reg} 字符串替换的正则表达式 {fn} replace内传入的函数参数
+     *  @param {str} 要替换的字符串 {reg} 字符串替换的正则表达式 {fn} replace内传入的函数参数
      * */
     function tplEngine(str, reg, fn) {
         return str.replace(reg, fn);
@@ -499,11 +359,14 @@
 
     //  排序函数
     function sort(data) {
-        if (base.isIE6()) {
+        //  IE6+(无法使用Array.prototype.sort作为判定，IE6有sort函数，但表现与其他浏览器不同)
+        if (!base.isIE6()) {
             data.sort(function (a, b) {
                 return parseInt(b.modifyTime) - parseInt(a.modifyTime);
             });
-        } else {
+        }
+        //  IE6
+        else {
             var a, len = data.length;
             for (var i = 0; i < len; i++) {
                 for (j = i + 1; j < len; j++) {
@@ -515,24 +378,5 @@
                 }
             }
         }
-
-    }
-
-    /*
-     *   处理XHR操作
-     *   @param {url} 请求的URL, {method} 请求方法, {callback} 回调处理函数
-     * */
-    function sendXHR(url, method, callback) {
-        var xhr = new XMLHttpRequest();
-        xhr.open(method, url, true);
-
-        if (callback) {
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    callback(xhr.responseText);
-                }
-            };
-        }
-        xhr.send();
     }
 }(this, document))

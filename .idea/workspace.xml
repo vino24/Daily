@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="308f60b7-09cc-48d4-bc8c-e6304f078f36" name="Default" comment="netease 作业一 IE6 bug Fixed">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/caijf/zuoye1/js/base.js" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\html5\360FE\360FE-Star-Plan\images\icon-360.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/caijf/zuoye1/index.html" afterPath="$PROJECT_DIR$/caijf/zuoye1/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/360FE/360FE-Star-Plan/css/main.css" afterPath="$PROJECT_DIR$/360FE/360FE-Star-Plan/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/360FE/360FE-Star-Plan/resume.html" afterPath="$PROJECT_DIR$/360FE/360FE-Star-Plan/resume.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="D:\xampp\htdocs\html5\caijf\zuoye1\js\main.js" afterPath="$PROJECT_DIR$/caijf/zuoye1/js/core.js" />
     </list>
     <ignored path="html5.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,27 +30,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/caijf/zuoye1/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22702703">
-              <caret line="60" column="14" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="14" />
+            <state vertical-scroll-proportion="-2.8">
+              <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/caijf/zuoye1/js/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-34.3">
-              <caret line="231" column="9" selection-start-line="231" selection-start-column="9" selection-end-line="231" selection-end-column="9" />
-              <folding>
-                <element signature="e#47#5299#0" expanded="false" />
-                <element signature="e#1332#3749#0" expanded="false" />
-                <element signature="e#6478#6608#0" expanded="false" />
-                <element signature="e#6838#8062#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -52,11 +43,42 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/caijf/zuoye1/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.433332">
-              <caret line="60" column="74" selection-start-line="60" selection-start-column="74" selection-end-line="60" selection-end-column="74" />
+            <state vertical-scroll-proportion="-3.1333334">
+              <caret line="130" column="30" selection-start-line="130" selection-start-column="30" selection-end-line="130" selection-end-column="30" />
               <folding>
-                <marker date="1451991861292" expanded="true" signature="204:285" placeholder="..." />
-                <marker date="1451991861292" expanded="true" signature="219:273" placeholder="{...}" />
+                <marker date="1452067607770" expanded="true" signature="204:285" placeholder="..." />
+                <marker date="1452067607770" expanded="true" signature="219:273" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="core.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/caijf/zuoye1/js/core.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.1741177">
+              <caret line="299" column="27" selection-start-line="299" selection-start-column="27" selection-end-line="299" selection-end-column="27" />
+              <folding>
+                <element signature="e#4321#4792#0" expanded="false" />
+                <element signature="e#4844#5038#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/caijf/zuoye1/js/base.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="15.766666">
+              <caret line="72" column="9" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
+              <folding>
+                <element signature="e#414#2458#0" expanded="false" />
+                <element signature="n#!!block;n#getByClass#0;n#getByClass#0;n#!!block;n#base#0;n#!!top" expanded="false" />
+                <element signature="n#!!block;n#hasClass#0;n#hasClass#0;n#!!block;n#base#0;n#!!top" expanded="false" />
+                <element signature="n#!!block;n#timeFormat#0;n#timeFormat#0;n#!!block;n#base#0;n#!!top" expanded="false" />
+                <element signature="n#!!block;n#bindEvent#0;n#bindEvent#0;n#!!block;n#base#0;n#!!top" expanded="false" />
+                <element signature="n#!!block;n#escapeHtml#0;n#escapeHtml#0;n#!!block;n#base#0;n#!!top" expanded="false" />
+                <element signature="n#!!block;n#sendXHR#0;n#sendXHR#0;n#!!block;n#base#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -88,8 +110,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/The_missing_manual/StorageEvents1.html" />
-        <option value="$PROJECT_DIR$/The_missing_manual/StorageEvents2.html" />
         <option value="$PROJECT_DIR$/Js_The_definitive_Guide/20/getcookie.js" />
         <option value="$PROJECT_DIR$/兼容性代码库/Storage/cookieStorage.js" />
         <option value="$PROJECT_DIR$/兼容性代码库/Storage/memory.js" />
@@ -136,9 +156,11 @@
         <option value="$PROJECT_DIR$/caijf/zuoye1/css/style01.css" />
         <option value="$PROJECT_DIR$/caijf/zuoye1/index01.html" />
         <option value="$PROJECT_DIR$/Js_The_definitive_Guide/17/17.3.2.js" />
-        <option value="$PROJECT_DIR$/caijf/zuoye1/index.html" />
         <option value="$PROJECT_DIR$/caijf/zuoye1/js/main.js" />
         <option value="$PROJECT_DIR$/caijf/zuoye1/css/style.css" />
+        <option value="$PROJECT_DIR$/caijf/zuoye1/index.html" />
+        <option value="$PROJECT_DIR$/caijf/zuoye1/js/core.js" />
+        <option value="$PROJECT_DIR$/caijf/zuoye1/js/base.js" />
       </list>
     </option>
   </component>
@@ -241,61 +263,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="baiduFE" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html5" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html5" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="360FE" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html5" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html5" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="360FE" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="360FE-Star-Plan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html5" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html5" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="360FE" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="360FE-Star-Plan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -313,7 +281,7 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="recentsLimit" value="5" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Collection" />
     <property name="JavaScriptLanguageLevel" value="JSX" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="restartRequiresConfirmation" value="true" />
@@ -684,7 +652,13 @@
       <option name="project" value="LOCAL" />
       <updated>1451998856944</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="netease 作业一 IE6 bug Fixed">
+      <created>1452067423243</created>
+      <option name="number" value="00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1452067423243</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -703,9 +677,9 @@
     <frame x="0" y="0" width="1920" height="1040" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1551541" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1551541" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31428573" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32453245" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32453245" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32735425" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32343236" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -792,18 +766,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="21" />
+      <option name="time" value="22" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Js_The_definitive_Guide/19/jquery-2.1.4.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33211008">
-          <caret line="172" column="8" selection-start-line="172" selection-start-column="4" selection-end-line="172" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/React/react-0.13.0/build/react.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3568075">
@@ -979,13 +946,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/jquery-2.1.4.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6">
-          <caret line="4260" column="9" selection-start-line="4260" selection-start-column="9" selection-end-line="4260" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/baiduFE/task0002/task0002.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1122,17 +1082,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/caijf/zuoye1/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.433332">
-          <caret line="60" column="74" selection-start-line="60" selection-start-column="74" selection-end-line="60" selection-end-column="74" />
-          <folding>
-            <marker date="1451991861292" expanded="true" signature="204:285" placeholder="..." />
-            <marker date="1451991861292" expanded="true" signature="219:273" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/nginx/html/caijf/zuoye1/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1141,24 +1090,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/caijf/zuoye1/js/main.js">
+    <entry file="file://$PROJECT_DIR$/caijf/zuoye1/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-34.3">
-          <caret line="231" column="9" selection-start-line="231" selection-start-column="9" selection-end-line="231" selection-end-column="9" />
+        <state vertical-scroll-proportion="-2.8">
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/caijf/zuoye1/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.1333334">
+          <caret line="130" column="30" selection-start-line="130" selection-start-column="30" selection-end-line="130" selection-end-column="30" />
           <folding>
-            <element signature="e#47#5299#0" expanded="false" />
-            <element signature="e#1332#3749#0" expanded="false" />
-            <element signature="e#6478#6608#0" expanded="false" />
-            <element signature="e#6838#8062#0" expanded="false" />
+            <marker date="1452067607770" expanded="true" signature="204:285" placeholder="..." />
+            <marker date="1452067607770" expanded="true" signature="219:273" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/caijf/zuoye1/css/style.css">
+    <entry file="file://$PROJECT_DIR$/caijf/zuoye1/js/base.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22702703">
-          <caret line="60" column="14" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="14" />
-          <folding />
+        <state vertical-scroll-proportion="15.766666">
+          <caret line="72" column="9" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
+          <folding>
+            <element signature="e#414#2458#0" expanded="false" />
+            <element signature="n#!!block;n#getByClass#0;n#getByClass#0;n#!!block;n#base#0;n#!!top" expanded="false" />
+            <element signature="n#!!block;n#hasClass#0;n#hasClass#0;n#!!block;n#base#0;n#!!top" expanded="false" />
+            <element signature="n#!!block;n#timeFormat#0;n#timeFormat#0;n#!!block;n#base#0;n#!!top" expanded="false" />
+            <element signature="n#!!block;n#bindEvent#0;n#bindEvent#0;n#!!block;n#base#0;n#!!top" expanded="false" />
+            <element signature="n#!!block;n#escapeHtml#0;n#escapeHtml#0;n#!!block;n#base#0;n#!!top" expanded="false" />
+            <element signature="n#!!block;n#sendXHR#0;n#sendXHR#0;n#!!block;n#base#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/caijf/zuoye1/js/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.1741177">
+          <caret line="299" column="27" selection-start-line="299" selection-start-column="27" selection-end-line="299" selection-end-column="27" />
+          <folding>
+            <element signature="e#4321#4792#0" expanded="false" />
+            <element signature="e#4844#5038#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

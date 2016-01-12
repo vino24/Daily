@@ -2,25 +2,24 @@
     //  dailyId 个人日志id, dataSelf 个人日志数据, dataFriend 好友日志数据,isExist 日志是否新建标识, editorIndex 当前编辑位置
     dailyId = "fks_0", dataSelf = [], dataFriend = [], isExist = -1, editorIndex = -1;
 
+    var parentNode=base.getById("j-content");
     //  mTags 标签栏, mList 个人日志栏, daily 好友日志栏
-    var mDaily = base.getByClass("m-daily"), mEditor = base.getByClass("m-editor"), mTags = base.getByClass("m-tags"), mList = base.getByClass("m-list");
-    var daily = base.$("daily"), tags = base.$("tags"), articles = base.getByClass("articles");
+    var mDaily = base.getByClass("m-daily",parentNode), mEditor = base.getByClass("m-editor",parentNode), mTags = base.getByClass("m-tags",parentNode), mList = base.getByClass("m-list",parentNode);
+    var daily = base.getById("daily"), tags = base.getById("tags"), articles = base.getByClass("articles",parentNode);
 
     //   title 日志标题, textarea 日志内容
-    var title = base.getByClass("j-title", "input"), textarea = base.getByClass("j-content", "textarea"), checkboxes = mList.getElementsByTagName("input");
+    var title = base.getByClass("j-title", parentNode), textarea = base.getByClass("j-content", parentNode);
 
     //   pubBtn 发布按钮, clearBtn 清空按钮, sltAllBtn 全选按钮, dltAllBtn 全删按钮
-    var pubBtn = base.getByClass("j-pub", "button"), clearBtn = base.getByClass("j-clear", "button"), sltAllBtn = base.getByClass("j-sltall", "input"), dltAllBtn = base.getByClass("j-dltall", "button");
-    //  滚动日志栏
-    var rollElt = base.getByClass("articles");
+    var pubBtn = base.getByClass("j-pub", parentNode), clearBtn = base.getByClass("j-clear", parentNode), sltAllBtn = base.getByClass("j-sltall", parentNode), dltAllBtn = base.getByClass("j-dltall", parentNode);
+
     //  html模板
-    var htmlSelf = base.$("j-self").innerHTML, htmlFriend = base.$("j-friend").innerHTML;
+    var htmlSelf = base.getById("j-self").innerHTML, htmlFriend = base.getById("j-friend").innerHTML;
     //  页面初始化(<script>标签在<body>后页面元素已经可操作，无需监听window的load事件)
     init();
 
     //  页面初始化函数
     function init() {
-        base.ieFixed(); //  载入ieFixed，消除浏览器差异
         initData();
         bindBtns();
         interval = setInterval(scroll, 60);  //  好友日志滚动计时器
@@ -75,8 +74,8 @@
             now = new Date(),
             valTitle = base.escapeHtml(title.value),
             valText = base.escapeHtml(textarea.value),
-            date = [now.getFullYear(), base.timeFormat(now.getMonth() + 1), base.timeFormat(now.getDate())].join("-") + " ",
-            time = [base.timeFormat(now.getHours()), base.timeFormat(now.getMinutes()), base.timeFormat(now.getSeconds())].join(":");
+            date = base.timeFormat(now).ymd(),
+            time = base.timeFormat(now).hms();
         //  新建日志
         if (isExist == -1) {
             if (valTitle && valText) {  // 检测是否输入内容
@@ -263,17 +262,15 @@
 
     //  好友日志处理函数
     function callbackFriend(result) {
-        var res = base.parseJSON(result);
-        sort(res);
-        dataFriend = res;
+        dataFriend = base.parseJSON(result);
         renderFriend(dataFriend);
     }
 
     //  好友日志滚动函数
     function scroll() {
-        rollElt.scrollTop++;    //  滚动，scrollTop(被隐藏在内容区域上方的像素数，即滚动条位置)
+        articles.scrollTop++;    //  滚动，scrollTop(被隐藏在内容区域上方的像素数，即滚动条位置)
         //  检测是否滚过一篇日志的距离
-        if (rollElt.scrollTop % 56 == 0) {
+        if (articles.scrollTop % 56 == 0) {
             clearInterval(interval);    //  立即停止滚动计时器
             //  然后设置2s后执行的计时器，并在计时器内重新开启滚动计时器
             setTimeout(function () {
@@ -281,8 +278,8 @@
             }, 2000);
         }
         //  检测是否滚动到最后，是则重置scrollTop
-        if (rollElt.scrollTop > 500) {
-            rollElt.scrollTop = 0;
+        if (articles.scrollTop > 500) {
+            articles.scrollTop = 0;
         }
     }
 
@@ -359,24 +356,8 @@
 
     //  排序函数
     function sort(data) {
-        //  IE6+(无法使用Array.prototype.sort作为判定，IE6有sort函数，但表现与其他浏览器不同)
-        if (!base.isIE6()) {
             data.sort(function (a, b) {
                 return parseInt(b.modifyTime) - parseInt(a.modifyTime);
             });
-        }
-        //  IE6
-        else {
-            var a, len = data.length;
-            for (var i = 0; i < len; i++) {
-                for (j = i + 1; j < len; j++) {
-                    if (parseInt(data[i].modifyTime) < parseInt(data[j].modifyTime)) {
-                        a = data[i];
-                        data[i] = data[j];
-                        data[j] = a;
-                    }
-                }
-            }
-        }
     }
 }(this, document))

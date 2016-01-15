@@ -2,19 +2,21 @@
     //  dailyId 个人日志id, dataSelf 个人日志数据, dataFriend 好友日志数据,isExist 日志是否新建标识, editorIndex 当前编辑位置
     dailyId = "fks_0", dataSelf = [], dataFriend = [], isExist = -1, editorIndex = -1;
 
-    var parentNode=base.getById("j-content");
-    //  mTags 标签栏, mList 个人日志栏, daily 好友日志栏
-    var mDaily = base.getByClass("m-daily",parentNode), mEditor = base.getByClass("m-editor",parentNode), mTags = base.getByClass("m-tags",parentNode), mList = base.getByClass("m-list",parentNode);
-    var daily = base.getById("daily"), tags = base.getById("tags"), articles = base.getByClass("articles",parentNode);
+    var parentNode = base.getById("j-content");
+    var flags = base.getByClass("j-flag", parentNode);
+    var btns = base.getByClass("j-button", parentNode);
 
-    //   title 日志标题, textarea 日志内容
-    var title = base.getByClass("j-title", parentNode), textarea = base.getByClass("j-content", parentNode);
+    //  mTags 标签栏, mList 个人日志栏, daily 好友日志栏 title 日志标题, textarea 日志内容
+    var mDaily = flags[0], title = flags[1], textarea = flags[2], mList = flags[3], mTags = flags[4], articles = flags[5];
+    var daily = base.getById("daily"), tags = base.getById("tags");
 
     //   pubBtn 发布按钮, clearBtn 清空按钮, sltAllBtn 全选按钮, dltAllBtn 全删按钮
-    var pubBtn = base.getByClass("j-pub", parentNode), clearBtn = base.getByClass("j-clear", parentNode), sltAllBtn = base.getByClass("j-sltall", parentNode), dltAllBtn = base.getByClass("j-dltall", parentNode);
+    var pubBtn = btns[0], clearBtn = btns[1], sltAllBtn = btns[2], dltAllBtn = btns[3];
 
     //  html模板
     var htmlSelf = base.getById("j-self").innerHTML, htmlFriend = base.getById("j-friend").innerHTML;
+    var domain = "http://192.168.144.11/api/", params = ["deleteBlogs?id=", "topBlog?id=", "untopBlog?id=", "addBlog?blog=", "editBlog?blog="];
+
     //  页面初始化(<script>标签在<body>后页面元素已经可操作，无需监听window的load事件)
     init();
 
@@ -27,9 +29,9 @@
 
     function initData() {
         //  获取个人日志
-        base.sendXHR("./getblogs.json", "GET", callbackSelf);
+        base.sendXHR("./getblogs.json", "GET", null, callbackSelf);
         //  获取好友日志
-        base.sendXHR("./getfriends.json", "GET", callbackFriend);
+        base.sendXHR("./getfriends.json", "GET", null, callbackFriend);
     }
 
     //  绑定按钮函数
@@ -70,7 +72,7 @@
 
     //  发布函数
     function publish() {
-        var url, currentPos/* 记录当前编辑日志在日志列表的位置 */,
+        var currentPos/* 记录当前编辑日志在日志列表的位置 */, item,
             now = new Date(),
             valTitle = base.escapeHtml(title.value),
             valText = base.escapeHtml(textarea.value),
@@ -79,38 +81,32 @@
         //  新建日志
         if (isExist == -1) {
             if (valTitle && valText) {  // 检测是否输入内容
-                dataSelf.push(createItem(dailyId, valTitle, valText, date, time));
-                url = "http://192.168.144.11/api/addBlog?blog={" + encodeURIComponent(dataSelf[dataSelf.length - 1].title) + encodeURIComponent(dataSelf[dataSelf.length - 1].blogContent) + "}";
+                item = createItem(dailyId, valTitle, valText, date, time);
+                send(params[3], "POST", item);
+                dataSelf.push(item);
                 dailyId = dailyId + 1;
+                render(dataSelf);
             } else alert("Please input something...");
         }
         //  编辑日志
         else {
             currentPos = editorIndex;
-            dataSelf[currentPos] = updateItem(dataSelf[currentPos], valTitle, valText, date, time);
-            url = "http://192.168.144.11/api/untopBlog?id=" + encodeURIComponent(dataSelf[currentPos].id);
+            item = updateItem(dataSelf[currentPos], valTitle, valText, date, time)
+            send(params[4], "POST", item);
+            dataSelf[currentPos] = item;
             isExist = -1;   //  重置日志标识
+            render(dataSelf);
         }
-        // base.sendXHR(url, "POST");
-        render(dataSelf);
         //  清空日志编辑框
         clear();
     }
 
     //  获取触发事件的日志ID
-    function getDaliyId(elt, type) {
-        var id;
-        switch (type) {
-            case 'editor':
-                id = elt.parentNode.parentNode.parentNode.getAttribute("data-id");
-                break;
-            case "checkbox":
-                id = elt.parentNode.parentNode.parentNode.getAttribute("data-id");
-                break;
-            default :
-                id = elt.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("data-id");
+    function getDaliyId(elt) {
+        while (!elt.getAttribute("data-id")) {
+            elt = elt.parentNode;
         }
-        return id;
+        return elt.getAttribute("data-id");
     }
 
     //  获取当前操作项索引
@@ -124,38 +120,41 @@
         return index;
     }
 
+    function send(parm, method, data) {
+        var url = domain + parm;
+        base.sendXHR(url, method, data);
+    }
+
     //  个人日志操作函数
     function operate(e) {
-        var url,
-            currentTarget = e.target || e.srcElement,
+        var currentTarget = base.getEventTarget(e),
             type = currentTarget.getAttribute("data-type"),
-            id = getDaliyId(currentTarget, type), pos = getIndex(dataSelf, id);
+            id = getDaliyId(currentTarget),
+            pos = getIndex(dataSelf, id);
 
         //  删除操作
         if (type == "dlt") {
-            //url = "http://192.168.144.11/api/deleteBlogs?id=" + encodeURIComponent(dataSelf[pos].id);
-            //base.sendXHR(url, "GET");
+            send(params[0], "GET", dataSelf[pos].id);
             dataSelf.splice(pos, 1);
+            clear();
         }
         /*   置顶操作
          *   通过拆分置顶和取消置顶操作来解决JavaScript中if-else无块级作用域导致rank字段值错误进而导致操作异常的问题
          * */
 
         else if (type == "top") {
+            send(params[1], "GET", dataSelf[pos].id);
             dataSelf[pos].rank = 5;
             dataSelf[pos].topPos = pos; //  保存日志当前位置
             dataSelf = [dataSelf[pos]].concat(dataSelf.slice(0, pos), dataSelf.slice(pos + 1));
-            //url = "http://192.168.144.11/api/topBlog?id=" + encodeURIComponent(dataSelf[pos].id);
-            //base.sendXHR(url, "GET");
         }
         //  取消置顶操作
         else if (type == "cancel") {
+            send(params[2], "GET", dataSelf[pos].id);
             var flag = ++dataSelf[pos].topPos;  //  获取日志之前的位置索引
             dataSelf[pos].rank = 0;
             dataSelf.splice(flag, 0, dataSelf[pos]);  //  插入pos
             dataSelf.splice(pos, 1);     //  删除原本的pos
-            //url = "http://192.168.144.11/api/untopBlog?id=" + encodeURIComponent(dataSelf[pos].id);
-            //base.sendXHR(url, "GET");
         }
         //   编辑操作
         else if (type == "editor") {
@@ -167,7 +166,6 @@
         //   选择操作
         else if (type == "checkbox") {
             dataSelf[pos].isChecked = (dataSelf[pos].isChecked == true) ? false : true;
-
             //  检查是否选择所有选项，是则更新sltAllBtn状态
             var checked = dataSelf.filter(function (item) {
                 return item.isChecked == true;
@@ -202,9 +200,9 @@
                 i--;    //  索引减1
             }
         }
-        var url = "http://192.168.144.11/api/deleteBlogs?id=" + encodeURIComponent(checked.join("&"));
-        // base.sendXHR(url, "GET");
+        send(params[0], "GET", checked.join("&"));
         render(dataSelf);
+        clear();
         sltAllBtn.checked = false;
     }
 
@@ -356,8 +354,8 @@
 
     //  排序函数
     function sort(data) {
-            data.sort(function (a, b) {
-                return parseInt(b.modifyTime) - parseInt(a.modifyTime);
-            });
+        data.sort(function (a, b) {
+            return parseInt(b.modifyTime) - parseInt(a.modifyTime);
+        });
     }
 }(this, document))

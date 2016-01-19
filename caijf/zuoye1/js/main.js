@@ -7,7 +7,7 @@
     var btns = base.getByClass("j-button", parentNode);
 
     //  mTags 标签栏, mList 个人日志栏, daily 好友日志栏 title 日志标题, textarea 日志内容
-    var mDaily = flags[0], title = flags[1], textarea = flags[2], mList = flags[3], mTags = flags[4], articles = flags[5];
+    var mDaily = flags[0], title = flags[1], textarea = flags[2], mList = flags[3], mTags = flags[4], mFlist = flags[5];
     var daily = base.getById("daily"), tags = base.getById("tags");
 
     //   pubBtn 发布按钮, clearBtn 清空按钮, sltAllBtn 全选按钮, dltAllBtn 全删按钮
@@ -38,20 +38,20 @@
     function bindBtns() {
         //  绑定日志栏
         base.bindEvent(daily, "click", function () {
-            if (!base.hasClass(daily, "selected")) {
-                base.addClass(daily, "selected");
-                base.removeClass(tags, "selected");
-                base.removeClass(mDaily, "z-hidden");
-                base.addClass(mTags, "z-hidden");
+            if (!base.hasClass(daily, "sel")) {
+                base.addClass(daily, "sel");
+                base.removeClass(tags, "sel");
+                base.removeClass(mDaily, "z-hide");
+                base.addClass(mTags, "z-hide");
             }
         });
         //  绑定标签栏
         base.bindEvent(tags, "click", function () {
-            if (!base.hasClass(tags, "selected")) {
-                base.addClass(tags, "selected");
-                base.removeClass(daily, "selected");
-                base.removeClass(mTags, "z-hidden");
-                base.addClass(mDaily, "z-hidden");
+            if (!base.hasClass(tags, "sel")) {
+                base.addClass(tags, "sel");
+                base.removeClass(daily, "sel");
+                base.removeClass(mTags, "z-hide");
+                base.addClass(mDaily, "z-hide");
             }
         });
         //  绑定发布按钮
@@ -65,9 +65,9 @@
         //  绑定全删按钮
         base.bindEvent(dltAllBtn, "click", deleteAll);
         //  绑定好友日志悬停操作
-        base.bindEvent(articles, "mouseover", msover);
+        base.bindEvent(mFlist, "mouseover", msover);
         //  绑定好友日志离开操作
-        base.bindEvent(articles, "mouseout", msout);
+        base.bindEvent(mFlist, "mouseout", msout);
     }
 
     //  发布函数
@@ -266,9 +266,9 @@
 
     //  好友日志滚动函数
     function scroll() {
-        articles.scrollTop++;    //  滚动，scrollTop(被隐藏在内容区域上方的像素数，即滚动条位置)
+        mFlist.scrollTop++;    //  滚动，scrollTop(被隐藏在内容区域上方的像素数，即滚动条位置)
         //  检测是否滚过一篇日志的距离
-        if (articles.scrollTop % 56 == 0) {
+        if (mFlist.scrollTop % 56 == 0) {
             clearInterval(interval);    //  立即停止滚动计时器
             //  然后设置2s后执行的计时器，并在计时器内重新开启滚动计时器
             setTimeout(function () {
@@ -276,8 +276,8 @@
             }, 2000);
         }
         //  检测是否滚动到最后，是则重置scrollTop
-        if (articles.scrollTop > 500) {
-            articles.scrollTop = 0;
+        if (mFlist.scrollTop > 500) {
+            mFlist.scrollTop = 0;
         }
     }
 
@@ -336,7 +336,7 @@
                 });
             }
         });
-        articles.innerHTML = html;
+        mFlist.innerHTML = html;
     }
 
     /*  模板引擎函数

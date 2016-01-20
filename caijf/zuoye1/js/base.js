@@ -157,7 +157,14 @@ var base = (function () {
         },
         //  防注入
         escapeHtml: function (str) {
-            return str.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&/g, "&amp;");
+            return str.replace(/[\&<>]/g, function(s) {
+                switch(s) {
+                    case "&": return "&amp;";
+                    case "<": return "&lt;";
+                    case ">": return "&gt;";
+                    default: return s;
+                }
+            });
         },
         //  解析JSON数据
         parseJSON: function (data) {
@@ -196,26 +203,34 @@ var base = (function () {
             return e.target || e.srcElement;
         },
 
+        /**
+         * 按数据某属性排序
+         * @param {data} 要排序的数据 {prop} 排序属性
+         */
+        sort: function (data,prop) {
+            data.sort(function (a, b) {
+                return parseInt(b[prop]) - parseInt(a[prop]);
+            });
+        },
+
         /*
          *   处理XHR操作
          *   @param {url} 请求的URL, {method} 请求方法, {callback} 回调函数， {data} 要发送的数据
          * */
-        sendXHR: function (url, method, data, callback) {
+        sendXHR: function (url,callback) {
             var xhr = new XMLHttpRequest();
-            if (callback) {
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState === 4) { //  无法将readystate和status放一起作为判定条件，因为status状态在请求过程中会变，这样无法添加处理异常的代码
                         if (xhr.status === 200 || xhr.status === 304) callback(xhr.responseText);
                         else console.log("Request was unsuccessful:" + xhr.status);
                     }
                 };
+            if (arguments.length==3) {
+                xhr.open("POST", url, true);
+                xhr.send(base.stringify(arguments[2]));
             }
-            if (method == "POST") {
-                xhr.open(method, url, true);
-                xhr.send(base.stringify(data));
-            } else {
-                url += data != null ? encodeURIComponent(data) : "";
-                xhr.open(method, url, true);
+             else {
+                xhr.open("GET",url,true);
                 xhr.send();
             }
         }

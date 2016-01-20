@@ -9,13 +9,13 @@
     //  mTags 标签栏, mList 个人日志栏, daily 好友日志栏 title 日志标题, textarea 日志内容
     var mDaily = flags[0], title = flags[1], textarea = flags[2], mList = flags[3], mTags = flags[4], mFlist = flags[5];
     var daily = base.getById("daily"), tags = base.getById("tags");
-
+    console.log(mFlist);
     //   pubBtn 发布按钮, clearBtn 清空按钮, sltAllBtn 全选按钮, dltAllBtn 全删按钮
     var pubBtn = btns[0], clearBtn = btns[1], sltAllBtn = btns[2], dltAllBtn = btns[3];
 
     //  html模板
     var htmlSelf = base.getById("j-self").innerHTML, htmlFriend = base.getById("j-friend").innerHTML;
-    var domain = "http://192.168.144.11/api/", params = ["deleteBlogs?id=", "topBlog?id=", "untopBlog?id=", "addBlog?blog=", "editBlog?blog="];
+    var domain = "./xhr.json/";
 
     //  页面初始化(<script>标签在<body>后页面元素已经可操作，无需监听window的load事件)
     init();
@@ -29,27 +29,27 @@
 
     function initData() {
         //  获取个人日志
-        base.sendXHR("./getblogs.json", "GET", null, callbackSelf);
+        base.sendXHR("./getblogs.json", callbackSelf);
         //  获取好友日志
-        base.sendXHR("./getfriends.json", "GET", null, callbackFriend);
+        base.sendXHR("./getfriends.json", callbackFriend);
     }
 
     //  绑定按钮函数
     function bindBtns() {
         //  绑定日志栏
         base.bindEvent(daily, "click", function () {
-            if (!base.hasClass(daily, "sel")) {
-                base.addClass(daily, "sel");
-                base.removeClass(tags, "sel");
+            if (!base.hasClass(daily, "z-sel")) {
+                base.addClass(daily, "z-sel");
+                base.removeClass(tags, "z-sel");
                 base.removeClass(mDaily, "z-hide");
                 base.addClass(mTags, "z-hide");
             }
         });
         //  绑定标签栏
         base.bindEvent(tags, "click", function () {
-            if (!base.hasClass(tags, "sel")) {
-                base.addClass(tags, "sel");
-                base.removeClass(daily, "sel");
+            if (!base.hasClass(tags, "z-sel")) {
+                base.addClass(tags, "z-sel");
+                base.removeClass(daily, "z-sel");
                 base.removeClass(mTags, "z-hide");
                 base.addClass(mDaily, "z-hide");
             }
@@ -65,15 +65,19 @@
         //  绑定全删按钮
         base.bindEvent(dltAllBtn, "click", deleteAll);
         //  绑定好友日志悬停操作
-        base.bindEvent(mFlist, "mouseover", msover);
+        base.bindEvent(mFlist, "mouseover", function () {
+            clearInterval(interval);
+        });
         //  绑定好友日志离开操作
-        base.bindEvent(mFlist, "mouseout", msout);
+        base.bindEvent(mFlist, "mouseout", function () {
+            interval = setInterval(scroll, 60);
+        });
     }
 
     //  发布函数
     function publish() {
-        var currentPos/* 记录当前编辑日志在日志列表的位置 */, item,
-            now = new Date(),
+        var currentPos/* 记录当前编辑日志在日志列表的位置 */, item
+        now = new Date(),
             valTitle = base.escapeHtml(title.value),
             valText = base.escapeHtml(textarea.value),
             date = base.timeFormat(now).ymd(),
@@ -81,8 +85,8 @@
         //  新建日志
         if (isExist == -1) {
             if (valTitle && valText) {  // 检测是否输入内容
-                item = createItem(dailyId, valTitle, valText, date, time);
-                send(params[3], "POST", item);
+                item = createItem(dailyId, valTitle, valText, date, time)
+                send(item, "POST");
                 dataSelf.push(item);
                 dailyId = dailyId + 1;
                 render(dataSelf);
@@ -92,7 +96,7 @@
         else {
             currentPos = editorIndex;
             item = updateItem(dataSelf[currentPos], valTitle, valText, date, time)
-            send(params[4], "POST", item);
+            send(item, "POST");
             dataSelf[currentPos] = item;
             isExist = -1;   //  重置日志标识
             render(dataSelf);
@@ -120,9 +124,15 @@
         return index;
     }
 
-    function send(parm, method, data) {
-        var url = domain + parm;
-        base.sendXHR(url, method, data);
+    //  操作引发XHR的回调函数
+    function cb(result) {
+        result = base.parseJSON(result);
+        if (result.code != 200) alert("Operate failure!");
+    }
+
+    function send(data) {
+        if (arguments.length == 2) base.sendXHR(domain, cb, data);
+        else base.sendXHR(domain, cb);
     }
 
     //  个人日志操作函数
@@ -132,46 +142,48 @@
             id = getDaliyId(currentTarget),
             pos = getIndex(dataSelf, id);
 
-        //  删除操作
-        if (type == "dlt") {
-            send(params[0], "GET", dataSelf[pos].id);
-            dataSelf.splice(pos, 1);
-            clear();
-        }
-        /*   置顶操作
-         *   通过拆分置顶和取消置顶操作来解决JavaScript中if-else无块级作用域导致rank字段值错误进而导致操作异常的问题
-         * */
+        switch (type) {
+            //  删除操作
+            case "dlt":
+                send(dataSelf[pos].id);
+                dataSelf.splice(pos, 1);
+                clear();
+                break;
+            /*   置顶操作
+             *   通过拆分置顶和取消置顶操作来解决JavaScript中if-else无块级作用域导致rank字段值错误进而导致操作异常的问题
+             * */
 
-        else if (type == "top") {
-            send(params[1], "GET", dataSelf[pos].id);
-            dataSelf[pos].rank = 5;
-            dataSelf[pos].topPos = pos; //  保存日志当前位置
-            dataSelf = [dataSelf[pos]].concat(dataSelf.slice(0, pos), dataSelf.slice(pos + 1));
-        }
-        //  取消置顶操作
-        else if (type == "cancel") {
-            send(params[2], "GET", dataSelf[pos].id);
-            var flag = ++dataSelf[pos].topPos;  //  获取日志之前的位置索引
-            dataSelf[pos].rank = 0;
-            dataSelf.splice(flag, 0, dataSelf[pos]);  //  插入pos
-            dataSelf.splice(pos, 1);     //  删除原本的pos
-        }
-        //   编辑操作
-        else if (type == "editor") {
-            title.value = dataSelf[pos].title;
-            textarea.value = dataSelf[pos].blogContent;
-            isExist = 1;    //  更改日志标识
-            editorIndex = pos;   //  存储当前操作项位置
-        }
-        //   选择操作
-        else if (type == "checkbox") {
-            dataSelf[pos].isChecked = (dataSelf[pos].isChecked == true) ? false : true;
-            //  检查是否选择所有选项，是则更新sltAllBtn状态
-            var checked = dataSelf.filter(function (item) {
-                return item.isChecked == true;
-            });
-            if (checked.length == dataSelf.length) sltAllBtn.checked = true;
-            else sltAllBtn.checked = false;
+            case "top":
+                send(dataSelf[pos].id);
+                dataSelf[pos].rank = 5;
+                dataSelf[pos].topPos = pos; //  保存日志当前位置
+                dataSelf = [dataSelf[pos]].concat(dataSelf.slice(0, pos), dataSelf.slice(pos + 1));
+                break;
+            //  取消置顶操作
+            case "cancel":
+                send(dataSelf[pos].id);
+                var flag = ++dataSelf[pos].topPos;  //  获取日志之前的位置索引
+                dataSelf[pos].rank = 0;
+                dataSelf.splice(flag, 0, dataSelf[pos]);  //  插入pos
+                dataSelf.splice(pos, 1);     //  删除原本的pos
+                break;
+            //   编辑操作
+            case "editor":
+                title.value = dataSelf[pos].title;
+                textarea.value = dataSelf[pos].blogContent;
+                isExist = 1;    //  更改日志标识
+                editorIndex = pos;   //  存储当前操作项位置
+                break;
+            //   选择操作
+            default :
+                dataSelf[pos].isChecked = (dataSelf[pos].isChecked == true) ? false : true;
+                //  检查是否选择所有选项，是则更新sltAllBtn状态
+                var checked = dataSelf.filter(function (item) {
+                    return item.isChecked == true;
+                });
+                if (checked.length == dataSelf.length) sltAllBtn.checked = true;
+                else sltAllBtn.checked = false;
+                break;
         }
         render(dataSelf);
     }
@@ -200,7 +212,7 @@
                 i--;    //  索引减1
             }
         }
-        send(params[0], "GET", checked.join("&"));
+        send(checked.join("&"));
         render(dataSelf);
         clear();
         sltAllBtn.checked = false;
@@ -243,7 +255,7 @@
     //  个人日志处理函数
     function callbackSelf(result) {
         var res = base.parseJSON(result);
-        sort(res);
+        base.sort(res, "modifyTime");
 
         //  置顶日志
         var top = res.filter(function (item) {
@@ -268,7 +280,7 @@
     function scroll() {
         mFlist.scrollTop++;    //  滚动，scrollTop(被隐藏在内容区域上方的像素数，即滚动条位置)
         //  检测是否滚过一篇日志的距离
-        if (mFlist.scrollTop % 56 == 0) {
+        if (mFlist.scrollTop % 60 == 0) {
             clearInterval(interval);    //  立即停止滚动计时器
             //  然后设置2s后执行的计时器，并在计时器内重新开启滚动计时器
             setTimeout(function () {
@@ -279,16 +291,6 @@
         if (mFlist.scrollTop > 500) {
             mFlist.scrollTop = 0;
         }
-    }
-
-    //  好友日志鼠标悬停函数
-    function msover() {
-        clearInterval(interval);
-    }
-
-    //  好友日志鼠标远离函数
-    function msout() {
-        interval = setInterval(scroll, 60);
     }
 
     //  渲染个人日志函数
@@ -313,9 +315,7 @@
                     "accessCount": item.accessCount,
                     "commentCount": item.commentCount
                 };
-                html += tplEngine(htmlSelf, /\{([^\}]+)?\}/g, function (s0, s1) {
-                    return obj[s1];
-                });
+                html += tplEngine(htmlSelf, obj);
             }
         });
         mList.innerHTML = html;
@@ -331,19 +331,19 @@
                     "userName": item.userName,
                     "Content": item.Content
                 };
-                html += tplEngine(htmlFriend, /\{([^\}]+)?\}/g, function (s0, s1) {
-                    return obj[s1];
-                });
+                html += tplEngine(htmlFriend, obj);
             }
         });
         mFlist.innerHTML = html;
     }
 
     /*  模板引擎函数
-     *  @param {str} 要替换的字符串 {reg} 字符串替换的正则表达式 {fn} replace内传入的函数参数
+     *  @param {str} 待替换字符串 {data} 替换数据
      * */
-    function tplEngine(str, reg, fn) {
-        return str.replace(reg, fn);
+    function tplEngine(str, data) {
+        return str.replace(/\{([^\}]+)?\}/g, function (s0, s1) {
+            return data[s1];
+        });
     }
 
     //  清空日志编辑栏函数
@@ -352,10 +352,4 @@
         textarea.value = "";
     }
 
-    //  排序函数
-    function sort(data) {
-        data.sort(function (a, b) {
-            return parseInt(b.modifyTime) - parseInt(a.modifyTime);
-        });
-    }
 }(this, document))

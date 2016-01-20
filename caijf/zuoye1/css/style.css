@@ -102,7 +102,7 @@ body{background:#fff;}
 .m-ct .item{margin-top:10px;}
 .m-ct .item .flag{margin-left:5px;margin-bottom:10px;width:150px;}
 .m-ct .item .flag a{font-weight:bold;width:150px;}
-.m-lst2 {overflow:hidden;height:280px;}
+.m-lst2 {overflow:hidden;height:300px;}
 
 /*  左侧小导航条  */
 .m-tab {width:145px;margin-bottom:20px;border:1px solid #bbb;border-radius:3px;}
@@ -119,8 +119,7 @@ body{background:#fff;}
 .m-tab1{background-color:#f7f7f7;width:180px;font-size:0;/* 主流高级浏览器 */ *word-spacing:-1px;/* IE 6、7 */}
 .m-tab1 li a{letter-spacing:normal;vertical-align:top;border:1px solid #bbb;border-bottom:none;font-size:12px;width:88px;height:25px;line-height:25px;*word-spacing:normal;/* fixed IE6/7 font-size:0;后1px的间距 */}
 .m-tab1 li:first-child{border-right:none;}
-.m-tab1 .sel{border-bottom:1px solid #FFF;margin-bottom:-1px;background-color:#FFF;}
-.m-tab1 .sel a {color:black;}
+.m-tab1 .z-sel a {color:black;}
 
 /*  日志模块    */
 .m-daily{padding-top:20px;margin-bottom:20px;border-top:1px solid #bbb;}
@@ -168,3 +167,4 @@ body{background:#fff;}
     状态
 */
 .z-hide{display:none;}
+.z-sel{border-bottom:1px solid #FFF;margin-bottom:-1px;background-color:#FFF;}

@@ -14,11 +14,11 @@
 </head>
 <body class="g-mn">
 <!-- 导航条 -->
-<div class="m-top">
+<div class="m-top s-bg1">
     <div class="wrap f-cb f-mg0">
         <ul class="left f-fl f-pr">
             <li class="netease">
-                <a href="">网易<span class="u-icon f-pr"></span></a>
+                <a href="" class="nes">网易<span class="u-icon f-pr"></span></a>
                 <!-- 隐藏导航栏 -->
                 <ul class="m-subnav z-hide">
                     <li><a href="">新闻</a></li>
@@ -37,10 +37,9 @@
         </ul>
 
         <ul class="right f-fr">
-            <li class="wlc"><a href=""><span>中午好，西瓜太郎</span>(<span
-                    class="s-bg sprite-msg f-ib"></span>5)</a>
-            </li>
-            <li><a href=""><span class="s-bg sprite-home f-ib"></span>个人中心</a></li>
+            <li><a href="">中午好，西瓜太郎</a></li>
+            <li class="wlc"><a href="">(<span class="s-bg sprite-msg f-ib"></span>5)</a></li>
+            <li class="home"><a href=""><span class="s-bg sprite-home f-ib"></span>个人中心</a></li>
             <li><a href="">消息(<span class="counts">1234</span>)</a></li>
             <li><a href="">反馈</a></li>
             <li class="log"><a href="">登录</a></li>
@@ -50,7 +49,7 @@
 <!-- /导航条 -->
 
 <!-- 头部 -->
-<div class="m-hd">
+<div class="m-hd s-bg1">
     <div class="wrap f-cb f-mg0">
         <div class="left f-fl">
             <img src="./images/ava.jpg" alt="用户头像"
@@ -58,7 +57,7 @@
         </div>
         <div class="right f-fl">
             <div class="wlc">欢迎,西瓜太郎</div>
-            <a href="javascript:void(0);" class="u-uld f-ib">
+            <a href="javascript:void(0);" class="u-uld f-ib s-bg1 f-tac">
                 <input type="file" class="f-ib" id="upload" name="upload" accept="image/*">传相片
             </a>
         </div>
@@ -72,14 +71,14 @@
     <!-- 侧边栏 -->
     <div class="m-sd f-fl">
             <div class="m-tab">
-                <h3><span class="s-bg sprite-user f-ib"></span>博客动态</h3>
+                <h3 class="s-bg1"><span class="s-bg sprite-user f-ib"></span>博客动态</h3>
                 <ul>
                 <li><a href="">博客动态</a></li>
                 <li><a href="">消息中心</a></li>
                 </ul>
             </div>
             <div class="m-tab">
-                <h3><span class="s-bg sprite-settings f-ib"></span>博客管理</h3>
+                <h3 class="s-bg1"><span class="s-bg sprite-settings f-ib"></span>博客管理</h3>
                 <ul>
                 <li><a href="">日志管理</a></li>
                 <li><a href="">博友管理</a></li>
@@ -87,7 +86,7 @@
                 </ul>
             </div>
             <div class="m-tab">
-                <h3><span class="s-bg sprite-service f-ib"></span>服务</h3>
+                <h3 class="s-bg1"><span class="s-bg sprite-service f-ib"></span>服务</h3>
                 <ul>
                 <li><a href="">手机博客</a></li>
                 <li><a href="">博客复制</a></li>
@@ -112,16 +111,14 @@
                         <input type="text" placeholder="日志标题" class="j-title j-flag"/>
                         <textarea placeholder="这里可以写日志~" class="j-content j-flag"></textarea><!-- textarea必须在同一行 -->
                         <div class="btns f-fr">
-                            <button class="u-btn j-pub j-button">发布</button>
-                            <button class="u-btn j-clear j-button">清空</button>
+                            <button class="u-btn s-bg1 j-pub j-button">发布</button>
+                            <button class="u-btn s-bg1 j-clear j-button">清空</button>
                         </div>
                     </div>
                     <!-- /日志添加 -->
                     <!-- 日志管理 -->
                     <div class="m-lst j-flag">
-
                     </div>
-
                     <div class="m-opt">
                         <label for="sltall"></label><input type="checkbox" class="j-sltall j-button" id="sltall">全选<button class="j-dltall j-button">删除</button>
                     </div>

@@ -1,0 +1,30 @@
+{
+	"result": {
+		"accessCount": "6",
+		"allowView": "-100",
+		"classId": "fks_087070087083080074084082074065092095088064093",
+		"className": "默认分类",
+		"commentCount": "1",
+		"comments": "null",
+		"content": "",
+		"id": "fks_08706608708608807108085094095086094088074087095",
+		"ip": "60.186.220.192",
+		"isPublished": "1",
+		"lastAccessCountUpdateTime": "1346037948683",
+		"modifyTime": "0",
+		"publishTime": "1189305451217",
+		"publishTimeStr": "10:37:31",
+		"publisherId": "0",
+		"publisherNickname": "null",
+		"publisherUsername": "null",
+		"rank": "0",
+		"isChecked": false,
+		"shortPublishDateStr": "2007-09-09",
+		"title": "一个通宵后的今天",
+		"blogContent": "一个通宵后的今天",
+		"userId": "289939",
+		"userName": "force2002",
+		"userNickname": "悟空空"
+	},
+	"code": 200
+}

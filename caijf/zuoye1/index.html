@@ -16,9 +16,9 @@
 <!-- 导航条 -->
 <div class="m-top s-bg1">
     <div class="wrap f-cb f-mg0">
-        <ul class="left f-fl f-pr">
+        <ul class="left f-fl f-pr f-fs0">
             <li class="netease">
-                <a href="" class="nes">网易<span class="u-icon f-pr"></span></a>
+                <a href="" class="nes">网易<span class="u-icon u-icon-1"></span></a>
                 <!-- 隐藏导航栏 -->
                 <ul class="m-subnav z-hide">
                     <li><a href="">新闻</a></li>
@@ -36,7 +36,7 @@
             <li><a href="">随便看看</a></li>
         </ul>
 
-        <ul class="right f-fr">
+        <ul class="right f-fr f-fs0">
             <li><a href="">中午好，西瓜太郎</a></li>
             <li class="wlc"><a href="">(<span class="s-bg sprite-msg f-ib"></span>5)</a></li>
             <li class="home"><a href=""><span class="s-bg sprite-home f-ib"></span>个人中心</a></li>
@@ -70,29 +70,29 @@
 <div class="m-mnc f-mg0 f-cb">
     <!-- 侧边栏 -->
     <div class="m-sd f-fl">
-            <div class="m-tab">
-                <h3 class="s-bg1"><span class="s-bg sprite-user f-ib"></span>博客动态</h3>
-                <ul>
+        <div class="m-tab">
+            <h3 class="s-bg1"><span class="s-bg sprite-user f-ib"></span>博客动态</h3>
+            <ul>
                 <li><a href="">博客动态</a></li>
                 <li><a href="">消息中心</a></li>
-                </ul>
-            </div>
-            <div class="m-tab">
-                <h3 class="s-bg1"><span class="s-bg sprite-settings f-ib"></span>博客管理</h3>
-                <ul>
+            </ul>
+        </div>
+        <div class="m-tab">
+            <h3 class="s-bg1"><span class="s-bg sprite-settings f-ib"></span>博客管理</h3>
+            <ul>
                 <li><a href="">日志管理</a></li>
                 <li><a href="">博友管理</a></li>
                 <li><a href="">访问统计</a></li>
-                </ul>
-            </div>
-            <div class="m-tab">
-                <h3 class="s-bg1"><span class="s-bg sprite-service f-ib"></span>服务</h3>
-                <ul>
+            </ul>
+        </div>
+        <div class="m-tab">
+            <h3 class="s-bg1"><span class="s-bg sprite-service f-ib"></span>服务</h3>
+            <ul>
                 <li><a href="">手机博客</a></li>
                 <li><a href="">博客复制</a></li>
                 <li><a href="">手机邮</a></li>
-                </ul>
-            </div>
+            </ul>
+        </div>
     </div>
     <!-- /侧边栏 -->
     <div class="m-ct f-fl" id="j-content">
@@ -100,8 +100,8 @@
             <h2>日志管理</h2>
 
             <div class="left f-cb f-fl">
-                <ul class="m-tab1 f-tac">
-                    <li class="z-sel" id="daily"><a href="javascript:void(0)">日志</a></li>
+                <ul class="m-tab1 f-tac f-fs0">
+                    <li class="z-sel fst" id="daily"><a href="javascript:void(0)">日志</a></li>
                     <li class="f-ml1" id="tags"><a href="javascript:void(0)">标签</a></li>
                 </ul>
 
@@ -110,17 +110,18 @@
                     <div class="m-editor f-cb">
                         <input type="text" placeholder="日志标题" class="j-title j-flag"/>
                         <textarea placeholder="这里可以写日志~" class="j-content j-flag"></textarea><!-- textarea必须在同一行 -->
-                        <div class="btns f-fr">
-                            <button class="u-btn s-bg1 j-pub j-button">发布</button>
-                            <button class="u-btn s-bg1 j-clear j-button">清空</button>
+                        <div class="btns f-fr f-fs0">
+                            <button class="u-btn u-btn-1 j-pub j-button">发布</button>
+                            <button class="u-btn u-btn-1 j-clear j-button">清空</button>
                         </div>
                     </div>
                     <!-- /日志添加 -->
                     <!-- 日志管理 -->
-                    <div class="m-lst j-flag">
-                    </div>
+                    <ul class="m-lst j-flag">
+                    </ul>
                     <div class="m-opt">
-                        <label for="sltall"></label><input type="checkbox" class="j-sltall j-button" id="sltall">全选<button class="j-dltall j-button">删除</button>
+                        <label for="sltall"></label><input type="checkbox" class="j-sltall j-button" id="sltall">全选
+                        <button class="j-dltall j-button">删除</button>
                     </div>
                     <!-- /日志管理 -->
                 </div>
@@ -135,6 +136,7 @@
             <div class="right f-fr">
                 <div class="wrap">
                     <h3 class="title">好友最新日志</h3>
+
                     <div class="m-lst2 j-flag">
                     </div>
                 </div>
@@ -148,14 +150,14 @@
 <!-- 尾部 -->
 <div class="m-ft f-mg0 f-tac">
     <!-- 页尾导航栏 -->
-    <ul class="m-ftnav">
+    <ul class="m-ftnav f-fs0">
         <li><a href="">公司介绍</a></li>
         <li><a href="">联系方式</a></li>
         <li><a href="">招聘信息</a></li>
         <li><a href="">客户服务</a></li>
         <li><a href="">博客风格</a></li>
         <li><a href="">手机博客</a></li>
-        <li><span class="s-bg sprite-rss f-ib"></span><a href="">订阅此博客</a></li>
+        <li class="lst"><span class="s-bg sprite-rss f-ib"></span><a href="">订阅此博客</a></li>
     </ul>
     <!-- 版权声明 -->
     <div class="m-cprt">
@@ -164,35 +166,37 @@
 </div>
 <!-- /尾部 -->
 <script type="text/x-handlebars-template" id="j-self">
-    <div class="item" data-id={id}>
-        <ul class="f-cb">
-            <li class="title f-fl f-ib">
-                <input type="checkbox" class="j-checkbox" data-type="checkbox" {isChecked}/><a href="" class="f-eps f-ib">{allowView}{title}</a>
-                <span class="article">{blogContent}</span>
-            </li>
-            <li class="more f-fr f-pr"><a href="">更多<span class="u-icon f-pr"></span></a>
+    <li class="item f-cb" data-id={id}>
+        <input type="checkbox" class="f-fl j-checkbox" data-type="checkbox" {isChecked}/>
+        <div class="f-fl">
+            <h3 class="f-ib"><a href="" class="f-eps f-ib">{allowView}{title}</a></h3>
+            <span class="article">{blogContent}</span>
+
+            <p>
+                <span class="date">{shortPublishDateStr} {publishTimeStr}</span>
+                <span class="times">阅读{accessCount}</span>
+                <span class="reviews">评论({commentCount})</span>
+            </p>
+        </div>
+        <div class="f-cb f-fr f-pr">
+            <a class="f-fl" href="javascript:void(0)" data-type="editor">编辑</a>
+
+            <div class="more f-fl"><a href="" class="fst">更多<span class="u-icon u-icon-2"></span></a>
                 <ul>
-                    <li><a href="">更多<span class="u-icon f-pr"></span></a></li>
+                    <li><a href="">更多<span class="u-icon u-icon-2"></span></a></li>
                     <li><a href="javascript:void(0)" data-type={data-type}>{text}</a></li>
                     <li><a href="javascript:void(0)" data-type="dlt">删除</a></li>
                 </ul>
-            </li>
-            <li class="f-fr">
-                <a href="javascript:void(0)" data-type="editor">编辑</a>
-            </li>
-        </ul>
-        <div class="data">
-            <span class="date">{shortPublishDateStr} {publishTimeStr}</span>
-            <span class="times">阅读{accessCount}</span>
-            <span class="reviews">评论({commentCount})</span>
+            </div>
         </div>
-    </div>
+    </li>
 </script>
 <script type="text/x-handlebars-template" id="j-friend">
     <div class="item f-cb">
         <div class="avtor f-fl"><img src={avtor} alt="" width="40" height="40"></div>
-        <div class="flag f-fl"><a href="" class="f-eps f-ib">{userName}</a></div>
-        <div class="flag f-fl f-eps">{Content}</div>
+        <h4 class="flag f-fl"><a href="" class="f-eps f-ib">{userName}</a></h4>
+
+        <div class="flag f-fl f-eps ct">{Content}</div>
     </div>
 </script>
 <script type="text/javascript" src="js/base.js"></script>

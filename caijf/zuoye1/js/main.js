@@ -1,21 +1,35 @@
 (function (window, document) {
-    //  dailyId 个人日志id, dataSelf 个人日志数据, dataFriend 好友日志数据,isExist 日志是否新建标识, editorIndex 当前编辑位置 operateIndex 当前操作位置
-    dailyId = "fks_0", dataSelf = [], dataFriend = [], isExist = -1, editorIndex = -1, editorItem={},operateIndex = -1;
+    var dailyId = "fks_0", // 个人日志id
+        dataSelf = [],     // 个人日志数据
+        dataFriend = [],   // 好友日志数据
+        isExist = -1,      // 日志是否新建标识
+        editorIndex = -1,  // 当前编辑位置
+        editorItem={},
+        operateIndex = -1; // 当前操作位置
 
-    var parentNode = base.getById("j-content");
-    var flags = base.getByClass("j-flag", parentNode);
-    var btns = base.getByClass("j-button", parentNode);
+    var parent = base.getById("j-content"),
+        flags = base.getByClass("j-flag", parent),
+        btns = base.getByClass("j-button", parent);
 
-    //  mTags 标签栏, mList 个人日志栏, daily 好友日志栏 title 日志标题, textarea 日志内容
-    var mDaily = flags[0], title = flags[1], textarea = flags[2], mList = flags[3], mTags = flags[4], mFlist = flags[5];
-    var daily = base.getById("daily"), tags = base.getById("tags");
+    var daily = flags[0],
+        tt = flags[1],  //  日志标题
+        ct = flags[2],  //  日志内容
+        list = flags[3],  //  个人日志栏
+        tag = flags[4],
+        flist = flags[5]; //  好友日志栏
 
-    //   pubBtn 发布按钮, clearBtn 清空按钮, sltAllBtn 全选按钮, dltAllBtn 全删按钮
-    var pubBtn = btns[0], clearBtn = btns[1], sltAllBtn = btns[2], dltAllBtn = btns[3];
+    var dailyTab = base.getById("daily"),
+        tagTab = base.getById("tags");
+
+    var pubBtn = btns[0],   //  发布按钮
+        clearBtn = btns[1], //  清空按钮
+        sltAllBtn = btns[2], // 全选按钮
+        dltAllBtn = btns[3]; // 全删按钮
 
     //  html模板
-    var htmlSelf = base.getById("j-self").innerHTML, htmlFriend = base.getById("j-friend").innerHTML;
-    var domain = "./xhr.json/";
+    var htmlSelf = base.getById("j-self").innerHTML,
+        htmlFriend = base.getById("j-friend").innerHTML;
+    var url = "./xhr.json/";
 
     //  页面初始化(<script>标签在<body>后页面元素已经可操作，无需监听window的load事件)
     init();
@@ -37,21 +51,21 @@
     //  绑定按钮函数
     function bindBtns() {
         //  绑定日志栏
-        base.bindEvent(daily, "click", function () {
-            if (!base.hasClass(daily, "z-sel")) {
-                base.addClass(daily, "z-sel");
-                base.removeClass(tags, "z-sel");
-                base.removeClass(mDaily, "z-hide");
-                base.addClass(mTags, "z-hide");
+        base.bindEvent(dailyTab, "click", function () {
+            if (!base.hasClass(dailyTab, "z-sel")) {
+                base.addClass(dailyTab, "z-sel");
+                base.removeClass(tagTab, "z-sel");
+                base.removeClass(daily, "z-hide");
+                base.addClass(tag, "z-hide");
             }
         });
         //  绑定标签栏
-        base.bindEvent(tags, "click", function () {
-            if (!base.hasClass(tags, "z-sel")) {
-                base.addClass(tags, "z-sel");
-                base.removeClass(daily, "z-sel");
-                base.removeClass(mTags, "z-hide");
-                base.addClass(mDaily, "z-hide");
+        base.bindEvent(tagTab, "click", function () {
+            if (!base.hasClass(tagTab, "z-sel")) {
+                base.addClass(tagTab, "z-sel");
+                base.removeClass(dailyTab, "z-sel");
+                base.removeClass(tag, "z-hide");
+                base.addClass(daily, "z-hide");
             }
         });
         //  绑定发布按钮
@@ -59,26 +73,25 @@
         //   绑定清空按钮
         base.bindEvent(clearBtn, "click", clear);
         //  单篇操作
-        base.bindEvent(mList, "click", operate);
+        base.bindEvent(list, "click", operate);
         //  绑定全选按钮
         base.bindEvent(sltAllBtn, "click", selectAll);
         //  绑定全删按钮
         base.bindEvent(dltAllBtn, "click", deleteAll);
         //  绑定好友日志悬停操作
-        base.bindEvent(mFlist, "mouseover", function () {
+        base.bindEvent(flist, "mouseover", function () {
             clearInterval(interval);
         });
         //  绑定好友日志离开操作
-        base.bindEvent(mFlist, "mouseout", function () {
+        base.bindEvent(flist, "mouseout", function () {
             interval = setInterval(scroll, 60);
         });
     }
-
     //  发布函数
     function publish() {
         var now = new Date(),
-            valTitle = base.escapeHtml(title.value),
-            valText = base.escapeHtml(textarea.value),
+            valTitle = base.escapeHtml(tt.value),
+            valText = base.escapeHtml(ct.value),
             date = base.timeFormat(now).ymd(),
             time = base.timeFormat(now).hms();
         //  新建日志
@@ -123,14 +136,14 @@
                 break;
             //   编辑操作
             case "editor":
-                title.value = dataSelf[operateIndex].title;
-                textarea.value = dataSelf[operateIndex].blogContent;
+                tt.value = dataSelf[operateIndex].title;
+                ct.value = dataSelf[operateIndex].blogContent;
                 isExist = 1;    //  更改日志标识
                 editorIndex = operateIndex;   //  存储当前操作项位置
                 break;
             //   选择操作
             default :
-                dataSelf[operateIndex].isChecked = (dataSelf[operateIndex].isChecked == true) ? false : true;
+                dataSelf[operateIndex].isChecked = !dataSelf[operateIndex].isChecked;   //  状态反转
                 //  检查是否选择所有选项，是则更新sltAllBtn状态
                 var checked = dataSelf.filter(function (item) {
                     return item.isChecked == true;
@@ -320,9 +333,9 @@
 
     //  好友日志滚动函数
     function scroll() {
-        mFlist.scrollTop++;    //  滚动，scrollTop(被隐藏在内容区域上方的像素数，即滚动条位置)
+        flist.scrollTop++;    //  滚动，scrollTop(被隐藏在内容区域上方的像素数，即滚动条位置)
         //  检测是否滚过一篇日志的距离
-        if (mFlist.scrollTop % 59 == 0) {
+        if (flist.scrollTop % 59 == 0) {
             clearInterval(interval);    //  立即停止滚动计时器
             //  然后设置2s后执行的计时器，并在计时器内重新开启滚动计时器
             setTimeout(function () {
@@ -330,8 +343,8 @@
             }, 2000);
         }
         //  检测是否滚动到最后，是则重置scrollTop
-        if (mFlist.scrollTop > 500) {
-            mFlist.scrollTop = 0;
+        if (flist.scrollTop > 500) {
+            flist.scrollTop = 0;
         }
     }
 
@@ -360,7 +373,7 @@
                 html += tplEngine(htmlSelf, obj);
             }
         });
-        mList.innerHTML = html;
+        list.innerHTML = html;
     }
 
     //  渲染好友日志函数
@@ -376,7 +389,7 @@
                 html += tplEngine(htmlFriend, obj);
             }
         });
-        mFlist.innerHTML = html;
+        flist.innerHTML = html;
     }
 
     /*  模板引擎函数
@@ -389,13 +402,13 @@
     }
 
     function send(data, cb) {
-        if (arguments.length == 3) base.sendXHR(domain, cb, data);
-        else base.sendXHR(domain, cb);
+        if (arguments.length == 3) base.sendXHR(url, cb, data);
+        else base.sendXHR(url, cb);
     }
     //  清空日志编辑栏函数
     function clear() {
-        title.value = "";
-        textarea.value = "";
+        tt.value = "";
+        ct.value = "";
     }
 
 }(this, document))

@@ -1,0 +1,106 @@
+button:focus, input:focus, a:focus {outline:none;}
+
+/* 按钮配色：背景色和字体颜色 */
+.s-default {background:#fff;color:#000;} /* 白底灰字 */
+.s-transparent {background-color:transparent;color:#328ad4;} /* 透明底蓝字 */
+.s-primary {background-color:#328ad4;color:#fff;} /* 蓝底白字 */
+.s-danger {background-color:#ee4536;color:#fff;} /* 红底白字 */
+
+/* 字体大小 */
+.f-fz14 {font-size:14px;}
+
+/* CSS 动画 */
+@-webkit-keyframes scaleIn {from {-webkit-transform:scale(1.2);transform:scale(1.2);opacity:0;} to {-webkit-transform:scale(1);transform:scale(1);opacity:1;}}
+@keyframes scaleIn {from {-webkit-transform:scale(1.2);transform:scale(1.2);opacity:0;} to {-webkit-transform:scale(1);transform:scale(1);opacity:1;}}
+@-webkit-keyframes scaleOut {from {-webkit-transform:scale(1);transform:scale(1);opacity:1;} to {-webkit-transform:scale(.8);transform:scale(.8);opacity:0;}}
+@keyframes scaleOut {from {-webkit-transform:scale(1);transform:scale(1);opacity:1;} to {-webkit-transform:scale(.8);transform:scale(.8);opacity:0;}}
+
+/*公用组件的sprite*/
+.u-icon {display:inline-block;background-image:url(../img/common/uicommon_2x.png);background-size:106px auto;background-repeat:no-repeat;}
+.u-icon-close {display:block;width:27px;height:27px;background-position:-40px 0;}
+.u-icon-success {display:inline-block;width:35px;height:35px;background-position:0 0;}
+.u-icon-error {display:inline-block;width:35px;height:35px;background-position:0 -40px;}
+.u-icon-clear {width:14px;height:14px;background-position:-40px -40px;}
+.u-icon-alert {width:13px;height:13px;background-position:-40px -60px;}
+.u-icon-arrow {width:7px;height:12px;background-position:-60px -40px;}
+.u-icon-redtag {width:38px;height:15px;background-position:-60px -59px;}
+.u-icon-gift {width:36px;height:31px;background-position:-70px 0;}
+
+/* 按钮 */
+.u-btn {display:inline-block;padding:8px;border:1px solid #ccc;border-radius:5px;font-size:15px;line-height:16px;vertical-align:middle;text-align:center;-webkit-transition:opacity .15s;transition:opacity .15s}
+.u-btn[disabled] {opacity:.6;}
+.u-btn-primary {display:block;height:40px;border:none;border-radius:5px;font-size:17px;-webkit-transition:opacity .15s;transition:opacity .15s;}
+
+.u-redbtn{display:block;height:40px;line-height:40px;background:#cf453a;font-size:17px;color:#fff;text-align:center;border-radius:4px;}
+
+/* 背景遮罩 */
+/* 视口居中 position: fixed */
+.backdrop-container {position:fixed;top:0;left:0;width:100%;height:100%;z-index:11;}
+.backdrop-container .backdrop {display:block;position:absolute;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,.5);opacity:0;-webkit-transition:opacity .15s;transition:opacity .15s;}
+.backdrop-container.active .backdrop {opacity:1;}
+
+/* 弹出框 */
+/* 视口居中 position: fixed */
+.popup-container {position:fixed;top:0;left:0;right:0;bottom:0;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;z-index:21;}
+.popup-container .popup {position:relative;width:280px;max-width:100%;border-radius:5px;background-color:#fff;}
+.popup-container.has-keyboard {position:absolute;}
+.popup-container.has-keyboard .popup {position:absolute;top:25px;left:50%;margin-left:-140px;}
+.popup-container.active .popup {-webkit-animation:scaleIn .25s;animation:scaleIn .25s;}
+.popup-container.popup-hidden .popup {-webkit-animation:scaleOut .25s;animation:scaleOut .25s;-webkit-animation-fill-mode:both;animation-fill-mode:both;}
+.popup-container .popup-head {padding-top:20px;}
+.popup-container .popup-title {font-size:18px;line-height:18px;font-weight:normal;text-align:center;color:#000;}
+.popup-container .popup-body {margin:20px;}
+.popup-container .u-icon-close {position:absolute;top:-13.5px;right:-13.5px;}
+.popup-container .popup-buttons {display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;min-height:46px;}
+.popup-buttons .u-btn {display:block;-webkit-box-flex:1;-webkit-flex:1 1 0;-ms-flex:1 1 0;flex:1 1 0;border:none;border-top:1px solid #ccc;border-left:1px solid #ccc;margin-left:-1px;border-radius:0;} /* 多个按钮无间隔连排 */
+.popup-buttons .u-btn:first-child {border-left:none;margin-left:0;}
+.popup-buttons .u-btn-block {width:auto;margin:0 20px 20px;border-radius:5px;}
+.popup-buttons .u-btn-block:first-child {border:none;margin:0 20px 20px;}
+
+/* Toast */
+/* 视口居中 position: fixed */
+.toast-container {position:fixed;top:0;left:0;right:0;bottom:0;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;z-index:31;transition:all .25s;}
+.toast-container .toast {display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;min-width:120px;max-width:160px;padding:20px 10px;border-radius:5px;background-color:rgba(0,0,0,.75);}
+.toast-container .toast-text {margin:20px 0 0;font-size:14px;font-weight:normal;text-align:center;color:#fff;}
+.toast-container.toast-show .toast {-webkit-animation:scaleIn .25s;animation:scaleIn .25s;}
+.toast-container.toast-hidden .toast {-webkit-animation:scaleOut .2s;animation:scaleOut .2s;-webkit-animation-fill-mode:both;animation-fill-mode:both;}
+.toast-container .u-icon {display:inline-block;width:35px;height:35px;}
+.toast-container .toast-bottom {position:absolute;left:0;right:0;bottom:50px;display:block;max-width:100%;background:none;text-align:center;}
+.toast-container .toast-bottom .toast-text {display:inline-block;padding:10px 20px;border-radius:500px;margin:0;background-color:rgba(0,0,0,.85);line-height:1;}
+
+/* Loading */
+/* 视口居中 position: fixed */
+.loading-container {position:fixed;top:0;left:0;right:0;bottom:0;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;z-index:41;}
+.loading-container.u-white {background-color:#fff;}
+.loading-container .loading-body {text-align:center;}
+.loading-container .loading-body1 .loading-spin {display:inline-block;width:20px;height:20px;background:url(../img/common/loading.gif) center no-repeat;background-size:20px;}
+.loading-container .loading-body2 {display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:140px;height:110px;background-color:rgba(0,0,0,.75);border-radius:5px;padding:20px;color:#fff;-webkit-box-sizing:border-box;box-sizing:border-box;}
+.loading-container .loading-body2 .loading-spin {display:block;width:28px;height:28px;background:url(../img/common/loading3.gif) center no-repeat;background-size:28px;}
+.loading-container .loading-body2 .loading-text {margin-top:10px;font-size:14px;}
+
+/* 手机号输入框 */
+.phone-input {position:relative;height:42px;margin:10px 0 0;padding:0 0 0 40px;border:1px solid #ccc;border-radius:5px;background-color:#fff;-webkit-box-sizing:border-box;box-sizing:border-box;}
+.phone-input label {display:inline-block;position:absolute;top:0;left:0;width:40px;height:40px;padding:10px 0 10px 10px;line-height:20px;text-align:left;font-size:17px;-webkit-box-sizing:border-box;box-sizing:border-box;}
+.phone-input .u-input {width:100%;height:40px;border:none;padding:10px 30px 10px 10px;padding-top:10.5px;background-color:transparent;font-size:17px;line-height:20px;-webkit-box-sizing:border-box;box-sizing:border-box;}
+.phone-input .u-cleararea {position:absolute;top:0;bottom:0;right:0;display:block;width:30px;height:40px;}
+.phone-input .u-cleararea.f-hide {display:none;}
+.phone-input .u-icon-clear {position:absolute;top:13px;right:8px;}
+
+/* 验证码输入框 */
+.vcode-input {position:relative;height:42px;margin:10px 100px 0 0;padding:0;}
+.vcode-input .u-vcode {width:100%;height:40px;padding:10px 30px 10px 10px;border:1px solid #ccc;border-radius:5px;font-size:17px;line-height:20px;-webkit-box-sizing:border-box;box-sizing:border-box;}
+.vcode-input .u-countdown {position:absolute;top:0;right:-100px;width:95px;height:40px;;padding:0;font-size:15px;-webkit-box-sizing:border-box;box-sizing:border-box;}
+.vcode-input .u-countdown[disabled] {opacity:1;border:1px solid #e5e6e7;background-color:#f8f9f9;color:#ccc;}
+.vcode-input .u-cleararea {position:absolute;top:0;bottom:0;right:0;display:block;width:30px;height:40px;}
+.vcode-input .u-cleararea.f-hide {display:none;}
+.vcode-input .u-icon-clear {position:absolute;top:13px;right:8px;}
+.vcode-input .u-codehelp {display:none;margin-bottom:10px;font-size:11px;color:#999;}
+.vcode-input .u-codehelp.active {display:block;}
+
+/* 1px 水平线*/
+.hairline {position:relative;}
+.hairline:after {content:'';display:block;width:100%;height:1px;background-color:#d8d8d8;-webkit-transform:scaleY(.5);-ms-transform:scaleY(.5);transform:scaleY(.5);-webkit-transform-origin:0 0;-ms-transform-origin:0 0;transform-origin:0 0;}
+
+/* 块级按钮 */
+.u-btn-block {display:block;margin-top:10px;width:100%;height:40px;border:none;border-radius:5px;font-size:17px;}
+

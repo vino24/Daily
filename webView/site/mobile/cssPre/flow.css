@@ -1,0 +1,156 @@
+/* @sprite(['../img/icon'], 'sprite_2x.png') */
+/* Reset */
+a {color:#328ad4;}
+
+/* Background */
+body{background:url(../img/bg_2x.png); background-size:100px auto;}
+.s-bgc1, .n-potral h2 em{background-color:#cf453a;}
+
+/* Units */
+.u-activelink {margin:35px 0 45px;;text-align:center;}
+.u-activelink a {text-decoration:underline;}
+.u-title {text-align:center;color:#590700;overflow:hidden;} /* ?????????*/
+.u-title h4 {position:relative;display:inline-block;padding:0 8px;height:20px;line-height:20px;font-size:16px;}
+.u-title h4:before,.u-title h4:after{position:absolute;top:10px;content:'';display:block;height:1px;width:1000px;background-color:#590700;transform:scaleY(.5);}
+.u-title h4:before {left:0; transform:rotateZ(180deg) scaleY(.5);transform-origin:0 center;}
+.u-title h4:after {left:100%;}
+/*.u-title.z-light h4:before,.u-title.z-light h4:after{background-color:#c5a79e;} /*ǳ???*/
+.u-more {padding:30px 0 0;text-align:center;}
+.u-more a {font-size:14px;color:#b39c93;}
+.u-more .u-icn-arrdown {margin-left:5px;vertical-align:middle;}
+.u-btmlink {position:fixed;display:block;left:0;right:0;bottom:-50px;height:50px;line-height:50px;background-color:#cf453a;font-size:17px;color:#fff;text-align:center;transition:all .3s;}
+.u-btmlink.z-show {transform:translateY(-100%);}
+
+.u-icn {display:inline-block;}
+.u-icn-arrdown {width:10px;height:6px;background:url(../img/icon/arrdown_2x.png);}
+
+/* Layout */
+/* user info */
+.m-user{height:50px; line-height:50px; background: rgba(89, 7, 0, 0.1); font-size:15px; color:#a86a65; text-align:center;}
+.m-user .head{width:30px; height:30px; margin:-3px 0 0; border-radius:50%; vertical-align: middle;}
+
+/* hongbao */
+.n-potral h1{margin:21px 0;}
+.n-potral .ph{display:block; width:100%; position:relative;}
+.n-potral .hongbao .btn{display:block; position:absolute; bottom:3px; left:50%; margin-left:-127px; width:256px; height:54px;}
+.n-potral .share{padding-bottom:42px;}
+.n-potral .share .btn{position:relative; margin-top:19px;}
+.n-potral .share .btn a{display:block; top:0; left:50%; width:178px; height:100%; margin-left:-89px;}
+.n-potral .share .note{font-size:14px; color:#fff; text-align:center;}
+
+/* open free flow service */
+.n-potral .get, .n-potral .shareto{overflow:hidden;}
+.n-potral .get .btn, .n-potral .shareto .btn{display:block; top:0; left:25px; right:25px; height:44px;}
+.n-potral .cloud{padding:25px 0 39px;}
+.n-potral .inputbox .itm{height:40px; top:74px; left:25px; right:30px;}
+.n-potral .inputbox .itm-code{top:124px;}
+.n-potral .inputbox input{width:185px;padding:8px 10px;background:transparent;border:none;font-size:17px; color:#590700;box-sizing:border-box;}
+.n-potral .inputbox input::-webkit-input-placeholder{color:#edd7ca;}
+.n-potral .inputbox .code{width:95px; height:40px; line-height:40px; font-size:15px; color:#590700; text-align:center;border:none;background:none;}
+.n-potral .inputbox .code-timing{color:#b8a4a3; font-size:17px;}
+
+
+/* rules and introduce */
+.n-potral h2{position:relative; height:18px; line-height:18px; margin:0 15px; font-size:16px; color:#590700; text-align:center;}
+.n-potral h2:after{content:''; position:absolute; z-index:1; left:0; top:9px; width:100%; height:1px; background:#590700; opacity:0.5; -webkit-transform:scaleY(0.5); transform:scaleY(0.5);}
+.n-potral h2 em{position:relative; z-index:2; display:inline-block; padding:0 15px;}
+.n-potral .intr{margin:32px 15px 0; line-height:1.4; font-size:14px; color:#590700;}
+.n-potral .intr li{margin-bottom:10px;}
+.n-potral .help{padding:30px 0 15px; color:#94261d; text-align: center; line-height: 1.4;}
+
+
+/* ??????????? */
+.m-nosupport {position:fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,.85);}
+.m-nosupport .fu {position:relative;left:30px;margin:20px auto 0;width:292px;height:339px;background:url(../img/fu_2x.png) no-repeat;background-size:292px auto;}
+.m-nosupport .title {margin-top:35px;color:#f3bb4e;font-size:23px;line-height:30px;text-align:center;}
+.m-nosupport .subtitle {color:#cf453a;font-size:15px;line-height:24px;text-align:center;}
+
+
+/* service introduce */
+.m-snote {padding:0 10px;color:#590700;text-align:left;}
+.m-snote.z-light {color:#a86a65;}
+.m-snote .list {margin-top:33px;}
+.m-snote .item {margin-top:13px;line-height:18px;font-size:14px;}
+.m-snote .cpr {padding:30px 0 15px;text-align:center;font-size:12px;color:#94261d;line-height: 1.4;}
+.m-snote .cpr {padding:30px 0 15px;text-align:center;font-size:12px;color:#94261d;line-height: 1.4;}
+
+/* ????? */
+.m-get{padding:0 10px;color:#a86a65;text-align:center;}
+.m-get .lucky{width:214px;height:182px;margin:0 auto;margin:15px auto 23px;background:url(../img/icon/lucky_2x.png);}
+.m-get .gift{width:208px;height:144px;margin:56px auto 23px;background:url(../img/icon/gift_2x.png);}
+.m-get h2{font-size:28px;color:#cf453a;text-align:center;}
+.m-get .tip1{font-size:17px;}
+.m-get .tip2{margin:8px 0 70px;font-size:13px;color:#cf453a;}
+.m-get .u-redbtn.dl{margin-bottom:10px;}
+.m-get .tip3{font-size:14px;margin:6px 0 32px;}
+
+/* ???????? */
+.m-prize {margin-top:75px;padding:0 10px 50px;color:#b1988f;font-size:14px;}
+.m-prize .status {padding:30px 0 15px;text-align:center;color:#a86a65;}
+.m-prize strong {color:#cf453a;}
+.m-prize .list {margin-top:15px;}
+.m-prize .item {float:left;width:33.3%;text-align:center;line-height:25px;}
+.m-prize .item:nth-child(3n - 2) {text-align:left;}
+.m-prize .item:nth-child(3n) {text-align:right;}
+.m-prize .u-more {padding-top:20px;}
+
+@media (min-width:600px) {
+    .g-mn {width:600px;margin:0 auto;}
+}
+
+/* main for iphone4&5, android deviceWidth 320 */
+
+/* iphone 4/5 */
+@media screen and (max-width:320px){
+	.n-potral .hongbao .btn{width:218px; height:47px; margin-left:-109px;}
+	.n-potral .share .note{padding-top:2px; font-size:13px;}
+
+	.n-potral .inputbox .itm{height:34px; top:63px; left:21px; right:25px;}
+	.n-potral .inputbox .itm-code{top:105px;}
+	.n-potral .inputbox input{width:160px;padding:7px 10px; font-size:15px;}
+	.n-potral .inputbox .code{width:82px; height:34px; line-height:34px; font-size:13px;}
+	.n-potral .inputbox .code-timing{font-size:15px;}
+
+    .m-nosupport .fu {left:23px;transform:scale(.88);}
+    .m-nosupport .title {font-size:20px;margin-top:0;}
+    .m-get .lucky{transform: scale(.85, .85);}
+    .m-get .get{transform: scale(.85, .85);}
+    .m-get h2{font-size:26px;margin-top:-15px;}
+    .m-get .tip2{margin-bottom:50px;}
+
+}
+/* main for android deviceWidth 360 */
+/* iphone 4 */
+@media screen and (max-height:480px) {
+    .m-nosupport .fu {top:-27px;}
+    .m-nosupport .title {margin-top:-10px;}
+    .n-potral .cloud{padding:15px 0;}
+}
+
+/* iphone 6+ */
+@media screen and (min-height:736px) {
+    .m-nosupport {padding-top:20px;}
+}
+
+@media screen and (max-width:360px) and (min-width:321px){
+	.n-potral .hongbao{height:248px;}
+	.n-potral .hongbao .btn{width:244px; height:52px; margin-left:-122px;}
+
+	.n-potral .inputbox .itm{height:39px; top:71px; left:24px; right:29px;}
+	.n-potral .inputbox .itm-code{top:119px;}
+	.n-potral .inputbox input, .n-potral .inputbox .code{height:39px; line-height:39px;}
+	.n-potral .inputbox input{width:160px; font-size:15px;}
+	.n-potral .inputbox .code{width:91px; font-size:13px;}
+	.n-potral .inputbox .code-timing{font-size:15px;}
+}
+/* main for iPhone6 plus */
+@media screen and (max-width:414px) and (min-width:376px){
+	.n-potral .hongbao{height:285px;}
+	.n-potral .hongbao .btn{width:280px; height:60px; margin-left:-140px;}
+	.n-potral .btn a{width:190px;}
+	.n-potral .inputbox .itm{height:44px; top:82px; left:28px; right:33px;}
+	.n-potral .inputbox .itm-code{top:137px;}
+	.n-potral .inputbox .code{height:44px; line-height:44px;}
+	.n-potral .inputbox input{padding:10px;}
+	.n-potral .inputbox .code{width:105px;}
+}

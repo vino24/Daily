@@ -1,440 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="308f60b7-09cc-48d4-bc8c-e6304f078f36" name="Default" comment="重写 _getDaliyId() base.sendXHR()">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-1/_ie10+" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident/_ie7-9" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident/_ie9-" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/icon/arrdown_2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/index/bd_bg@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/bg_2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/common/bg_2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/index/btn_blue@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/index/btn_get_2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/index/btn_red@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/index/btn_share2_2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/index/btn_share_2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/index/cloud_2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/fu_2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/icon/gift_2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/index/hd_bg@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/index/hongbao_2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/common/icon_back@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/common/icon_bg@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/common/icon_bg_pre@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/common/icon_playing@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/index/input_box_2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/common/loading.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/common/loading3.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/index/login_bg@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/icon/lucky_2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/index/open_2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/sprite/sprite_2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/index/title_2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/img/common/uicommon_2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/backbone/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/underscore/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/zepto/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/widget/util/AudioPlayer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/widget/ui/Backdrop.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/backbone/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/underscore/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/widget/ui/Loading.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/chain/NodeList.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/widget/ui/PhoneInput.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/widget/ui/Popup.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/widget/ui/PrimaryButton.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/widget/util/Promise.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/chain/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/underscore/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/widget/ui/Toast.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/widget/ui/VCodeInput.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-0/_ie6-" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/action/action.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/ajax.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/gecko/ajax.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/presto/ajax.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident/ajax.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-0/ajax.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-1/ajax.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/webkit/ajax.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-1/animation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/animation/animation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/timer/animation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-0/animations.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/cef/api.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/api.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/com/api.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/gecko/api.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/presto/api.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident/api.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-0/api.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-1/api.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/webkit/api.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/ios/appevent.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/area.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/arrows/arrows.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/arrows/arrows.x.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/arrows/arrows.y.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/async/async.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/audio.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/gecko/audio.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/presto/audio.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident/audio.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-0/audio.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-1/audio.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/webkit/audio.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/audio/audio.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/media/audio.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/backbone/backbone-min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/backbone/backbone-min.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/backbone/backbone.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/command/backcolor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/css/base.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/cssPre/base.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/base.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/encode/base64.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/animation/bezier.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/xmpp/core/bind.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/command/blockquote.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/command/bold.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/animation/bounce.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/backbone/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/underscore/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/zepto/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/cache/cache.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/cache/cache.list.base.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/cache/cache.list.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/cache/cache.share.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/calendar/calendar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/android/capture.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/ios/capture.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/layer/card.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/command/card.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/layer/card.wrapper.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/carousel/carousel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/carousel.list/carousel.list.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/carousel/carousel.x.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/carousel/carousel.y.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/chain/chainable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/chart/chart.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/clip/clip.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/clipboard/clipboard.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/clipper/clipper.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/clipper/clipper.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/editor/command/color.complex.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/editor/command/color.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/command/color.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/editor/command/color.simple.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/colorpick/colorpanel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/colorpick/colorpick.complex.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/colorpick/colorpick.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/colorpick/colorpick.simple.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/command.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/command.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/zepto/component.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/zepto/composer.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/gecko/config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/presto/config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident/config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-0/config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-1/config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/webkit/config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/cache/config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/module/config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/module/flow/config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/ajax/connect.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/module/const.ftl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/base/constant.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/cache/cookie.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/counter/counter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/encode/crc32.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/editor/custom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/cycler/cycler.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/cache/database.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/datepick/datepick.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/animation/decelerate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/define.cmp.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/define.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/dispatcher/dispatcher.2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/dispatcher/v1/dispatcher.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/gesture/drag.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/dragger/dragger.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/ajax/dwr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/xmpp/xep/dwr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/animation/easein.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/animation/easeinout.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/animation/easeout.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/editor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/gecko/editor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/presto/editor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident/editor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-0/editor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-1/editor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/webkit/editor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/editor/editor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/editor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/com/editor.td.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/effect/effect.api.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/effect.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/gecko/effect.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/presto/effect.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident/effect.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-0/effect.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-1/effect.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/webkit/effect.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/effect/effect.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/base/element.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/es.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/gecko/es.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/presto/es.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident/es.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-0/es.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-1/es.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/webkit/es.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/base/event.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/event.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/event/event.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/widget/util/extend.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/android/file.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/ios/file.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/ajax/proxy/flash.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/flash/flash.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/media/flash.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/css/flow.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/cssPre/flow.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/editor/command/font.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/command/font.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/editor/command/fontname.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/command/fontname.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/editor/command/fontsize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/command/fontsize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/command/forecolor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/form/form.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/cef/ui/frame.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/cef/util/frame.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/ajax/proxy/frame.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/android/geolocation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/gesture/gesture.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/base/global.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/dispatcher/dsp/group.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/dispatcher/dsp/group.single.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/xmpp/helper.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/xmpp/helper.socket.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/history/history.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/history/history.override.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/holder.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/gecko/holder.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/presto/holder.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident/holder.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-0/holder.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-1/holder.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/webkit/holder.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/ajax/loader/html.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/ios/imagecache.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/module/flow/index.ftl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/html/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/module/flow/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/carousel/indicator.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/command/insertorderedlist.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/command/insertunorderedlist.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/timer/interval.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/module/flow/view/intro.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/xmpp/core/iq.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/command/italic.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/item/item.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/json.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/gecko/json.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/presto/json.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident/json.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-0/json.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-1/json.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/webkit/json.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/encode/json.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/template/jst.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/command/justifycenter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/command/justifyleft.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/command/justifyright.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/layer/layer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/layer/layer.wrapper.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/animation/linear.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/editor/command/link.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/command/link.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/item/list.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/ajax/loader/loader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/loading/loading.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/loadmore/loadmore.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/action/manager.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/module/manager.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/mask/mask.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/media/media.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/ios/memory.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/cef/util/menu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/message.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/gecko/message.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/presto/message.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident/message.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-0/message.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-1/message.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/webkit/message.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/ajax/message.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/xmpp/core/message.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/dispatcher/module.2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/dispatcher/module.base.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/dispatcher/v1/module.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/list/module.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/module/module.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/list/module.pager.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/list/module.waterfall.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/audio/mp3.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/query/nes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/ios/network.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/async/node.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/dispatcher/dsp/node.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/dispatcher/v1/node.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/xmpp/xep/nonsasl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/android/notification.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/ios/notification.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/oauth/oauth.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/xmpp/xep/oauth.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/module/flow/view/open.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/page/page.base.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/page/page.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/page/page.simple.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/pager/pager.base.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/pager/pager.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/pager/pager.simple.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/android/phonegap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/ios/phonegap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/gesture/pinch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/placeholder/placeholder.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/base/platform.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/cef/util/player.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/media/playlist.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/xmpp/plugin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/portrait/portrait.complex.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/portrait/portrait.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/data/portrait/portrait.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/portrait/portrait.simple.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/android/preference.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/ios/preference.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/xmpp/core/presence.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/profile/profile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/promise/promise.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/ajax/proxy/proxy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/xmpp/proxy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/xmpp/proxy.socket.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/pullrefresh/puller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/pullrefresh/pullrefresh.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/query/query.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/widget/util/rAF.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/range/range.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/range/range.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/file/reader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/region/region.zh.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/xmpp/xep/register.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/command/removeformat.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/module/flow/request.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/cef/ui/resize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/cef/util/resize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/resize/resize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/tb.resize/resize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/tb.resize/resize.x.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/tb.resize/resize.y.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/resizer/resizer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/ajax/rest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/xmpp/core/sasl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/ajax/loader/script.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/scroll/scroll.simple.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/scroller/scroller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/scroller.list/scroller.list.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/scroller/scroller.x.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/scroller/scroller.y.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/file/select.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/selector/selector.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/selector/selector.range.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/xmpp/core/session.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/encode/sha.md5.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/command/simple.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/slider/slider.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/slider/slider.simple.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/slider/slider.x.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/slider/slider.xy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/slider/slider.y.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/android/socket.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/ios/socket.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/sorter/sorter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/sorter/sorter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/command/space.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/storage.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/gecko/storage.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/presto/storage.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident/storage.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-0/storage.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/trident-1/storage.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/patched/webkit/storage.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/cache/storage.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/cache/storage.manager.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/xmpp/core/stream.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/command/strikethrough.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/ajax/loader/style.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/module/flow/view/success.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/suggest/suggest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/suggest/suggest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/command/superscript.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/gesture/swipe.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/tab/tab.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/tab/tab.view.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/ajax/tag.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/gesture/tap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/module/flow/template.ftl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/dispatcher/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/xmpp/core/tls.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/toolbar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/gesture/touch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/template/tpl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/cef/util/tray.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/template/trimpath.nej.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/css/uicommon.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/cssPre/uicommon.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/command/underline.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/underscore/underscore-min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/underscore/underscore-min.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/underscore/underscore.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/cef/util/updater.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/ajax/proxy/upload.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/editor/command/uploadimage.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/editor/command/uploadimage.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/base/util.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/android/util.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/ios/util.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/colorpick/util.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/dispatcher/dsp/util.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/oauth/util.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/module/validator.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/mobile/module/flow/view/widget.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/native/cef/util/window.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/layer/window.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/ui/layer/window.wrapper.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/file/writer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/ajax/xdr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/ajax/proxy/xhr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/zepto/zepto.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/zepto/zepto.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webView/site/lib/nej/src/util/data/region/zh.js" />
+    <list default="true" id="308f60b7-09cc-48d4-bc8c-e6304f078f36" name="Default" comment="webView">
       <change type="DELETED" beforePath="D:\xampp\htdocs\html5\360FE\360FE-Star-Plan\images\icon-360.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\html5\NEJ\demo\ajax.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\html5\NEJ\demo\datepick.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\html5\NEJ\demo\train.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\html5\NEJ\demo\upload.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\html5\nej_publisher\release\quickstart\css\index.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\html5\nej_publisher\release\quickstart\html\train.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\html5\nej_publisher\release\quickstart\js\index.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/360FE/360FE-Star-Plan/css/main.css" afterPath="$PROJECT_DIR$/360FE/360FE-Star-Plan/css/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/360FE/360FE-Star-Plan/resume.html" afterPath="$PROJECT_DIR$/360FE/360FE-Star-Plan/resume.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
+    <list id="4d8c571e-8fcb-4462-a611-078cefce4d73" name="提交失败： Default" comment="webView" />
     <ignored path="html5.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -468,8 +41,8 @@
       <file leaf-file-name="flow.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/webView/site/mobile/css/flow.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6801909">
-              <caret line="179" column="0" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.30429596">
+              <caret line="164" column="0" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -641,6 +214,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="html5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="html5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webView" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -782,12 +369,6 @@
       <option name="number" value="Default" />
       <updated>1434287501403</updated>
       <workItem from="1428155471936" duration="894000" />
-    </task>
-    <task id="LOCAL-00003" summary="Default">
-      <created>1431352864057</created>
-      <option name="number" value="00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1431352864057</updated>
     </task>
     <task id="LOCAL-00004" summary="Default">
       <created>1431692431904</created>
@@ -1077,7 +658,13 @@
       <option name="project" value="LOCAL" />
       <updated>1453699360291</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="webView">
+      <created>1453979789387</created>
+      <option name="number" value="00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1453979789445</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1093,11 +680,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19283456" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31428573" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32324323" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3264865" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32436976" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1106,7 +694,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32417583" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1584,8 +1171,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/webView/site/mobile/css/flow.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6801909">
-          <caret line="179" column="0" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.30429596">
+          <caret line="164" column="0" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
           <folding />
         </state>
       </provider>

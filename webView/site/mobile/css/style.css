@@ -1,0 +1,99 @@
+/* Reset */
+
+a {
+  color: #328ad4;
+}
+body {
+  font-family: '华文细黑';
+}
+
+/* Layout */
+
+/* user info */
+
+.m-hd {
+  height: 39px;
+  line-height: 39px;
+  background: url(../img/index/hd_bg@2x.png) repeat-x;
+  border-bottom: 1px solid #cc3e39;
+}
+.m-hd h1 {
+  margin: 0 15px;
+}
+.m-hd span {
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+}
+.m-hd .back,.m-hd .playing{
+  background-image: url(../img/common/icon_bg@2x.png);
+  background-size: 100%;
+}
+.m-hd .back img{
+  width: 20px;
+  left: -1px;
+}
+.m-hd .playing img{
+  width: 17px;
+  top: -2px;
+  left: -1px;
+}
+
+/* banner */
+.m-slide ul {
+  margin: 0 10px;
+  bottom: 50px;
+  width: 100%;
+}
+.m-slide span {
+  width: 40px;
+  height: 17px;
+  background-color: #3f8acf;
+  border-radius: 2px;
+  margin-right: 8px;
+}
+.m-slide li {
+  margin-top: 6px;
+}
+.m-slide li:first-child span {
+  background-color: #cc3e39;
+}
+.m-slide .mask{
+  bottom: 0;
+  opacity: 0.8;
+}
+/* 登录 */
+
+.m-log {
+  padding-top: 59px;
+  margin-top: -40px;
+  background-color: #ebeced;
+}
+.m-log h2 {
+  line-height: 18px;
+  margin-bottom:20px;
+}
+.m-log button{
+  width: 182px;
+  height: 50px;
+  margin-bottom: 58px;
+  background: -webkit-linear-gradient(to top,#5599d8,#337bbd);
+  background: linear-gradient(to top,#5599d8,#337bbd);
+  border-bottom:1px solid #fafafa;
+  border-radius: 3px;
+  text-shadow: #738395 0 1px 1px;
+}
+
+/* 抽奖说明 */
+.m-intro {
+  padding:15px 13px 15px 10px;
+  background-color: #e0e2e4;
+}
+.m-intro h3 {
+  line-height: 12px;
+  margin-bottom: 5px;
+}
+.m-intro li {
+  line-height: 15px;
+  margin-top: 5px;
+}

@@ -1,0 +1,918 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"col",
+				"column"
+			],
+			[
+				"ar",
+				"article	Tag"
+			],
+			[
+				"bac",
+				"background-image"
+			],
+			[
+				"c",
+				"class	Attr"
+			],
+			[
+				"border-r",
+				"border-radius"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"thi",
+				"thin"
+			],
+			[
+				"background-c",
+				"background-color"
+			],
+			[
+				"he",
+				"header	Tag"
+			],
+			[
+				"for",
+				"for	for (…) {…}"
+			],
+			[
+				"im",
+				"imgData"
+			],
+			[
+				"get",
+				"getImageData"
+			],
+			[
+				"img",
+				"imgData"
+			],
+			[
+				"dou",
+				"document"
+			],
+			[
+				"sc",
+				"script	Tag"
+			],
+			[
+				"bl",
+				"blue"
+			],
+			[
+				"dr",
+				"drawImage"
+			],
+			[
+				"ke",
+				"keyCode"
+			],
+			[
+				"maze",
+				"mazeFile"
+			],
+			[
+				"str",
+				"startingY"
+			],
+			[
+				"ima",
+				"imgMaze"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"maz",
+				"maze.png	w:597 h:598"
+			],
+			[
+				"s",
+				"script	Tag"
+			],
+			[
+				"heig",
+				"height	Attr"
+			],
+			[
+				"hei",
+				"height	Attr"
+			],
+			[
+				"ca",
+				"category"
+			],
+			[
+				"fill",
+				"fillStyle"
+			],
+			[
+				"ball",
+				"balls"
+			],
+			[
+				"sq",
+				"squarePosition_y"
+			],
+			[
+				"co",
+				"context"
+			],
+			[
+				"wd",
+				"width"
+			],
+			[
+				"clea",
+				"clearRect"
+			],
+			[
+				"cir",
+				"circle"
+			],
+			[
+				"circ",
+				"circles"
+			],
+			[
+				"color",
+				"colors"
+			],
+			[
+				"ra",
+				"randomFromTo"
+			],
+			[
+				"add",
+				"addRandomCircle"
+			],
+			[
+				"th",
+				"this"
+			],
+			[
+				"ri",
+				"radius"
+			],
+			[
+				"C",
+				"Circle"
+			],
+			[
+				"stroke",
+				"strokeStyle"
+			],
+			[
+				"line",
+				"lineWidth=1"
+			],
+			[
+				"arr",
+				"arrow_right.png	w:32 h:32"
+			],
+			[
+				"widt",
+				"width"
+			],
+			[
+				"dra",
+				"drawImage"
+			],
+			[
+				"sha",
+				"shadowColor"
+			],
+			[
+				"fon",
+				"font"
+			],
+			[
+				"sh",
+				"shadowOffsetX"
+			],
+			[
+				"linew",
+				"lineWidth"
+			],
+			[
+				"wi",
+				"window"
+			],
+			[
+				"draw",
+				"drawImage"
+			],
+			[
+				"chan",
+				"changeRoundness"
+			],
+			[
+				"li",
+				"link"
+			],
+			[
+				"sa",
+				"savedCopyContainer"
+			],
+			[
+				"i",
+				"img"
+			],
+			[
+				"stop",
+				"stopDrawing"
+			],
+			[
+				"lin",
+				"lineTo"
+			],
+			[
+				"off",
+				"offsetTop"
+			],
+			[
+				"pa",
+				"pageY"
+			],
+			[
+				"pag",
+				"pageX"
+			],
+			[
+				"page",
+				"pageY"
+			],
+			[
+				"fu",
+				"fun	Function"
+			],
+			[
+				"pen",
+				"pen_red.gif	w:48 h:48"
+			],
+			[
+				"prei",
+				"previousColorElement"
+			],
+			[
+				"if",
+				"if	if"
+			],
+			[
+				"元",
+				"元素"
+			],
+			[
+				"al",
+				"alt	Attr"
+			],
+			[
+				"on",
+				"onload"
+			],
+			[
+				"t",
+				"title"
+			],
+			[
+				"hea",
+				"head	Tag"
+			],
+			[
+				"f",
+				"fill"
+			],
+			[
+				"be",
+				"beginPath"
+			],
+			[
+				"linw",
+				"lineWidth=10"
+			],
+			[
+				"conte",
+				"context"
+			],
+			[
+				"pi",
+				"PI"
+			],
+			[
+				"re",
+				"rect"
+			],
+			[
+				"con",
+				"context"
+			],
+			[
+				"end",
+				"endPointY"
+			],
+			[
+				"ma",
+				"Math"
+			],
+			[
+				"cone",
+				"context"
+			],
+			[
+				"cen",
+				"centerY"
+			],
+			[
+				"close",
+				"closePath"
+			],
+			[
+				"cont",
+				"context"
+			],
+			[
+				"h",
+				"html	html"
+			],
+			[
+				"mus",
+				"music_id"
+			],
+			[
+				"music",
+				"music_url"
+			],
+			[
+				"str_re",
+				"str_replace"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"pic",
+				"picUrl"
+			],
+			[
+				"ari",
+				"artist"
+			],
+			[
+				"musc",
+				"music_album"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"dis",
+				"display"
+			],
+			[
+				"sp",
+				"speedUp"
+			],
+			[
+				"pos",
+				"positionBar"
+			],
+			[
+				"ce",
+				"center"
+			],
+			[
+				"back",
+				"background"
+			],
+			[
+				"pl",
+				"play"
+			],
+			[
+				"pla",
+				"playbackRate"
+			],
+			[
+				"audio",
+				"audioElementIndex"
+			],
+			[
+				"aud",
+				"audioElementName"
+			],
+			[
+				"audioEle",
+				"audioElementIndex"
+			],
+			[
+				"flow",
+				"flowplayer-3.2.7"
+			],
+			[
+				"v",
+				"video"
+			],
+			[
+				"onc",
+				"onclick	Attr"
+			],
+			[
+				"conten",
+				"contentEditable"
+			],
+			[
+				"com",
+				"command"
+			],
+			[
+				"val",
+				"value"
+			],
+			[
+				"pro",
+				"progress"
+			],
+			[
+				"fa",
+				"favoriteAnimal"
+			],
+			[
+				"op",
+				"option"
+			],
+			[
+				"inn",
+				"innerHTML"
+			],
+			[
+				"show",
+				"show_value"
+			],
+			[
+				"vla",
+				"value"
+			],
+			[
+				"se",
+				"search"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"zoo",
+				"zooKeeperForm"
+			],
+			[
+				"va",
+				"value"
+			],
+			[
+				"pr",
+				"promotion"
+			],
+			[
+				"a",
+				"action"
+			],
+			[
+				"res",
+				"result"
+			],
+			[
+				"height",
+				"height"
+			],
+			[
+				"ge",
+				"getElementById"
+			],
+			[
+				"fo",
+				"for	Attr"
+			],
+			[
+				"su",
+				"sup	Tag"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"pac",
+				"Package Control: List Packages"
+			],
+			[
+				"xml",
+				"Set Syntax: XML"
+			],
+			[
+				"sql",
+				"Set Syntax: SQL"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"ht",
+				"Set Syntax: HTML"
+			],
+			[
+				"jav",
+				"Format: Javascript"
+			],
+			[
+				"ja",
+				"Format: Javascript"
+			],
+			[
+				"javas",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"jso",
+				"Set Syntax: JSON"
+			],
+			[
+				"j",
+				"Format: Javascript"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript (Rails)"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"set",
+				"Set Syntax: PHP"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"sublimeline",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"ph",
+				"Set Syntax: PHP"
+			],
+			[
+				"side",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 528.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/E/xampp/htdocs/html5/CSS3.html",
+		"/E/xampp/htdocs/html5/maze.html",
+		"/E/xampp/htdocs/html5/color_trans.html",
+		"/E/xampp/htdocs/test/get_music_info.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Addons/Slider/widget.html",
+		"/C/Users/你的特仑苏/Desktop/sitemap.xml",
+		"/E/sitemap.xml",
+		"/C/Users/你的特仑苏/Desktop/Android/matchbox pic/sitemap.xml",
+		"/C/Users/你的特仑苏/Desktop/sitemap (1).xml",
+		"/C/Users/你的特仑苏/Desktop/Android/sitemap.xml/sitemap.xml",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Template/JYmusic/Public_header.html",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Template/JYmusic/Music_detail.html",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Template/JYmusic/Public_sidebar.html",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Template/JYmusic/Artist_detail.html",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Template/JYmusic/Artist_index.html",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Template/JYmusic/Album_index.html",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Template/JYmusic/Index_index.html",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Template/JYmusic/Album_detail.html",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Template/JYmusic/sidebar_new.html",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Template/JYmusic/sidebar_top.html",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Template/JYmusic/Public_hide.html",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Template/JYmusic/Player_default.html",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Template/JYmusic/js/function.js",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Template/JYmusic/js/jquery.guide.js",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Template/JYmusic/js/jquery.custom-scrollbar.js",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Template/JYmusic/js/jackbox-packed.min.js",
+		"/C/Users/你的特仑苏/Desktop/qdm10563220_db/jy_picture.sql",
+		"/C/Users/你的特仑苏/Desktop/qdm10563220_db/jy_songs.sql",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Home/Controller/ArtistController.class.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Home/Controller/AlbumController.class.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Home/Controller/ArticleController.class.php",
+		"/E/xampp/htdocs/html5/canvas_gradients.html",
+		"/E/xampp/htdocs/html5/canvas_ball.html",
+		"/E/xampp/htdocs/html5/animation.html",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Home/Controller/NewsController.class.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Home/Controller/User1Controller.class.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Home/Controller/SearchController.class.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Home/Controller/RanksController.class.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Home/Controller/MusicController.class.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Home/Controller/MemberController.class.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Home/Controller/IndexController.class.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Home/Controller/HomeController.class.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Home/Controller/GenreController.class.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Home/Controller/FileController.class.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Home/Controller/EmptyController.class.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Home/Controller/DownController.class.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Home/Controller/DiskController.class.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Home/Controller/AddonsController.class.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Home/Logic/BaseLogic.class.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Home/Logic/ArticleLogic.class.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Home/Model/CategoryModel.class.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Home/Model/DocumentModel.class.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Home/Widget/CategoryWidget.class.php",
+		"/E/xampp/htdocs/JYmusic_1.0_beta1/Template/JYmusic/Article_lists.html",
+		"/E/xampp/htdocs/JYmusic_1.0_beta1/Template/JYmusic/News_index.html",
+		"/E/xampp/htdocs/JYmusic_1.0_beta1/Application/Home/Controller/ArticleController.class.php",
+		"/E/xampp/htdocs/JYmusic_1.0_beta1/Application/Home/Controller/AlbumController.class.php",
+		"/E/xampp/htdocs/JYmusic_1.0_beta1/Application/Home/Controller/AddonsController.class.php",
+		"/E/xampp/htdocs/JYmusic_1.0_beta1/Application/Home/Controller/HomeController.class.php",
+		"/E/xampp/htdocs/JYmusic_1.0_beta1/Application/Home/Controller/NewsController.class.php",
+		"/E/xampp/htdocs/JYmusic_1.0_beta1/Template/JYmusic/Artist_detail.html",
+		"/E/xampp/htdocs/JYmusic_1.0_beta1/Application/Home/Controller/IndexController.class.php",
+		"/E/xampp/htdocs/JYmusic_1.0_beta1/Application/Admin/View/Article/index.html",
+		"/E/xampp/htdocs/JYmusic_1.0_beta1/Application/Admin/View/Article/edit.html",
+		"/E/xampp/htdocs/JYmusic_1.0_beta1/Application/Admin/Model/CategoryModel.class.php",
+		"/E/xampp/htdocs/JYmusic_1.0_beta1/Application/Admin/Controller/CategoryController.class.php",
+		"/E/xampp/htdocs/JYmusic_1.0_beta1/Template/JYmusic/Category_lists.html",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Template/JYmusic/Article_lists.html",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Template/JYmusic/Article_detail.html",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Template/JYmusic/News_index.html",
+		"/E/xampp/htdocs/html5/InteractiveCircles.js",
+		"/E/xampp/htdocs/html5/canvas_test_answer.html",
+		"/E/xampp/htdocs/html5/canvas_pattern.html",
+		"/E/xampp/htdocs/html5/drow_pic_using_canvas.html",
+		"/E/xampp/htdocs/html5/canvas.html",
+		"/E/xampp/htdocs/html5/InteractiveCircles.html",
+		"/E/xampp/htdocs/html5/c",
+		"/E/code_software/sublime_text/Data/Packages/User/Preferences.sublime-settings",
+		"/E/code_software/sublime_text/Data/Packages/Default/Preferences.sublime-settings",
+		"/E/xampp/htdocs/html5/style.css",
+		"/E/xampp/htdocs/html5/function.js",
+		"/E/xampp/htdocs/html5/paint_program_based_in_canvas.html",
+		"/E/code_software/sublime_text/Data/Packages/User/Default (Windows).sublime-keymap",
+		"/E/code_software/sublime_text/Data/Packages/SideBarEnhancements/Side Bar.sublime-settings",
+		"/E/code_software/sublime_text/Data/Packages/User/Side Bar.sublime-settings",
+		"/E/code_software/sublime_text/Data/Packages/User/SublimeLinter.sublime-settings",
+		"/E/code_software/sublime_text/Data/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/C/Users/你的特仑苏/AppData/Roaming/npm/jshint",
+		"/E/code_software/sublime_text/Data/Packages/SideBarEnhancements/Default (Windows).sublime-keymap",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Template/JYmusic/Public_common.html",
+		"/C/Users/你的特仑苏/Desktop/jRating.jquery.js",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Public/static/jRating/jRating.jquery.js",
+		"/C/Users/你的特仑苏/Desktop/scripts.js",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Template/JYmusic/js/scripts.js",
+		"/C/Users/你的特仑苏/Desktop/function.js",
+		"/C/Users/你的特仑苏/Desktop/jquery.custom-scrollbar.js",
+		"/C/Users/你的特仑苏/Desktop/style.css",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Template/JYmusic/css/style.css",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Addons/Slider/settings.css",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Template/JYmusic/css/settings.css",
+		"/C/Users/你的特仑苏/Desktop/bootstrap.css",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Public/static/bootstrap-3.1.1/css/bootstrap.css",
+		"/E/xampp/htdocs/html5/drow_pic_using_canvas",
+		"/E/xampp/htdocs/test/canvas.html",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Home/View/default/Public/success.html",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Admin/View/ArtistType/add.html",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Admin/View/Songs/add.html",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Admin/Model/UrlModel.class.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Admin/Model/CategoryModel.class.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Admin/Model/AlbumtypeModel.class.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Admin/Logic/ArticleLogic.class.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Admin/Controller/ArticleController.class.php",
+		"/C/Users/你的特仑苏/Desktop/iminyao/Application/Admin/Controller/AlbumController.class.php",
+		"/C/Users/你的特仑苏/Desktop/Android/Template/JYmusic/Article_detail.html",
+		"/C/Users/你的特仑苏/Desktop/Android/Template/JYmusic/Album_detail.html",
+		"/C/Users/你的特仑苏/Desktop/Android/Template/JYmusic/Public_common.html",
+		"/E/xampp/htdocs/test/music.json",
+		"/E/xampp/htdocs/test/api_02.php",
+		"/E/xampp/htdocs/test/api_03.php",
+		"/E/xampp/htdocs/test/api_01.php",
+		"/E/xampp/htdocs/test/file_method.php",
+		"/E/xampp/htdocs/html5/audio_for_game.html",
+		"/E/xampp/htdocs/html5/audio&video.html",
+		"/E/xampp/htdocs/html5/self_video.html",
+		"/E/xampp/htdocs/test/close_package.php",
+		"/E/xampp/htdocs/test/get_var.php",
+		"/E/xampp/htdocs/api.php",
+		"/E/xampp/htdocs/test/file.php"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"10em",
+			"10px",
+			"padding",
+			"http://www.iminyao.com/Article/detail/id/14.html",
+			"正在努力加载",
+			"p-artist",
+			"dker f_right",
+			"?param=",
+			"?param=130x130",
+			"?param=242y242",
+			"?param",
+			"?param=120y120",
+			"?param=177y177",
+			"paream",
+			"?param=130y130",
+			"isDragging = true;",
+			"previousColorElement",
+			";\n",
+			"previousColorElement",
+			";\n",
+			"previousColorElement;\n	",
+			";\n",
+			"meat_title",
+			"picUrl",
+			"'];\n",
+			"picUrl",
+			"window",
+			"video",
+			"window.onload = function() {\n  video = document.getElementById(\"videoPlayer\");\n\n  display = document.getElementById(\"displayStatus\");\n\n  video.onplaying = function() {\n    display.innerHTML = \"Playing ...\";\n  }\n  video.onpause = function() {\n    display.innerHTML = \"Paused\";\n  }\n}",
+			"=\"../",
+			"backgroundMusic",
+			"id",
+			"=\"../",
+			"inches",
+			"Inches",
+			"inches",
+			"Inches",
+			"inches",
+			"Error",
+			"error",
+			"Error",
+			"/','",
+			"*/\n",
+			"setCropVal",
+			"378020023",
+			"Begin"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "ex.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 141.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

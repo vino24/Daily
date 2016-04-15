@@ -41,7 +41,8 @@ body {
 
 /* banner */
 .m-slide ul {
-  margin: 0 10px;
+  box-sizing: border-box;
+  padding: 0 10px;
   bottom: 50px;
   width: 100%;
 }

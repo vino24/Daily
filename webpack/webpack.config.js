@@ -4,6 +4,7 @@
  */
 var path = require('path');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
+var webpack = require('webpack');
 //定义了一些文件夹的路径
 var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, 'app');
@@ -21,6 +22,11 @@ module.exports = {
     plugins: [
         new HtmlwebpackPlugin({
             title: 'Hello World app'
+        }),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery"
         })
     ],
     devServer: {
@@ -29,7 +35,15 @@ module.exports = {
         inline: true,
         progress: true,
     },
+    devtool: 'eval-source-map',
     module: {
+        preLoaders: [
+            {
+                test: /\.jsx?$/,
+                include: APP_PATH,
+                loader: 'jshint-loader'
+            }
+        ],
         loaders: [
             {
                 test: /\.css$/,
@@ -49,5 +63,8 @@ module.exports = {
                 }
             },
         ]
+    },
+    jshint: {
+        "esnext": true
     },
 };

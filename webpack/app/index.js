@@ -4,7 +4,7 @@
  */
 import './main.css';
 import generateText from './sub';
-import './plugin'
+import 'imports?jQuery!./plugin.js';
 import moment from 'moment';
 
 let app  = document.createElement('div');

@@ -2,10 +2,8 @@
  * Created by jzwmxz on 16-4-18.
  * jzwmxz@hotmail.com
  */
-function generateText() {
+export default function () {
     var element = document.createElement('h2');
-    element.innerHTML = "Hello h2 world";
+    element.innerHTML="vino24";
     return element;
 }
-
-module.exports = generateText;

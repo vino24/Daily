@@ -49,12 +49,6 @@ module.exports = {
             "window.jQuery": "jquery"
         })
     ],
-    devServer: {
-        historyApiFallback: true,
-        hot: true,
-        inline: true,
-        progress: true,
-    },
     devtool: 'eval-source-map',
     module: {
         preLoaders: [

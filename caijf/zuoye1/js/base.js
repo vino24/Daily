@@ -220,7 +220,7 @@ var base = (function () {
         sendXHR: function (url,callback) {
             var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange = function () {
-                    if (xhr.readyState === 4) { //  无法将readystate和status放一起作为判定条件，因为status状态在请求过程中会变，这样无法添加处理异常的代码
+                    if (xhr.readyState === 4) { //  无法将readystate和status放一起作为判定条件，因为readyState状态在请求过程中会变，这样无法添加处理异常的代码
                         if (xhr.status === 200 || xhr.status === 304) callback(xhr.responseText);
                         else console.log("Request was unsuccessful:" + xhr.status);
                     }
